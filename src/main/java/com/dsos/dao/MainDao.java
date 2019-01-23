@@ -1,7 +1,8 @@
 package com.dsos.dao;
 
 /**
- * Created by Administrator on 2019/1/23 0023.
+ * Created by zgq7 on 2019/1/23 0023.
+ * 业务层
  */
-public class MainDao {
+public interface MainDao {
 }
