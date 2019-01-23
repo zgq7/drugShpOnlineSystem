@@ -1,9 +1,11 @@
-package com.dsos.bean;
+package com.dsos.modle.user;
+
+import java.util.Set;
 
 /**
  * 会员主表，主要存放用户登录信息
  * **/
-public class member {
+public class MemberUser {
     //会员标识
     private Integer cardId;
     //卡号，即会员登录账号
@@ -16,8 +18,14 @@ public class member {
     private Integer storeId;
     //存放md5加密过后的password
     private String md5Password;
-    //门店类
-    //md5
+    //关注的门店类，得到门店编号
+    private Set<Integer> concernedStores;
+    //角色
+    private Set<String> roles;
+    //权限
+    private Set<String> perms;
+    //用户信息
+    private MemberInfo memberInfo;
 
     public Integer getCardId() {
         return cardId;
@@ -67,8 +75,35 @@ public class member {
         this.md5Password = md5Password;
     }
 
-    @Override
-    public String toString() {
-        return "[卡号："+cardNo+"归属门店"+"]";
+    public Set<Integer> getConcernedStores() {
+        return concernedStores;
+    }
+
+    public void setConcernedStores(Set<Integer> concernedStores) {
+        this.concernedStores = concernedStores;
+    }
+
+    public Set<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<String> roles) {
+        this.roles = roles;
+    }
+
+    public Set<String> getPerms() {
+        return perms;
+    }
+
+    public void setPerms(Set<String> perms) {
+        this.perms = perms;
+    }
+
+    public MemberInfo getMemberInfo() {
+        return memberInfo;
+    }
+
+    public void setMemberInfo(MemberInfo memberInfo) {
+        this.memberInfo = memberInfo;
     }
 }

@@ -1,14 +1,21 @@
-package com.dsos.bean;
+package com.dsos.modle.user;
+
+import java.util.Set;
 
 /**
- * 存放超级管理员相关信息
+ * Created by zgq7 on 2019/1/22.
+ * 连锁工作人员，以level区别总负责人、店长、普通员工等；
  */
-public class adminUser {
-    //管理员标识
-    private Integer adminId;
+public class ChainWorkUser {
+    //连锁工作人员标识
+    private Integer chainId;
+    //所属门店
+    private Integer linkedStore;
     //管理员姓名
     private String name;
-    //账号
+    //性别
+    private String sex;
+    //账号，即员工编号
     private String userAccount;
     //密码
     private String password;
@@ -24,13 +31,29 @@ public class adminUser {
     private String imgRoot;
     //存放md5加密过的密码
     private String md5Password;
+    //店员级别
+    private Integer level;
+    //店员职称
+    private String lectruer;
+    //角色
+    private Set<String> roles;
+    //权限
+    private Set<String> perms;
 
-    public Integer getAdminId() {
-        return adminId;
+    public Integer getChainId() {
+        return chainId;
     }
 
-    public void setAdminId(Integer adminId) {
-        this.adminId = adminId;
+    public void setChainId(Integer chainId) {
+        this.chainId = chainId;
+    }
+
+    public Integer getLinkedStore() {
+        return linkedStore;
+    }
+
+    public void setLinkedStore(Integer linkedStore) {
+        this.linkedStore = linkedStore;
     }
 
     public String getName() {
@@ -39,6 +62,14 @@ public class adminUser {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
     public String getUserAccount() {
@@ -105,11 +136,35 @@ public class adminUser {
         this.md5Password = md5Password;
     }
 
-    @Override
-    public String toString() {
-        return "adminUser{" +
-                ", 姓名='" + name + '\'' +
-                ", 账号='" + userAccount + '\'' +
-                '}';
+    public Set<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<String> roles) {
+        this.roles = roles;
+    }
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
+
+    public String getLectruer() {
+        return lectruer;
+    }
+
+    public void setLectruer(String lectruer) {
+        this.lectruer = lectruer;
+    }
+
+    public Set<String> getPerms() {
+        return perms;
+    }
+
+    public void setPerms(Set<String> perms) {
+        this.perms = perms;
     }
 }

@@ -1,9 +1,9 @@
-package com.dsos.bean;
+package com.dsos.modle.user;
 
 /**
  * 会员信息表
  */
-public class memberInfo {
+public class MemberInfo {
     //信息标识
     private Integer infoId;
     //所属卡号
@@ -135,15 +135,4 @@ public class memberInfo {
         this.statu = statu;
     }
 
-    @Override
-    public String toString() {
-        return "memberInfo{" +
-                ", cardNo='" + cardNo + '\'' +
-                ", mame='" + mame + '\'' +
-                ", intergration=" + intergration +
-                ", amount=" + amount +
-                ", leavel=" + leavel +
-                ", statu=" + statu +
-                '}';
-    }
 }

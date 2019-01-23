@@ -1,9 +1,9 @@
-package com.dsos.bean;
+package com.dsos.modle.view;
 
 /**
  * 存放药品信息
  */
-public class drugRecord {
+public class DrugRecord {
     //药品标识
     private Integer drugId;
     //归属连锁
@@ -165,13 +165,5 @@ public class drugRecord {
         this.explaination = explaination;
     }
 
-    @Override
-    public String toString() {
-        return "drugRecord{" +
-                ", drugName='" + drugName + '\'' +
-                ", drugKind='" + drugKind + '\'' +
-                ", effectDate='" + effectDate + '\'' +
-                '}';
-    }
 }
 

@@ -1,9 +1,9 @@
-package com.dsos.bean;
+package com.dsos.modle.view;
 
 /**
  * 用于存放门店所有信息
  */
-public class storeRecord {
+public class StoreRecord {
     //门店标识
     private Integer storeId;
     //所属连锁标识
@@ -86,13 +86,4 @@ public class storeRecord {
         this.businessNo = businessNo;
     }
 
-    @Override
-    public String toString() {
-        return "storeRecord{" +
-                ", 门店负责人='" + shopHolder + '\'' +
-                ", 所属连锁='" + linkedId + '\'' +
-                ", 门店编号='" + code + '\'' +
-                ", 门店名='" + name + '\'' +
-                '}';
-    }
 }
