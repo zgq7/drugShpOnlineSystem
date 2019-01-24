@@ -1,0 +1,59 @@
+body {
+    background-color: darkseagreen;
+}
+
+#register {
+    float: left;
+    background-color: darkslategrey;
+    width: 20%;
+    margin-top: 10%;
+    margin-left: 40%;
+    display: none;
+}
+
+#login {
+    float: left;
+    background-color: #5e5e5e;
+    border: mediumseagreen 6px solid;
+    width: 26%;
+    height: 50%;
+    margin-top: 10%;
+    margin-left: 37%;
+}
+
+.usernameL,.passwordL,.username,.password,.name,.mobile{
+    width: 60%;
+    height: 10%;
+    margin-top: 12%;
+    margin-left: 20%;
+}
+
+button.login {
+    margin-top: 10%;
+    width: 40%;
+    height: 10%;
+    margin-left: 30%;
+    background-color: aquamarine;
+}
+
+button.register {
+    height: 10%;
+    margin-top: 10%;
+    width: 40%;
+    margin-left: 30%;
+    background-color: greenyellow;
+}
+
+button.postCus {
+    margin-top: 10%;
+    width: 40%;
+    margin-left: 30%;
+    background-color: greenyellow;
+    margin-bottom: 10%;
+}
+
+#msg {
+    color: brown;
+    margin-top: 5%;
+    text-align: center;
+}

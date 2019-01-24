@@ -5,12 +5,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+
 /**
  * Created by zgq7 on 2019/1/23 0023.
  * 使用注解配置spring ioc aop di
  */
-@Configuration
 @ComponentScan(value = "com.dsos")
+@Configuration
 public class MainConfig {
 
     @Bean("adminUser")

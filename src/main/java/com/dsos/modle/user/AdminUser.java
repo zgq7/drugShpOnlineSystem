@@ -17,7 +17,7 @@ public class AdminUser{
     //密码
     private String password;
     //手机号
-    private Integer mobile;
+    private Long mobile;
     //身份证号
     private String idCard;
     //家庭地址
@@ -73,11 +73,11 @@ public class AdminUser{
         this.password = password;
     }
 
-    public Integer getMobile() {
+    public Long getMobile() {
         return mobile;
     }
 
-    public void setMobile(Integer mobile) {
+    public void setMobile(Long mobile) {
         this.mobile = mobile;
     }
 

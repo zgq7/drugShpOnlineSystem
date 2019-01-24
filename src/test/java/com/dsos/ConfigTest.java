@@ -1,11 +1,14 @@
 package com.dsos;
 
-
 import com.dsos.config.MainConfig;
 import com.dsos.modle.user.AdminUser;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,17 +17,20 @@ import java.sql.DriverManager;
  * Created by zgq7 on 2019/1/23.
  * 测试各项配置是否正确
  */
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class ConfigTest {
+    @Autowired
+    private AdminUser adminUser;
 
     @SuppressWarnings("resource")
     @Test
     public void testSpringIoc() {
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);
-        AdminUser adminUser = (AdminUser) applicationContext.getBean("adminUser");
         System.out.println(adminUser.getName());
-        String[] nameType = applicationContext.getBeanNamesForType(MainConfig.class);
-        for (String name : nameType) {
-            System.out.println(name);
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);
+        String[] names = applicationContext.getBeanNamesForType(MainConfig.class);
+        for (String s : names) {
+            System.out.println(s);
         }
     }
 

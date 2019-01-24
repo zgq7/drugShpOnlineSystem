@@ -1,5 +1,7 @@
 package com.dsos.controller;
 
+import com.dsos.dao.MainDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,9 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainController {
+    @Autowired
+    private MainDao mainDao;
 
     @RequestMapping("/index")
-    public String index(){
+    public String index() {
+        System.out.println(mainDao.getAllAdmin());
+        System.out.println(123);
         return "index";
     }
 
