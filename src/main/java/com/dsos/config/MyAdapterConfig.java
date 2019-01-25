@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -22,7 +21,8 @@ public class MyAdapterConfig implements WebMvcConfigurer {
     private String mapJS;
     @Value("${map.css}")
     private String mapCSS;
-
+    @Value("${map.images}")
+    private String mapImages;
 
 
     @Override
@@ -31,7 +31,9 @@ public class MyAdapterConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/lay/**").addResourceLocations(mapLayUI);
         log.info("js静态资源路径,{}",mapJS);
         registry.addResourceHandler("/js/**").addResourceLocations(mapJS);
-        log.info("js静态资源路径,{}",mapCSS);
+        log.info("css静态资源路径,{}",mapCSS);
         registry.addResourceHandler("/css/**").addResourceLocations(mapCSS);
+        log.info("images静态资源路径,{}",mapImages);
+        registry.addResourceHandler("/images/**").addResourceLocations(mapImages);
     }
 }

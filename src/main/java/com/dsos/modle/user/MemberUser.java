@@ -8,6 +8,8 @@ import java.util.Set;
 public class MemberUser {
     //会员标识
     private Integer cardId;
+    //角色编号
+    private String roleNo;
     //卡号，即会员登录账号
     private String cardNo;
     //登录密码
@@ -24,8 +26,6 @@ public class MemberUser {
     private Set<String> roles;
     //权限
     private Set<String> perms;
-    //用户信息
-    private MemberInfo memberInfo;
 
     public Integer getCardId() {
         return cardId;
@@ -33,6 +33,14 @@ public class MemberUser {
 
     public void setCardId(Integer cardId) {
         this.cardId = cardId;
+    }
+
+    public String getRoleNo() {
+        return roleNo;
+    }
+
+    public void setRoleNo(String roleNo) {
+        this.roleNo = roleNo;
     }
 
     public String getCardNo() {
@@ -99,11 +107,20 @@ public class MemberUser {
         this.perms = perms;
     }
 
-    public MemberInfo getMemberInfo() {
-        return memberInfo;
-    }
 
-    public void setMemberInfo(MemberInfo memberInfo) {
-        this.memberInfo = memberInfo;
+    @Override
+    public String toString() {
+        return "MemberUser{" +
+                "cardId=" + cardId +
+                ", roleNo='" + roleNo + '\'' +
+                ", cardNo='" + cardNo + '\'' +
+                ", password='" + password + '\'' +
+                ", mobile=" + mobile +
+                ", storeId=" + storeId +
+                ", md5Password='" + md5Password + '\'' +
+                ", concernedStores=" + concernedStores +
+                ", roles=" + roles +
+                ", perms=" + perms +
+                '}';
     }
 }
