@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : mysql-admin
+ Source Server         : mysqlTest
  Source Server Type    : MySQL
  Source Server Version : 50717
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50717
  File Encoding         : 65001
 
- Date: 25/01/2019 18:46:27
+ Date: 27/01/2019 23:24:22
 */
 
 SET NAMES utf8mb4;
@@ -133,8 +133,8 @@ CREATE TABLE `dsos_perms`  (
 -- ----------------------------
 -- Records of dsos_perms
 -- ----------------------------
-INSERT INTO `dsos_perms` VALUES (1, 'nsm001', 'addDrug', '/addDrug', '添加药品');
-INSERT INTO `dsos_perms` VALUES (2, 'nsm', 'getDrugList', '/getDrugList', '获取药品列表');
+INSERT INTO `dsos_perms` VALUES (1, 'lsr001', 'addDrug', '/addDrug', '添加药品');
+INSERT INTO `dsos_perms` VALUES (2, 'lsr002', 'getDrugList', '/getDrugList', '获取药品列表');
 
 -- ----------------------------
 -- Table structure for dsos_role
@@ -156,34 +156,6 @@ INSERT INTO `dsos_role` VALUES (2, 'lsr002', 'member', '平台会员');
 INSERT INTO `dsos_role` VALUES (3, 'lsr003', 'chainer', '连锁人员');
 
 -- ----------------------------
--- Table structure for dsos_role_perms
--- ----------------------------
-DROP TABLE IF EXISTS `dsos_role_perms`;
-CREATE TABLE `dsos_role_perms`  (
-  `id` int(50) NOT NULL AUTO_INCREMENT,
-  `roleNo` int(50) NOT NULL COMMENT '角色编号',
-  `permNo` int(50) NOT NULL COMMENT '权限编号',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Table structure for dsos_user_role
--- ----------------------------
-DROP TABLE IF EXISTS `dsos_user_role`;
-CREATE TABLE `dsos_user_role`  (
-  `id` int(50) NOT NULL AUTO_INCREMENT,
-  `cardNo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '用户账号',
-  `roleNo` int(50) NOT NULL COMMENT '角色编号',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of dsos_user_role
--- ----------------------------
-INSERT INTO `dsos_user_role` VALUES (1, 'admin', 1);
-INSERT INTO `dsos_user_role` VALUES (2, 'membeR', 2);
-
--- ----------------------------
 -- Table structure for dsos_vot_drugrecord
 -- ----------------------------
 DROP TABLE IF EXISTS `dsos_vot_drugrecord`;
@@ -191,6 +163,7 @@ CREATE TABLE `dsos_vot_drugrecord`  (
   `drugId` int(50) NOT NULL,
   `chainId` int(50) NOT NULL COMMENT '所属连锁',
   `drugName` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `drugData` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '药品图片地址',
   `drugKind` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '西药' COMMENT '药品种类',
   `drugCode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '商品编码',
   `barCode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '商品内码',
@@ -207,6 +180,11 @@ CREATE TABLE `dsos_vot_drugrecord`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
+-- Records of dsos_vot_drugrecord
+-- ----------------------------
+INSERT INTO `dsos_vot_drugrecord` VALUES (1, 1, '贯黄感冒颗粒', 'images/drugs/贯黄感冒颗粒.jpg', '西药', 'drugcode001', 'barcode001', 10.00, 11.00, 5.00, '盒', '欧盟', '2019-01-27 00:00:00', '2019-01-10 00:00:00', '2020-12-01 00:00:00', NULL);
+
+-- ----------------------------
 -- Table structure for dsos_vot_storerecord
 -- ----------------------------
 DROP TABLE IF EXISTS `dsos_vot_storerecord`;
@@ -214,7 +192,7 @@ CREATE TABLE `dsos_vot_storerecord`  (
   `storeId` int(10) NOT NULL,
   `linkedId` int(10) NOT NULL DEFAULT 0 COMMENT '所属连锁',
   `shopHolder` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '门店负责人编号',
-  `code` int(50) NULL DEFAULT NULL COMMENT '门店编号',
+  `code` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '门店编号',
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '门店名称',
   `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '门店地址',
   `telephone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '联系方式',
@@ -225,7 +203,7 @@ CREATE TABLE `dsos_vot_storerecord`  (
 -- ----------------------------
 -- Records of dsos_vot_storerecord
 -- ----------------------------
-INSERT INTO `dsos_vot_storerecord` VALUES (1, 0, '竹根七', 1, '测试门店001', 'address001', '0734-999999', 'xkzh01');
+INSERT INTO `dsos_vot_storerecord` VALUES (1, 1, '竹根七', 'code001', '测试门店001', 'address001', '0734-999999', 'xkzh01');
 
 -- ----------------------------
 -- Procedure structure for login_admin
@@ -262,6 +240,19 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `login_member`(IN `account` varchar(
 BEGIN
 	#普通会员登录
 	SELECT * from dsos_live_memberuser where cardNo = account and `password` = `passwordz`;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for pos_get_drugList
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `pos_get_drugList`;
+delimiter ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pos_get_drugList`()
+BEGIN
+	#获取药品信息（最多一千条）
+	SELECT * from dsos_vot_drugrecord;
 END
 ;;
 delimiter ;

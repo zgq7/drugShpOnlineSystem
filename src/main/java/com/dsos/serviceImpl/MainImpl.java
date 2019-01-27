@@ -1,6 +1,5 @@
 package com.dsos.serviceImpl;
 
-import com.dsos.commons.MyRealm;
 import com.dsos.dao.MainDao;
 import com.dsos.modle.user.AdminUser;
 import com.dsos.modle.user.ChainWorkUser;
@@ -10,12 +9,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by zgq7 on 2019/1/25.
  * 处理subject的登录、注册
  */
-@Service
+@Service(value = "MainService")
+@Transactional
 public class MainImpl implements MainService {
     private static final Logger log = LoggerFactory.getLogger(MainImpl.class);
 

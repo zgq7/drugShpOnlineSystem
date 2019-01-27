@@ -15,8 +15,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 
-import javax.servlet.Filter;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 /**
@@ -45,6 +43,7 @@ public class ShiroConfig {
      *
      * @return
      **/
+    @Bean
     public AuthorizingRealm realm() {
         MyRealm realm = new MyRealm();
         HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
@@ -54,6 +53,7 @@ public class ShiroConfig {
         hashedCredentialsMatcher.setHashIterations(10);
         //这个要为true才不会报错
         hashedCredentialsMatcher.setStoredCredentialsHexEncoded(true);
+        //行政匹配器
         realm.setCredentialsMatcher(hashedCredentialsMatcher);
         return realm;
     }
@@ -81,17 +81,23 @@ public class ShiroConfig {
         //自定义拦截器
         LinkedHashMap<String, String> filterMap = new LinkedHashMap<>();
         //配置映射关系
+        filterMap.put("/index", "anon");
         filterMap.put("/login", "anon");
         filterMap.put("/images/**", "anon");
         filterMap.put("/js/**", "anon");
         filterMap.put("/css/**", "anon");
         filterMap.put("/lay/**", "anon");
-        //filterMap.put("/**", "url");
         filterMap.put("/logout", "logout");
+        //页面权限的配置
+        filterMap.put("/user","authc,roles[user,admin]");
+        filterMap.put("/admin","authc,roles[all]");
+        //filterMap.put("/**", "url");
+        filterMap.put("/**", "authc");
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
-        shiroFilterFactoryBean.setLoginUrl("/login");
-        shiroFilterFactoryBean.setSuccessUrl("/loginSucessUser");
-        shiroFilterFactoryBean.setUnauthorizedUrl("/unauthorized");
+        shiroFilterFactoryBean.setLoginUrl("/index");
+        shiroFilterFactoryBean.setSuccessUrl("/loginSuccessUser");
+        //权限不满足跳转
+        shiroFilterFactoryBean.setUnauthorizedUrl("/unAuthc");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterMap);
         shiroFilterFactoryBean.setSecurityManager(securityManager());
         return shiroFilterFactoryBean;

@@ -10,6 +10,8 @@ public class DrugRecord {
     private Integer chainId;
     //药品名称
     private String drugName;
+    //药品图样地址
+    private String drugData;
     //药品种类--中药/西药
     private String drugKind;
     //药品编码
@@ -59,6 +61,14 @@ public class DrugRecord {
 
     public void setDrugName(String drugName) {
         this.drugName = drugName;
+    }
+
+    public String getDrugData() {
+        return drugData;
+    }
+
+    public void setDrugData(String drugData) {
+        this.drugData = drugData;
     }
 
     public String getDrugKind() {

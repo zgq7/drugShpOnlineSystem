@@ -1,11 +1,12 @@
 package com.dsos.modle.user;
 
+import java.io.Serializable;
 import java.util.Set;
 
 /**
  * 会员主表，主要存放用户登录信息
  * **/
-public class MemberUser {
+public class MemberUser implements Serializable{
     //会员标识
     private Integer cardId;
     //角色编号

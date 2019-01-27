@@ -1,6 +1,5 @@
 package com.dsos.commons;
 
-import com.dsos.dao.MainDao;
 import com.dsos.modle.user.MemberUser;
 import com.dsos.service.MainService;
 import org.apache.shiro.authc.*;
@@ -24,8 +23,6 @@ public class MyRealm extends AuthorizingRealm {
     private static final Logger log = LoggerFactory.getLogger(MyRealm.class);
     @Autowired
     private MainService mainService;
-    @Autowired
-    MainDao mainDao;
 
     /**
      * 认证通过才能进入该方法
@@ -33,18 +30,23 @@ public class MyRealm extends AuthorizingRealm {
      **/
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+        log.info("================== 授权 ========================");
         Object principal = principalCollection.getPrimaryPrincipal();
         MemberUser memberUser = (MemberUser) principal;
         Set<String> roles = new HashSet<>();
         roles.add("user");
+        roles.add("admin");
         //角色
         //权限
-        return new SimpleAuthorizationInfo(roles);
+        log.info("用户名为：{}，具有{}权限", memberUser.getCardNo(), roles);
+        SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
+        simpleAuthorizationInfo.setRoles(roles);
+        return simpleAuthorizationInfo;
     }
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        log.info("用户正在认证");
+        log.info("======用户正在认证=====");
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         String account = token.getUsername();
         String password = String.valueOf(token.getPassword());
@@ -56,8 +58,8 @@ public class MyRealm extends AuthorizingRealm {
         }
         //已认证的实体信息
         Object principal = memberUser;
-        //获取从数据库获取的密码
-        Object hashCredentials = memberUser.getPassword();
+        //获取从数据库获取的密码，然后进行md5加密
+        Object hashCredentials = Methods.shiroMD5(memberUser.getCardNo(), memberUser.getPassword());
         //以用户名作为盐值(保证登录账户的唯一性前提下！！！)
         ByteSource credentialSalt = ByteSource.Util.bytes(memberUser.getCardNo());
         //当前reaml对象的realm,从父类的getName获取

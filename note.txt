@@ -1,0 +1,14 @@
+1:shiro的认证
+步骤：
+     1： 预先配置好的AuthorizingRealm从UsernamePasswordToken中得到Credentials1；
+     2：从MyRealm的doGetAuthenticationInfo得到Credentials2；
+     3：HashedCredentialsMatcher将获取到两个Credentials，doCredentialsMatch方法
+        将对两个Credentials进行对比，相等则认证成功；
+        UsernamePasswordToken ->AuthorizingRealm->HashedCredentialsMatcher
+        SimpleAuthenticationInfo--------------------->||
+2：shiro的授权
+步骤：
+     1：当前对象的AuthorizationInfo的roles1
+     2：自定义shiroFilter中的roles2
+     3: AuthorizingRealm.hasRole实现匹配
+     return info != null && info.getRoles() != null && info.getRoles().contains(roleIdentifier);
