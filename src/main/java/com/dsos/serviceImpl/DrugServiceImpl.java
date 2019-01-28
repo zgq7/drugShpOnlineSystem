@@ -24,10 +24,10 @@ public class DrugServiceImpl implements DrugService{
     private DrugDao drugDao;
 
     @Override
-    public List<DrugRecord> getDrugInfoList() {
-        List<DrugRecord> drugRecordList = new LinkedList<DrugRecord>();
+    public List<DrugRecord> getDrugInfoList(Integer page,Integer limit) {
+        List<DrugRecord> drugRecordList = new LinkedList<>();
         try {
-            drugRecordList = drugDao.getDrugInfoList();
+            drugRecordList = drugDao.getDrugInfoList(page,limit);
         }catch (Exception e){
             log.error("获取药品列表失败错误日志：{}",e);
         }

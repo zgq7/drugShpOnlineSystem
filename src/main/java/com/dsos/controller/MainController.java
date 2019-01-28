@@ -29,8 +29,7 @@ public class MainController {
     }
 
     /**
-     * @return
-     * member 的登录
+     * @return member 的登录
      */
     @RequestMapping(value = "/login")
     public String Login(HttpServletRequest request) {
@@ -45,18 +44,16 @@ public class MainController {
             try {
                 subject.login(token);
             } catch (AuthenticationException e) {
-                log.error("密码/账号错误:{}",e.toString());
+                log.error("密码/账号错误:{}", e.toString());
                 return "error";
             }
         }
-        return "member/loginSuccessUser";
+        return "redirect:member/loginSuccessUser";
     }
 
-    @RequestMapping(value = "/loginSuccessUser")
-    public String loginSuccessUser() {
-        return "member/loginSuccessUser";
-    }
-
+    /**
+     * @return 报错界面
+     **/
     @RequestMapping(value = "/toError")
     public String error() {
         return "error";
@@ -72,6 +69,9 @@ public class MainController {
         return "admin";
     }
 
+    /**
+     * @return 权限不足界面
+     **/
     @RequestMapping(value = "/unAuthc")
     public String toAuthc() {
         return "unauthc";

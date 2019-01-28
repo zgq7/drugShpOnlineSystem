@@ -24,6 +24,8 @@ public class DrugRecord {
     private double storePrice;
     //药品进价
     private double costPrice;
+    //单位
+    private String unit;
     //规格
     private String spec;
     //进货厂商
@@ -117,6 +119,14 @@ public class DrugRecord {
 
     public void setCostPrice(double costPrice) {
         this.costPrice = costPrice;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
     public String getSpec() {

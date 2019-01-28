@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -25,14 +26,14 @@ public class DrugController {
 
     @RequestMapping(value = "/getDrugInfoList")
     @ResponseBody
-    public Map<Object,Object> getDrugInfoList(){
-        log.info("====== 正在获取药品数据 ======");
-        List<DrugRecord> drugRecordList = drugService.getDrugInfoList();
+    public Map<Object,Object> getDrugInfoList(Integer page, Integer limit){
+        log.info("====== 正在获取药品数据 ======{},{}",page,limit);
+        List<DrugRecord> drugRecordList = drugService.getDrugInfoList(page,limit);
         Map<Object,Object> result = new HashMap<>();
         result.put("data",drugRecordList);
         result.put("code",0);
-        result.put("count",drugRecordList.size());
-        result.put("msg","success");
+        result.put("count",1000);
+        result.put("msg","");
         return result;
     }
 }
