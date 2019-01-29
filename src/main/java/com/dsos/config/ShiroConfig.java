@@ -83,10 +83,13 @@ public class ShiroConfig {
         //配置映射关系
         filterMap.put("/index", "anon");
         filterMap.put("/login", "anon");
+        //静态资源
         filterMap.put("/images/**", "anon");
         filterMap.put("/js/**", "anon");
         filterMap.put("/css/**", "anon");
         filterMap.put("/lay/**", "anon");
+        filterMap.put("/htmls/**","anon");
+        //登出
         filterMap.put("/logout", "logout");
         //页面权限的配置
         filterMap.put("/user","authc,roles[user,admin]");

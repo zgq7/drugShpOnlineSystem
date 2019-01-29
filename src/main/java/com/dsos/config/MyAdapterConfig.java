@@ -23,6 +23,8 @@ public class MyAdapterConfig implements WebMvcConfigurer {
     private String mapCSS;
     @Value("${map.images}")
     private String mapImages;
+    @Value("${map.model}")
+    private String mapModel;
 
 
     @Override
@@ -35,5 +37,7 @@ public class MyAdapterConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/css/**").addResourceLocations(mapCSS);
         log.info("images静态资源路径,{}",mapImages);
         registry.addResourceHandler("/images/**").addResourceLocations(mapImages);
+        log.info("model静态资源路径,{}",mapModel);
+        registry.addResourceHandler("/model/**").addResourceLocations(mapModel);
     }
 }
