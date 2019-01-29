@@ -21,11 +21,10 @@ $(document).ready(function () {
             console.log("buttom");
         if (st == "error")
             console.log("error:" + xhr.status + ":" + xhr.statusText)
-    })
-    /*$('#above').load("../model/userHead.html #head", function (txt, st, xhr) {
-        if (st == "success")
-            console.log("head");
-        if (st == "error")
-            console.log("error:" + xhr.status + ":" + xhr.statusText)
-    });*/
+    });
+    //弹出模块必须在其他/js加载完之后再加载
+    layui.use('element', function () {
+        var element = layui.element;
+        console.log("zdy element");
+    });
 });
