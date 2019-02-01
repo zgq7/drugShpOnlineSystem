@@ -1,6 +1,5 @@
 package com.dsos;
 
-import com.dsos.config.MainConfig;
 import com.dsos.modle.user.AdminUser;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,18 +19,10 @@ import java.sql.DriverManager;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ConfigTest {
-    @Autowired
-    private AdminUser adminUser;
 
     @SuppressWarnings("resource")
     @Test
     public void testSpringIoc() {
-        System.out.println(adminUser.getName());
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfig.class);
-        String[] names = applicationContext.getBeanNamesForType(MainConfig.class);
-        for (String s : names) {
-            System.out.println(s);
-        }
     }
 
     @Test

@@ -14,4 +14,8 @@ public interface MemberDao {
     //查询会员名以及头像地址
     @Select("select name,imgRoot from dsos_live_info where cardNo = #{cardNo}")
     MemberInfo getUerNmaeImgByCardNo(@Param("cardNo")String cardNo) throws Exception;
+
+    @Select("CALL pos_add_member('陈笑璞','1238546','','15346258745','男');")
+    Boolean registryMember(@Param("name")String name,@Param("cardNo")String cardNo,@Param("password")String password,
+    @Param("mobile")String mobile,@Param("sex")String sex);
 }

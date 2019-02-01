@@ -1,10 +1,13 @@
-package com.dsos.config;
+package com.dsos.config.shiro;
 
-import com.dsos.commons.MyRealm;
+import com.dsos.commons.realm.AdminRealm;
+import com.dsos.commons.realm.ChainRealm;
+import com.dsos.commons.realm.MemberRealm;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.realm.AuthorizingRealm;
+import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
@@ -15,7 +18,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 
-import java.util.LinkedHashMap;
+import java.util.*;
 
 /**
  * Created by zgq7 on 2019/1/24.
@@ -28,24 +31,29 @@ public class ShiroConfig {
     /**
      * 1:配置securityMananger
      *
-     * @return
+     * @return securityManager
      */
     @Bean
     public DefaultWebSecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        securityManager.setRealm(realm());
+        //获取所有realm并添加到realms()里面
+        Set<Realm> realmSet = new HashSet<>();
+        realmSet.add(memberRealm());
+        realmSet.add(adminRealm());
+        realmSet.add(chainRealm());
+        securityManager.setRealms(realmSet);
         securityManager.setCacheManager(cacheManager());
         return securityManager;
     }
 
     /**
-     * 2:配置自定义realm
+     * 2.1:配置member realm bean
      *
-     * @return
+     * @return member realm
      **/
     @Bean
-    public AuthorizingRealm realm() {
-        MyRealm realm = new MyRealm();
+    public AuthorizingRealm memberRealm() {
+        MemberRealm memberRealm = new MemberRealm();
         HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
         //指定加密算法
         hashedCredentialsMatcher.setHashAlgorithmName("MD5");
@@ -54,14 +62,54 @@ public class ShiroConfig {
         //这个要为true才不会报错
         hashedCredentialsMatcher.setStoredCredentialsHexEncoded(true);
         //行政匹配器
-        realm.setCredentialsMatcher(hashedCredentialsMatcher);
-        return realm;
+        memberRealm.setCredentialsMatcher(hashedCredentialsMatcher);
+        return memberRealm;
+    }
+
+    /**
+     * 2.2:配置admin realm bean
+     *
+     * @return admin realm
+     **/
+    @Bean
+    public AuthorizingRealm adminRealm() {
+        AdminRealm adminRealm = new AdminRealm();
+        HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
+        //指定加密算法
+        hashedCredentialsMatcher.setHashAlgorithmName("MD5");
+        //指定加密次数
+        hashedCredentialsMatcher.setHashIterations(10);
+        //这个要为true才不会报错
+        hashedCredentialsMatcher.setStoredCredentialsHexEncoded(true);
+        //行政匹配器
+        adminRealm.setCredentialsMatcher(hashedCredentialsMatcher);
+        return adminRealm;
+    }
+
+    /**
+     * 2.3:配置chain realm bean
+     *
+     * @return chain realm
+     **/
+    @Bean
+    public AuthorizingRealm chainRealm() {
+        ChainRealm chainRealm = new ChainRealm();
+        HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
+        //指定加密算法
+        hashedCredentialsMatcher.setHashAlgorithmName("MD5");
+        //指定加密次数
+        hashedCredentialsMatcher.setHashIterations(10);
+        //这个要为true才不会报错
+        hashedCredentialsMatcher.setStoredCredentialsHexEncoded(true);
+        //行政匹配器
+        chainRealm.setCredentialsMatcher(hashedCredentialsMatcher);
+        return chainRealm;
     }
 
     /**
      * 配置3:cache 缓存管理
      *
-     * @return
+     * @return cacheManager
      **/
     @Bean
     public CacheManager cacheManager() {
@@ -73,7 +121,7 @@ public class ShiroConfig {
     /**
      * 配置4：shiroFilter
      *
-     * @return
+     * @return shiroFilterFactoryBean
      **/
     @Bean
     public ShiroFilterFactoryBean shiroFilterFactoryBean() {
@@ -82,18 +130,18 @@ public class ShiroConfig {
         LinkedHashMap<String, String> filterMap = new LinkedHashMap<>();
         //配置映射关系
         filterMap.put("/index", "anon");
-        filterMap.put("/login", "anon");
+        filterMap.put("/member/login", "anon");
+        filterMap.put("/member/registry", "anon");
         //静态资源
         filterMap.put("/images/**", "anon");
         filterMap.put("/js/**", "anon");
         filterMap.put("/css/**", "anon");
         filterMap.put("/lay/**", "anon");
-        filterMap.put("/htmls/**","anon");
+        filterMap.put("/htmls/**", "anon");
         //登出
         filterMap.put("/logout", "logout");
         //页面权限的配置
-        filterMap.put("/user","authc,roles[user,admin]");
-        filterMap.put("/admin","authc,roles[all]");
+        filterMap.put("/member/**", "authc,roles[user]");
         //filterMap.put("/**", "url");
         filterMap.put("/**", "authc");
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
@@ -109,6 +157,8 @@ public class ShiroConfig {
 
     /**
      * 配置5：LifecycleBeanPostProcessor，可以来自动的调用配置在Spring IOC容器中 Shiro Bean 的生命周期方法
+     *
+     * @return lifecycleBeanPostProcessor
      **/
     @Bean
     public static LifecycleBeanPostProcessor lifecycleBeanPostProcessor() {
@@ -116,7 +166,8 @@ public class ShiroConfig {
     }
 
     /**
-     * **/
+     * @return defaultAdvisorAutoProxyCreator
+     **/
     @Bean
     @DependsOn("lifecycleBeanPostProcessor")
     public DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator() {

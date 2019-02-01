@@ -2,20 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>login</title>
+    <title>member login</title>
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="lay/layui.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/member/registry.js"></script>
     <link rel="stylesheet" href="lay/css/layui.css" media="all">
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 <div id="login">
-    <form action="login">
+    <form action="member/login">
         <input type="text" placeholder="请输入账号" id="usernameL" name="account"/><br>
         <input type="password" placeholder="请输入密码" id="passwordL" name="password"/><br>
         <button class="layui-btn" id="b1">登录</button>
     </form>
-</div>
+    <div class="site-demo-button" id="layerDemo" style="margin-bottom: 0;">
+        <button data-method="notice" class="layui-btn layui-btn-warm" id="b2">注册</button>
+    </div>
 </div>
 </body>
+<div id="register">
+    <input type="text" placeholder="请输入姓名" id="name"/><br>
+    <input type="text" placeholder="请输入6位以上账号" id="username"/><br>
+    <input type="password" placeholder="请输入6位以上密码" id="password"/><br>
+    <input type="text" placeholder="请输入11位手机号码" id="mobile"/><br>
+    <select id="sex" style="text-align: center">
+        <option>男</option>
+        <option>女</option>
+    </select>
+</div>
+<style>
+    #register {
+        display: none;
+        background-color: #eb7350;
+        width: 100%;
+        margin: auto;
+    }
+
+    input,select {
+        width: 80%;
+        margin-left: 10%;
+        height: 5%;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+</style>
 </html>

@@ -1,5 +1,6 @@
-package com.dsos.commons;
+package com.dsos.commons.realm;
 
+import com.dsos.commons.Methods;
 import com.dsos.modle.user.MemberUser;
 import com.dsos.service.MainService;
 import org.apache.shiro.authc.*;
@@ -17,10 +18,10 @@ import java.util.Set;
 
 /**
  * Created by zgq7 on 2019/1/25.
- * 配置realm
+ * 配置member realm
  */
-public class MyRealm extends AuthorizingRealm {
-    private static final Logger log = LoggerFactory.getLogger(MyRealm.class);
+public class MemberRealm extends AuthorizingRealm {
+    private static final Logger log = LoggerFactory.getLogger(MemberRealm.class);
     @Autowired
     private MainService mainService;
 
@@ -35,10 +36,9 @@ public class MyRealm extends AuthorizingRealm {
         MemberUser memberUser = (MemberUser) principal;
         Set<String> roles = new HashSet<>();
         roles.add("user");
-        roles.add("admin");
         //角色
         //权限
-        log.info("用户名为：{}，具有{}权限", memberUser.getCardNo(), roles);
+        log.info("member 用户名为：{}，具有{}权限", memberUser.getCardNo(), roles);
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
         simpleAuthorizationInfo.setRoles(roles);
         return simpleAuthorizationInfo;
@@ -46,7 +46,7 @@ public class MyRealm extends AuthorizingRealm {
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        log.info("======用户正在认证=====");
+        log.info("======member 用户正在认证=====");
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         String account = token.getUsername();
         String password = String.valueOf(token.getPassword());

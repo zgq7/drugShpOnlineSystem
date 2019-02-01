@@ -5,6 +5,7 @@ body {
 }
 /**登录的div**/
 #login{
+    border-radius: 5px;
     width: 30%;
     background-color: white;
     margin-left: 35%;
@@ -26,6 +27,11 @@ body {
     width: 50%;
     margin-left: 25%;
     margin-top: 5%;
+    margin-bottom: 10%;
+}
+#b2{
+    width: 50%;
+    margin-left: 25%;
     margin-bottom: 10%;
 }
 

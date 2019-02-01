@@ -12,6 +12,6 @@ public interface DrugService {
     /**
      * 参数处理
      * 结果处理
-     * **/
-    List<DrugRecord> getDrugInfoList(Integer page,Integer limit);
+     **/
+    List<DrugRecord> getDrugInfoList(Integer page, Integer limit);
 }

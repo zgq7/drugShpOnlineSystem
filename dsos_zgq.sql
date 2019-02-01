@@ -11,7 +11,7 @@
  Target Server Version : 50717
  File Encoding         : 65001
 
- Date: 28/01/2019 18:59:12
+ Date: 01/02/2019 18:32:21
 */
 
 SET NAMES utf8mb4;
@@ -89,7 +89,7 @@ CREATE TABLE `dsos_live_memberinfo`  (
   `leavel` int(50) NULL DEFAULT 0 COMMENT '会员等级',
   `statu` int(255) NULL DEFAULT 1 COMMENT '会员状态',
   PRIMARY KEY (`infoId`, `cardNo`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 103 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 106 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of dsos_live_memberinfo
@@ -196,6 +196,8 @@ INSERT INTO `dsos_live_memberinfo` VALUES (99, '099039', '刘清模', '男', '19
 INSERT INTO `dsos_live_memberinfo` VALUES (100, '099361', '陈国秀', '女', '1974-07-14 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
 INSERT INTO `dsos_live_memberinfo` VALUES (101, '099915', '陈明华', '女', '1973-11-20 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
 INSERT INTO `dsos_live_memberinfo` VALUES (102, '1000259', '刘小平', '女', '1988-09-05 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (104, '1238546', '陈笑璞', '男', NULL, NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (105, '1238546', '陈笑璞', '男', NULL, NULL, '0', 0, 100, NULL, NULL, 0, 1);
 
 -- ----------------------------
 -- Table structure for dsos_live_memberuser
@@ -210,7 +212,7 @@ CREATE TABLE `dsos_live_memberuser`  (
   `storeId` int(50) NULL DEFAULT 0 COMMENT '所属门店标识',
   `md5Password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'MD5加密的密码',
   PRIMARY KEY (`cardId`, `cardNo`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 202 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 205 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of dsos_live_memberuser
@@ -316,6 +318,8 @@ INSERT INTO `dsos_live_memberuser` VALUES (198, 'lsr002', '099039', '123456', '0
 INSERT INTO `dsos_live_memberuser` VALUES (199, 'lsr002', '099361', '123456', '0734299486', 0, NULL);
 INSERT INTO `dsos_live_memberuser` VALUES (200, 'lsr002', '099915', '123456', '0734936468', 0, NULL);
 INSERT INTO `dsos_live_memberuser` VALUES (201, 'lsr002', '1000259', '123456', '0734711868', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (203, 'lsr002', '1238546', '123456', '15346258745', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (204, 'lsr002', '1238546', '123456', '15346258745', 0, NULL);
 
 -- ----------------------------
 -- Table structure for dsos_perms
@@ -1442,6 +1446,25 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `login_member`(IN `account` varchar(
 BEGIN
 	#普通会员登录
 	SELECT * from dsos_live_memberuser where cardNo = account and `password` = `passwordz`;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for pos_add_member
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `pos_add_member`;
+delimiter ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pos_add_member`(IN `name` varchar(19),IN `cardNo` varchar(19),IN `password` varchar(19),IN `mobile` varchar(19),IN `sex` varchar(19))
+BEGIN
+	#member 注册
+	
+	INSERT into dsos_live_memberuser(cardNo,`password`,mobile)
+					VALUES(cardNo,IF(`password`='','123456',`password`),mobile);
+	INSERT into dsos_live_memberinfo(cardNo,`name`,sex)
+	        VALUES(cardNo,`name`,sex);
+
+
 END
 ;;
 delimiter ;
