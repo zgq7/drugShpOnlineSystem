@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : mysql-admin
+ Source Server         : mysqlTest
  Source Server Type    : MySQL
  Source Server Version : 50717
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50717
  File Encoding         : 65001
 
- Date: 01/02/2019 18:32:21
+ Date: 11/02/2019 22:34:06
 */
 
 SET NAMES utf8mb4;
@@ -40,7 +40,7 @@ CREATE TABLE `dsos_live_adminuser`  (
 -- ----------------------------
 -- Records of dsos_live_adminuser
 -- ----------------------------
-INSERT INTO `dsos_live_adminuser` VALUES (1, 'lsr001', '竹根七', '男', 'admin', 'admin', '15988887777', 'idcard001', 'homeat001', '1997-07-07 00:00:00.000000', NULL, NULL);
+INSERT INTO `dsos_live_adminuser` VALUES (1, 'lsr001', '竹根七', '男', 'admin', 'admin', '15988887777', 'idcard001', 'homeat001', '1997-07-07 00:00:00.000000', '../images/logo/hmbb.jpg', NULL);
 
 -- ----------------------------
 -- Table structure for dsos_live_chainworkuser
@@ -68,7 +68,7 @@ CREATE TABLE `dsos_live_chainworkuser`  (
 -- ----------------------------
 -- Records of dsos_live_chainworkuser
 -- ----------------------------
-INSERT INTO `dsos_live_chainworkuser` VALUES (1, 'lsr003', '01', 'chainWk', '男', '123456', '123456', 156348596, '1354562154', NULL, NULL, NULL, NULL, 1, '店员');
+INSERT INTO `dsos_live_chainworkuser` VALUES (1, 'lsr003', '01', '杜衡', '男', '123456', '123456', 156348596, '1354562154', NULL, NULL, '../images/logo/woniu.jpg', NULL, 1, '店员');
 
 -- ----------------------------
 -- Table structure for dsos_live_memberinfo
@@ -89,115 +89,114 @@ CREATE TABLE `dsos_live_memberinfo`  (
   `leavel` int(50) NULL DEFAULT 0 COMMENT '会员等级',
   `statu` int(255) NULL DEFAULT 1 COMMENT '会员状态',
   PRIMARY KEY (`infoId`, `cardNo`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 106 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 124 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of dsos_live_memberinfo
 -- ----------------------------
-INSERT INTO `dsos_live_memberinfo` VALUES (1, '123456', 'zgq', '男', '1997-07-07 00:00:00', '0', '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (2, '444', 'fgf', '男', '1999-09-09 00:00:00', '0', '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (3, '057233', '丽姐', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (4, '057571', '袁榕', '女', '1974-04-18 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (5, '059250', '曾信英', '女', '1968-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (6, '059885', '陈欢', '女', '1972-11-11 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (7, '060169', '李健', '男', '1970-12-01 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (8, '060660', '彭继华', '女', '1974-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (9, '060721', '钟莉', '女', '1975-04-19 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (10, '061318', '汤玲', '女', '1978-11-27 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (11, '061586', '魏师王', '女', '1983-08-10 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (12, '061641', '吴利军', '男', '1974-09-12 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (13, '062026', '杨玲', '女', '1971-08-20 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (14, '06324', '王小平', '男', '1974-11-27 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (15, '065056', '吴健', '男', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (16, '06521', '尹康', '女', '1953-09-16 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (17, '06579', '王燕萍', '女', '1954-11-20 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (18, '066329', '孟承玉', '女', '1953-01-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (19, '066672', '陈代容', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (20, '067024', '丁玉', '女', '1972-04-05 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (21, '06722', '魏志敏', '女', '1967-09-12 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (22, '067294', '钟传碧', '女', '1961-05-23 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (23, '06818', '李小平', '女', '1971-11-03 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (24, '068202', '冯曙光', '男', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (25, '068445', '信秀梅', '女', '1974-02-12 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (26, '068599', '简单', '女', '1970-10-21 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (27, '068634', '罗梅', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (28, '069218', '吴琴', '女', '1983-10-13 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (29, '069743', '贺宝贵', '男', '1959-04-08 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (30, '070018', '万萍', '女', '1965-08-13 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (31, '070326', '左开蓉', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (32, '070495', '王建华', '女', '1962-11-06 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (33, '070550', '李学成', '男', '1975-04-08 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (34, '071020', '张永星', NULL, '1977-09-24 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (35, '071410', '李艳洋', '女', '1974-12-16 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (36, '07174', '白龙', '男', '1984-10-18 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (37, '072324', '孔凡华', '男', '1964-10-16 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (38, '072405', '唐纯贵', '女', '1964-09-12 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (39, '073257', '唐玉蓉', '女', '1968-06-13 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (40, '073280', '奉明', '男', '1979-03-28 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (41, '073384', '陈翠霞', '女', '1972-05-28 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (42, '07378', '李清秀', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (43, '073943', '范宏平', '女', '1973-06-26 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (44, '075027', '李砚芳', '女', '1930-02-24 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (45, '075606', '周彬蓉', '女', '1968-07-22 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (46, '076596', '罗正宗', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (47, '077099', '龙全波', '男', '1972-02-21 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (48, '077368', '巫健', '男', '1967-01-21 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (49, '078009', '陈祖绶，', '男', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (50, '078654', '周国顺', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (51, '079098', '傅开', '男', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (52, '079332', '董子勇', '男', '1971-10-01 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (53, '080026', '野猪', '男', '1982-04-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (54, '08025', '青容', '女', '1979-06-11 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (55, '080343', '张树容', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (56, '080801', '涂丽娜', '女', '1973-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (57, '080935', '沈莹', '女', '1982-08-29 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (58, '082557', '周训丽', '女', '1971-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (59, '082962', '赵小云', '女', '1980-10-21 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (60, '083082', '母琳娜', '女', '1978-07-09 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (61, '083236', '周黎', '男', '1979-04-24 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (62, '083320', '陈渠', '女', '1962-01-23 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (63, '08431', '罗静', '女', '1959-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (64, '084542', '曾自强', '男', '1984-08-03 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (65, '08522', '陈艳', '女', '1979-01-24 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (66, '085838', '周萍', '女', '1982-01-17 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (67, '086264', '祝剑', '女', '1970-12-13 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (68, '086303', '凌岚', '女', '1978-07-18 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (69, '086631', '赵志君', NULL, '1964-12-05 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (70, '087203', '徐丽', '女', '1975-09-04 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (71, '087217', '刘莉', '女', '1983-03-01 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (72, '087222', '张萍', '男', '1982-02-20 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (73, '087528', '王英', '女', '1960-12-22 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (74, '087691', '肖远金', '男', '1974-07-27 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (75, '089122', '张丽莉', '女', '1972-11-09 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (76, '089589', 'kitty', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (77, '090614', '李继淑', NULL, '1975-10-08 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (78, '091370', '聂俊华', '女', '1981-08-12 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (79, '091450', '吴成容', '女', '1970-01-12 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (80, '091476', '王薇', '女', '1967-01-27 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (81, '092134', '杨勇泉', '男', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (82, '09362', '林燕', '女', '1971-07-25 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (83, '093888', '黄水滨', '男', '1980-08-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (84, '093937', '何剑', '男', '1984-03-28 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (85, '094029', '佘雪斌', '女', '1972-01-25 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (86, '094143', '柯玫媛', '女', '1985-04-02 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (87, '09536', '黄润红', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (88, '096456', '杨琼美', '女', '1970-10-28 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (89, '096623', '辛鸣', '女', '1957-07-28 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (90, '096800', '刘莉', '女', '1972-10-17 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (91, '09682', '骆桂玉', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (92, '096894', '刘明芳', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (93, '097231', '魏建梅', '女', '1973-12-04 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (94, '09795', '彭明', '男', '1975-09-05 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (95, '098413', '刘刚', '男', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (96, '098702', '向凤', '女', '1982-08-22 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (97, '098713', '陈勇贤', '男', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (98, '098886', '黄艳菊', '女', '1974-08-07 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (99, '099039', '刘清模', '男', '1962-04-11 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (100, '099361', '陈国秀', '女', '1974-07-14 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (101, '099915', '陈明华', '女', '1973-11-20 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (102, '1000259', '刘小平', '女', '1988-09-05 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (104, '1238546', '陈笑璞', '男', NULL, NULL, '0', 0, 100, NULL, NULL, 0, 1);
-INSERT INTO `dsos_live_memberinfo` VALUES (105, '1238546', '陈笑璞', '男', NULL, NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (1, 'rsd123456', 'zgq', '男', '1997-07-07 00:00:00', '0', '0', 0, 100, '../images/logo/bg4.jpg', NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (2, 'rsd444', 'fgf', '男', '1999-09-09 00:00:00', '0', '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (3, 'rsd057233', '丽姐', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (4, 'rsd057571', '袁榕', '女', '1974-04-18 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (5, 'rsd059250', '曾信英', '女', '1968-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (6, 'rsd059885', '陈欢', '女', '1972-11-11 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (7, 'rsd060169', '李健', '男', '1970-12-01 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (8, 'rsd060660', '彭继华', '女', '1974-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (9, 'rsd060721', '钟莉', '女', '1975-04-19 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (10, 'rsd061318', '汤玲', '女', '1978-11-27 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (11, 'rsd061586', '魏师王', '女', '1983-08-10 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (12, 'rsd061641', '吴利军', '男', '1974-09-12 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (13, 'rsd062026', '杨玲', '女', '1971-08-20 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (14, 'rsd06324', '王小平', '男', '1974-11-27 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (15, 'rsd065056', '吴健', '男', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (16, 'rsd06521', '尹康', '女', '1953-09-16 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (17, 'rsd06579', '王燕萍', '女', '1954-11-20 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (18, 'rsd066329', '孟承玉', '女', '1953-01-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (19, 'rsd066672', '陈代容', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (20, 'rsd067024', '丁玉', '女', '1972-04-05 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (21, 'rsd06722', '魏志敏', '女', '1967-09-12 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (22, 'rsd067294', '钟传碧', '女', '1961-05-23 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (23, 'rsd06818', '李小平', '女', '1971-11-03 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (24, 'rsd068202', '冯曙光', '男', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (25, 'rsd068445', '信秀梅', '女', '1974-02-12 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (26, 'rsd068599', '简单', '女', '1970-10-21 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (27, 'rsd068634', '罗梅', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (28, 'rsd069218', '吴琴', '女', '1983-10-13 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (29, 'rsd069743', '贺宝贵', '男', '1959-04-08 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (30, 'rsd070018', '万萍', '女', '1965-08-13 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (31, 'rsd070326', '左开蓉', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (32, 'rsd070495', '王建华', '女', '1962-11-06 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (33, 'rsd070550', '李学成', '男', '1975-04-08 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (34, 'rsd071020', '张永星', NULL, '1977-09-24 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (35, 'rsd071410', '李艳洋', '女', '1974-12-16 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (36, 'rsd07174', '白龙', '男', '1984-10-18 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (37, 'rsd072324', '孔凡华', '男', '1964-10-16 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (38, 'rsd072405', '唐纯贵', '女', '1964-09-12 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (39, 'rsd073257', '唐玉蓉', '女', '1968-06-13 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (40, 'rsd073280', '奉明', '男', '1979-03-28 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (41, 'rsd073384', '陈翠霞', '女', '1972-05-28 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (42, 'rsd07378', '李清秀', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (43, 'rsd073943', '范宏平', '女', '1973-06-26 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (44, 'rsd075027', '李砚芳', '女', '1930-02-24 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (45, 'rsd075606', '周彬蓉', '女', '1968-07-22 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (46, 'rsd076596', '罗正宗', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (47, 'rsd077099', '龙全波', '男', '1972-02-21 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (48, 'rsd077368', '巫健', '男', '1967-01-21 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (49, 'rsd078009', '陈祖绶，', '男', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (50, 'rsd078654', '周国顺', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (51, 'rsd079098', '傅开', '男', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (52, 'rsd079332', '董子勇', '男', '1971-10-01 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (53, 'rsd080026', '野猪', '男', '1982-04-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (54, 'rsd08025', '青容', '女', '1979-06-11 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (55, 'rsd080343', '张树容', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (56, 'rsd080801', '涂丽娜', '女', '1973-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (57, 'rsd080935', '沈莹', '女', '1982-08-29 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (58, 'rsd082557', '周训丽', '女', '1971-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (59, 'rsd082962', '赵小云', '女', '1980-10-21 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (60, 'rsd083082', '母琳娜', '女', '1978-07-09 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (61, 'rsd083236', '周黎', '男', '1979-04-24 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (62, 'rsd083320', '陈渠', '女', '1962-01-23 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (63, 'rsd08431', '罗静', '女', '1959-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (64, 'rsd084542', '曾自强', '男', '1984-08-03 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (65, 'rsd08522', '陈艳', '女', '1979-01-24 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (66, 'rsd085838', '周萍', '女', '1982-01-17 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (67, 'rsd086264', '祝剑', '女', '1970-12-13 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (68, 'rsd086303', '凌岚', '女', '1978-07-18 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (69, 'rsd086631', '赵志君', NULL, '1964-12-05 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (70, 'rsd087203', '徐丽', '女', '1975-09-04 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (71, 'rsd087217', '刘莉', '女', '1983-03-01 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (72, 'rsd087222', '张萍', '男', '1982-02-20 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (73, 'rsd087528', '王英', '女', '1960-12-22 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (74, 'rsd087691', '肖远金', '男', '1974-07-27 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (75, 'rsd089122', '张丽莉', '女', '1972-11-09 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (76, 'rsd089589', 'kitty', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (77, 'rsd090614', '李继淑', NULL, '1975-10-08 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (78, 'rsd091370', '聂俊华', '女', '1981-08-12 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (79, 'rsd091450', '吴成容', '女', '1970-01-12 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (80, 'rsd091476', '王薇', '女', '1967-01-27 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (81, 'rsd092134', '杨勇泉', '男', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (82, 'rsd09362', '林燕', '女', '1971-07-25 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (83, 'rsd093888', '黄水滨', '男', '1980-08-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (84, 'rsd093937', '何剑', '男', '1984-03-28 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (85, 'rsd094029', '佘雪斌', '女', '1972-01-25 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (86, 'rsd094143', '柯玫媛', '女', '1985-04-02 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (87, 'rsd09536', '黄润红', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (88, 'rsd096456', '杨琼美', '女', '1970-10-28 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (89, 'rsd096623', '辛鸣', '女', '1957-07-28 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (90, 'rsd096800', '刘莉', '女', '1972-10-17 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (91, 'rsd09682', '骆桂玉', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (92, 'rsd096894', '刘明芳', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (93, 'rsd097231', '魏建梅', '女', '1973-12-04 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (94, 'rsd09795', '彭明', '男', '1975-09-05 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (95, 'rsd098413', '刘刚', '男', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (96, 'rsd098702', '向凤', '女', '1982-08-22 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (97, 'rsd098713', '陈勇贤', '男', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (98, 'rsd098886', '黄艳菊', '女', '1974-08-07 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (99, 'rsd099039', '刘清模', '男', '1962-04-11 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (100, 'rsd099361', '陈国秀', '女', '1974-07-14 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (101, 'rsd099915', '陈明华', '女', '1973-11-20 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (102, 'rsd1000259', '刘小平', '女', '1988-09-05 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (123, 'rsd123457', '杜衡', '男', NULL, NULL, '0', 0, 100, NULL, NULL, 0, 1);
 
 -- ----------------------------
 -- Table structure for dsos_live_memberuser
@@ -212,114 +211,113 @@ CREATE TABLE `dsos_live_memberuser`  (
   `storeId` int(50) NULL DEFAULT 0 COMMENT '所属门店标识',
   `md5Password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'MD5加密的密码',
   PRIMARY KEY (`cardId`, `cardNo`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 205 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 223 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of dsos_live_memberuser
 -- ----------------------------
-INSERT INTO `dsos_live_memberuser` VALUES (1, 'lsr002', '123456', '123456', '0734682572', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (102, 'lsr002', '057233', '123456', '0734986703', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (103, 'lsr002', '057571', '123456', '0734791630', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (104, 'lsr002', '059250', '123456', '0734983854', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (105, 'lsr002', '059885', '123456', '0734102804', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (106, 'lsr002', '060169', '123456', '0734157240', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (107, 'lsr002', '060660', '123456', '0734219699', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (108, 'lsr002', '060721', '123456', '0734686326', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (109, 'lsr002', '061318', '123456', '0734776841', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (110, 'lsr002', '061586', '123456', '0734859904', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (111, 'lsr002', '061641', '123456', '0734929910', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (112, 'lsr002', '062026', '123456', '0734792954', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (113, 'lsr002', '06324', '123456', '073457452', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (114, 'lsr002', '065056', '123456', '0734925451', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (115, 'lsr002', '06521', '123456', '073423013', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (116, 'lsr002', '06579', '123456', '0734914787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (117, 'lsr002', '066329', '123456', '0734108209', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (118, 'lsr002', '066672', '123456', '0734184690', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (119, 'lsr002', '067024', '123456', '0734103529', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (120, 'lsr002', '06722', '123456', '0734891964', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (121, 'lsr002', '067294', '123456', '073413531', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (122, 'lsr002', '06818', '123456', '0734462322', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (123, 'lsr002', '068202', '123456', '073443611', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (124, 'lsr002', '068445', '123456', '0734952513', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (125, 'lsr002', '068599', '123456', '0734385869', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (126, 'lsr002', '068634', '123456', '0734249017', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (127, 'lsr002', '069218', '123456', '073460576', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (128, 'lsr002', '069743', '123456', '0734453637', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (129, 'lsr002', '070018', '123456', '073468102', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (130, 'lsr002', '070326', '123456', '0734776955', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (131, 'lsr002', '070495', '123456', '0734853325', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (132, 'lsr002', '070550', '123456', '0734308682', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (133, 'lsr002', '071020', '123456', '073479938', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (134, 'lsr002', '071410', '123456', '073452770', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (135, 'lsr002', '07174', '123456', '0734281848', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (136, 'lsr002', '072324', '123456', '0734160459', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (137, 'lsr002', '072405', '123456', '0734136661', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (138, 'lsr002', '073257', '123456', '0734483250', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (139, 'lsr002', '073280', '123456', '073434535', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (140, 'lsr002', '073384', '123456', '073465404', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (141, 'lsr002', '07378', '123456', '0734245594', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (142, 'lsr002', '073943', '123456', '0734777827', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (143, 'lsr002', '075027', '123456', '0734401044', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (144, 'lsr002', '075606', '123456', '0734494385', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (145, 'lsr002', '076596', '123456', '0734220203', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (146, 'lsr002', '077099', '123456', '0734270341', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (147, 'lsr002', '077368', '123456', '073435994', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (148, 'lsr002', '078009', '123456', '0734212029', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (149, 'lsr002', '078654', '123456', '0734980796', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (150, 'lsr002', '079098', '123456', '0734292488', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (151, 'lsr002', '079332', '123456', '0734108036', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (152, 'lsr002', '080026', '123456', '0734260621', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (153, 'lsr002', '08025', '123456', '0734989659', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (154, 'lsr002', '080343', '123456', '0734775182', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (155, 'lsr002', '080801', '123456', '0734890188', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (156, 'lsr002', '080935', '123456', '0734818500', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (157, 'lsr002', '082557', '123456', '0734784083', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (158, 'lsr002', '082962', '123456', '0734909884', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (159, 'lsr002', '083082', '123456', '0734368296', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (160, 'lsr002', '083236', '123456', '0734343713', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (161, 'lsr002', '083320', '123456', '0734301724', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (162, 'lsr002', '08431', '123456', '0734626191', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (163, 'lsr002', '084542', '123456', '0734941329', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (164, 'lsr002', '08522', '123456', '0734285882', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (165, 'lsr002', '085838', '123456', '073473848', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (166, 'lsr002', '086264', '123456', '073499256', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (167, 'lsr002', '086303', '123456', '0734693790', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (168, 'lsr002', '086631', '123456', '0734593146', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (169, 'lsr002', '087203', '123456', '0734972968', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (170, 'lsr002', '087217', '123456', '0734902855', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (171, 'lsr002', '087222', '123456', '0734338123', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (172, 'lsr002', '087528', '123456', '0734200614', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (173, 'lsr002', '087691', '123456', '0734173848', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (174, 'lsr002', '089122', '123456', '073417474', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (175, 'lsr002', '089589', '123456', '0734870962', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (176, 'lsr002', '090614', '123456', '0734435248', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (177, 'lsr002', '091370', '123456', '073459285', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (178, 'lsr002', '091450', '123456', '0734830918', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (179, 'lsr002', '091476', '123456', '073411530', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (180, 'lsr002', '092134', '123456', '0734593402', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (181, 'lsr002', '09362', '123456', '073418454', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (182, 'lsr002', '093888', '123456', '0734109883', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (183, 'lsr002', '093937', '123456', '0734837105', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (184, 'lsr002', '094029', '123456', '0734432760', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (185, 'lsr002', '094143', '123456', '0734964813', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (186, 'lsr002', '09536', '123456', '0734162523', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (187, 'lsr002', '096456', '123456', '0734183868', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (188, 'lsr002', '096623', '123456', '0734271487', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (189, 'lsr002', '096800', '123456', '0734191176', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (190, 'lsr002', '09682', '123456', '073431699', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (191, 'lsr002', '096894', '123456', '0734619924', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (192, 'lsr002', '097231', '123456', '0734196690', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (193, 'lsr002', '09795', '123456', '0734845964', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (194, 'lsr002', '098413', '123456', '0734792530', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (195, 'lsr002', '098702', '123456', '0734140054', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (196, 'lsr002', '098713', '123456', '073422309', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (197, 'lsr002', '098886', '123456', '0734178412', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (198, 'lsr002', '099039', '123456', '0734381769', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (199, 'lsr002', '099361', '123456', '0734299486', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (200, 'lsr002', '099915', '123456', '0734936468', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (201, 'lsr002', '1000259', '123456', '0734711868', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (203, 'lsr002', '1238546', '123456', '15346258745', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (204, 'lsr002', '1238546', '123456', '15346258745', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (1, 'lsr002', 'rsd123456', '123456', '0734682572', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (102, 'lsr002', 'rsd057233', '123456', '0734986703', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (103, 'lsr002', 'rsd057571', '123456', '0734791630', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (104, 'lsr002', 'rsd059250', '123456', '0734983854', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (105, 'lsr002', 'rsd059885', '123456', '0734102804', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (106, 'lsr002', 'rsd060169', '123456', '0734157240', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (107, 'lsr002', 'rsd060660', '123456', '0734219699', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (108, 'lsr002', 'rsd060721', '123456', '0734686326', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (109, 'lsr002', 'rsd061318', '123456', '0734776841', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (110, 'lsr002', 'rsd061586', '123456', '0734859904', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (111, 'lsr002', 'rsd061641', '123456', '0734929910', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (112, 'lsr002', 'rsd062026', '123456', '0734792954', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (113, 'lsr002', 'rsd06324', '123456', '073457452', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (114, 'lsr002', 'rsd065056', '123456', '0734925451', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (115, 'lsr002', 'rsd06521', '123456', '073423013', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (116, 'lsr002', 'rsd06579', '123456', '0734914787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (117, 'lsr002', 'rsd066329', '123456', '0734108209', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (118, 'lsr002', 'rsd066672', '123456', '0734184690', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (119, 'lsr002', 'rsd067024', '123456', '0734103529', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (120, 'lsr002', 'rsd06722', '123456', '0734891964', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (121, 'lsr002', 'rsd067294', '123456', '073413531', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (122, 'lsr002', 'rsd06818', '123456', '0734462322', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (123, 'lsr002', 'rsd068202', '123456', '073443611', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (124, 'lsr002', 'rsd068445', '123456', '0734952513', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (125, 'lsr002', 'rsd068599', '123456', '0734385869', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (126, 'lsr002', 'rsd068634', '123456', '0734249017', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (127, 'lsr002', 'rsd069218', '123456', '073460576', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (128, 'lsr002', 'rsd069743', '123456', '0734453637', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (129, 'lsr002', 'rsd070018', '123456', '073468102', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (130, 'lsr002', 'rsd070326', '123456', '0734776955', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (131, 'lsr002', 'rsd070495', '123456', '0734853325', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (132, 'lsr002', 'rsd070550', '123456', '0734308682', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (133, 'lsr002', 'rsd071020', '123456', '073479938', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (134, 'lsr002', 'rsd071410', '123456', '073452770', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (135, 'lsr002', 'rsd07174', '123456', '0734281848', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (136, 'lsr002', 'rsd072324', '123456', '0734160459', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (137, 'lsr002', 'rsd072405', '123456', '0734136661', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (138, 'lsr002', 'rsd073257', '123456', '0734483250', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (139, 'lsr002', 'rsd073280', '123456', '073434535', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (140, 'lsr002', 'rsd073384', '123456', '073465404', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (141, 'lsr002', 'rsd07378', '123456', '0734245594', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (142, 'lsr002', 'rsd073943', '123456', '0734777827', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (143, 'lsr002', 'rsd075027', '123456', '0734401044', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (144, 'lsr002', 'rsd075606', '123456', '0734494385', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (145, 'lsr002', 'rsd076596', '123456', '0734220203', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (146, 'lsr002', 'rsd077099', '123456', '0734270341', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (147, 'lsr002', 'rsd077368', '123456', '073435994', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (148, 'lsr002', 'rsd078009', '123456', '0734212029', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (149, 'lsr002', 'rsd078654', '123456', '0734980796', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (150, 'lsr002', 'rsd079098', '123456', '0734292488', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (151, 'lsr002', 'rsd079332', '123456', '0734108036', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (152, 'lsr002', 'rsd080026', '123456', '0734260621', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (153, 'lsr002', 'rsd08025', '123456', '0734989659', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (154, 'lsr002', 'rsd080343', '123456', '0734775182', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (155, 'lsr002', 'rsd080801', '123456', '0734890188', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (156, 'lsr002', 'rsd080935', '123456', '0734818500', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (157, 'lsr002', 'rsd082557', '123456', '0734784083', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (158, 'lsr002', 'rsd082962', '123456', '0734909884', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (159, 'lsr002', 'rsd083082', '123456', '0734368296', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (160, 'lsr002', 'rsd083236', '123456', '0734343713', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (161, 'lsr002', 'rsd083320', '123456', '0734301724', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (162, 'lsr002', 'rsd08431', '123456', '0734626191', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (163, 'lsr002', 'rsd084542', '123456', '0734941329', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (164, 'lsr002', 'rsd08522', '123456', '0734285882', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (165, 'lsr002', 'rsd085838', '123456', '073473848', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (166, 'lsr002', 'rsd086264', '123456', '073499256', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (167, 'lsr002', 'rsd086303', '123456', '0734693790', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (168, 'lsr002', 'rsd086631', '123456', '0734593146', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (169, 'lsr002', 'rsd087203', '123456', '0734972968', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (170, 'lsr002', 'rsd087217', '123456', '0734902855', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (171, 'lsr002', 'rsd087222', '123456', '0734338123', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (172, 'lsr002', 'rsd087528', '123456', '0734200614', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (173, 'lsr002', 'rsd087691', '123456', '0734173848', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (174, 'lsr002', 'rsd089122', '123456', '073417474', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (175, 'lsr002', 'rsd089589', '123456', '0734870962', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (176, 'lsr002', 'rsd090614', '123456', '0734435248', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (177, 'lsr002', 'rsd091370', '123456', '073459285', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (178, 'lsr002', 'rsd091450', '123456', '0734830918', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (179, 'lsr002', 'rsd091476', '123456', '073411530', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (180, 'lsr002', 'rsd092134', '123456', '0734593402', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (181, 'lsr002', 'rsd09362', '123456', '073418454', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (182, 'lsr002', 'rsd093888', '123456', '0734109883', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (183, 'lsr002', 'rsd093937', '123456', '0734837105', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (184, 'lsr002', 'rsd094029', '123456', '0734432760', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (185, 'lsr002', 'rsd094143', '123456', '0734964813', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (186, 'lsr002', 'rsd09536', '123456', '0734162523', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (187, 'lsr002', 'rsd096456', '123456', '0734183868', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (188, 'lsr002', 'rsd096623', '123456', '0734271487', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (189, 'lsr002', 'rsd096800', '123456', '0734191176', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (190, 'lsr002', 'rsd09682', '123456', '073431699', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (191, 'lsr002', 'rsd096894', '123456', '0734619924', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (192, 'lsr002', 'rsd097231', '123456', '0734196690', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (193, 'lsr002', 'rsd09795', '123456', '0734845964', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (194, 'lsr002', 'rsd098413', '123456', '0734792530', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (195, 'lsr002', 'rsd098702', '123456', '0734140054', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (196, 'lsr002', 'rsd098713', '123456', '073422309', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (197, 'lsr002', 'rsd098886', '123456', '0734178412', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (198, 'lsr002', 'rsd099039', '123456', '0734381769', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (199, 'lsr002', 'rsd099361', '123456', '0734299486', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (200, 'lsr002', 'rsd099915', '123456', '0734936468', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (201, 'lsr002', 'rsd1000259', '123456', '0734711868', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (222, 'lsr002', 'rsd123457', '123456', '2323523525', 0, NULL);
 
 -- ----------------------------
 -- Table structure for dsos_perms
@@ -1455,15 +1453,28 @@ delimiter ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `pos_add_member`;
 delimiter ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `pos_add_member`(IN `name` varchar(19),IN `cardNo` varchar(19),IN `password` varchar(19),IN `mobile` varchar(19),IN `sex` varchar(19))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pos_add_member`(IN `name` varchar(19),IN `password` varchar(19),IN `mobilez` varchar(19),IN `sex` varchar(19))
 BEGIN
 	#member 注册
+	DECLARE maxCardNo VARCHAR(19);
+	set maxCardNo := (SELECT CONCAT('rsd',max(SUBSTRING(cardNo,4))+1)FROM dsos_live_memberuser);
+	#select maxCardNo;
+	
+	if (SELECT count(*) from dsos_live_memberuser WHERE mobile = mobilez) = 0
+	then
 	
 	INSERT into dsos_live_memberuser(cardNo,`password`,mobile)
-					VALUES(cardNo,IF(`password`='','123456',`password`),mobile);
+					VALUES(maxCardNo,IF(`password`='','123456',`password`),mobilez);
+					
 	INSERT into dsos_live_memberinfo(cardNo,`name`,sex)
-	        VALUES(cardNo,`name`,sex);
-
+	        VALUES(maxCardNo,`name`,sex);
+					
+					SELECT maxCardNo;
+	ELSE
+				  SELECT '000';
+	end if;
+	
+					
 
 END
 ;;

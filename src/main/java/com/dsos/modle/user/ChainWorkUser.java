@@ -1,12 +1,13 @@
 package com.dsos.modle.user;
 
+import java.io.Serializable;
 import java.util.Set;
 
 /**
  * Created by zgq7 on 2019/1/22.
  * 连锁工作人员，以level区别总负责人、店长、普通员工等；
  */
-public class ChainWorkUser {
+public class ChainWorkUser implements Serializable {
     //连锁工作人员标识
     private Integer chainId;
     //所属门店
@@ -16,7 +17,7 @@ public class ChainWorkUser {
     //性别
     private String sex;
     //账号，即员工编号
-    private String userAccount;
+    private String chainAccount;
     //密码
     private String password;
     //手机号
@@ -72,12 +73,12 @@ public class ChainWorkUser {
         this.sex = sex;
     }
 
-    public String getUserAccount() {
-        return userAccount;
+    public String getChainAccount() {
+        return chainAccount;
     }
 
-    public void setUserAccount(String userAccount) {
-        this.userAccount = userAccount;
+    public void setChainAccount(String chainAccount) {
+        this.chainAccount = chainAccount;
     }
 
     public String getPassword() {

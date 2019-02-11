@@ -7,14 +7,12 @@
     <script type="text/javascript" src="../lay/layui.js"></script>
     <link rel="stylesheet" href="../lay/css/layui.css" media="all">
     <script type="text/javascript" src="../js/moudle.js"></script>
-    <script type="text/javascript" src="../js/model/userLoad.js"></script>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div>
         <div class="layui-header" id="head">
-            <div class="layui-logo"><a style="color: #eb7350" id="center">member center</a>
-            </div>
+            <div class="layui-logo"><a href="loginSuccessUser" style="color: #eb7350">admin center</a></div>
             <!-- 头部区域（可配合layui已有的水平导航） -->
             <ul class="layui-nav layui-layout-left">
                 <li class="layui-nav-item"><a>控制台</a></li>
@@ -32,12 +30,12 @@
             <ul class="layui-nav layui-layout-right">
                 <li class="layui-nav-item">
                     <a>
-                        <img src="" class="layui-nav-img" id="userImg">
-                        <span id="myUserName">npm</span>
+                        <img src="" class="layui-nav-img" id="adminImg">
+                        <span id="adminName">npm</span>
                     </a>
                     <dl class="layui-nav-child">
-                        <dd><a id="info">个人资料</a></dd>
-                        <dd><a id="config">安全设置</a></dd>
+                        <dd><a href="../admin/info">个人资料</a></dd>
+                        <dd><a href="../admin/config">安全设置</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item"><a href="../logout" style="color: burlywood">logout</a></li>

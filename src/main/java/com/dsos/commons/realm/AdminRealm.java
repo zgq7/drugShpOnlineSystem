@@ -1,6 +1,8 @@
 package com.dsos.commons.realm;
 
 import com.dsos.commons.Methods;
+import com.dsos.config.shiro.UsernamePwdLogTypToken;
+import com.dsos.modle.user.AdminUser;
 import com.dsos.modle.user.MemberUser;
 import com.dsos.service.MainService;
 import org.apache.shiro.authc.*;
@@ -31,38 +33,43 @@ public class AdminRealm extends AuthorizingRealm {
      **/
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        log.info("================== 授权 ========================");
+        log.info("===============admin 授权 ========================");
         Object principal = principalCollection.getPrimaryPrincipal();
-        MemberUser memberUser = (MemberUser) principal;
-        Set<String> roles = new HashSet<>();
-        roles.add("user");
-        //角色
-        //权限
-        log.info("用户名为：{}，具有{}权限", memberUser.getCardNo(), roles);
-        SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
-        simpleAuthorizationInfo.setRoles(roles);
-        return simpleAuthorizationInfo;
+        if (principal instanceof AdminUser) {
+            AdminUser adminUser = (AdminUser) principal;
+            Set<String> roles = new HashSet<>();
+            roles.add("admin");
+            //角色
+            //权限
+            log.info("admin名为：{}，具有{}权限", adminUser.getAdminAccount(), roles);
+            SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
+            simpleAuthorizationInfo.setRoles(roles);
+            return simpleAuthorizationInfo;
+        }
+        log.info("principal is not adminUser  ,next realm ->");
+        return null;
     }
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        log.info("======用户正在认证=====");
-        UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
+        log.info("======admin 用户正在认证=====");
+        UsernamePwdLogTypToken token = (UsernamePwdLogTypToken) authenticationToken;
         String account = token.getUsername();
         String password = String.valueOf(token.getPassword());
-        log.info("{},{}", account, password);
-        MemberUser memberUser = mainService.memberUserLog("123456", "123456");
-        if (memberUser == null) {
+        String loginType = token.getLoginType();
+        log.info("{},{},{}", account, password, loginType);
+        AdminUser adminUser = mainService.adminUserLog(account, password);
+        if (adminUser == null) {
             log.info("error");
             throw new AuthenticationException("123");
         }
         //已认证的实体信息
-        Object principal = memberUser;
+        Object principal = adminUser;
         //获取从数据库获取的密码，然后进行md5加密
-        Object hashCredentials = Methods.shiroMD5(memberUser.getCardNo(), memberUser.getPassword());
+        Object hashCredentials = Methods.shiroMD5(adminUser.getAdminAccount(), adminUser.getPassword());
         //以用户名作为盐值(保证登录账户的唯一性前提下！！！)
-        ByteSource credentialSalt = ByteSource.Util.bytes(memberUser.getCardNo());
-        //当前reaml对象的realm,从父类的getName获取
+        ByteSource credentialSalt = ByteSource.Util.bytes(adminUser.getAdminAccount());
+        //当前realm对象的realm,从父类的getName获取
         String realmName = getName();
         return new SimpleAuthenticationInfo(principal, hashCredentials, credentialSalt, realmName);
     }

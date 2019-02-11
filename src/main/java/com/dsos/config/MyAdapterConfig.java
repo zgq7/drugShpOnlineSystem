@@ -25,6 +25,14 @@ public class MyAdapterConfig implements WebMvcConfigurer {
     private String mapImages;
     @Value("${map.model}")
     private String mapModel;
+    @Value("${map.user}")
+    private String mapUser;
+    @Value("${map.admin}")
+    private String mapAdmin;
+    @Value("${map.chain}")
+    private String mapChain;
+
+
 
 
     @Override
@@ -37,7 +45,13 @@ public class MyAdapterConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/css/**").addResourceLocations(mapCSS);
         log.info("images静态资源路径,{}",mapImages);
         registry.addResourceHandler("/images/**").addResourceLocations(mapImages);
-        log.info("model静态资源路径,{}",mapModel);
+        log.info("modelHtml静态资源路径,{}",mapModel);
         registry.addResourceHandler("/model/**").addResourceLocations(mapModel);
+        log.info("userHtml静态资源路径,{}",mapUser);
+        registry.addResourceHandler("/member/**").addResourceLocations(mapUser);
+        log.info("adminHtml静态资源路径,{}",mapAdmin);
+        registry.addResourceHandler("/admin/**").addResourceLocations(mapAdmin);
+        log.info("chainHtml静态资源路径,{}",mapChain);
+        registry.addResourceHandler("/chain/**").addResourceLocations(mapChain);
     }
 }

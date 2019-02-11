@@ -1,14 +1,14 @@
 /**
  * Created by Administrator on 2019/1/29.
- * 加载user 的 html 模块
+ * 加载admin 的 html 模块
  */
 $(document).ready(function () {
     let param = {};
-    let cardNo = $("#myCardNo").text();
-    console.log(cardNo);
-    param.cardNo = cardNo;
+    let account= $("#myChain").text();
+    //console.log(param);
+    param.account = account;
     $.ajax({
-        url: "root",
+        url: "chainRoot",
         type: "post",
         data: JSON.stringify(param),
         contentType: 'application/json;charset=utf-8',
@@ -16,8 +16,8 @@ $(document).ready(function () {
         timeout: 1000,
         success: function (data) {
             //console.log(data);
-            document.getElementById('myUserName').innerHTML = data.name;
-            $("#userImg").attr("src", data.imgRoot);
+            document.getElementById('adminName').innerHTML = data.name;
+            $("#adminImg").attr("src", data.imgRoot);
         },
         error: function (data, status) {
             console.log("ajax error : " + status);
@@ -25,7 +25,7 @@ $(document).ready(function () {
     });
     //个人资料
     $("a#info").click(function () {
-        $('#body').load("../member/info.html #infoModel", function (txt, st, xhr) {
+        $('#body').load("../chain/info.html #infoModel", function (txt, st, xhr) {
             if (st == "success")
                 console.log("info");
             if (st == "error")
@@ -35,7 +35,7 @@ $(document).ready(function () {
     });
     //个人设置
     $("a#config").click(function () {
-        $('#body').load("../member/config.html #configModel", function (txt, st, xhr) {
+        $('#body').load("../chain/config.html #configModel", function (txt, st, xhr) {
             if (st == "success")
                 console.log("config");
             if (st == "error")

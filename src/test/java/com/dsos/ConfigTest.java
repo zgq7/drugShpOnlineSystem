@@ -1,16 +1,17 @@
 package com.dsos;
 
-import com.dsos.modle.user.AdminUser;
+import com.dsos.config.shiro.LoginType;
+import com.dsos.service.MemberService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by zgq7 on 2019/1/23.
@@ -19,10 +20,15 @@ import java.sql.DriverManager;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ConfigTest {
+    private static final String loginType = LoginType.MEMBER.getLoginType();
+
+    @Autowired
+    private MemberService memberService;
 
     @SuppressWarnings("resource")
     @Test
     public void testSpringIoc() {
+        System.out.println(memberService.getUerNameImgByCardNo("rsd123456"));
     }
 
     @Test

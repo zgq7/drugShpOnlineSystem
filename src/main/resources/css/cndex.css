@@ -1,0 +1,38 @@
+body {
+    background: url("http://localhost:8099/drug/images/bg3.gif") repeat;
+    background-size: 100%;
+    height: 100%;
+}
+/**登录的div**/
+#login{
+    border-radius: 5px;
+    width: 30%;
+    background-color: white;
+    margin-left: 35%;
+    margin-top: 10%;
+}
+#passwordL{
+    width: 50%;
+    height: 30px;
+    margin-left: 25%;
+    margin-top: 5%;
+}
+#usernameL{
+    width: 50%;
+    height: 30px;
+    margin-left: 25%;
+    margin-top: 10%;
+}
+#b1{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+#b2{
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 10%;
+}
+
+

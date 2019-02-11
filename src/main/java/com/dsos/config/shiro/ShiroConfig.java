@@ -4,6 +4,7 @@ import com.dsos.commons.realm.AdminRealm;
 import com.dsos.commons.realm.ChainRealm;
 import com.dsos.commons.realm.MemberRealm;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
+import org.apache.shiro.authc.pam.AtLeastOneSuccessfulStrategy;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -36,14 +37,27 @@ public class ShiroConfig {
     @Bean
     public DefaultWebSecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
+        securityManager.setCacheManager(cacheManager());
+        securityManager.setAuthenticator(zdyModularRealmAuthenticator());
         //获取所有realm并添加到realms()里面
-        Set<Realm> realmSet = new HashSet<>();
-        realmSet.add(memberRealm());
+        List<Realm> realmSet = new ArrayList<>();
         realmSet.add(adminRealm());
+        realmSet.add(memberRealm());
         realmSet.add(chainRealm());
         securityManager.setRealms(realmSet);
-        securityManager.setCacheManager(cacheManager());
         return securityManager;
+    }
+
+    /**
+     * 6:配置自定义认证器
+     *
+     * @return zdyModularRealmAuthenticator
+     ***/
+    @Bean
+    public ZdyModularRealmAuthenticator zdyModularRealmAuthenticator() {
+        ZdyModularRealmAuthenticator zdyModularRealmAuthenticator = new ZdyModularRealmAuthenticator();
+        zdyModularRealmAuthenticator.setAuthenticationStrategy(new AtLeastOneSuccessfulStrategy());
+        return zdyModularRealmAuthenticator;
     }
 
     /**
@@ -130,7 +144,11 @@ public class ShiroConfig {
         LinkedHashMap<String, String> filterMap = new LinkedHashMap<>();
         //配置映射关系
         filterMap.put("/index", "anon");
+        filterMap.put("/admin", "anon");
+        filterMap.put("/chain", "anon");
         filterMap.put("/member/login", "anon");
+        filterMap.put("/admin/login", "anon");
+        filterMap.put("/chain/login", "anon");
         filterMap.put("/member/registry", "anon");
         //静态资源
         filterMap.put("/images/**", "anon");
@@ -141,7 +159,12 @@ public class ShiroConfig {
         //登出
         filterMap.put("/logout", "logout");
         //页面权限的配置
+        filterMap.put("/member/*.html", "authc,roles[user]");
+        filterMap.put("/admin/*.html", "authc,roles[admin]");
+        filterMap.put("/chain/*.html", "authc,roles[chain]");
         filterMap.put("/member/**", "authc,roles[user]");
+        filterMap.put("/admin/**", "authc,roles[admin]");
+        filterMap.put("/chain/**", "authc,roles[chain]");
         //filterMap.put("/**", "url");
         filterMap.put("/**", "authc");
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
@@ -173,5 +196,4 @@ public class ShiroConfig {
     public DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator() {
         return new DefaultAdvisorAutoProxyCreator();
     }
-
 }

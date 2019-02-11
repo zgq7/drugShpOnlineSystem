@@ -25,16 +25,34 @@ public class MainImpl implements MainService {
 
     @Override
     public MemberUser memberUserLog(String account, String password) {
-        return mainDao.memberLogin(account,password);
+        try {
+            if (mainDao.memberLogin(account,password) != null)
+            return mainDao.memberLogin(account,password);
+        }catch (Exception e){
+            log.error("member login error {}",e);
+        }
+        return null;
     }
 
     @Override
     public AdminUser adminUserLog(String account, String password) {
+        try {
+            if (mainDao.adminLogin(account,password) != null)
+                return mainDao.adminLogin(account,password);
+        }catch (Exception e){
+            log.error("admin login error {}",e);
+        }
         return null;
     }
 
     @Override
     public ChainWorkUser chainWkUserLog(String account, String password){
+        try {
+            if (mainDao.chainLogin(account,password) != null)
+                return mainDao.chainLogin(account,password);
+        }catch (Exception e){
+            log.error("chain login error {}",e);
+        }
         return null;
     }
 }

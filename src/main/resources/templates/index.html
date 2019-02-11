@@ -23,9 +23,8 @@
 </body>
 <div id="register">
     <input type="text" placeholder="请输入姓名" id="name"/><br>
-    <input type="text" placeholder="请输入6位以上账号" id="username"/><br>
-    <input type="password" placeholder="请输入6位以上密码" id="password"/><br>
-    <input type="text" placeholder="请输入11位手机号码" id="mobile"/><br>
+    <input type="password" placeholder="请输入密码" id="password2"/><br>
+    <input type="text" placeholder="手机号码" id="mobile"/><br>
     <select id="sex" style="text-align: center">
         <option>男</option>
         <option>女</option>
@@ -39,10 +38,10 @@
         margin: auto;
     }
 
-    input,select {
+    #name, #password2, #mobile, #sex {
         width: 80%;
+        height: 30px;
         margin-left: 10%;
-        height: 5%;
         margin-top: 5%;
         margin-bottom: 5%;
     }

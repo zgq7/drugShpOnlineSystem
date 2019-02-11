@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>chain login</title>
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="lay/layui.js"></script>
+    <link rel="stylesheet" href="lay/css/layui.css" media="all">
+    <link rel="stylesheet" href="css/cndex.css">
 </head>
 <body>
-
+<div id="login">
+    <form action="chain/login">
+        <input type="text" placeholder="请输入账号" id="usernameL" name="account"/><br>
+        <input type="password" placeholder="请输入密码" id="passwordL" name="password"/><br>
+        <button class="layui-btn" id="b1">登录</button>
+    </form>
+</div>
 </body>
 </html>

@@ -9,16 +9,16 @@ import org.springframework.stereotype.Repository;
 
 /**
  * Created by zgq7 on 2019/1/23 0023.
- * 业务层
+ * 物理层
  */
 @Repository
 public interface MainDao {
     @Select("CALL login_member(#{account},#{password})")
-    MemberUser memberLogin(@Param("account") String account, @Param("password") String password);
+    MemberUser memberLogin(@Param("account") String account, @Param("password") String password) throws Exception;
 
-    @Select("CALL login_Admin(#{account},#{password})")
-    AdminUser adminLogin(String accout, String password) throws Exception;
+    @Select("CALL login_admin(#{account},#{password})")
+    AdminUser adminLogin(@Param("account") String account, @Param("password") String password) throws Exception;
 
-    @Select("call login_member(#{account},#{password})")
-    ChainWorkUser chainLogin(String accout, String password) throws Exception;
+    @Select("call login_chain(#{account},#{password})")
+    ChainWorkUser chainLogin(@Param("account") String account, @Param("password") String password) throws Exception;
 }

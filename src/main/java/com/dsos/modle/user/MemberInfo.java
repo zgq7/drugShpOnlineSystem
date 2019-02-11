@@ -9,7 +9,7 @@ public class MemberInfo {
     //所属卡号
     private String cardNo;
     //会员姓名
-    private String mame;
+    private String name;
     //性别
     private String sex;
     //生日
@@ -47,12 +47,12 @@ public class MemberInfo {
         this.cardNo = cardNo;
     }
 
-    public String getMame() {
-        return mame;
+    public String getName() {
+        return name;
     }
 
-    public void setMame(String mame) {
-        this.mame = mame;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getSex() {

@@ -5,15 +5,19 @@ import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.pam.ModularRealmAuthenticator;
 import org.apache.shiro.realm.Realm;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
 import java.util.HashSet;
 
 /**
  * Created by zgq7 on 2019/1/30.
- * 自定义比较器，重写
+ * 自定义比较器，重写 doAuthenticate
  */
 public class ZdyModularRealmAuthenticator extends ModularRealmAuthenticator {
+    private static final Logger log = LoggerFactory.getLogger(ZdyModularRealmAuthenticator.class);
+
 
     @Override
     protected AuthenticationInfo doAuthenticate(AuthenticationToken authenticationToken) throws AuthenticationException {
@@ -28,13 +32,13 @@ public class ZdyModularRealmAuthenticator extends ModularRealmAuthenticator {
         //5:每个realm对应的loginType
         Collection<Realm> realmTypes = new HashSet<>();
         for (Realm realm : myRealms) {
-            if (realm.getName().contains(loginType))
+            if (realm.getName().contains(loginType)) {
                 realmTypes.add(realm);
+            }
         }
+        log.info("realm login type name is {}",realmTypes);
         //6:判断多realm验证还是单realm验证
-        if (realmTypes.size() == 1)
-            return doSingleRealmAuthentication(realmTypes.iterator().next(),usernamePwdLogTypToken);
-        else
-            return doMultiRealmAuthentication(realmTypes,usernamePwdLogTypToken);
+        return realmTypes.size() == 1 ? doSingleRealmAuthentication(realmTypes.iterator().next(), usernamePwdLogTypToken) : doMultiRealmAuthentication(realmTypes, usernamePwdLogTypToken);
     }
+
 }

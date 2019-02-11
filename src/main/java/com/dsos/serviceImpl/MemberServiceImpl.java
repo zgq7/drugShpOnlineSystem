@@ -21,25 +21,26 @@ public class MemberServiceImpl implements MemberService {
     private MemberDao memberDao;
 
     @Override
-    public MemberInfo getUerNmaeImgByCardNo(String cardNo) {
+    public MemberInfo getUerNameImgByCardNo(String cardNo) {
         MemberInfo memberInfo = new MemberInfo();
         try {
-            memberInfo = memberDao.getUerNmaeImgByCardNo(cardNo);
-        }catch (Exception e){
-            log.error("获取会员logo以及卡号报错：{}",e);
+            memberInfo = memberDao.getUerNameImgByCardNo(cardNo);
+        } catch (Exception e) {
+            log.error("获取会员logo以及卡号报错：{}", e);
         }
         return memberInfo;
     }
 
     @Override
-    public Boolean registryMember(Map<String, String> params) {
+    public String registryMember(Map<String, String> params) {
         try {
-            Boolean status = memberDao.registryMember(params.get("name"),params.get("cardNo"),params.get(""),params.get("name"),params.get("name"));
-            if (!status)
-            return false;
-        }catch (Exception e){
-            log.error("注册会员报:{}",e);
+            String status = memberDao.registryMember(params.get("name"), params.get("password"), params.get("mobile"), params.get("sex"));
+            log.info("注册返回的信息:{}",status);
+            if (!status.equals("000"))
+                return status;
+        } catch (Exception e) {
+            log.error("注册会员报错:{}", e);
         }
-        return true;
+        return null;
     }
 }

@@ -3,17 +3,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>loginSuccessUser</title>
+    <title>chain SuccessUser</title>
     <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="../lay/layui.js"></script>
     <link rel="stylesheet" href="../lay/css/layui.css" media="all">
-    <script type="text/javascript" src="../js/model/user.js"></script>
+    <script type="text/javascript" src="../js/model/chain.js"></script>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header" id="head">
-        <div class="layui-logo"><a style="color: #eb7350" id="center">member center</a>
-        </div>
+        <div class="layui-logo"><a href="loginSuccessUser" style="color: #eb7350">admin center</a></div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
             <li class="layui-nav-item"><a>控制台</a></li>
@@ -31,8 +30,8 @@
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a>
-                    <img src="" class="layui-nav-img" id="userImg">
-                    <span id="myUserName">npm</span>
+                    <img src="" class="layui-nav-img" id="adminImg">
+                    <span id="adminName">npm</span>
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a id="info">个人资料</a></dd>
@@ -70,7 +69,7 @@
     </div>
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <span id="myCardNo" th:text="${cardNo}" hidden>内容主题</span>
+        <span id="myChain" th:text="${account}" hidden>内容主题</span>
         <div style="padding: 15px;" id="body">
             <span>内容主题</span>
         </div>

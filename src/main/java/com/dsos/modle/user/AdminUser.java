@@ -1,11 +1,12 @@
 package com.dsos.modle.user;
 
+import java.io.Serializable;
 import java.util.Set;
 
 /**
  * 存放超级管理员相关信息
  */
-public class AdminUser{
+public class AdminUser implements Serializable{
     //管理员标识
     private Integer adminId;
     //管理员姓名
@@ -13,7 +14,7 @@ public class AdminUser{
     //性别
     private String sex;
     //账号
-    private String userAccount;
+    private String adminAccount;
     //密码
     private String password;
     //手机号
@@ -57,12 +58,36 @@ public class AdminUser{
         this.sex = sex;
     }
 
-    public String getUserAccount() {
-        return userAccount;
+    public String getAdminAccount() {
+        return adminAccount;
     }
 
-    public void setUserAccount(String userAccount) {
-        this.userAccount = userAccount;
+    public void setAdminAccount(String adminAccount) {
+        this.adminAccount = adminAccount;
+    }
+
+    public String getMd5Password() {
+        return md5Password;
+    }
+
+    public void setMd5Password(String md5Password) {
+        this.md5Password = md5Password;
+    }
+
+    public Set<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<String> roles) {
+        this.roles = roles;
+    }
+
+    public Set<String> getPerms() {
+        return perms;
+    }
+
+    public void setPerms(Set<String> perms) {
+        this.perms = perms;
     }
 
     public String getPassword() {

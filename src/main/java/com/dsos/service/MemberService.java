@@ -14,11 +14,11 @@ public interface MemberService {
      * 参数处理
      * 结果处理
      **/
-    MemberInfo getUerNmaeImgByCardNo(String cardNo);
+    MemberInfo getUerNameImgByCardNo(String cardNo);
 
     /**
      * 因为要插入两个表，因此用map传参
      * 前台要检测属性值是否规范切不能为空
      **/
-    Boolean registryMember(Map<String, String> params);
+    String registryMember(Map<String, String> params);
 }

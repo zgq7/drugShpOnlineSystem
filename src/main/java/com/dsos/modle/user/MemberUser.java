@@ -16,7 +16,7 @@ public class MemberUser implements Serializable{
     //登录密码
     private String password;
     //手机号
-    private Integer mobile;
+    private String mobile;
     //归属门店唯一标识
     private Integer storeId;
     //存放md5加密过后的password
@@ -60,11 +60,11 @@ public class MemberUser implements Serializable{
         this.password = password;
     }
 
-    public Integer getMobile() {
+    public String getMobile() {
         return mobile;
     }
 
-    public void setMobile(Integer mobile) {
+    public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 

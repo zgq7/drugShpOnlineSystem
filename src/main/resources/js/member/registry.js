@@ -24,8 +24,7 @@ layui.use('layer', function () { //独立版的layer无需执行这一句
                 yes: function () {
                     let params = {};
                     params.name = $("#name").val();
-                    params.cardNo = $("#username").val();
-                    params.password = $("#password").val();
+                    params.password = $("#password2").val();
                     params.mobile = $("#mobile").val();
                     params.sex = $("#sex").val();
 
@@ -42,6 +41,7 @@ layui.use('layer', function () { //独立版的layer无需执行这一句
                             //console.log(data);
                             setTimeout(function () {
                                 alert(data.msg);
+                                console.log(data.msg);
                                 layer.closeAll();
                             }, 1000);
                         },

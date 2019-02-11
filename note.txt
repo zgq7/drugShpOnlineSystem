@@ -12,3 +12,5 @@
      2：自定义shiroFilter中的roles2
      3: AuthorizingRealm.hasRole实现匹配
      return info != null && info.getRoles() != null && info.getRoles().contains(roleIdentifier);
+3:自定义认证匹配器：
+     1:当一个realm正在使用中并且通过了认证，换个角色登陆不需要认证，可直接访问！！big bug;
