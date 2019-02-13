@@ -3,9 +3,7 @@ package com.dsos.controller;
 import com.dsos.config.shiro.LoginType;
 import com.dsos.config.shiro.UsernamePwdLogTypToken;
 import com.dsos.modle.user.AdminUser;
-import com.dsos.modle.user.MemberInfo;
 import com.dsos.service.AdminService;
-import com.dsos.service.MemberService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.subject.Subject;
@@ -16,7 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -46,16 +43,14 @@ public class AdminController {
         log.info("账号：{},密码：{}", accout, password);
         Subject AdminSubject = SecurityUtils.getSubject();
         //如果subject没有认证，则进入realm认证
-        if (!AdminSubject.isAuthenticated()) {
-            //使用自定义token的登录方式
-            UsernamePwdLogTypToken token = new UsernamePwdLogTypToken(accout, password, loginType);
-            token.setRememberMe(false);
-            try {
-                AdminSubject.login(token);
-            } catch (AuthenticationException e) {
-                log.error("密码/账号错误:{}", e.toString());
-                return "error";
-            }
+        //使用自定义token的登录方式
+        UsernamePwdLogTypToken token = new UsernamePwdLogTypToken(accout, password, loginType);
+        token.setRememberMe(false);
+        try {
+            AdminSubject.login(token);
+        } catch (AuthenticationException e) {
+            log.error("密码/账号错误:{}", e.toString());
+            return "error";
         }
         model.addAttribute("account", accout);
         return "admin/adminSuccessUser";

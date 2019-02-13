@@ -135,4 +135,22 @@ public class MemberInfo {
         this.statu = statu;
     }
 
+    @Override
+    public String toString() {
+        return "MemberInfo{" +
+                "infoId=" + infoId +
+                ", cardNo='" + cardNo + '\'' +
+                ", name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", address='" + address + '\'' +
+                ", intergration=" + intergration +
+                ", amount=" + amount +
+                ", discount=" + discount +
+                ", imgRoot='" + imgRoot + '\'' +
+                ", email='" + email + '\'' +
+                ", leavel=" + leavel +
+                ", statu=" + statu +
+                '}';
+    }
 }

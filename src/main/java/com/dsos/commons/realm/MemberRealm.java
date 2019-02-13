@@ -60,7 +60,7 @@ public class MemberRealm extends AuthorizingRealm {
         MemberUser memberUser = mainService.memberUserLog(account, password);
         if (memberUser == null) {
             log.info("authenticating error");
-            throw new AuthenticationException("密码或账号不匹配   ");
+            throw new AuthenticationException("member authenticate error");
         }
         //已认证的实体信息
         Object principal = memberUser;

@@ -2,6 +2,7 @@ package com.dsos.service;
 
 import com.dsos.modle.user.AdminUser;
 import com.dsos.modle.user.ChainWorkUser;
+import com.dsos.modle.user.MemberInfo;
 import com.dsos.modle.user.MemberUser;
 
 /**

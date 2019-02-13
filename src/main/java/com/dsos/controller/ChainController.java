@@ -45,16 +45,14 @@ public class ChainController {
         log.info("账号：{},密码：{}", accout, password);
         Subject chainSubject = SecurityUtils.getSubject();
         //如果subject没有认证，则进入realm认证
-        if (!chainSubject.isAuthenticated()) {
-            //使用自定义token的登录方式
-            UsernamePwdLogTypToken token = new UsernamePwdLogTypToken(accout, password, loginType);
-            token.setRememberMe(false);
-            try {
-                chainSubject.login(token);
-            } catch (AuthenticationException e) {
-                log.error("密码/账号错误:{}", e.toString());
-                return "error";
-            }
+        //使用自定义token的登录方式
+        UsernamePwdLogTypToken token = new UsernamePwdLogTypToken(accout, password, loginType);
+        token.setRememberMe(false);
+        try {
+            chainSubject.login(token);
+        } catch (AuthenticationException e) {
+            log.error("密码/账号错误:{}", e.toString());
+            return "error";
         }
         model.addAttribute("account", accout);
         return "chain/chainSuccessUser";

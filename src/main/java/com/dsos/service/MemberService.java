@@ -21,4 +21,7 @@ public interface MemberService {
      * 前台要检测属性值是否规范切不能为空
      **/
     String registryMember(Map<String, String> params);
+
+    //通过卡号查询个人信息
+    MemberInfo getInfoByCardNo(String cardNo);
 }

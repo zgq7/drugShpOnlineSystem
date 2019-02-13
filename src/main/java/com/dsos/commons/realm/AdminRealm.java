@@ -61,7 +61,7 @@ public class AdminRealm extends AuthorizingRealm {
         AdminUser adminUser = mainService.adminUserLog(account, password);
         if (adminUser == null) {
             log.info("error");
-            throw new AuthenticationException("123");
+            throw new AuthenticationException("admin authenticate error");
         }
         //已认证的实体信息
         Object principal = adminUser;

@@ -35,11 +35,23 @@ public class MemberServiceImpl implements MemberService {
     public String registryMember(Map<String, String> params) {
         try {
             String status = memberDao.registryMember(params.get("name"), params.get("password"), params.get("mobile"), params.get("sex"));
-            log.info("注册返回的信息:{}",status);
+            log.info("注册返回的信息:{}", status);
             if (!status.equals("000"))
                 return status;
         } catch (Exception e) {
             log.error("注册会员报错:{}", e);
+        }
+        return null;
+    }
+
+    @Override
+    public MemberInfo getInfoByCardNo(String cardNo) {
+        try {
+            MemberInfo memberInfo = memberDao.getInfoByCardNo(cardNo);
+            if (memberInfo != null)
+                return memberInfo;
+        } catch (Exception e) {
+            log.error("{查询个人信息报错：{}}", e);
         }
         return null;
     }
