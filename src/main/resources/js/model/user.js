@@ -24,9 +24,9 @@ $(document).ready(function () {
     });
     //个人资料
     $("a#info").click(function () {
+        includeCss("../css/member/info.css");
         $('#body').load("../member/info.html #infoModel", function (txt, st, xhr) {
             if (st == "success")
-            //console.log("info");
                 $.ajax({
                     url: "info",
                     data: JSON.stringify(param),
@@ -35,20 +35,18 @@ $(document).ready(function () {
                     dataType: "json",
                     timeout: 1000,
                     success: function (data) {
-                        //console.log(data);
-                        let sssdata = { //数据
-                            "title": "Layui常用模块"
-                            ,
-                            "list": [{"modname": "弹层", "alias": "layer", "site": "layer.layui.com"}, {
-                                "modname": "表单",
-                                "alias": "form"
-                            }]
-                        };
-                        let getTpl = $("#demo").html()
-                            , view = $("#view");
-                        laytpl(getTpl).render(sssdata, function (html) {
-                            //view.innerHTML = html;
-                        });
+                        let member = data.info;
+                        console.log(member)
+                        $("#img").attr("src", member.imgRoot);
+                        $("#name").html(member.name);
+                        $("#sex").html(member.sex);
+                        $("#cardNo").html(member.cardNo);
+                        $("#birthday").html(member.birthday);
+                        $("#email").html(member.email);
+                        $("#address").html(member.address);
+                        $("#intergration").html(member.intergration);
+                        $("#level").html(member.leavel);
+                        $("#amount").html(member.amount);
                     },
                     error: function (data) {
                         console.log(data);

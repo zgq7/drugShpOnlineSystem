@@ -110,6 +110,8 @@ public class MembController {
     public @ResponseBody
     Map<Object, Object> info(@RequestBody Map<String, String> requestMap) {
         MemberInfo memberInfo = memberService.getInfoByCardNo(requestMap.get("cardNo"));
+        String birthday = memberInfo. getBirthday();
+        memberInfo.setBirthday(birthday.substring(0,10));
         if (memberInfo != null) {
             log.info("map {}", requestMap);
             return ImmutableMap.of("info", memberInfo);

@@ -7,28 +7,65 @@
     <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="../lay/layui.js"></script>
     <link rel="stylesheet" href="../lay/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/member/info.css" media="all">
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <div style="padding: 15px;" id="infoModel">member info 内容主体区域
-            <div id="view"></div>
-            <script id="demo" type="text/html">
-                <h3>{{ d.title }}</h3>
-                <ul>
-                    {{# layui.each(d.list, function(index, item){ }}
-                    <li>
-                        <span>{{ item.modname }}</span>
-                        <span>{{ item.alias }}：</span>
-                        <span>{{ item.site || '' }}</span>
-                    </li>
-                    {{# }); }}
-                    {{# if(d.list.length === 0){ }}
-                    无数据
-                    {{# } }}
-                </ul>
-            </script>
+        <div style="padding: 15px;" id="infoModel">
+            <table>
+                <tbody>
+                <tr>
+                    <td style="width: 20%;height: 100%;" valign="top">
+                        <img src="../images/logo/bg4.jpg" id="img">
+                        <ul id="info_update">
+                            <li>
+                                <a href="../updateLog">修改照片</a>
+                            </li>
+                            <li>
+                                <a href=" ../updateInfo">修改资料</a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td valign="top" style="width: 30%">
+                        <ul class="info_main">
+                            <li>
+                                姓名:&nbsp<span id="name"></span>
+                            </li>
+                            <li>
+                                性别:&nbsp<span id="sex"></span>
+                            </li>
+                            <li>
+                                卡号:&nbsp<span id="cardNo"></span>
+                            </li>
+                            <li>
+                                生日:&nbsp<span id="birthday"></span>
+                            </li>
+                            <li>
+                                邮箱:&nbsp<span id="email"></span>
+                            </li>
+                            <li>
+                                地址:&nbsp<span id="address"></span>
+                            </li>
+                            <li>
+                                积分:&nbsp<span id="intergration"></span>
+                            </li>
+                            <li>
+                                等级:&nbsp<span id="level"></span>
+                            </li>
+                        </ul>
+                    </td>
+                    <td valign="top">
+                        <ul class="info_main">
+                            <li>
+                                余额:&nbsp<span id="amount"></span>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

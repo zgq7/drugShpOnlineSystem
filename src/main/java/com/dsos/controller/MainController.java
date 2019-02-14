@@ -4,6 +4,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 /**
@@ -36,6 +40,31 @@ public class MainController {
     @RequestMapping("/chain")
     public String cdmin() {
         return "cndex";
+    }
+
+    /**
+     * 跳转到修改资料页面
+     **/
+    @RequestMapping(value = "updateInfo")
+    public String updateInfo() {
+        return "common/updateInfo";
+    }
+
+    /**
+     * 跳转到修改头像页面
+     **/
+    @RequestMapping(value = "updateLog")
+    public String updateLogo() {
+        return "common/updateLog";
+    }
+
+    /**
+     * 上传图片action
+     *
+     **/
+    @RequestMapping(value = "uploadImg")
+    public String uploadImg(HttpServletRequest request, @RequestParam("imgFile")MultipartFile multipartFile) {
+        return "common/updateLog";
     }
 
     /**

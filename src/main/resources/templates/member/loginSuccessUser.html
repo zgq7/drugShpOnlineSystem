@@ -8,6 +8,7 @@
     <script type="text/javascript" src="../lay/layui.js"></script>
     <link rel="stylesheet" href="../lay/css/layui.css" media="all">
     <script type="text/javascript" src="../js/model/user.js"></script>
+    <script type="text/javascript" src="../js/model/loadCssJs.js"></script>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -71,7 +72,7 @@
     <div class="layui-body">
         <!-- 内容主体区域 -->
         <span id="myCardNo" th:text="${cardNo}" hidden>内容主题</span>
-        <div style="padding: 15px;" id="body">
+        <div style="padding: 15px;height: 95%;" id="body">
             <span>内容主题</span>
         </div>
     </div>

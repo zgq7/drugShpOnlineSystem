@@ -31,27 +31,28 @@ public class MyAdapterConfig implements WebMvcConfigurer {
     private String mapAdmin;
     @Value("${map.chain}")
     private String mapChain;
-
-
-
+    @Value("${map.common}")
+    private String mapCommon;
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        log.info("layUI静态资源路径,{}",mapLayUI);
+        log.info("layUI静态资源路径,{}", mapLayUI);
         registry.addResourceHandler("/lay/**").addResourceLocations(mapLayUI);
-        log.info("js静态资源路径,{}",mapJS);
+        log.info("js静态资源路径,{}", mapJS);
         registry.addResourceHandler("/js/**").addResourceLocations(mapJS);
-        log.info("css静态资源路径,{}",mapCSS);
+        log.info("css静态资源路径,{}", mapCSS);
         registry.addResourceHandler("/css/**").addResourceLocations(mapCSS);
-        log.info("images静态资源路径,{}",mapImages);
+        log.info("images静态资源路径,{}", mapImages);
         registry.addResourceHandler("/images/**").addResourceLocations(mapImages);
-        log.info("modelHtml静态资源路径,{}",mapModel);
+        log.info("modelHtml静态资源路径,{}", mapModel);
         registry.addResourceHandler("/model/**").addResourceLocations(mapModel);
-        log.info("userHtml静态资源路径,{}",mapUser);
+        log.info("userHtml静态资源路径,{}", mapUser);
         registry.addResourceHandler("/member/**").addResourceLocations(mapUser);
-        log.info("adminHtml静态资源路径,{}",mapAdmin);
+        log.info("adminHtml静态资源路径,{}", mapAdmin);
         registry.addResourceHandler("/admin/**").addResourceLocations(mapAdmin);
-        log.info("chainHtml静态资源路径,{}",mapChain);
+        log.info("chainHtml静态资源路径,{}", mapChain);
         registry.addResourceHandler("/chain/**").addResourceLocations(mapChain);
+        log.info("common静态资源路径,{}", mapCommon);
+        registry.addResourceHandler("/common/**").addResourceLocations(mapCommon);
     }
 }
