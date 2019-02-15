@@ -62,6 +62,14 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io
+             apache commons -> FileUtils -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>
+
 
         <!-- 数据库连接部分 ############################################ -->
         <!-- mysql数据库jdbc连接 -->

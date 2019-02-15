@@ -3,11 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>update logo</title>
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="lay/layui.js"></script>
+    <link rel="stylesheet" href="lay/css/layui.css" media="all">
 </head>
-<body>
-<form action="" method="post" enctype="multipart/form-data">
-    选择图片：&nbsp <input type="file" name="file" accept="image/*"/><br>
-    上传：&nbsp<input type="submit" value="上传">
-</form>
+<body style="background-color: grey">
+<div class="layui-upload">
+    <button type="button" class="layui-btn layui-btn-normal" id="test8">选择文件</button>
+    <button type="button" class="layui-btn" id="test9">开始上传</button>
+</div>
 </body>
+<script>
+    layui.use('upload', function () {
+        let $ = layui.jquery
+            , upload = layui.upload;
+        //选完文件后不自动上传
+        upload.render({
+            elem: '#test8'
+            , url: 'uploadImg'
+            , auto: false
+            , size: 60        //文件大小
+            , exts: 'jpg|png' //文件后缀
+            , multiple: true
+            , bindAction: '#test9'
+            , done: function (res) {
+                console.log(res)
+            }
+        });
+    });
+</script>
 </html>

@@ -8,12 +8,11 @@
     <script type="text/javascript" src="../lay/layui.js"></script>
     <link rel="stylesheet" href="../lay/css/layui.css" media="all">
     <script type="text/javascript" src="../js/model/user.js"></script>
-    <script type="text/javascript" src="../js/model/loadCssJs.js"></script>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header" id="head">
-        <div class="layui-logo"><a style="color: #eb7350" id="center">member center</a>
+        <div class="layui-logo"><a style="color: #eb7350" href="loginSuccessUser">member center</a>
         </div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
@@ -36,8 +35,8 @@
                     <span id="myUserName">npm</span>
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a id="info">个人资料</a></dd>
-                    <dd><a id="config">安全设置</a></dd>
+                    <dd><a href="info" id="info">个人资料</a></dd>
+                    <dd><a href="config" id="config">安全设置</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item"><a href="../logout" style="color: burlywood">logout</a></li>
@@ -71,7 +70,7 @@
     </div>
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <span id="myCardNo" th:text="${cardNo}" hidden>内容主题</span>
+        <span id="myCardNo" th:text="${session.account}" hidden>内容主题</span>
         <div style="padding: 15px;height: 95%;" id="body">
             <span>内容主题</span>
         </div>

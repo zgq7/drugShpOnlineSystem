@@ -159,7 +159,7 @@ public class ShiroConfig {
         //登出
         filterMap.put("/logout", "logout");
         //页面权限的配置
-        filterMap.put("/member/*.html", "authc");
+        filterMap.put("/common/*.html", "authc");
         filterMap.put("/member/*.html", "authc,roles[user]");
         filterMap.put("/admin/*.html", "authc,roles[admin]");
         filterMap.put("/chain/*.html", "authc,roles[chain]");

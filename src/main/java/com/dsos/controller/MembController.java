@@ -1,15 +1,13 @@
 package com.dsos.controller;
 
+import com.alibaba.druid.sql.visitor.functions.Substring;
 import com.dsos.config.shiro.LoginType;
 import com.dsos.config.shiro.UsernamePwdLogTypToken;
 import com.dsos.modle.user.MemberInfo;
 import com.dsos.service.MemberService;
 import com.google.common.collect.ImmutableMap;
-import jdk.nashorn.internal.ir.annotations.Immutable;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,8 +20,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * Created by zgq7 on 2019/1/27 0027.
@@ -41,15 +42,16 @@ public class MembController {
      * @return member 的登录
      */
     @RequestMapping(value = "/login")
-    public String Login(HttpServletRequest request, Model model) {
+    public String Login(HttpServletRequest request, Model model, HttpSession session) {
         log.info("正在执行登录");
-        String accout = request.getParameter("account");
+        String account = request.getParameter("account");
         String password = request.getParameter("password");
-        log.info("账号：{},密码：{}", accout, password);
+        session.setAttribute("account", account);
+        session.setAttribute("password", password);
+        log.info("账号：{},密码：{}", account, password);
         Subject memberSubject = SecurityUtils.getSubject();
-        //如果subject没有认证，则进入realm认证
         //使用自定义token的登录方式
-        UsernamePwdLogTypToken token = new UsernamePwdLogTypToken(accout, password, loginType);
+        UsernamePwdLogTypToken token = new UsernamePwdLogTypToken(account, password, loginType);
         token.setRememberMe(false);
         try {
             memberSubject.login(token);
@@ -57,7 +59,7 @@ public class MembController {
             log.error("密码/账号错误:{}", e.toString());
             return "error";
         }
-        model.addAttribute("cardNo", accout);
+        model.addAttribute("cardNo", account);
         return "member/loginSuccessUser";
     }
 
@@ -106,16 +108,28 @@ public class MembController {
         return result;
     }
 
-    @RequestMapping(value = "info")
+    @RequestMapping(value = "/info")
+    public String info() {
+        return "member/info";
+    }
+
+    @RequestMapping(value = "/infoData")
     public @ResponseBody
-    Map<Object, Object> info(@RequestBody Map<String, String> requestMap) {
+    Map<Object, Object> infoData(@RequestBody Map<String, String> requestMap) {
+        log.info("123");
         MemberInfo memberInfo = memberService.getInfoByCardNo(requestMap.get("cardNo"));
-        String birthday = memberInfo. getBirthday();
-        memberInfo.setBirthday(birthday.substring(0,10));
-        if (memberInfo != null) {
-            log.info("map {}", requestMap);
+        String reBirthday = memberInfo.getBirthday();
+        memberInfo.setBirthday(reBirthday.substring(0,10));
+        //frist time to use Optional of guava ;
+        Optional<MemberInfo> optional = Optional.of(memberInfo);
+        if (optional.isPresent()) {
             return ImmutableMap.of("info", memberInfo);
         }
-        return ImmutableMap.of("msg", "error");
+        return null;
+    }
+
+    @RequestMapping(value = "/config")
+    public String config() {
+        return "member/config";
     }
 }
