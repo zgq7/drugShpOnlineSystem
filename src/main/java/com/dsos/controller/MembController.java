@@ -1,6 +1,5 @@
 package com.dsos.controller;
 
-import com.alibaba.druid.sql.visitor.functions.Substring;
 import com.dsos.config.shiro.LoginType;
 import com.dsos.config.shiro.UsernamePwdLogTypToken;
 import com.dsos.modle.user.MemberInfo;
@@ -116,10 +115,9 @@ public class MembController {
     @RequestMapping(value = "/infoData")
     public @ResponseBody
     Map<Object, Object> infoData(@RequestBody Map<String, String> requestMap) {
-        log.info("123");
         MemberInfo memberInfo = memberService.getInfoByCardNo(requestMap.get("cardNo"));
         String reBirthday = memberInfo.getBirthday();
-        memberInfo.setBirthday(reBirthday.substring(0,10));
+        memberInfo.setBirthday(reBirthday.substring(0, 10));
         //frist time to use Optional of guava ;
         Optional<MemberInfo> optional = Optional.of(memberInfo);
         if (optional.isPresent()) {

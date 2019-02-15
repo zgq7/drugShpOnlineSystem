@@ -10,8 +10,12 @@
 <body style="background-color: grey">
 <div class="layui-upload">
     <button type="button" class="layui-btn layui-btn-normal" id="test8">选择文件</button>
+    <div class="layui-upload-list">
+        <img class="layui-upload-img" id="demo2" style="background-color: #5FB878">
+    </div>
     <button type="button" class="layui-btn" id="test9">开始上传</button>
 </div>
+
 </body>
 <script>
     layui.use('upload', function () {
@@ -21,15 +25,22 @@
         upload.render({
             elem: '#test8'
             , url: 'uploadImg'
-            , auto: false
+            , auto: true    //true为自动上传
             , size: 60        //文件大小
             , exts: 'jpg|png' //文件后缀
-            , multiple: true
+            , multiple : false //false 代表不允许多文件上传
+            , before: function (obj) {
+                //预读本地文件示例，不支持ie8
+                obj.preview(function (index, file, result) {
+                    $('#demo2').append('<img src="' + result + '" alt="' + file.name + '" class="layui-upload-img">')
+                });
+            }
             , bindAction: '#test9'
             , done: function (res) {
                 console.log(res)
             }
         });
+
     });
 </script>
 </html>

@@ -69,18 +69,19 @@ public class MainController {
      * 上传图片action
      **/
     @RequestMapping(value = "/uploadImg", method = RequestMethod.POST)
-    public String uploadImg(HttpServletRequest request,@RequestParam("file") MultipartFile file, Model model) {
+    public String uploadImg(HttpServletRequest request, @RequestParam("file") MultipartFile file, Model model) {
         log.info("file is uploading");
         try {
             //重命名将保存的文件名
             String fileName = System.currentTimeMillis() + file.getOriginalFilename();
             //文件存储路径
-            String destFileName = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources"
-                    +File.separator+"images"+File.separator;
-            FileOutputStream stream = new FileOutputStream(destFileName+fileName);
+           /* String destFileName = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources"
+                    + File.separator + "images" + File.separator;*/
+            String destFileName = System.getProperty("user.dir") + File.separator + "upload"+File.separator;
+            FileOutputStream stream = new FileOutputStream(destFileName + fileName);
             stream.write(file.getBytes());
-            //stream.close();
-            log.info("{}",destFileName+fileName);
+            stream.close();
+            log.info("{}", destFileName + fileName);
             model.addAttribute("msg", "upload success");
         } catch (FileNotFoundException e) {
             log.error("文件为空：{}", e);
