@@ -5,7 +5,6 @@
 $(document).ready(function () {
     let param = {};
     let cardNo = $("#myCardNo").text();
-    console.log(cardNo);
     param.cardNo = cardNo;
     $.ajax({
         url: "root",
@@ -15,6 +14,7 @@ $(document).ready(function () {
         dataType: "json",
         timeout: 1000,
         success: function (data) {
+            console.log(data);
             document.getElementById('myUserName').innerHTML = data.name;
             $("#userImg").attr("src", data.imgRoot);
         },
@@ -32,7 +32,7 @@ $(document).ready(function () {
         timeout: 1000,
         success: function (data) {
             let member = data.info;
-            console.log(member);
+            //console.log(member);
             $("#img").attr("src", member.imgRoot);
             $("#name").html(member.name);
             $("#sex").html(member.sex);

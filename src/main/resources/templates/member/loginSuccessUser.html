@@ -70,7 +70,10 @@
     </div>
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <span id="myCardNo" th:text="${session.account}" hidden>内容主题</span>
+        <div hidden>
+            <span id="myCardNo" th:text="${session.account}">内容主题</span>
+            <span id="myType" th:text="${session.type}">内容主题</span>
+        </div>
         <div style="padding: 15px;height: 95%;" id="body">
             <span>内容主题</span>
         </div>

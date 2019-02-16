@@ -1,7 +1,6 @@
 package com.dsos;
 
 import org.junit.Test;
-import org.springframework.util.ClassUtils;
 import org.springframework.util.ResourceUtils;
 
 import java.io.File;
@@ -10,9 +9,20 @@ import java.util.Optional;
 public class test {
 
     @Test
-    public void aaa() {
-        System.out.println(System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resource");
-        String fileName = System.currentTimeMillis()+"TEST";
+    public void aaa() throws Exception{
+        System.out.println(System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resource"
+                + File.separator + "images" + File.separator + "member" + File.separator);
+
+        File path = new File(ResourceUtils.getURL("classpath:").getPath());
+        String destFileName2 = new File(path.getAbsolutePath(),"images/member/").getAbsolutePath();
+        System.out.println(destFileName2);
+
+        String fileName = System.currentTimeMillis() + "TEST";
+        String destFileName = System.getProperty("user.dir") + File.separator + "upload" + File.separator;
+        File newFile = new File(destFileName);
+        if (!newFile.exists()) {
+            newFile.mkdirs();
+        }
         //文件存储路径
     }
 

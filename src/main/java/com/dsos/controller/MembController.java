@@ -3,6 +3,7 @@ package com.dsos.controller;
 import com.dsos.config.shiro.LoginType;
 import com.dsos.config.shiro.UsernamePwdLogTypToken;
 import com.dsos.modle.user.MemberInfo;
+import com.dsos.service.MainService;
 import com.dsos.service.MemberService;
 import com.google.common.collect.ImmutableMap;
 import org.apache.shiro.SecurityUtils;
@@ -12,15 +13,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.util.ResourceUtils;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Enumeration;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -36,17 +38,19 @@ public class MembController {
     private static final String loginType = LoginType.MEMBER.getLoginType();
     @Autowired
     private MemberService memberService;
+    @Autowired
+    private MainService mainService;
 
     /**
      * @return member 的登录
      */
     @RequestMapping(value = "/login")
-    public String Login(HttpServletRequest request, Model model, HttpSession session) {
+    public String Login(HttpServletRequest request, HttpSession session) {
         log.info("正在执行登录");
         String account = request.getParameter("account");
         String password = request.getParameter("password");
         session.setAttribute("account", account);
-        session.setAttribute("password", password);
+        session.setAttribute("type", loginType);
         log.info("账号：{},密码：{}", account, password);
         Subject memberSubject = SecurityUtils.getSubject();
         //使用自定义token的登录方式
@@ -58,7 +62,6 @@ public class MembController {
             log.error("密码/账号错误:{}", e.toString());
             return "error";
         }
-        model.addAttribute("cardNo", account);
         return "member/loginSuccessUser";
     }
 
@@ -130,4 +133,70 @@ public class MembController {
     public String config() {
         return "member/config";
     }
+
+    /**
+     * 跳转到修改资料页面
+     **/
+    @RequestMapping(value = "/updateInfo")
+    public String updateInfo() {
+        return "common/updateInfo";
+    }
+
+    /**
+     * 跳转到修改头像页面
+     **/
+    @RequestMapping(value = "/updateLog")
+    public String updateLogo() {
+        return "common/updateLog";
+    }
+
+    /**
+     * 上传图片action
+     *
+     * @param file    上传的文件
+     * @param request 传值
+     **/
+    @RequestMapping(value = "/uploadImg", method = RequestMethod.POST)
+    public @ResponseBody
+    Map<Object, Object> uploadImg(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        String count = (String) session.getAttribute("account");
+        log.info("file is uploading");
+        try {
+            //重命名将保存的文件名
+            String fileName = System.currentTimeMillis() + file.getOriginalFilename();
+            //文件存储路径
+            /*String destFileName = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources"
+                    + File.separator + "images" + File.separator + loginType.toLowerCase() + File.separator;*/
+            File path = new File(ResourceUtils.getURL("classpath:").getPath());
+            String destFileName = new File(path.getAbsolutePath(),"images/member/").getAbsolutePath()+File.separator;
+            //数据库地址
+            String dbRoot = ".." + File.separator + "images" + File.separator + loginType.toLowerCase() + File.separator + fileName;
+            //物理地址
+            String dirRoot = destFileName + fileName;
+            log.info("{},{}", destFileName, dirRoot);
+            //如果文件夹不存在，则新建
+            File newFile = new File(destFileName);
+            if (!newFile.exists()) {
+                newFile.mkdirs();
+            }
+            FileOutputStream stream = new FileOutputStream(dirRoot);
+            stream.write(file.getBytes());
+            stream.close();
+            log.info("{},--->{}", dbRoot, count);
+            //上传完之后，修改数据库的imgRoot
+            Boolean updatStatus = mainService.updateUserImg(dbRoot, count);
+            if (newFile.exists() && updatStatus)
+                return ImmutableMap.of("code", 1, "msg", "修改成功，点击确定后10秒返回资料界面。", "data",
+                        ImmutableMap.of("src", dbRoot));
+        } catch (FileNotFoundException e) {
+            log.error("文件为空：{}", e);
+            return ImmutableMap.of("code", 0, "msg", "fail", "data", "");
+        } catch (IOException e) {
+            log.error("IO 流报错：{}", e);
+            return ImmutableMap.of("code", 0, "msg", "fail", "data", "");
+        }
+        return ImmutableMap.of("code", 1, "msg", "something was wrong", "data", "");
+    }
+
 }

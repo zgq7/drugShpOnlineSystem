@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>update logo</title>
-    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
-    <script type="text/javascript" src="lay/layui.js"></script>
-    <link rel="stylesheet" href="lay/css/layui.css" media="all">
+    <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../lay/layui.js"></script>
+    <link rel="stylesheet" href="../lay/css/layui.css" media="all">
 </head>
 <body style="background-color: grey">
-<div class="layui-upload">
+<div class="layui-upload" style="margin-top: 2%;margin-left: 2%">
     <button type="button" class="layui-btn layui-btn-normal" id="test8">选择文件</button>
     <div class="layui-upload-list">
-        <img class="layui-upload-img" id="demo2" style="background-color: #5FB878">
+        <span style="color: #eb7350;font-size: 30px;font-family: 隶书">图片预览</span><br>
+        <img src="" id="demo2" style="background-color: #5FB878;height: 200px;width: 200px">
+        <button type="button" class="layui-btn" id="test9" style="margin-top: 140px">开始上传</button>
     </div>
-    <button type="button" class="layui-btn" id="test9">开始上传</button>
 </div>
 
 </body>
@@ -25,22 +26,28 @@
         upload.render({
             elem: '#test8'
             , url: 'uploadImg'
-            , auto: true    //true为自动上传
-            , size: 60        //文件大小
+            , auto: false    //true为自动上传
+            , bindAction: "#test9"
+            , size: 60        //文件大小 60k
             , exts: 'jpg|png' //文件后缀
-            , multiple : false //false 代表不允许多文件上传
-            , before: function (obj) {
-                //预读本地文件示例，不支持ie8
+            , multiple: false //false 代表不允许多文件上传
+            //文件选择后出发before
+            , choose: function (obj) {
                 obj.preview(function (index, file, result) {
-                    $('#demo2').append('<img src="' + result + '" alt="' + file.name + '" class="layui-upload-img">')
+                    $("#demo2").attr("src", result);
                 });
             }
-            , bindAction: '#test9'
-            , done: function (res) {
-                console.log(res)
+            , done: function (res, upload, index) {
+                if (res.code == 1) {
+                    alert(res.msg);
+                    window.location.href = 'info';
+                }
+            }
+            , error(index, upload){
+                location.reload();
+                alert("修改失败");
             }
         });
-
     });
 </script>
 </html>

@@ -5,6 +5,7 @@ import com.dsos.modle.user.ChainWorkUser;
 import com.dsos.modle.user.MemberUser;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -13,6 +14,9 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface MainDao {
+    /**
+     * 以下三条，都是处理登录操作
+     **/
     @Select("CALL login_member(#{account},#{password})")
     MemberUser memberLogin(@Param("account") String account, @Param("password") String password) throws Exception;
 
@@ -21,4 +25,10 @@ public interface MainDao {
 
     @Select("call login_chain(#{account},#{password})")
     ChainWorkUser chainLogin(@Param("account") String account, @Param("password") String password) throws Exception;
+
+    /**
+     * 以下处理头像
+     **/
+    @Update("update dsos_live_MemberInfo set imgRoot = #{imgRoot} where cardNo = #{cardNo}")
+    Integer updateUserImg(@Param("imgRoot") String imgRoot, @Param("cardNo") String count) throws Exception;
 }
