@@ -6,6 +6,8 @@ import com.dsos.modle.user.MemberInfo;
 import com.dsos.service.MainService;
 import com.dsos.service.MemberService;
 import com.google.common.collect.ImmutableMap;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.subject.Subject;
@@ -139,7 +141,7 @@ public class MembController {
      **/
     @RequestMapping(value = "/updateInfo")
     public String updateInfo() {
-        return "common/updateInfo";
+        return "member/updateInfo";
     }
 
     /**
@@ -158,36 +160,39 @@ public class MembController {
      **/
     @RequestMapping(value = "/uploadImg", method = RequestMethod.POST)
     public @ResponseBody
-    Map<Object, Object> uploadImg(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
+       Map<Object, Object> uploadImg(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
         HttpSession session = request.getSession();
         String count = (String) session.getAttribute("account");
+        //获取旧文件地址
+        MemberInfo memberInfo = memberService.getInfoByCardNo(count);
+        String oldRoot = StringUtils.substringAfterLast(memberInfo.getImgRoot(), "\\");
         log.info("file is uploading");
         try {
             //重命名将保存的文件名
-            String fileName = System.currentTimeMillis() + file.getOriginalFilename();
-            //文件存储路径
-            /*String destFileName = System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resources"
-                    + File.separator + "images" + File.separator + loginType.toLowerCase() + File.separator;*/
+            String newFileName = System.currentTimeMillis() + file.getOriginalFilename();
+            //目标文件存储路径
             File path = new File(ResourceUtils.getURL("classpath:").getPath());
-            String destFileName = new File(path.getAbsolutePath(),"images/member/").getAbsolutePath()+File.separator;
-            //数据库地址
-            String dbRoot = ".." + File.separator + "images" + File.separator + loginType.toLowerCase() + File.separator + fileName;
-            //物理地址
-            String dirRoot = destFileName + fileName;
-            log.info("{},{}", destFileName, dirRoot);
+            String destFileName = new File(path.getAbsolutePath(), "images/member/").getAbsolutePath() + File.separator;
+            //新的数据库地址
+            String dbRoot = ".." + File.separator + "images" + File.separator + loginType.toLowerCase() + File.separator + newFileName;
+            //新的物理地址
+            String dirRoot = destFileName + newFileName;
             //如果文件夹不存在，则新建
             File newFile = new File(destFileName);
             if (!newFile.exists()) {
                 newFile.mkdirs();
             }
+            //删除老文件
+            log.info("old:{},new:{}", oldRoot, newFileName);
+            FileUtils.deleteQuietly(new File(destFileName + oldRoot));
+
             FileOutputStream stream = new FileOutputStream(dirRoot);
             stream.write(file.getBytes());
             stream.close();
-            log.info("{},--->{}", dbRoot, count);
             //上传完之后，修改数据库的imgRoot
             Boolean updatStatus = mainService.updateUserImg(dbRoot, count);
             if (newFile.exists() && updatStatus)
-                return ImmutableMap.of("code", 1, "msg", "修改成功，点击确定后10秒返回资料界面。", "data",
+                return ImmutableMap.of("code", 1, "msg", "修改成功，点击确定后返回资料界面。", "data",
                         ImmutableMap.of("src", dbRoot));
         } catch (FileNotFoundException e) {
             log.error("文件为空：{}", e);
