@@ -21,17 +21,6 @@ public class MemberServiceImpl implements MemberService {
     private MemberDao memberDao;
 
     @Override
-    public MemberInfo getUerNameImgByCardNo(String cardNo) {
-        MemberInfo memberInfo = new MemberInfo();
-        try {
-            memberInfo = memberDao.getUerNameImgByCardNo(cardNo);
-        } catch (Exception e) {
-            log.error("获取会员logo以及卡号报错：{}", e);
-        }
-        return memberInfo;
-    }
-
-    @Override
     public String registryMember(Map<String, String> params) {
         try {
             String status = memberDao.registryMember(params.get("name"), params.get("password"), params.get("mobile"), params.get("sex"));

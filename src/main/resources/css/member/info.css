@@ -12,7 +12,7 @@
 }
 
 .info_main {
-    margin-left: 5%;
+    margin-left: 40%;
     margin-top: 2%;
     font-size: 20px;
     font-family: 华文楷体;
@@ -26,8 +26,8 @@
     color: red;
 }
 
-li {
-    margin-top: 1%;
+li.infoLi {
+    margin-top: 2%;
 }
 
 table, tbody, tr {

@@ -10,10 +10,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface MemberDao {
-    //查询会员名以及头像地址
-    @Select("select name,imgRoot from dsos_live_memberInfo where cardNo = #{cardNo}")
-    MemberInfo getUerNameImgByCardNo(@Param("cardNo") String cardNo) throws Exception;
-
     //会员注册
     @Insert("CALL pos_add_member(#{name},#{password},#{mobile},#{sex});")
     String registryMember(@Param("name") String name, @Param("password") String password,
@@ -22,4 +18,8 @@ public interface MemberDao {
     //查询会员信息
     @Select("select * from dsos_live_memberInfo where cardNo = #{cardNo}")
     MemberInfo getInfoByCardNo(@Param("cardNo") String cardNo) throws Exception;
+
+    //修改个人资料
+    @Update("call pos_update_memberInfo(#{user.mobile})")
+    Integer updateMemberInfo(@Param("user") MemberInfo memberInfo);
 }

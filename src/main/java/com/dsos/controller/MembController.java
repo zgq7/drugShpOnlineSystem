@@ -15,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -102,14 +103,9 @@ public class MembController {
     @RequestMapping("/root")
     public @ResponseBody
     Map<Object, Object> root(@RequestBody Map<String, String> requestMap) {
-        Map<Object, Object> result = new HashMap<>();
-        MemberInfo memberInfo = memberService.getUerNameImgByCardNo(requestMap.get("cardNo"));
-        String name = memberInfo.getName();
-        String imgRoot = memberInfo.getImgRoot();
-        log.info("name {}, root {}", name, imgRoot);
-        result.put("name", name);
-        result.put("imgRoot", imgRoot);
-        return result;
+        MemberInfo memberInfo = memberService.getInfoByCardNo(requestMap.get("cardNo"));
+        log.info("name {}, root {},amount :{}", memberInfo.getName(), memberInfo.getImgRoot(), memberInfo.getAmount());
+        return ImmutableMap.of("name", memberInfo.getName(), "imgRoot", memberInfo.getImgRoot(), "amount", memberInfo.getAmount());
     }
 
     @RequestMapping(value = "/info")
@@ -160,7 +156,7 @@ public class MembController {
      **/
     @RequestMapping(value = "/uploadImg", method = RequestMethod.POST)
     public @ResponseBody
-       Map<Object, Object> uploadImg(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
+    Map<Object, Object> uploadImg(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
         HttpSession session = request.getSession();
         String count = (String) session.getAttribute("account");
         //获取旧文件地址
@@ -202,6 +198,18 @@ public class MembController {
             return ImmutableMap.of("code", 0, "msg", "fail", "data", "");
         }
         return ImmutableMap.of("code", 1, "msg", "something was wrong", "data", "");
+    }
+
+    /**
+     * @param request ajax传递过来的数据
+     * @return 返回的数据
+     **/
+    @RequestMapping(value = "/uploadInfo", method = RequestMethod.GET)
+    public @ResponseBody
+    Map<Object, Object> uploadInfo(HttpServletRequest request, Model model) {
+        log.info("info updating :{}", request.getParameter("phone"));
+        model.addAttribute("msg", "success");
+        return ImmutableMap.of("msg", "success");
     }
 
 }

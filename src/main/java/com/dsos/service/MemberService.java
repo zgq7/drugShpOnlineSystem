@@ -10,11 +10,6 @@ import java.util.Map;
  * 会员 服务层
  */
 public interface MemberService {
-    /**
-     * 参数处理
-     * 结果处理
-     **/
-    MemberInfo getUerNameImgByCardNo(String cardNo);
 
     /**
      * 因为要插入两个表，因此用map传参
@@ -22,6 +17,9 @@ public interface MemberService {
      **/
     String registryMember(Map<String, String> params);
 
-    //通过卡号查询个人信息
+    /**
+     * 参数处理 拖卡号查询个人资料
+     * 结果处理
+     **/
     MemberInfo getInfoByCardNo(String cardNo);
 }

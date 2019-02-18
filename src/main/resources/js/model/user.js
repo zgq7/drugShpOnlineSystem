@@ -17,6 +17,7 @@ $(document).ready(function () {
             console.log(data);
             document.getElementById('myUserName').innerHTML = data.name;
             $("#userImg").attr("src", data.imgRoot);
+            $("#amount").html(data.amount);
         },
         error: function (data, status) {
             console.log("ajax error : " + status);
@@ -32,7 +33,7 @@ $(document).ready(function () {
         timeout: 1000,
         success: function (data) {
             let member = data.info;
-            //console.log(member);
+            console.log(member.amount);
             $("#img").attr("src", member.imgRoot);
             $("#name").html(member.name);
             $("#sex").html(member.sex);
@@ -42,7 +43,7 @@ $(document).ready(function () {
             $("#address").html(member.address);
             $("#intergration").html(member.intergration);
             $("#level").html(member.leavel);
-            $("#amount").html(member.amount);
+            $("#infoAmount").html(member.amount);
         },
         error: function (data) {
             console.log(data);

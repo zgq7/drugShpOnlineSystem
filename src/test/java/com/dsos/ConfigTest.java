@@ -28,7 +28,6 @@ public class ConfigTest {
     @SuppressWarnings("resource")
     @Test
     public void testSpringIoc() {
-        System.out.println(memberService.getUerNameImgByCardNo("rsd123456"));
     }
 
     @Test
