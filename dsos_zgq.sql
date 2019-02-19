@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : mysqlTest
+ Source Server         : mysql-admin
  Source Server Type    : MySQL
  Source Server Version : 50717
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50717
  File Encoding         : 65001
 
- Date: 11/02/2019 22:34:06
+ Date: 19/02/2019 17:36:10
 */
 
 SET NAMES utf8mb4;
@@ -89,12 +89,12 @@ CREATE TABLE `dsos_live_memberinfo`  (
   `leavel` int(50) NULL DEFAULT 0 COMMENT '会员等级',
   `statu` int(255) NULL DEFAULT 1 COMMENT '会员状态',
   PRIMARY KEY (`infoId`, `cardNo`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 124 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 125 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of dsos_live_memberinfo
 -- ----------------------------
-INSERT INTO `dsos_live_memberinfo` VALUES (1, 'rsd123456', 'zgq', '男', '1997-07-07 00:00:00', '0', '0', 0, 100, '../images/logo/bg4.jpg', NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (1, 'rsd123456', 'zgq', NULL, '1997-07-07 00:00:00', '浙江省-杭州市-西湖区', '0', 88, 100, '..\\images\\member\\1550560917489mm.jpg', '12345678911@qq.com', 0, 1);
 INSERT INTO `dsos_live_memberinfo` VALUES (2, 'rsd444', 'fgf', '男', '1999-09-09 00:00:00', '0', '0', 0, 100, NULL, NULL, 0, 1);
 INSERT INTO `dsos_live_memberinfo` VALUES (3, 'rsd057233', '丽姐', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
 INSERT INTO `dsos_live_memberinfo` VALUES (4, 'rsd057571', '袁榕', '女', '1974-04-18 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
@@ -197,6 +197,7 @@ INSERT INTO `dsos_live_memberinfo` VALUES (100, 'rsd099361', '陈国秀', '女',
 INSERT INTO `dsos_live_memberinfo` VALUES (101, 'rsd099915', '陈明华', '女', '1973-11-20 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
 INSERT INTO `dsos_live_memberinfo` VALUES (102, 'rsd1000259', '刘小平', '女', '1988-09-05 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
 INSERT INTO `dsos_live_memberinfo` VALUES (123, 'rsd123457', '杜衡', '男', NULL, NULL, '0', 0, 100, NULL, NULL, 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (124, 'rsd123458', 'test', '男', NULL, NULL, '0', 0, 100, NULL, NULL, 0, 1);
 
 -- ----------------------------
 -- Table structure for dsos_live_memberuser
@@ -211,113 +212,114 @@ CREATE TABLE `dsos_live_memberuser`  (
   `storeId` int(50) NULL DEFAULT 0 COMMENT '所属门店标识',
   `md5Password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'MD5加密的密码',
   PRIMARY KEY (`cardId`, `cardNo`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 223 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 224 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of dsos_live_memberuser
 -- ----------------------------
-INSERT INTO `dsos_live_memberuser` VALUES (1, 'lsr002', 'rsd123456', '123456', '0734682572', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (102, 'lsr002', 'rsd057233', '123456', '0734986703', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (103, 'lsr002', 'rsd057571', '123456', '0734791630', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (104, 'lsr002', 'rsd059250', '123456', '0734983854', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (105, 'lsr002', 'rsd059885', '123456', '0734102804', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (106, 'lsr002', 'rsd060169', '123456', '0734157240', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (107, 'lsr002', 'rsd060660', '123456', '0734219699', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (108, 'lsr002', 'rsd060721', '123456', '0734686326', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (109, 'lsr002', 'rsd061318', '123456', '0734776841', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (110, 'lsr002', 'rsd061586', '123456', '0734859904', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (111, 'lsr002', 'rsd061641', '123456', '0734929910', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (112, 'lsr002', 'rsd062026', '123456', '0734792954', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (113, 'lsr002', 'rsd06324', '123456', '073457452', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (114, 'lsr002', 'rsd065056', '123456', '0734925451', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (115, 'lsr002', 'rsd06521', '123456', '073423013', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (116, 'lsr002', 'rsd06579', '123456', '0734914787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (117, 'lsr002', 'rsd066329', '123456', '0734108209', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (118, 'lsr002', 'rsd066672', '123456', '0734184690', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (119, 'lsr002', 'rsd067024', '123456', '0734103529', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (120, 'lsr002', 'rsd06722', '123456', '0734891964', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (121, 'lsr002', 'rsd067294', '123456', '073413531', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (122, 'lsr002', 'rsd06818', '123456', '0734462322', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (123, 'lsr002', 'rsd068202', '123456', '073443611', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (124, 'lsr002', 'rsd068445', '123456', '0734952513', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (125, 'lsr002', 'rsd068599', '123456', '0734385869', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (126, 'lsr002', 'rsd068634', '123456', '0734249017', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (127, 'lsr002', 'rsd069218', '123456', '073460576', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (128, 'lsr002', 'rsd069743', '123456', '0734453637', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (129, 'lsr002', 'rsd070018', '123456', '073468102', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (130, 'lsr002', 'rsd070326', '123456', '0734776955', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (131, 'lsr002', 'rsd070495', '123456', '0734853325', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (132, 'lsr002', 'rsd070550', '123456', '0734308682', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (133, 'lsr002', 'rsd071020', '123456', '073479938', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (134, 'lsr002', 'rsd071410', '123456', '073452770', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (135, 'lsr002', 'rsd07174', '123456', '0734281848', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (136, 'lsr002', 'rsd072324', '123456', '0734160459', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (137, 'lsr002', 'rsd072405', '123456', '0734136661', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (138, 'lsr002', 'rsd073257', '123456', '0734483250', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (139, 'lsr002', 'rsd073280', '123456', '073434535', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (140, 'lsr002', 'rsd073384', '123456', '073465404', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (141, 'lsr002', 'rsd07378', '123456', '0734245594', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (142, 'lsr002', 'rsd073943', '123456', '0734777827', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (143, 'lsr002', 'rsd075027', '123456', '0734401044', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (144, 'lsr002', 'rsd075606', '123456', '0734494385', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (145, 'lsr002', 'rsd076596', '123456', '0734220203', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (146, 'lsr002', 'rsd077099', '123456', '0734270341', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (147, 'lsr002', 'rsd077368', '123456', '073435994', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (148, 'lsr002', 'rsd078009', '123456', '0734212029', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (149, 'lsr002', 'rsd078654', '123456', '0734980796', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (150, 'lsr002', 'rsd079098', '123456', '0734292488', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (151, 'lsr002', 'rsd079332', '123456', '0734108036', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (152, 'lsr002', 'rsd080026', '123456', '0734260621', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (153, 'lsr002', 'rsd08025', '123456', '0734989659', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (154, 'lsr002', 'rsd080343', '123456', '0734775182', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (155, 'lsr002', 'rsd080801', '123456', '0734890188', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (156, 'lsr002', 'rsd080935', '123456', '0734818500', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (157, 'lsr002', 'rsd082557', '123456', '0734784083', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (158, 'lsr002', 'rsd082962', '123456', '0734909884', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (159, 'lsr002', 'rsd083082', '123456', '0734368296', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (160, 'lsr002', 'rsd083236', '123456', '0734343713', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (161, 'lsr002', 'rsd083320', '123456', '0734301724', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (162, 'lsr002', 'rsd08431', '123456', '0734626191', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (163, 'lsr002', 'rsd084542', '123456', '0734941329', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (164, 'lsr002', 'rsd08522', '123456', '0734285882', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (165, 'lsr002', 'rsd085838', '123456', '073473848', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (166, 'lsr002', 'rsd086264', '123456', '073499256', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (167, 'lsr002', 'rsd086303', '123456', '0734693790', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (168, 'lsr002', 'rsd086631', '123456', '0734593146', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (169, 'lsr002', 'rsd087203', '123456', '0734972968', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (170, 'lsr002', 'rsd087217', '123456', '0734902855', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (171, 'lsr002', 'rsd087222', '123456', '0734338123', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (172, 'lsr002', 'rsd087528', '123456', '0734200614', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (173, 'lsr002', 'rsd087691', '123456', '0734173848', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (174, 'lsr002', 'rsd089122', '123456', '073417474', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (175, 'lsr002', 'rsd089589', '123456', '0734870962', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (176, 'lsr002', 'rsd090614', '123456', '0734435248', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (177, 'lsr002', 'rsd091370', '123456', '073459285', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (178, 'lsr002', 'rsd091450', '123456', '0734830918', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (179, 'lsr002', 'rsd091476', '123456', '073411530', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (180, 'lsr002', 'rsd092134', '123456', '0734593402', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (181, 'lsr002', 'rsd09362', '123456', '073418454', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (182, 'lsr002', 'rsd093888', '123456', '0734109883', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (183, 'lsr002', 'rsd093937', '123456', '0734837105', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (184, 'lsr002', 'rsd094029', '123456', '0734432760', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (185, 'lsr002', 'rsd094143', '123456', '0734964813', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (186, 'lsr002', 'rsd09536', '123456', '0734162523', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (187, 'lsr002', 'rsd096456', '123456', '0734183868', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (188, 'lsr002', 'rsd096623', '123456', '0734271487', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (189, 'lsr002', 'rsd096800', '123456', '0734191176', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (190, 'lsr002', 'rsd09682', '123456', '073431699', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (191, 'lsr002', 'rsd096894', '123456', '0734619924', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (192, 'lsr002', 'rsd097231', '123456', '0734196690', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (193, 'lsr002', 'rsd09795', '123456', '0734845964', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (194, 'lsr002', 'rsd098413', '123456', '0734792530', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (195, 'lsr002', 'rsd098702', '123456', '0734140054', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (196, 'lsr002', 'rsd098713', '123456', '073422309', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (197, 'lsr002', 'rsd098886', '123456', '0734178412', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (198, 'lsr002', 'rsd099039', '123456', '0734381769', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (199, 'lsr002', 'rsd099361', '123456', '0734299486', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (200, 'lsr002', 'rsd099915', '123456', '0734936468', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (201, 'lsr002', 'rsd1000259', '123456', '0734711868', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (222, 'lsr002', 'rsd123457', '123456', '2323523525', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (1, 'lsr002', 'rsd123456', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (102, 'lsr002', 'rsd057233', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (103, 'lsr002', 'rsd057571', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (104, 'lsr002', 'rsd059250', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (105, 'lsr002', 'rsd059885', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (106, 'lsr002', 'rsd060169', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (107, 'lsr002', 'rsd060660', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (108, 'lsr002', 'rsd060721', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (109, 'lsr002', 'rsd061318', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (110, 'lsr002', 'rsd061586', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (111, 'lsr002', 'rsd061641', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (112, 'lsr002', 'rsd062026', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (113, 'lsr002', 'rsd06324', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (114, 'lsr002', 'rsd065056', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (115, 'lsr002', 'rsd06521', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (116, 'lsr002', 'rsd06579', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (117, 'lsr002', 'rsd066329', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (118, 'lsr002', 'rsd066672', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (119, 'lsr002', 'rsd067024', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (120, 'lsr002', 'rsd06722', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (121, 'lsr002', 'rsd067294', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (122, 'lsr002', 'rsd06818', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (123, 'lsr002', 'rsd068202', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (124, 'lsr002', 'rsd068445', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (125, 'lsr002', 'rsd068599', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (126, 'lsr002', 'rsd068634', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (127, 'lsr002', 'rsd069218', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (128, 'lsr002', 'rsd069743', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (129, 'lsr002', 'rsd070018', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (130, 'lsr002', 'rsd070326', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (131, 'lsr002', 'rsd070495', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (132, 'lsr002', 'rsd070550', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (133, 'lsr002', 'rsd071020', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (134, 'lsr002', 'rsd071410', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (135, 'lsr002', 'rsd07174', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (136, 'lsr002', 'rsd072324', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (137, 'lsr002', 'rsd072405', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (138, 'lsr002', 'rsd073257', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (139, 'lsr002', 'rsd073280', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (140, 'lsr002', 'rsd073384', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (141, 'lsr002', 'rsd07378', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (142, 'lsr002', 'rsd073943', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (143, 'lsr002', 'rsd075027', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (144, 'lsr002', 'rsd075606', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (145, 'lsr002', 'rsd076596', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (146, 'lsr002', 'rsd077099', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (147, 'lsr002', 'rsd077368', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (148, 'lsr002', 'rsd078009', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (149, 'lsr002', 'rsd078654', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (150, 'lsr002', 'rsd079098', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (151, 'lsr002', 'rsd079332', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (152, 'lsr002', 'rsd080026', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (153, 'lsr002', 'rsd08025', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (154, 'lsr002', 'rsd080343', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (155, 'lsr002', 'rsd080801', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (156, 'lsr002', 'rsd080935', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (157, 'lsr002', 'rsd082557', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (158, 'lsr002', 'rsd082962', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (159, 'lsr002', 'rsd083082', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (160, 'lsr002', 'rsd083236', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (161, 'lsr002', 'rsd083320', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (162, 'lsr002', 'rsd08431', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (163, 'lsr002', 'rsd084542', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (164, 'lsr002', 'rsd08522', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (165, 'lsr002', 'rsd085838', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (166, 'lsr002', 'rsd086264', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (167, 'lsr002', 'rsd086303', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (168, 'lsr002', 'rsd086631', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (169, 'lsr002', 'rsd087203', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (170, 'lsr002', 'rsd087217', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (171, 'lsr002', 'rsd087222', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (172, 'lsr002', 'rsd087528', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (173, 'lsr002', 'rsd087691', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (174, 'lsr002', 'rsd089122', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (175, 'lsr002', 'rsd089589', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (176, 'lsr002', 'rsd090614', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (177, 'lsr002', 'rsd091370', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (178, 'lsr002', 'rsd091450', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (179, 'lsr002', 'rsd091476', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (180, 'lsr002', 'rsd092134', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (181, 'lsr002', 'rsd09362', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (182, 'lsr002', 'rsd093888', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (183, 'lsr002', 'rsd093937', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (184, 'lsr002', 'rsd094029', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (185, 'lsr002', 'rsd094143', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (186, 'lsr002', 'rsd09536', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (187, 'lsr002', 'rsd096456', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (188, 'lsr002', 'rsd096623', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (189, 'lsr002', 'rsd096800', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (190, 'lsr002', 'rsd09682', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (191, 'lsr002', 'rsd096894', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (192, 'lsr002', 'rsd097231', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (193, 'lsr002', 'rsd09795', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (194, 'lsr002', 'rsd098413', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (195, 'lsr002', 'rsd098702', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (196, 'lsr002', 'rsd098713', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (197, 'lsr002', 'rsd098886', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (198, 'lsr002', 'rsd099039', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (199, 'lsr002', 'rsd099361', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (200, 'lsr002', 'rsd099915', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (201, 'lsr002', 'rsd1000259', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (222, 'lsr002', 'rsd123457', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (223, 'lsr002', 'rsd123458', '123456', '15211593787', 0, NULL);
 
 -- ----------------------------
 -- Table structure for dsos_perms
@@ -1522,6 +1524,29 @@ BEGIN
 	#以认证登录的账号进行角色查询；
 	SELECT * from dsos_role where roleNo = roleNum;
 
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for pos_update_memberInfo
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `pos_update_memberInfo`;
+delimiter ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pos_update_memberInfo`(IN `cardNoz` varchar(19),IN `mobilez` varchar(19),IN `emailz` varchar(19),IN `birthdayz` varchar(19),IN `oldPassword` varchar(19),IN `newPassword` varchar(19),IN `addressz` varchar(19),IN `sexz` varchar(19))
+BEGIN
+	#修改个人资料
+	#Update dsos_live_memberinfo set ;
+	if(select count(*) from dsos_live_memberuser where cardNo = `cardNoz` and `password` = oldPassword) > 0
+	then
+	
+	update dsos_live_memberinfo set email = emailz , birthday = birthdayz ,address = addressz	, sex = sexz
+	where cardNo = cardNoz;
+	
+	update dsos_live_memberuser set mobile = mobilez ,`password` = newPassword where cardNo = cardNo ;
+	
+-- 	else select '0' ;
+	end if ;
 END
 ;;
 delimiter ;
