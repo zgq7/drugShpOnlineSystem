@@ -1,7 +1,9 @@
 package com.dsos.dao;
 
 import com.dsos.modle.user.MemberInfo;
+import com.dsos.modle.user.MemberUser;
 import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.mapping.FetchType;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -16,10 +18,20 @@ public interface MemberDao {
                           @Param("mobile") String mobile, @Param("sex") String sex);
 
     //查询会员信息
+    @Select("select * from dsos_live_memberUser where cardNo = #{cardNo}")
+    @Results(value = {
+            @Result(property = "mobile", column = "mobile"),
+            @Result(property = "cardNo", column = "cardNo"
+                   /* , one = @One(select = "getInfo2ByCardNo", fetchType = FetchType.LAZY)*/)
+    })
+    MemberUser getInfoByCardNo(@Param("cardNo") String cardNo) throws Exception;
+
+    //根据卡号查询个人资料
     @Select("select * from dsos_live_memberInfo where cardNo = #{cardNo}")
-    MemberInfo getInfoByCardNo(@Param("cardNo") String cardNo) throws Exception;
+    MemberInfo getInfo2ByCardNo(@Param("cardNo") String cardNo) throws Exception;
 
     //修改个人资料
-    @Update("call pos_update_memberInfo(#{user.mobile})")
-    Integer updateMemberInfo(@Param("user") MemberInfo memberInfo);
+    @Update("call pos_update_memberInfo(#{user.cardNo},#{mb.mobile},#{user.email},#{user.birthday},#{oldPassword},#{mb.password}" +
+            ",#{user.address},#{user.sex})")
+    Integer updateMemberInfo(@Param("user") MemberInfo memberInfo, @Param("oldPassword") String oldPassword, @Param("mb") MemberUser memberUser) throws Exception;
 }

@@ -5,8 +5,8 @@ import java.util.Set;
 
 /**
  * 会员主表，主要存放用户登录信息
- * **/
-public class MemberUser implements Serializable{
+ **/
+public class MemberUser implements Serializable {
     //会员标识
     private Integer cardId;
     //角色编号
@@ -21,6 +21,8 @@ public class MemberUser implements Serializable{
     private Integer storeId;
     //存放md5加密过后的password
     private String md5Password;
+    //会员资料
+    private MemberInfo memberInfo;
     //关注的门店类，得到门店编号
     private Set<Integer> concernedStores;
     //角色
@@ -84,6 +86,14 @@ public class MemberUser implements Serializable{
         this.md5Password = md5Password;
     }
 
+    public MemberInfo getMemberInfo() {
+        return memberInfo;
+    }
+
+    public void setMemberInfo(MemberInfo memberInfo) {
+        this.memberInfo = memberInfo;
+    }
+
     public Set<Integer> getConcernedStores() {
         return concernedStores;
     }
@@ -108,7 +118,6 @@ public class MemberUser implements Serializable{
         this.perms = perms;
     }
 
-
     @Override
     public String toString() {
         return "MemberUser{" +
@@ -116,9 +125,10 @@ public class MemberUser implements Serializable{
                 ", roleNo='" + roleNo + '\'' +
                 ", cardNo='" + cardNo + '\'' +
                 ", password='" + password + '\'' +
-                ", mobile=" + mobile +
+                ", mobile='" + mobile + '\'' +
                 ", storeId=" + storeId +
                 ", md5Password='" + md5Password + '\'' +
+                ", memberInfo=" + memberInfo +
                 ", concernedStores=" + concernedStores +
                 ", roles=" + roles +
                 ", perms=" + perms +

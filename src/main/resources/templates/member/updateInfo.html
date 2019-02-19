@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="../lay/css/layui.css" media="all">
 </head>
 <body style="background-size: 100%;background-color: grey">
-<form class="layui-form" action="uploadInfo">
+<form class="layui-form" action="uploadInfo" lay-filter="example">
     <div class="layui-form-item" style="margin-top: 20px">
         <div class="layui-inline">
             <label class="layui-form-label">手机</label>
             <div class="layui-input-inline">
-                <input type="tel" name="phone" lay-verify="required|phone" autocomplete="off" class="layui-input">
+                <input type="tel" name="mobile" lay-verify="required|phone" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-inline">
@@ -27,32 +27,34 @@
 
     <div class="layui-form-item">
         <div class="layui-inline">
-            <label class="layui-form-label">多规则验证</label>
+            <label class="layui-form-label">姓名</label>
             <div class="layui-input-inline">
-                <input type="text" name="number" lay-verify="required|number" autocomplete="off" class="layui-input">
+                <input type="text" name="name" lay-verify="username" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-inline">
             <label class="layui-form-label">生日</label>
             <div class="layui-input-inline">
-                <input type="text" name="date" id="date" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off"
+                <input type="text" name="birthday" id="date" lay-verify="date" placeholder="yyyy-MM-dd"
+                       autocomplete="off"
                        class="layui-input">
             </div>
         </div>
     </div>
 
     <div class="layui-form-item">
-        <label class="layui-form-label">新密码</label>
+        <label class="layui-form-label">旧密码</label>
         <div class="layui-input-inline">
-            <input type="password" name="password" lay-verify="pass" placeholder="请输入新密码" autocomplete="off"
+            <input type="password" name="oldPassword" lay-verify="pass" placeholder="请输入旧密码" autocomplete="off"
                    class="layui-input">
         </div>
         <div class="layui-form-mid layui-word-aux">请填写6到12位密码</div>
     </div>
+
     <div class="layui-form-item">
-        <label class="layui-form-label">旧密码</label>
+        <label class="layui-form-label">新密码</label>
         <div class="layui-input-inline">
-            <input type="password" name="password" lay-verify="pass" placeholder="请输入旧密码" autocomplete="off"
+            <input type="password" name="newPassword" lay-verify="pass" placeholder="请输入新密码" autocomplete="off"
                    class="layui-input">
         </div>
         <div class="layui-form-mid layui-word-aux">请填写6到12位密码</div>
@@ -71,11 +73,11 @@
         <div class="layui-input-inline">
             <select name="urban">
                 <option value="">请选择市</option>
-                <option value="杭州">杭州</option>
-                <option value="宁波">宁波</option>
-                <option value="温州">温州</option>
-                <option value="温州">台州</option>
-                <option value="温州">绍兴</option>
+                <option value="杭州市">杭州市</option>
+                <option value="宁波市">宁波市</option>
+                <option value="温州市">温州市</option>
+                <option value="温州市">台州市</option>
+                <option value="温州市">绍兴市</option>
             </select>
         </div>
         <div class="layui-input-inline">
@@ -106,9 +108,12 @@
         <div class="layui-input-block">
             <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            <button type="button" class="layui-btn layui-btn-primary" onclick="location.href='info'">返回</button>
+        </div>
+        <div class="layui-input-block">
+            <span th:text="${msg}" style="color: #eb7350;font-family: 隶书;font-size: 40px">123</span>
         </div>
     </div>
 </form>
-<span th:text="${msg}">123</span>
 </body>
 </html>

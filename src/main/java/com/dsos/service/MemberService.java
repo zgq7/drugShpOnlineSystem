@@ -22,4 +22,9 @@ public interface MemberService {
      * 结果处理
      **/
     MemberInfo getInfoByCardNo(String cardNo);
+
+    /**
+     * 会员信息修改
+     **/
+    Boolean updateMemberInfo(MemberInfo memberInfo, String oldPassword, MemberUser memberUser);
 }

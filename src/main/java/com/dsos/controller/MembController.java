@@ -3,6 +3,7 @@ package com.dsos.controller;
 import com.dsos.config.shiro.LoginType;
 import com.dsos.config.shiro.UsernamePwdLogTypToken;
 import com.dsos.modle.user.MemberInfo;
+import com.dsos.modle.user.MemberUser;
 import com.dsos.service.MainService;
 import com.dsos.service.MemberService;
 import com.google.common.collect.ImmutableMap;
@@ -102,8 +103,8 @@ public class MembController {
      **/
     @RequestMapping("/root")
     public @ResponseBody
-    Map<Object, Object> root(@RequestBody Map<String, String> requestMap) {
-        MemberInfo memberInfo = memberService.getInfoByCardNo(requestMap.get("cardNo"));
+    Map<Object, Object> root(HttpServletRequest request) {
+        MemberInfo memberInfo = memberService.getInfoByCardNo((String) request.getSession().getAttribute("account"));
         log.info("name {}, root {},amount :{}", memberInfo.getName(), memberInfo.getImgRoot(), memberInfo.getAmount());
         return ImmutableMap.of("name", memberInfo.getName(), "imgRoot", memberInfo.getImgRoot(), "amount", memberInfo.getAmount());
     }
@@ -115,8 +116,8 @@ public class MembController {
 
     @RequestMapping(value = "/infoData")
     public @ResponseBody
-    Map<Object, Object> infoData(@RequestBody Map<String, String> requestMap) {
-        MemberInfo memberInfo = memberService.getInfoByCardNo(requestMap.get("cardNo"));
+    Map<Object, Object> infoData(HttpServletRequest request) {
+        MemberInfo memberInfo = memberService.getInfoByCardNo((String) request.getSession().getAttribute("account"));
         String reBirthday = memberInfo.getBirthday();
         memberInfo.setBirthday(reBirthday.substring(0, 10));
         //frist time to use Optional of guava ;
@@ -205,11 +206,30 @@ public class MembController {
      * @return 返回的数据
      **/
     @RequestMapping(value = "/uploadInfo", method = RequestMethod.GET)
-    public @ResponseBody
-    Map<Object, Object> uploadInfo(HttpServletRequest request, Model model) {
-        log.info("info updating :{}", request.getParameter("phone"));
-        model.addAttribute("msg", "success");
-        return ImmutableMap.of("msg", "success");
+    public String uploadInfo(HttpServletRequest request, Model model) {
+        MemberInfo memberInfo = new MemberInfo();
+        memberInfo.setCardNo((String) request.getSession().getAttribute("account"));
+        memberInfo.setBirthday(request.getParameter("birthday"));
+        memberInfo.setEmail(request.getParameter("email"));
+        memberInfo.setName(request.getParameter("name"));
+        memberInfo.setAddress(request.getParameter("privince") + "-" + request.getParameter("urban") + "-" + request.getParameter("area"));
+        //获取新、旧密码
+        String newPassword = request.getParameter("newPassword");
+        String oldPassword = request.getParameter("oldPassword");
+        MemberUser memberUser = new MemberUser();
+        memberUser.setMobile(request.getParameter("mobile"));
+        memberUser.setPassword(request.getParameter("newPassword"));
+        //log.info("memberinfo : {}", memberInfo.toString());
+
+        //判断修改状态
+        Boolean updateStatus = memberService.updateMemberInfo(memberInfo, oldPassword, memberUser);
+        log.info("修改状态为：{}", updateStatus);
+        if (!updateStatus) {
+            model.addAttribute("msg", "update info failed,please check the oldPassword");
+        } else {
+            model.addAttribute("msg", "update info success");
+        }
+        return "member/updateInfo";
     }
 
 }

@@ -9,12 +9,12 @@ import java.util.Optional;
 public class test {
 
     @Test
-    public void aaa() throws Exception{
+    public void aaa() throws Exception {
         System.out.println(System.getProperty("user.dir") + File.separator + "src" + File.separator + "main" + File.separator + "resource"
                 + File.separator + "images" + File.separator + "member" + File.separator);
 
         File path = new File(ResourceUtils.getURL("classpath:").getPath());
-        String destFileName2 = new File(path.getAbsolutePath(),"images/member/").getAbsolutePath();
+        String destFileName2 = new File(path.getAbsolutePath(), "images/member/").getAbsolutePath();
         System.out.println(destFileName2);
 
         String fileName = System.currentTimeMillis() + "TEST";
@@ -33,4 +33,5 @@ public class test {
         System.out.println(optional1.isPresent());
         System.out.println(optional4.isPresent());
     }
+
 }

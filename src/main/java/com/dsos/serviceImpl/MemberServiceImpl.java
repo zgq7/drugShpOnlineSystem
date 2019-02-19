@@ -2,6 +2,7 @@ package com.dsos.serviceImpl;
 
 import com.dsos.dao.MemberDao;
 import com.dsos.modle.user.MemberInfo;
+import com.dsos.modle.user.MemberUser;
 import com.dsos.service.MemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * Created by zgq7 on 2019/1/28.
@@ -36,12 +38,25 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public MemberInfo getInfoByCardNo(String cardNo) {
         try {
-            MemberInfo memberInfo = memberDao.getInfoByCardNo(cardNo);
-            if (memberInfo != null)
+            MemberUser memberUser = memberDao.getInfoByCardNo(cardNo);
+            MemberInfo memberInfo = memberUser.getMemberInfo();
+            if (memberUser.getMemberInfo() != null)
                 return memberInfo;
         } catch (Exception e) {
             log.error("{查询个人信息报错：{}}", e);
         }
         return null;
+    }
+
+    @Override
+    public Boolean updateMemberInfo(MemberInfo memberInfo, String oldPassword, MemberUser memberUser) {
+        try {
+            Integer updateStatus = memberDao.updateMemberInfo(memberInfo, oldPassword, memberUser);
+            if (updateStatus > 0)
+                return true;
+        } catch (Exception e) {
+            log.error("会员资料修改impl报错：{}", e.getMessage());
+        }
+        return false;
     }
 }

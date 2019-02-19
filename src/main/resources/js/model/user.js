@@ -3,18 +3,15 @@
  * 加载user 的 html 模块
  */
 $(document).ready(function () {
-    let param = {};
-    let cardNo = $("#myCardNo").text();
-    param.cardNo = cardNo;
+    //余额，头像，姓名
     $.ajax({
         url: "root",
         type: "post",
-        data: JSON.stringify(param),
         contentType: 'application/json;charset=utf-8',
         dataType: "json",
         timeout: 1000,
         success: function (data) {
-            console.log(data);
+            //console.log(data);
             document.getElementById('myUserName').innerHTML = data.name;
             $("#userImg").attr("src", data.imgRoot);
             $("#amount").html(data.amount);
@@ -26,14 +23,13 @@ $(document).ready(function () {
     //个人资料
     $.ajax({
         url: "infoData",
-        data: JSON.stringify(param),
         type: "post",
         contentType: 'application/json;charset=utf-8',
         dataType: "json",
         timeout: 1000,
         success: function (data) {
             let member = data.info;
-            console.log(member.amount);
+            //console.log(member.amount);
             $("#img").attr("src", member.imgRoot);
             $("#name").html(member.name);
             $("#sex").html(member.sex);
