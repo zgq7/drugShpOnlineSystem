@@ -18,10 +18,10 @@ public interface MemberService {
     String registryMember(Map<String, String> params);
 
     /**
-     * 参数处理 拖卡号查询个人资料
+     * 参数处理 拖卡号查询个人资料   info关联user
      * 结果处理
      **/
-    MemberInfo getInfoByCardNo(String cardNo);
+    MemberUser getInfoByCardNo(String cardNo);
 
     /**
      * 会员信息修改

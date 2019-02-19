@@ -21,7 +21,7 @@ public class DrugShpOnlineSystemApplicationTests {
         System.out.println(memberInfo.toString());
         System.out.println("1111");*/
         MemberUser memberUser = memberDao.getInfoByCardNo("rsd123456");
-        System.out.println(memberUser);
+        System.out.println(memberUser.getMemberInfo());
     }
 
 }

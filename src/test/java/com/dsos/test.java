@@ -34,4 +34,11 @@ public class test {
         System.out.println(optional4.isPresent());
     }
 
+    @Test
+    public void ccc(){
+        Boolean b = false;
+        if (!b)
+        System.out.println(1);
+    }
+
 }

@@ -6,8 +6,8 @@ import com.dsos.modle.user.MemberInfo;
 import com.dsos.modle.user.MemberUser;
 import com.dsos.service.MainService;
 import com.dsos.service.MemberService;
+import com.dsos.utils.OprateFileUtils;
 import com.google.common.collect.ImmutableMap;
-import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -25,8 +25,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -104,7 +102,7 @@ public class MembController {
     @RequestMapping("/root")
     public @ResponseBody
     Map<Object, Object> root(HttpServletRequest request) {
-        MemberInfo memberInfo = memberService.getInfoByCardNo((String) request.getSession().getAttribute("account"));
+        MemberInfo memberInfo = memberService.getInfoByCardNo((String) request.getSession().getAttribute("account")).getMemberInfo();
         log.info("name {}, root {},amount :{}", memberInfo.getName(), memberInfo.getImgRoot(), memberInfo.getAmount());
         return ImmutableMap.of("name", memberInfo.getName(), "imgRoot", memberInfo.getImgRoot(), "amount", memberInfo.getAmount());
     }
@@ -117,7 +115,7 @@ public class MembController {
     @RequestMapping(value = "/infoData")
     public @ResponseBody
     Map<Object, Object> infoData(HttpServletRequest request) {
-        MemberInfo memberInfo = memberService.getInfoByCardNo((String) request.getSession().getAttribute("account"));
+        MemberInfo memberInfo = memberService.getInfoByCardNo((String) request.getSession().getAttribute("account")).getMemberInfo();
         String reBirthday = memberInfo.getBirthday();
         memberInfo.setBirthday(reBirthday.substring(0, 10));
         //frist time to use Optional of guava ;
@@ -161,41 +159,29 @@ public class MembController {
         HttpSession session = request.getSession();
         String count = (String) session.getAttribute("account");
         //获取旧文件地址
-        MemberInfo memberInfo = memberService.getInfoByCardNo(count);
+        MemberInfo memberInfo = memberService.getInfoByCardNo(count).getMemberInfo();
         String oldRoot = StringUtils.substringAfterLast(memberInfo.getImgRoot(), "\\");
         log.info("file is uploading");
         try {
             //重命名将保存的文件名
             String newFileName = System.currentTimeMillis() + file.getOriginalFilename();
             //目标文件存储路径
-            File path = new File(ResourceUtils.getURL("classpath:").getPath());
-            String destFileName = new File(path.getAbsolutePath(), "images/member/").getAbsolutePath() + File.separator;
+            //File path = new File(ResourceUtils.getURL("classpath:").getPath());
+            String destFileRoot = new File(new File(ResourceUtils.getURL("classpath:").getPath()).getAbsolutePath(), "images/member/").getAbsolutePath() + File.separator;
             //新的数据库地址
             String dbRoot = ".." + File.separator + "images" + File.separator + loginType.toLowerCase() + File.separator + newFileName;
-            //新的物理地址
-            String dirRoot = destFileName + newFileName;
-            //如果文件夹不存在，则新建
-            File newFile = new File(destFileName);
-            if (!newFile.exists()) {
-                newFile.mkdirs();
-            }
+            //生成新文件
+            Boolean writeStatus = OprateFileUtils.writeFile(destFileRoot, newFileName, file);
             //删除老文件
-            log.info("old:{},new:{}", oldRoot, newFileName);
-            FileUtils.deleteQuietly(new File(destFileName + oldRoot));
-
-            FileOutputStream stream = new FileOutputStream(dirRoot);
-            stream.write(file.getBytes());
-            stream.close();
+            Boolean deleteStatus = OprateFileUtils.deleteFile(destFileRoot, oldRoot);
             //上传完之后，修改数据库的imgRoot
             Boolean updatStatus = mainService.updateUserImg(dbRoot, count);
-            if (newFile.exists() && updatStatus)
+            log.info("文件操作状态 : {},{},{}", writeStatus, deleteStatus, updatStatus);
+            if (writeStatus && deleteStatus && updatStatus)
                 return ImmutableMap.of("code", 1, "msg", "修改成功，点击确定后返回资料界面。", "data",
                         ImmutableMap.of("src", dbRoot));
         } catch (FileNotFoundException e) {
             log.error("文件为空：{}", e);
-            return ImmutableMap.of("code", 0, "msg", "fail", "data", "");
-        } catch (IOException e) {
-            log.error("IO 流报错：{}", e);
             return ImmutableMap.of("code", 0, "msg", "fail", "data", "");
         }
         return ImmutableMap.of("code", 1, "msg", "something was wrong", "data", "");
@@ -223,7 +209,7 @@ public class MembController {
 
         //判断修改状态
         Boolean updateStatus = memberService.updateMemberInfo(memberInfo, oldPassword, memberUser);
-        log.info("修改状态为：{}", updateStatus);
+        log.info("个人信息修改状态为：{}", updateStatus);
         if (!updateStatus) {
             model.addAttribute("msg", "update info failed,please check the oldPassword");
         } else {

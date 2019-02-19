@@ -21,8 +21,8 @@ public interface MemberDao {
     @Select("select * from dsos_live_memberUser where cardNo = #{cardNo}")
     @Results(value = {
             @Result(property = "mobile", column = "mobile"),
-            @Result(property = "cardNo", column = "cardNo"
-                   /* , one = @One(select = "getInfo2ByCardNo", fetchType = FetchType.LAZY)*/)
+            @Result(property = "memberInfo", column = "cardNo"
+                    , one = @One(select = "getInfo2ByCardNo", fetchType = FetchType.LAZY))
     })
     MemberUser getInfoByCardNo(@Param("cardNo") String cardNo) throws Exception;
 

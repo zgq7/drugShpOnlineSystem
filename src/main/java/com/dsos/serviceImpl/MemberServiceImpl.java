@@ -36,12 +36,11 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public MemberInfo getInfoByCardNo(String cardNo) {
+    public MemberUser getInfoByCardNo(String cardNo) {
         try {
             MemberUser memberUser = memberDao.getInfoByCardNo(cardNo);
-            MemberInfo memberInfo = memberUser.getMemberInfo();
             if (memberUser.getMemberInfo() != null)
-                return memberInfo;
+                return memberUser;
         } catch (Exception e) {
             log.error("{查询个人信息报错：{}}", e);
         }
