@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AdminDao {
     //查询admin名以及头像地址
-    @Select("select name,imgRoot from dsos_live_adminUser where adminAccount = #{account}")
+    @Select("select * from dsos_live_adminUser where adminAccount = #{account}")
     AdminUser getUerNmaeImgByCardNo(@Param("account") String account) throws Exception;
 
 }

@@ -7,12 +7,116 @@
     <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="../lay/layui.js"></script>
     <link rel="stylesheet" href="../lay/css/layui.css" media="all">
+    <script type="text/javascript" src="../js/model/admin.js"></script>
+    <link rel="stylesheet" href="../css/admin/info.css" media="all">
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
+    <div class="layui-header" id="head">
+        <div class="layui-logo"><a style="color: #eb7350" href="loginSuccessUser">admin center</a></div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a>控制台</a></li>
+            <li class="layui-nav-item"><a>商品管理</a></li>
+            <li class="layui-nav-item"><a>用户</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">其它系统</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">邮件管理</a></dd>
+                    <dd><a href="">消息管理</a></dd>
+                    <dd><a href="">授权管理</a></dd>
+                </dl>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a>
+                    <img src="" class="layui-nav-img" id="adminImg">
+                    <span id="adminName">npm</span>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="info">个人资料</a></dd>
+                    <dd><a href="config">安全设置</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="../logout" style="color: burlywood">logout</a></li>
+        </ul>
+    </div>
+    <div class="layui-side layui-bg-black" id="left">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">所有商品</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">ZPPP</a></dd>
+                        <dd><a href="javascript:;">列表二</a></dd>
+                        <dd><a href="javascript:;">列表三</a></dd>
+                        <dd><a href="">超链接</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">解决方案</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">列表一</a></dd>
+                        <dd><a href="javascript:;">列表二</a></dd>
+                        <dd><a href="">超链接</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">云市场</a></li>
+                <li class="layui-nav-item"><a href="">发布商品</a></li>
+            </ul>
+        </div>
+    </div>
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <div style="padding: 15px;" id="infoModel">admin info 内容主体区域</div>
+        <div style="padding: 15px;" id="infoModel">
+            <table>
+                <tbody>
+                <tr>
+                    <td style="width: 15%;height: 100%;" valign="top">
+                        <img src="" id="img">
+                        <ul id="info_update">
+                            <li class="infoLi">
+                                <a href="updateLog">修改照片</a>
+                            <li class="infoLi">
+                                <a href=" updateInfo">修改资料</a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td valign="top" style="width: 35%;">
+                        <ul class="info_main">
+                            <li class="infoLi">
+                                姓名:&nbsp<span id="name"></span>
+                            </li>
+                            <li class="infoLi">
+                                手机:&nbsp<span id="mobile"></span>
+                            </li>
+                            <li class="infoLi">
+                                性别:&nbsp<span id="sex"></span>
+                            </li>
+                            <li class="infoLi">
+                                帐号:&nbsp<span id="cardNo"></span>
+                            </li>
+                            <li class="infoLi">
+                                生日:&nbsp<span id="birthday"></span>
+                            </li>
+                            <li class="infoLi">
+                                证件号:&nbsp<span id="idCard"></span>
+                            </li>
+                            <li class="infoLi">
+                                地址:&nbsp<span id="homeAt"></span>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="layui-footer" style="text-align: center;color: #01AAED" id="buttom">
+        <!-- 底部固定区域 -->
+        @created by zgq7
     </div>
 </div>
 </body>

@@ -1,11 +1,16 @@
 package com.dsos.controller;
 
+import com.dsos.commons.Methods;
 import com.dsos.config.shiro.LoginType;
 import com.dsos.config.shiro.UsernamePwdLogTypToken;
 import com.dsos.modle.user.AdminUser;
+import com.dsos.modle.user.MemberInfo;
 import com.dsos.service.AdminService;
+import com.google.common.collect.ImmutableMap;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.crypto.hash.Md5Hash;
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,8 +22,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * Created by zgq7 on 2019/1/27 0027.
@@ -36,7 +43,7 @@ public class AdminController {
      * @return member 的登录
      */
     @RequestMapping(value = "/login")
-    public String Login(HttpServletRequest request, Model model) {
+    public String Login(HttpServletRequest request, HttpSession session) {
         log.info("正在执行登录");
         String accout = request.getParameter("account");
         String password = request.getParameter("password");
@@ -52,7 +59,8 @@ public class AdminController {
             log.error("密码/账号错误:{}", e.toString());
             return "error";
         }
-        model.addAttribute("account", accout);
+        session.setAttribute("account", accout);
+        session.setAttribute("type", loginType);
         return "admin/adminSuccessUser";
     }
 
@@ -69,15 +77,47 @@ public class AdminController {
      **/
     @RequestMapping("/adminRoot")
     public @ResponseBody
-    Map<Object, Object> adminRoot(@RequestBody Map<Object, String> requestMap) {
+    Map<Object, Object> adminRoot(HttpServletRequest request) {
         log.info("头像 姓名 获取中。。。");
         Map<Object, Object> result = new HashMap<>();
-        AdminUser adminUser = adminService.getUerNmaeImgByCardNo(requestMap.get("account"));
+        AdminUser adminUser = adminService.getUerNmaeImgByCardNo((String) request.getSession().getAttribute("account"));
         String name = adminUser.getName();
         String imgRoot = adminUser.getImgRoot();
         log.info("admin - > name {}, root {}", name, imgRoot);
         result.put("name", name);
         result.put("imgRoot", imgRoot);
         return result;
+    }
+
+    @RequestMapping(value = "/info")
+    public String info() {
+        return "admin/info";
+    }
+
+    @RequestMapping(value = "/infoData")
+    public @ResponseBody
+    Map<Object, Object> infoData(HttpServletRequest request) {
+        AdminUser adminUser = adminService.getUerNmaeImgByCardNo((String) request.getSession().getAttribute("account"));
+        Optional<AdminUser> optional = Optional.ofNullable(adminUser);
+        String reBirthday = adminUser.getBirthday();
+        adminUser.setBirthday(reBirthday.substring(0, 10));
+        adminUser.setPassword(Methods.shiroMD5(adminUser.getAdminAccount(), adminUser.getPassword()));
+        if (optional.isPresent()) {
+            return ImmutableMap.of("info", adminUser);
+        }
+        return null;
+    }
+
+    @RequestMapping(value = "/config")
+    public String config() {
+        return "admin/config";
+    }
+
+    /**
+     * 药品管理
+     * **/
+    @RequestMapping(value = "/drugInList")
+    public String drugInList() {
+        return "admin/drugInList";
     }
 }

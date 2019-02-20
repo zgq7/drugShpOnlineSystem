@@ -1,6 +1,6 @@
 <!-- 用户登录成功首页 -->
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>admin SuccessUser</title>
@@ -12,7 +12,7 @@
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header" id="head">
-        <div class="layui-logo"><a style="color: #eb7350">admin center</a></div>
+        <div class="layui-logo"><a style="color: #eb7350" href="loginSuccessUser">admin center</a></div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
             <li class="layui-nav-item"><a>控制台</a></li>
@@ -34,8 +34,8 @@
                     <span id="adminName">npm</span>
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a id="info">个人资料</a></dd>
-                    <dd><a id="config">安全设置</a></dd>
+                    <dd><a href="info">个人资料</a></dd>
+                    <dd><a href="config">安全设置</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item"><a href="../logout" style="color: burlywood">logout</a></li>
@@ -46,12 +46,11 @@
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a class="" href="javascript:;">所有商品</a>
+                    <a class="" href="javascript:;">药品管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">ZPPP</a></dd>
-                        <dd><a href="javascript:;">列表二</a></dd>
-                        <dd><a href="javascript:;">列表三</a></dd>
-                        <dd><a href="">超链接</a></dd>
+                        <dd><a href="drugInList">药品资料</a></dd>
+                        <dd><a href="javascript:;">销售管理</a></dd>
+                        <dd><a href="javascript:;">定价管理</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
@@ -69,7 +68,6 @@
     </div>
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <span id="myAccount" th:text="${account}" hidden>内容主题</span>
         <div style="padding: 15px;" id="body">
             <span>内容主题</span>
         </div>

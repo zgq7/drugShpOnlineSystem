@@ -2,6 +2,7 @@ package com.dsos.controller;
 
 import com.dsos.modle.view.DrugRecord;
 import com.dsos.service.DrugService;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,21 +20,22 @@ import java.util.Map;
  * 药品数据表示层
  */
 @Controller
+@RequestMapping(value = "drug")
 public class DrugController {
     private static final Logger log = LoggerFactory.getLogger(DrugController.class);
     @Autowired
     private DrugService drugService;
 
-    @RequestMapping(value = "/getDrugInfoList")
+    @RequestMapping(value = "/drugInList")
     @ResponseBody
-    public Map<Object,Object> getDrugInfoList(Integer page, Integer limit){
-        log.info("====== 正在获取药品数据 ======{},{}",page,limit);
-        List<DrugRecord> drugRecordList = drugService.getDrugInfoList(page,limit);
-        Map<Object,Object> result = new HashMap<>();
-        result.put("data",drugRecordList);
-        result.put("code",0);
-        result.put("count",1000);
-        result.put("msg","");
+    public Map<Object, Object> drugInList(Integer page, Integer limit) {
+        log.info("====== 正在获取药品数据 -------->第{}页,行数{}", page, limit);
+        List<DrugRecord> drugRecordList = drugService.getDrugInfoList(page, limit);
+        Map<Object, Object> result = new HashMap<>();
+        result.put("data", drugRecordList);
+        result.put("code", 0);
+        result.put("count", 1000);
+        result.put("msg", "");
         return result;
     }
 }
