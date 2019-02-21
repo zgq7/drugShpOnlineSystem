@@ -78,7 +78,6 @@ public class AdminController {
     @RequestMapping("/adminRoot")
     public @ResponseBody
     Map<Object, Object> adminRoot(HttpServletRequest request) {
-        log.info("头像 姓名 获取中。。。");
         Map<Object, Object> result = new HashMap<>();
         AdminUser adminUser = adminService.getUerNmaeImgByCardNo((String) request.getSession().getAttribute("account"));
         String name = adminUser.getName();

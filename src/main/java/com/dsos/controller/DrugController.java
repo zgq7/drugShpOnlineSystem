@@ -2,7 +2,6 @@ package com.dsos.controller;
 
 import com.dsos.modle.view.DrugRecord;
 import com.dsos.service.DrugService;
-import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +28,8 @@ public class DrugController {
 
     @RequestMapping(value = "/drugInList")
     @ResponseBody
-    public Map<Object, Object> drugInList(Integer page, Integer limit) {
+    public Map<Object, Object> drugInList(Integer page, Integer limit, String drugCode, String date) {
+        log.info("drugCode :{} , date : {}", drugCode, date);
         log.info("====== 正在获取药品数据 -------->第{}页,行数{}", page, limit);
         List<DrugRecord> drugRecordList = drugService.getDrugInfoList(page, limit);
         Map<Object, Object> result = new HashMap<>();

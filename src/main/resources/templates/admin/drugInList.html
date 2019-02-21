@@ -69,6 +69,13 @@
     <div class="layui-body">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;" id="drugInList">
+            <form class="layui-form">
+                药品编号：<input type="text" name="drugCode" autocomplete="off">
+                保质日期：<input type="text" name="date" id="date" placeholder="yyyy-MM-dd"
+                            autocomplete="off">
+                <button class="layui-btn" lay-submit="" lay-filter="demo1">查询</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </form>
             <table class="layui-hide" id="test" lay-filter="test"></table>
         </div>
     </div>
@@ -78,18 +85,4 @@
     </div>
 </div>
 </body>
-<script type="text/html" id="toolbarDemo">
-    <div class="layui-btn-container">
-        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
-        <form class="layui-form" action="">
-            <div class="layui-form-item">
-                <label class="layui-form-label">drugCode</label>
-                <div class="layui-input-block">
-                    <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题"
-                           class="layui-input">
-                </div>
-            </div>
-        </form>
-    </div>
-</script>
 </html>
