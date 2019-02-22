@@ -14,5 +14,6 @@ import java.util.List;
 @Repository
 public interface DrugDao {
     @Select("call pos_get_drugInList(#{page},#{limit})")
-    List<DrugRecord> getDrugInfoList(@Param("page") Integer page,@Param("limit") Integer limit) throws Exception;
+    List<DrugRecord> getDrugInfoList(@Param("page") Integer page, @Param("limit") Integer limit, @Param("drugCode") String drugCode
+            , @Param("effectDate") String effectDate, @Param("chainId") String chainId) throws Exception;
 }

@@ -11,7 +11,7 @@
  Target Server Version : 50717
  File Encoding         : 65001
 
- Date: 19/02/2019 17:36:10
+ Date: 22/02/2019 19:03:56
 */
 
 SET NAMES utf8mb4;
@@ -94,7 +94,7 @@ CREATE TABLE `dsos_live_memberinfo`  (
 -- ----------------------------
 -- Records of dsos_live_memberinfo
 -- ----------------------------
-INSERT INTO `dsos_live_memberinfo` VALUES (1, 'rsd123456', 'zgq', NULL, '1997-07-07 00:00:00', '浙江省-杭州市-西湖区', '0', 88, 100, '..\\images\\member\\1550560917489mm.jpg', '12345678911@qq.com', 0, 1);
+INSERT INTO `dsos_live_memberinfo` VALUES (1, 'rsd123456', 'zgq', NULL, '1997-07-07 00:00:00', '浙江省-杭州市-西湖区', '0', 88, 100, '..\\images\\member\\1550656922975mm.jpg', '12345678911@qq.com', 0, 1);
 INSERT INTO `dsos_live_memberinfo` VALUES (2, 'rsd444', 'fgf', '男', '1999-09-09 00:00:00', '0', '0', 0, 100, NULL, NULL, 0, 1);
 INSERT INTO `dsos_live_memberinfo` VALUES (3, 'rsd057233', '丽姐', '女', '1983-06-15 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
 INSERT INTO `dsos_live_memberinfo` VALUES (4, 'rsd057571', '袁榕', '女', '1974-04-18 00:00:00', NULL, '0', 0, 100, NULL, NULL, 0, 1);
@@ -1483,11 +1483,45 @@ END
 delimiter ;
 
 -- ----------------------------
--- Procedure structure for pos_get_drugList
+-- Procedure structure for pos_get_drugInList
 -- ----------------------------
-DROP PROCEDURE IF EXISTS `pos_get_drugList`;
+DROP PROCEDURE IF EXISTS `pos_get_drugInList`;
 delimiter ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `pos_get_drugList`(IN page integer,IN limitz integer)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pos_get_drugInList`(IN page integer,IN limitz integer,IN drugCodez VARCHAR(50),IN effectDatez VARCHAR(50),IN chainIdz VARCHAR(19))
+BEGIN
+DECLARE start integer;
+set start = (page-1)*limitz;
+set @sql = 'select * from dsos_vot_drugrecord where 1 = 1';
+
+	#获取药品信息（最多一千条）
+
+	if drugCodez <> '' then 
+	  set @sql = CONCAT(@sql,' and drugCode= ',drugCodez);
+	end if;
+	
+	if effectDatez <> '' then 
+	  set @sql = CONCAT(@sql,' and effectDate= ','''',effectDatez,'''');
+	end if;
+	
+	if chainIdz <> '' then 
+	  set @sql = CONCAT(@sql,' and chainId= ',chainIdz);
+	end if;
+	set @sql = CONCAT(@sql,' limit ',start,', ',limitz);
+	
+ 	PREPARE distSQL FROM @SQL ;
+     EXECUTE distSQL;
+ 	DEALLOCATE PREPARE distSQL ;	
+#select @sql;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for pos_get_drugOutList
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `pos_get_drugOutList`;
+delimiter ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pos_get_drugOutList`(IN page integer,IN limitz integer)
 BEGIN
 DECLARE start integer;
 set start = (page-1)*limitz;
