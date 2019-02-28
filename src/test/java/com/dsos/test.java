@@ -1,10 +1,12 @@
 package com.dsos;
 
+import com.dsos.modle.view.DrugRecord;
 import org.junit.Test;
 import org.springframework.util.ResourceUtils;
 
 import java.io.File;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class test {
 
@@ -35,10 +37,29 @@ public class test {
     }
 
     @Test
-    public void ccc(){
+    public void ccc() {
         Boolean b = false;
         if (!b)
-        System.out.println(1);
+            System.out.println(1);
+    }
+
+    @Test
+    public void ddd() {
+        List<Integer> pList = new ArrayList<>();
+        Set<Integer> pSet = new HashSet<>();
+        for (int i = 0; i < 10; i++) {
+            pList.add(i);
+            pSet.add(i);
+        }
+        System.out.println(pList);
+        System.out.println("============list->set,set->list==========");
+        System.out.println(new HashSet<>(pList));
+        System.out.println(new ArrayList<>(pSet));
+        System.out.println("============foreach ==========");
+        pList.forEach(item -> {
+        });
+        pSet.forEach(integer -> {
+        });
     }
 
 }

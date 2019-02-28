@@ -25,16 +25,33 @@ public class DrugServiceImpl implements DrugService {
     @Override
     public List<DrugRecord> getDrugInfoList(Map<Object, Object> requestMap) {
         List<DrugRecord> drugRecordList = new LinkedList<>();
-        Integer page = (Integer) requestMap.get("page");
-        Integer limit = (Integer) requestMap.get("limit");
+        String page = (String) requestMap.get("page");
+        String limit = (String) requestMap.get("limit");
         String drugCode = (String) requestMap.get("drugCode");
         String effectDate = (String) requestMap.get("effectDate");
         String chainId = (String) requestMap.get("chainId");
+        String updown = (String) requestMap.get("updown");
         try {
-            drugRecordList = drugDao.getDrugInfoList(page, limit, drugCode, effectDate, chainId);
+            drugRecordList = drugDao.getDrugInfoList(page, limit, drugCode, effectDate, chainId, updown);
         } catch (Exception e) {
             log.error("获取药品列表失败错误日志：{}", e);
         }
         return drugRecordList;
+    }
+
+    @Override
+    public Integer getCountOfCondition(Map<Object, Object> requestMap) {
+        String drugCode = (String) requestMap.get("drugCode");
+        String effectDate = (String) requestMap.get("effectDate");
+        String chainId = (String) requestMap.get("chainId");
+        String updown = (String) requestMap.get("updown");
+        try {
+            Integer count = drugDao.getCountOfCondition(drugCode, effectDate, chainId, updown);
+            if (Optional.ofNullable(count).isPresent())
+                return count;
+        } catch (Exception e) {
+            log.error("impl get count error :{}", e.getMessage());
+        }
+        return 0;
     }
 }

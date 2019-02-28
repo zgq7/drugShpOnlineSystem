@@ -1,4 +1,4 @@
-package com.dsos.config;
+package com.dsos.config.dataBase;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;

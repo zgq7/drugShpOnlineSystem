@@ -40,6 +40,8 @@ public class DrugRecord {
     private String approval;
     //使用说明书
     private String explaination;
+    //是否允许售卖
+    private String isAllowedTrade;
 
     public Integer getDrugId() {
         return drugId;
@@ -183,6 +185,14 @@ public class DrugRecord {
 
     public void setExplaination(String explaination) {
         this.explaination = explaination;
+    }
+
+    public String getIsAllowedTrade() {
+        return isAllowedTrade;
+    }
+
+    public void setIsAllowedTrade(String isAllowedTrade) {
+        this.isAllowedTrade = isAllowedTrade;
     }
 
 }

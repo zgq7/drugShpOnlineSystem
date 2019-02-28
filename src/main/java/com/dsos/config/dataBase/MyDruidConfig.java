@@ -1,6 +1,7 @@
-package com.dsos.config;
+package com.dsos.config.dataBase;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.dsos.config.dataBase.DruidBase;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -16,7 +17,7 @@ import javax.sql.DataSource;
  /*
 */
 //@Configuration
-public class MyDruidConfig implements DruidBase{
+public class MyDruidConfig implements DruidBase {
     @Value("${spring.datasource.druid.url")
     private String jdbcUrl;
     @Value("com.mysql.jdbc.Driver")

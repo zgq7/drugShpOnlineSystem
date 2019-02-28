@@ -1,7 +1,6 @@
-package com.dsos.config;
+package com.dsos.config.spring;
 
-import com.dsos.controller.MembController;
-import org.aspectj.lang.annotation.Aspect;
+import com.dsos.config.spring.AspectConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;

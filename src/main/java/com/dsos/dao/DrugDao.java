@@ -1,8 +1,7 @@
 package com.dsos.dao;
 
 import com.dsos.modle.view.DrugRecord;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -13,7 +12,24 @@ import java.util.List;
  */
 @Repository
 public interface DrugDao {
-    @Select("call pos_get_drugInList(#{page},#{limit})")
-    List<DrugRecord> getDrugInfoList(@Param("page") Integer page, @Param("limit") Integer limit, @Param("drugCode") String drugCode
-            , @Param("effectDate") String effectDate, @Param("chainId") String chainId) throws Exception;
+    /**
+     * @param page       当前页
+     * @param limit      查询条数
+     * @param drugCode   商品编码
+     * @param effectDate 保质日期
+     * @param chainId    连锁id
+     * @param updown     是否允许交易
+     **/
+
+    @Select("call pos_get_drugInList(#{page},#{limit},#{drugCode},#{effectDate},#{chainId},#{updown})")
+    List<DrugRecord> getDrugInfoList(@Param("page") String page, @Param("limit") String limit, @Param("drugCode") String drugCode
+            , @Param("effectDate") String effectDate, @Param("chainId") String chainId, @Param("updown") String updown) throws Exception;
+
+    //当前条件下应有的行数
+    @Select(value = "call pos_get_drugInListCount(#{drugCode},#{effectDate},#{chainId},#{updown})")
+    Integer getCountOfCondition(@Param("drugCode") String drugCode, @Param("effectDate") String effectDate,
+                                @Param("chainId") String chainId, @Param("updown") String updown) throws Exception;
+
+    @Update(value = "")
+    Boolean updateDrugDownLoad() throws Exception;
 }

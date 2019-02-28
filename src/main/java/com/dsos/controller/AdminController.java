@@ -4,20 +4,15 @@ import com.dsos.commons.Methods;
 import com.dsos.config.shiro.LoginType;
 import com.dsos.config.shiro.UsernamePwdLogTypToken;
 import com.dsos.modle.user.AdminUser;
-import com.dsos.modle.user.MemberInfo;
 import com.dsos.service.AdminService;
 import com.google.common.collect.ImmutableMap;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.crypto.hash.Md5Hash;
-import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -113,10 +108,20 @@ public class AdminController {
     }
 
     /**
-     * 药品管理
-     * **/
+     * 药品资料
+     **/
     @RequestMapping(value = "/drugInList")
     public String drugInList() {
         return "admin/drugInList";
     }
+
+
+    /**
+     * 上架下架
+     **/
+    @RequestMapping(value = "/drugUpDown")
+    public String drugUpDown() {
+        return "admin/drugUpDown";
+    }
+
 }

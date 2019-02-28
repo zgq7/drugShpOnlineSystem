@@ -15,4 +15,6 @@ public interface DrugService {
      * 结果处理
      **/
     List<DrugRecord> getDrugInfoList(Map<Object,Object> requestMap);
+
+    Integer getCountOfCondition(Map<Object,Object> requestMap);
 }

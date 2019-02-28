@@ -16,15 +16,14 @@
         <div class="layui-logo"><a style="color: #eb7350" href="loginSuccessUser">admin center</a></div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item"><a>控制台</a></li>
-            <li class="layui-nav-item"><a>商品管理</a></li>
-            <li class="layui-nav-item"><a>用户</a></li>
+            <li class="layui-nav-item"><a>回话管理</a></li>
+            <li class="layui-nav-item"><a>权限管理</a></li>
+            <li class="layui-nav-item"><a>预警报告</a></li>
             <li class="layui-nav-item">
-                <a href="javascript:;">其它系统</a>
+                <a href="javascript:;">消息系统</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="">邮件管理</a></dd>
-                    <dd><a href="">消息管理</a></dd>
-                    <dd><a href="">授权管理</a></dd>
+                    <dd><a href="">连锁消息</a></dd>
+                    <dd><a href="">用户消息</a></dd>
                 </dl>
             </li>
         </ul>
@@ -46,25 +45,31 @@
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <!-- layui-nav-itemed 代表下拉是否显示 -->
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a class="" href="javascript:;">所有商品</a>
+                    <a class="" href="javascript:;">药品管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">ZPPP</a></dd>
-                        <dd><a href="javascript:;">列表二</a></dd>
-                        <dd><a href="javascript:;">列表三</a></dd>
-                        <dd><a href="">超链接</a></dd>
+                        <dd><a href="drugInList">药品资料</a></dd>
+                        <dd><a href="javascript:;">上架下架</a></dd>
+                        <dd><a href="javascript:;">入库出库</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">解决方案</a>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">连锁管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">列表一</a></dd>
-                        <dd><a href="javascript:;">列表二</a></dd>
-                        <dd><a href="">超链接</a></dd>
+                        <dd><a href="javascript:;">连锁资料</a></dd>
+                        <dd><a href="javascript:;">门店资料</a></dd>
+                        <dd><a href="javascript:;">店员资料</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="">云市场</a></li>
-                <li class="layui-nav-item"><a href="">发布商品</a></li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">会员管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">会员资料</a></dd>
+                        <dd><a href="javascript:;">会员管理</a></dd>
+                        <dd><a href="javascript:;">会员信息</a></dd>
+                    </dl>
+                </li>
             </ul>
         </div>
     </div>

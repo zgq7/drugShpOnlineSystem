@@ -1,4 +1,4 @@
-package com.dsos.config;
+package com.dsos.config.spring;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
