@@ -1,12 +1,10 @@
 package com.dsos;
 
-import com.dsos.modle.view.DrugRecord;
 import org.junit.Test;
 import org.springframework.util.ResourceUtils;
 
 import java.io.File;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class test {
 

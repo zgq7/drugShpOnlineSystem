@@ -195,5 +195,29 @@ public class DrugRecord {
         this.isAllowedTrade = isAllowedTrade;
     }
 
+    @Override
+    public String toString() {
+        return "DrugRecord{" +
+                "drugId=" + drugId +
+                ", chainId=" + chainId +
+                ", drugName='" + drugName + '\'' +
+                ", drugData='" + drugData + '\'' +
+                ", drugKind='" + drugKind + '\'' +
+                ", drugCode='" + drugCode + '\'' +
+                ", barCode='" + barCode + '\'' +
+                ", unitPrice=" + unitPrice +
+                ", storePrice=" + storePrice +
+                ", costPrice=" + costPrice +
+                ", unit='" + unit + '\'' +
+                ", spec='" + spec + '\'' +
+                ", company='" + company + '\'' +
+                ", purchaseDate='" + purchaseDate + '\'' +
+                ", produceDate='" + produceDate + '\'' +
+                ", effectDate='" + effectDate + '\'' +
+                ", approval='" + approval + '\'' +
+                ", explaination='" + explaination + '\'' +
+                ", isAllowedTrade='" + isAllowedTrade + '\'' +
+                '}';
+    }
 }
 

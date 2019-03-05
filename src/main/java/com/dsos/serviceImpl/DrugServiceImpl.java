@@ -31,6 +31,7 @@ public class DrugServiceImpl implements DrugService {
         String effectDate = (String) requestMap.get("effectDate");
         String chainId = (String) requestMap.get("chainId");
         String updown = (String) requestMap.get("updown");
+        log.info("impl updown : {}", updown);
         try {
             drugRecordList = drugDao.getDrugInfoList(page, limit, drugCode, effectDate, chainId, updown);
         } catch (Exception e) {
@@ -53,5 +54,17 @@ public class DrugServiceImpl implements DrugService {
             log.error("impl get count error :{}", e.getMessage());
         }
         return 0;
+    }
+
+    @Override
+    public Boolean updateDrugDownLoad(Map<Object, Object> requestMap) {
+        String drugCode = (String) requestMap.get("drugCode");
+        String updown = (String) requestMap.get("updown");
+        try {
+            return drugDao.updateDrugDownLoad(drugCode, updown);
+        } catch (Exception e) {
+            log.error("impl set drug updown error :{}", e.getMessage());
+        }
+        return false;
     }
 }

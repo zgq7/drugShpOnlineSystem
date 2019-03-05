@@ -50,7 +50,7 @@
                     <a class="" href="javascript:;">药品管理</a>
                     <dl class="layui-nav-child">
                         <dd><a href="drugInList">药品资料</a></dd>
-                        <dd><a href="javascript:;">上架下架</a></dd>
+                        <dd><a href="drugUpDown">上架下架</a></dd>
                         <dd><a href="javascript:;">入库出库</a></dd>
                     </dl>
                 </li>
@@ -79,8 +79,7 @@
             <form class="layui-form">
                 药品编号：<input type="text" name="drugCode" autocomplete="off">
                 连锁编号：<input type="text" name="chainId" autocomplete="off">
-                保质日期：<input type="text" name="date" id="date" placeholder="yyyy-MM-dd"
-                            autocomplete="off">
+                保质日期：<input type="text" name="date" id="date" placeholder="yyyy-MM-dd" autocomplete="off">
                 <button class="layui-btn" lay-submit="" lay-filter="demo1">查询</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </form>

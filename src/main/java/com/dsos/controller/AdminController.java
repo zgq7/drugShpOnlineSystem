@@ -124,4 +124,12 @@ public class AdminController {
         return "admin/drugUpDown";
     }
 
+    /**
+     * 出库入库
+     **/
+    @RequestMapping(value = "/drugInOut")
+    public String drugInOut() {
+        return "admin/drugInOut";
+    }
+
 }

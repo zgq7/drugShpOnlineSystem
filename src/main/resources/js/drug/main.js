@@ -8,7 +8,7 @@ layui.use(['table', 'form', 'laydate'], function () {
         elem: '#date'
     });
 
-    //监听提交  商品资料
+    //监听提交  商品资料 render
     form.on('submit(demo1)', function (data) {
         let params = data.field;
         let drugCode, date, chainId, url;
@@ -19,7 +19,7 @@ layui.use(['table', 'form', 'laydate'], function () {
         console.log(url);
         //商品资料列表
         table.render({
-            elem: '#test2'
+            elem: '#test'
             , title: '药品资料'
             , url: url
             , height: 'full-198'
@@ -53,7 +53,7 @@ layui.use(['table', 'form', 'laydate'], function () {
         return false;
     });
 
-    //监听提交  上架下架
+    //监听提交  上架下架 render
     form.on('submit(demo2)', function (data) {
         let params = data.field;
         let drugCode, chainId, updown, url;
@@ -65,7 +65,7 @@ layui.use(['table', 'form', 'laydate'], function () {
         } else {
             updown = 0;
         }
-        url = '../drug/drugInList?drugCode=' + drugCode + '&chainId=' + chainId + '&updowm=' + updown;
+        url = '../drug/drugInList?drugCode=' + drugCode + '&chainId=' + chainId + '&updown=' + updown;
         //商品资料列表
         table.render({
             elem: '#test2'
@@ -95,35 +95,110 @@ layui.use(['table', 'form', 'laydate'], function () {
         return false;
     });
 
-    //监听行工具事件
+    //监听提交  出库入库 render
+    form.on('submit(demo3)', function (data) {
+        let params = data.field;
+        let drugCode, chainId, updown, effectDate, url;
+        drugCode = params.drugCode;
+        chainId = params.chainId;
+        updown = params.updown;
+        effectDate = params.effectDate;
+        if (updown == '已上架') {
+            updown = 1;
+        } else {
+            updown = 0;
+        }
+        url = '../drug/drugInList?drugCode=' + drugCode + '&chainId=' + chainId + '&updown=' + updown + '&efectDate=' + effectDate;
+        //商品资料列表
+        table.render({
+            elem: '#test3'
+            , title: '出库入库'
+            , url: url
+            , height: 'full-700'
+            , cols: [[
+                {field: 'chainId', width: 110, title: '所属连锁', sort: true}
+                , {field: 'drugName', width: 260, title: '药品名称'}
+                , {field: 'drugCode', width: 100, title: '药品编码'}
+                , {field: 'company', width: 200, title: '公司', sort: true}
+                , {field: 'effectDate', width: 160, title: '保质日期', sort: true}
+                , {field: 'produceDate', width: 160, title: '生产日期', sort: true}
+                , {field: 'isAllowedTrade', width: 80, title: '状态', sort: true, style: 'background-color: #5FB878;'}
+                , {fixed: 'right', title: '操作', toolbar: '#barDemo', width: 120}
+            ]]
+        });
+        return false;
+    });
+
+    //监听行工具事件 -> 上架下架 ->按钮
     table.on('tool(test)', function (obj) {
         let data = obj.data;
-        let drugCode = data.drugCode;
+        let param = {};
+        let url = '../drug/updateDrugDownLoad';
+        param.drugCode = data.drugCode;
+        //console.log(data.isAllowedTrade);
         if (obj.event === 'down') {
+            if (data.isAllowedTrade == '不可交易') {
+                layer.alert("已下架，请勿重复点击！");
+                return false;
+            }
+            param.updown = "0";
             layer.confirm('真的下架吗？', function (index) {
+                drugDownUpLoad(param, url);
                 //只是在页面中移除
                 obj.del();
-                $.ajax({
-                    url: '../drug/updateDrugDownLoad'
-                    , data: JSON.stringify(drugCode)
-                    , dataType: 'json'
-                    , contentType: 'application/json;charset=utf-8'
-                    , type: 'post'
-                    , timeout: 1000,
-                    success: function (data) {
-                        alert(1);
-                    },
-                    error: function (data) {
-
-                    }
-                });
                 layer.close(index);
             });
-        } else if (obj.event === 'up') {
+        } else if (obj.event == 'up') {
+            if (data.isAllowedTrade == '可交易') {
+                layer.alert("已上架，请勿重复点击！");
+                return false;
+            }
+            param.updown = "1";
             layer.confirm('确认上架吗？', function (index) {
+                drugDownUpLoad(param, url);
+                obj.del();
                 layer.close(index);
             });
         }
     });
+
+    //监听行工具事件 -> 出库入库 ->按钮
+    table.on('tool(test3)', function (obj) {
+        let data = obj.data;
+        let param = {};
+        let url = '../drug/updateDrugDownLoad';
+        param.drugCode = data.drugCode;
+        if (obj.event === 'delete') {
+            layer.confirm('真的删除吗？', function (index) {
+                //drugDownUpLoad(param, url);
+                //只是在页面中移除
+                obj.del();
+                layer.close(index);
+            });
+        }
+    });
+
+    /**
+     * 上架下架、出库入库 ajax
+     * @param param 参数 JSON对象，并用JSON.Stringft()封装,post请求
+     * @param url 要访问的url
+     * **/
+    function drugDownUpLoad(param, url) {
+        console.log(url);
+        $.ajax({
+            url: url
+            , data: JSON.stringify(param)
+            , dataType: 'json'
+            , contentType: 'application/json;charset=utf-8'
+            , type: 'post'
+            , timeout: 1000,
+            success: function (data) {
+                layer.alert("操作成功 ：" + data.result);
+            },
+            error: function (data) {
+                layer.alert("操作异常 ：" + data.result);
+            }
+        });
+    }
 
 });

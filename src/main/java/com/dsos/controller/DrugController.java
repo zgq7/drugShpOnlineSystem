@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +20,7 @@ import java.util.*;
  * 药品数据表示层
  */
 @Controller
-@RequestMapping(value = "drug")
+@RequestMapping(value = "/drug")
 public class DrugController {
     private static final Logger log = LoggerFactory.getLogger(DrugController.class);
     @Autowired
@@ -31,10 +32,11 @@ public class DrugController {
      * @return 返回的接口数据
      */
     @RequestMapping(value = "/drugInList")
-    @ResponseBody
-    public Map<Object, Object> drugInList(HttpServletRequest request) {
+    public @ResponseBody
+    Map<Object, Object> drugInList(HttpServletRequest request) {
         Map<Object, Object> requestMap = new HashMap<>();
-        log.info("drugCode :{} , date : {} , chainId :{}", request.getParameter("drugCode"), request.getParameter("date"), request.getParameter("chainId"));
+        log.info("drugCode :{} , date : {} , chainId :{} ,updown :{}", request.getParameter("drugCode"), request.getParameter("date"),
+                request.getParameter("chainId"), request.getParameter("updown"));
         requestMap.put("page", request.getParameter("page"));
         requestMap.put("limit", request.getParameter("limit"));
         requestMap.put("drugCode", request.getParameter("drugCode"));
@@ -59,10 +61,32 @@ public class DrugController {
         return result;
     }
 
-    @RequestMapping(value = "/updateDrugDownLoad")
-    public @ResponseBody Map<Object,Object> updateDrugDownLoad(@RequestBody Map<Object,Object> requestMap){
-        log.info("requestMap :{}",requestMap);
-        return ImmutableMap.of();
+    /**
+     * @param requestMap 获取drugCode、updown的值
+     * @return 结果消息
+     **/
+    @RequestMapping(value = "/updateDrugDownLoad", method = RequestMethod.POST)
+    public @ResponseBody
+    Map<Object, Object> updateDrugDownLoad(@RequestBody Map<Object, Object> requestMap) {
+        log.info("requestMap :{}", requestMap);
+        Optional<Boolean> optional = Optional.ofNullable(drugService.updateDrugDownLoad(requestMap));
+        if (optional.isPresent()) {
+            return ImmutableMap.of("result", "success");
+        }
+        return ImmutableMap.of("result", "fail");
+    }
+
+    /**
+     * **/
+    @RequestMapping(value = "/deleteDrugByCode", method = RequestMethod.POST)
+    public @ResponseBody
+    Map<Object, Object> deleteDrugByCode(@RequestBody Map<Object, Object> requestMap) {
+        log.info("requestMap :{}", requestMap);
+        Optional<Boolean> optional = Optional.ofNullable(drugService.updateDrugDownLoad(requestMap));
+        if (optional.isPresent()) {
+            return ImmutableMap.of("result", "success");
+        }
+        return ImmutableMap.of("result", "fail");
     }
 
 }

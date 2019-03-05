@@ -30,6 +30,7 @@ public interface DrugDao {
     Integer getCountOfCondition(@Param("drugCode") String drugCode, @Param("effectDate") String effectDate,
                                 @Param("chainId") String chainId, @Param("updown") String updown) throws Exception;
 
-    @Update(value = "")
-    Boolean updateDrugDownLoad() throws Exception;
+    //上架下架
+    @Update(value = "update dsos_vot_drugrecord set isAllowedTrade = #{updown} where drugCode = #{drugCode};")
+    Boolean updateDrugDownLoad(@Param("drugCode") String drugCode, @Param("updown") String updown) throws Exception;
 }

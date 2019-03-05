@@ -1,9 +1,8 @@
-<!-- 上架下架 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>drugUpDown</title>
+    <title>drugInOut</title>
     <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="../lay/layui.js"></script>
     <link rel="stylesheet" href="../lay/css/layui.css" media="all">
@@ -75,21 +74,23 @@
     </div>
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <div style="padding: 15px;" id="drugInList">
+        <div style="padding: 15px;" id="body">
             <form class="layui-form">
-                药品编号：<input type="text" name="drugCode" autocomplete="off">
-                连锁编号：<input type="text" name="chainId" autocomplete="off">
+                <!-- lay-verify="required" 代表必填 -->
+                药品编号：<input type="text" name="drugCode" autocomplete="off" lay-verify="required">
+                连锁编号：<input type="text" name="chainId" autocomplete="off" lay-verify="required">
+                保质日期：<input type="text" name="date" id="date" placeholder="yyyy-MM-dd" autocomplete="off" lay-verify="required">
                 <div class="layui-input-inline" style="width: 100px">
                     <select name="updown">
                         <option value="已上架">已上架</option>
                         <option value="已下架">已下架</option>
                     </select>
                 </div>
-                <button class="layui-btn" lay-submit="" lay-filter="demo2">查询</button>
+                <button class="layui-btn" lay-submit="" lay-filter="demo3">查询</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </form>
             <!-- id 与 render里面的elem 要一样 -->
-            <table class="layui-hide" id="test2" lay-filter="test"></table>
+            <table class="layui-hide" id="test3" lay-filter="test"></table>
         </div>
     </div>
     <div class="layui-footer" style="text-align: center;color: #01AAED" id="buttom">
@@ -99,7 +100,6 @@
 </div>
 </body>
 <script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-xs" lay-event="up">上架</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="down">下架</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete" style="width: 80px;">删除</a>
 </script>
 </html>
