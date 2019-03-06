@@ -35,7 +35,7 @@ public class DrugServiceImpl implements DrugService {
         try {
             drugRecordList = drugDao.getDrugInfoList(page, limit, drugCode, effectDate, chainId, updown);
         } catch (Exception e) {
-            log.error("获取药品列表失败错误日志：{}", e);
+            log.error("get drug list error ：{}", e.getMessage());
         }
         return drugRecordList;
     }
@@ -64,7 +64,19 @@ public class DrugServiceImpl implements DrugService {
             return drugDao.updateDrugDownLoad(drugCode, updown);
         } catch (Exception e) {
             log.error("impl set drug updown error :{}", e.getMessage());
+            return false;
         }
-        return false;
+    }
+
+    @Override
+    public Boolean deleteDrugByCode(String drugCode) {
+        try {
+            /*if (Optional.ofNullable(drugDao.deleteDrugByCode(drugCode)).isPresent())
+                return true;*/
+            return drugDao.deleteDrugByCode(drugCode);
+        } catch (Exception e) {
+            log.error("delete drug impl error :{} ", e.getMessage());
+            return false;
+        }
     }
 }

@@ -22,4 +22,9 @@ public interface DrugService {
      * 商品上架下架
      */
     Boolean updateDrugDownLoad(Map<Object, Object> requestMap);
+
+    /**
+     * 商品出库入库
+     **/
+    Boolean deleteDrugByCode(String drugCode);
 }

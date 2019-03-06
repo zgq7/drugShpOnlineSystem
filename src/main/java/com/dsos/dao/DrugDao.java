@@ -21,6 +21,7 @@ public interface DrugDao {
      * @param updown     是否允许交易
      **/
 
+    //药品资料
     @Select("call pos_get_drugInList(#{page},#{limit},#{drugCode},#{effectDate},#{chainId},#{updown})")
     List<DrugRecord> getDrugInfoList(@Param("page") String page, @Param("limit") String limit, @Param("drugCode") String drugCode
             , @Param("effectDate") String effectDate, @Param("chainId") String chainId, @Param("updown") String updown) throws Exception;
@@ -33,4 +34,8 @@ public interface DrugDao {
     //上架下架
     @Update(value = "update dsos_vot_drugrecord set isAllowedTrade = #{updown} where drugCode = #{drugCode};")
     Boolean updateDrugDownLoad(@Param("drugCode") String drugCode, @Param("updown") String updown) throws Exception;
+
+    //出库
+    @Select(value = "delete from dsos_vot_drugrecord where drugCode = #{drugCode} ;")
+    Boolean deleteDrugByCode(@Param("drugCode") String drugCode) throws Exception;
 }

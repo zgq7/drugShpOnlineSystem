@@ -170,7 +170,7 @@ layui.use(['table', 'form', 'laydate'], function () {
         param.drugCode = data.drugCode;
         if (obj.event === 'delete') {
             layer.confirm('真的删除吗？', function (index) {
-                //drugDownUpLoad(param, url);
+                drugDownUpLoad(param, url);
                 //只是在页面中移除
                 obj.del();
                 layer.close(index);

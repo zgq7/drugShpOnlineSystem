@@ -68,7 +68,7 @@ public class DrugController {
     @RequestMapping(value = "/updateDrugDownLoad", method = RequestMethod.POST)
     public @ResponseBody
     Map<Object, Object> updateDrugDownLoad(@RequestBody Map<Object, Object> requestMap) {
-        log.info("requestMap :{}", requestMap);
+        //log.info("requestMap :{}", requestMap);
         Optional<Boolean> optional = Optional.ofNullable(drugService.updateDrugDownLoad(requestMap));
         if (optional.isPresent()) {
             return ImmutableMap.of("result", "success");
@@ -77,13 +77,14 @@ public class DrugController {
     }
 
     /**
-     * **/
+     * 删除药品
+     **/
     @RequestMapping(value = "/deleteDrugByCode", method = RequestMethod.POST)
     public @ResponseBody
     Map<Object, Object> deleteDrugByCode(@RequestBody Map<Object, Object> requestMap) {
-        log.info("requestMap :{}", requestMap);
-        Optional<Boolean> optional = Optional.ofNullable(drugService.updateDrugDownLoad(requestMap));
-        if (optional.isPresent()) {
+        log.info("drugCode of requestMap :{}", requestMap.get("drugCode"));
+        String drugCode = (String) requestMap.get("drugCode");
+        if (Optional.ofNullable(drugService.deleteDrugByCode(drugCode)).isPresent()) {
             return ImmutableMap.of("result", "success");
         }
         return ImmutableMap.of("result", "fail");

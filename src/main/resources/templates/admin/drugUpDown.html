@@ -77,8 +77,14 @@
         <!-- 内容主体区域 -->
         <div style="padding: 15px;" id="drugInList">
             <form class="layui-form">
-                药品编号：<input type="text" name="drugCode" autocomplete="off">
-                连锁编号：<input type="text" name="chainId" autocomplete="off">
+                药品编号：
+                <div class="layui-inline">
+                    <input type="text" name="drugCode" autocomplete="off" class="layui-input">
+                </div>
+                连锁编号：
+                <div class="layui-inline">
+                    <input type="text" name="chainId" autocomplete="off" class="layui-input">
+                </div>
                 <div class="layui-input-inline" style="width: 100px">
                     <select name="updown">
                         <option value="已上架">已上架</option>
