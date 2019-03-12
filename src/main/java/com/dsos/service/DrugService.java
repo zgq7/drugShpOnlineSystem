@@ -26,5 +26,5 @@ public interface DrugService {
     /**
      * 商品出库入库
      **/
-    Boolean deleteDrugByCode(String drugCode);
+    Boolean deleteDrugByCode(String drugCode,String chainId);
 }

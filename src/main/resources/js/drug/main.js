@@ -168,11 +168,12 @@ layui.use(['table', 'form', 'laydate'], function () {
         let param = {};
         let url = '../drug/updateDrugDownLoad';
         param.drugCode = data.drugCode;
+        param.chainId = data.chainId;
+        console.log(param);
         if (obj.event === 'delete') {
             layer.confirm('真的删除吗？', function (index) {
                 drugDownUpLoad(param, url);
                 //只是在页面中移除
-                obj.del();
                 layer.close(index);
             });
         }
@@ -194,6 +195,7 @@ layui.use(['table', 'form', 'laydate'], function () {
             , timeout: 1000,
             success: function (data) {
                 layer.alert("操作成功 ：" + data.result);
+                obj.del();
             },
             error: function (data) {
                 layer.alert("操作异常 ：" + data.result);

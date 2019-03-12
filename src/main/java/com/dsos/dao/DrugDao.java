@@ -36,6 +36,6 @@ public interface DrugDao {
     Boolean updateDrugDownLoad(@Param("drugCode") String drugCode, @Param("updown") String updown) throws Exception;
 
     //出库
-    @Select(value = "delete from dsos_vot_drugrecord where drugCode = #{drugCode} ;")
-    Boolean deleteDrugByCode(@Param("drugCode") String drugCode) throws Exception;
+    @Delete(value = "delete from dsos_vot_drugrecord where drugCode = #{drugCode} and chainId = #{chainId};")
+    Integer deleteDrugByCode(@Param("drugCode") String drugCode, @Param("chainId") String chainId) throws Exception;
 }

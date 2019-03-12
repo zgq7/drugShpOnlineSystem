@@ -69,11 +69,9 @@ public class DrugServiceImpl implements DrugService {
     }
 
     @Override
-    public Boolean deleteDrugByCode(String drugCode) {
+    public Boolean deleteDrugByCode(String drugCode, String chainId) {
         try {
-            /*if (Optional.ofNullable(drugDao.deleteDrugByCode(drugCode)).isPresent())
-                return true;*/
-            return drugDao.deleteDrugByCode(drugCode);
+            return Optional.ofNullable(drugDao.deleteDrugByCode(drugCode, chainId)).isPresent();
         } catch (Exception e) {
             log.error("delete drug impl error :{} ", e.getMessage());
             return false;

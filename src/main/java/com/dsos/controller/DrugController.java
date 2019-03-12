@@ -82,9 +82,10 @@ public class DrugController {
     @RequestMapping(value = "/deleteDrugByCode", method = RequestMethod.POST)
     public @ResponseBody
     Map<Object, Object> deleteDrugByCode(@RequestBody Map<Object, Object> requestMap) {
-        log.info("drugCode of requestMap :{}", requestMap.get("drugCode"));
+        log.info("drugCode of requestMap :code:{} id:{}", requestMap.get("drugCode"), requestMap.get("chainId"));
         String drugCode = (String) requestMap.get("drugCode");
-        if (Optional.ofNullable(drugService.deleteDrugByCode(drugCode)).isPresent()) {
+        String chainId = (String) requestMap.get("chainId");
+        if (Optional.ofNullable(drugService.deleteDrugByCode(drugCode, chainId)).isPresent()) {
             return ImmutableMap.of("result", "success");
         }
         return ImmutableMap.of("result", "fail");

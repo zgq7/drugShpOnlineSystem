@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -48,6 +49,12 @@ public class DrugShpOnlineSystemApplicationTests {
         drugService.getDrugInfoList(request).forEach(item -> {
             System.out.println(item);
         });*/
+    }
+
+    @Test
+    public void fff() throws Exception {
+        System.out.println(drugDao.deleteDrugByCode("101002", "1"));
+        System.out.println(Optional.ofNullable(drugDao.deleteDrugByCode("101002", "1")).isPresent());
     }
 
 }

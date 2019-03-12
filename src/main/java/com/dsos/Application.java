@@ -19,12 +19,5 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-
-    /*@Bean
-    public ConfigurableServletWebServerFactory webServerFactory(){
-        TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
-        return factory;
-    }*/
-
 }
 
