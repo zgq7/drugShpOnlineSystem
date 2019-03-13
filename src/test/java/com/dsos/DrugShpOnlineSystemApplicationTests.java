@@ -69,12 +69,9 @@ public class DrugShpOnlineSystemApplicationTests {
     //添加药品测试
     @Test
     public void hhh() throws Exception {
-        /*Boolean b = drugDao.addDrugRecord("2", "消食片", "西药", "xs2016351", "ts201362", "19.9"
-                , "19.9", "9.9", "每盒/四片", "每片/四颗", "山西国邦医药", "2019-01-01", "2019-01-01", "2020-12-12"
-                , "69152145", "1");*/
-
         DrugRecord drugRecord = new DrugRecord();
-        drugRecord.setChainId(2);
+        drugRecord.setChainId(3);
+        drugRecord.setDrugName("消食片");
         drugRecord.setDrugKind("西药");
         drugRecord.setDrugCode("xs2016351");
         drugRecord.setBarCode("ts201362");
@@ -88,11 +85,13 @@ public class DrugShpOnlineSystemApplicationTests {
         drugRecord.setProduceDate("2019-01-01");
         drugRecord.setEffectDate("2020-12-12");
         drugRecord.setApproval("69152145");
-        drugRecord.setIsAllowedTrade("1");
-        Boolean b2 = drugDao.addDrugRecord("2", "消食片", "西药", "xs2016351", "ts201362", "19.9"
-                , "19.9", "9.9", "每盒/四片", "每片/四颗", "山西国邦医药", "2019-01-01"
-                , "2019-01-01", "2020-12-12", "69152145", "1");
+        Boolean b2 = drugDao.addDrugRecord("3", "消食片", "西药"
+                , "xs2016351", "ts201362", "19.9"
+                , "19.9", "9.9", "每盒/四片"
+                , "每片/四颗", "山西国邦医药", "2019-01-01"
+                , "2019-01-01", "2020-12-12", "69152145");
         System.out.println(b2);
+        System.out.println(drugService.addDrugRecord(drugRecord));
     }
 
 }

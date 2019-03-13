@@ -29,7 +29,7 @@ public interface DrugService {
     Boolean deleteDrugByCode(String drugCode,String chainId);
 
     /**
-     * 商品出库
+     * 商品入库
      **/
     Boolean addDrugRecord(DrugRecord drugRecord);
 

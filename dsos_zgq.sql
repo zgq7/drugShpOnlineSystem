@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : mysql-admin
+ Source Server         : mysqlTest
  Source Server Type    : MySQL
  Source Server Version : 50717
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50717
  File Encoding         : 65001
 
- Date: 13/03/2019 18:32:31
+ Date: 13/03/2019 23:27:05
 */
 
 SET NAMES utf8mb4;
@@ -382,9 +382,9 @@ CREATE TABLE `dsos_vot_drugrecord`  (
   `effectDate` datetime(0) NULL DEFAULT '2020-01-01 00:00:00' COMMENT '保质日期',
   `approval` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '国产准字',
   `explaination` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
-  `isAllowedTrade` tinyint(1) NULL DEFAULT 1,
+  `isAllowedTrade` tinyint(4) NULL DEFAULT 0 COMMENT '是否允许交易',
   PRIMARY KEY (`drugId`, `chainId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1006 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1013 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of dsos_vot_drugrecord
@@ -1394,6 +1394,7 @@ INSERT INTO `dsos_vot_drugrecord` VALUES (1002, 2, '感康', NULL, '感冒药', 
 INSERT INTO `dsos_vot_drugrecord` VALUES (1003, 2, '感康', NULL, '感冒药', '0201362', '125242', 19.90, 19.90, 9.90, '每盒/2片', '每片6粒', '广州白云医药', '2019-03-13 00:00:00', '2019-03-13 00:00:00', '2020-01-01 00:00:00', 'xs20158215', NULL, 1);
 INSERT INTO `dsos_vot_drugrecord` VALUES (1004, 2, '消食片', NULL, '西药', 'xs2016351', 'ts201362', 19.90, 19.90, 9.90, '每盒/四片', '每片/四颗', '山西国邦医药', '2019-01-01 00:00:00', '2019-01-01 00:00:00', '2020-12-12 00:00:00', '69152145', NULL, 1);
 INSERT INTO `dsos_vot_drugrecord` VALUES (1005, 2, '消食片', NULL, '西药', 'xs2016351', 'ts201362', 19.90, 19.90, 9.90, '每盒/四片', '每片/四颗', '山西国邦医药', '2019-01-01 00:00:00', '2019-01-01 00:00:00', '2020-12-12 00:00:00', '69152145', NULL, 1);
+INSERT INTO `dsos_vot_drugrecord` VALUES (1012, 4, '健胃消食片', NULL, '保健', 'xs34534', 'xs3532532', 99.90, 88.80, 44.40, '盒', '六颗', '广州', '2019-03-13 00:00:00', '2019-03-13 00:00:00', '2020-03-13 00:00:00', '69675457', NULL, 0);
 
 -- ----------------------------
 -- Table structure for dsos_vot_storerecord
@@ -1460,17 +1461,20 @@ delimiter ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `pos_add_drug`;
 delimiter ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `pos_add_drug`(IN `chainId` varchar(19),IN `drugName` varchar(19),IN `drugKind` varchar(19),IN `drugCode` varchar(19),IN `barCode` varchar(19),IN `unitPrice` varchar(19),IN `storePrice` varchar(19),IN `costPrice` varchar(19),IN `unit` varchar(19),IN `spec` varchar(19),IN `company` varchar(19),IN `purchaseDate` varchar(19),IN `produceDate` varchar(19),IN `effectDate` varchar(19),IN `approval` varchar(19),IN `isAllowedTrade` varchar(19))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pos_add_drug`(IN `chainIdz` varchar(19),IN `drugName` varchar(19),IN `drugKind` varchar(19),IN `drugCodez` varchar(19),IN `barCode` varchar(19)
+,IN `unitPrice` varchar(19),IN `storePrice` varchar(19),IN `costPrice` varchar(19)
+,IN `unit` varchar(19),IN `spec` varchar(19),IN `company` varchar(19),IN `purchaseDate` varchar(19),IN `produceDate` varchar(19),IN `effectDate` varchar(19),IN `approval` varchar(19))
 BEGIN
 	#添加药品
-	if(select count(*) from dsos_vot_drugrecord where drugCode = drugCode and chainId = chainId)<1
+	if (select count(*) from dsos_vot_drugrecord where drugCode = drugCode and chainId = chainIdz) > 0 
 	then
 	###主动抛出异常
-	#SIGNAL SQLSTATE 'HY000' SET MESSAGE_TEXT = '该信息已存在';
+	SIGNAL SQLSTATE 'HY000' SET MESSAGE_TEXT = '该信息已存在';
+	else
 	insert into dsos_vot_drugrecord(chainId,drugName,drugKind,drugCode,barCode,unitPrice,storePrice,costPrice
-	                    ,unit,spec,company,purchaseDate,produceDate,effectDate,approval,isAllowedTrade)
-	select chainId,drugName,drugKind,drugCode,barCode,unitPrice,storePrice,costPrice
-	                    ,unit,spec,company,purchaseDate,produceDate,effectDate,approval,isAllowedTrade;
+	                    ,unit,spec,company,purchaseDate,produceDate,effectDate,approval)
+	select chainIdz,drugName,drugKind,drugCodez,barCode,unitPrice,storePrice,costPrice
+	                    ,unit,spec,company,purchaseDate,produceDate,effectDate,approval ;
 	end if;
 END
 ;;
@@ -1581,6 +1585,22 @@ set @sql = 'select count(*) from dsos_vot_drugrecord where 1 = 1';
  	DEALLOCATE PREPARE distSQL ;
 
 #select @sql2;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for pos_get_drugList
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `pos_get_drugList`;
+delimiter ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pos_get_drugList`(IN page integer,IN limitz integer)
+BEGIN
+DECLARE start integer;
+set start = (page-1)*limitz;
+	#获取药品信息（最多一千条）
+	#select start,end;
+	SELECT * from dsos_vot_drugrecord LIMIT start,limitz;
 END
 ;;
 delimiter ;

@@ -5,8 +5,23 @@ layui.use(['table', 'form', 'laydate'], function () {
 
     //日期
     laydate.render({
-        elem: '#date'
+        elem: '#date',
     });
+
+    //日期1
+    laydate.render({
+        elem: '#date1'
+    });
+
+    //日期2
+    laydate.render({
+        elem: '#date2'
+    });
+    //日期3
+    laydate.render({
+        elem: '#date3'
+    });
+
 
     //监听提交  商品资料 render
     form.on('submit(demo1)', function (data) {

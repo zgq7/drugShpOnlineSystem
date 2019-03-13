@@ -88,7 +88,7 @@ public class DrugServiceImpl implements DrugService {
             return drugDao.addDrugRecord(chainId, drugRecord.getDrugName(), drugRecord.getDrugKind()
                     , drugRecord.getDrugCode(), drugRecord.getBarCode(), unitPrice, storePrice
                     , costPrice, drugRecord.getUnit(), drugRecord.getSpec(), drugRecord.getCompany(), drugRecord.getPurchaseDate()
-                    , drugRecord.getProduceDate(), drugRecord.getEffectDate(), drugRecord.getApproval(), drugRecord.getIsAllowedTrade());
+                    , drugRecord.getProduceDate(), drugRecord.getEffectDate(), drugRecord.getApproval());
         } catch (Exception e) {
             log.error("{}", e.getMessage());
             return false;

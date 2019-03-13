@@ -4,7 +4,7 @@
     <!--输出到控制台-->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%red(%d{yyyy-MM-dd HH:mm:ss.SSS}) %highlight(%-5level) %green([ %-25thread ]) %boldMagenta(%-50logger ->%5L) ： %cyan(%msg) %n</pattern>
+            <pattern>%red(%d{yyyy-MM-dd HH:mm:ss.SSS}) %highlight(%-6level) %green([ %-25thread ]) %boldMagenta(%-50logger ->%5L) ： %cyan(%msg) %n</pattern>
             <charset>UTF-8</charset>
         </encoder>
     </appender>
@@ -21,7 +21,7 @@
             <!-- 格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
             <!-- %L：行号 -->
             <!--<pattern>%red(%d{yyyy-MM-dd HH:mm:ss.SSS}) %highlight(%-5level) %green([ %thread ]) %boldMagenta(%-50logger ->%5L) ： %cyan(%msg) %n</pattern>-->
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [ %thread ] %-50logger ->%5L ： %msg %n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-10level [ %thread ] %-50logger ->%5L ： %msg %n</pattern>
             <charset>UTF-8</charset>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
