@@ -1,7 +1,7 @@
 layui.use(['table', 'form', 'laydate'], function () {
     let table = layui.table,
-        form = layui.form
-        , laydate = layui.laydate;
+        form = layui.form,
+        laydate = layui.laydate;
 
     //日期
     laydate.render({
@@ -174,11 +174,27 @@ layui.use(['table', 'form', 'laydate'], function () {
             layer.confirm('真的删除吗？', function (index) {
                 drugDownUpLoad(param, url);
                 //只是在页面中移除
+                obj.del();
+                layer.close(index);
+            });
+        }
+        if (obj.event === 'add') {
+            layer.confirm('确认入库吗？', function (index) {
+                //drugDownUpLoad(param, url);
+                //只是在页面中移除
+                obj.del();
                 layer.close(index);
             });
         }
     });
 
+    //监听单元格编辑
+    table.on('edit(test3)', function (obj) {
+        var value = obj.value //得到修改后的值
+            , data = obj.data //得到所在行所有键值
+            , field = obj.field; //得到字段
+        layer.msg('[ID: ' + data.id + '] ' + field + ' 字段更改为：' + value);
+    });
     /**
      * 上架下架、出库入库 ajax
      * @param param 参数 JSON对象，并用JSON.Stringft()封装,post请求
@@ -195,7 +211,6 @@ layui.use(['table', 'form', 'laydate'], function () {
             , timeout: 1000,
             success: function (data) {
                 layer.alert("操作成功 ：" + data.result);
-                obj.del();
             },
             error: function (data) {
                 layer.alert("操作异常 ：" + data.result);

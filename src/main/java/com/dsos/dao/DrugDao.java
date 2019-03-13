@@ -37,5 +37,19 @@ public interface DrugDao {
 
     //出库
     @Delete(value = "delete from dsos_vot_drugrecord where drugCode = #{drugCode} and chainId = #{chainId};")
-    Integer deleteDrugByCode(@Param("drugCode") String drugCode, @Param("chainId") String chainId) throws Exception;
+    Boolean deleteDrugByCode(@Param("drugCode") String drugCode, @Param("chainId") String chainId) throws Exception;
+
+    //入库
+    @Insert(value = "call pos_add_drug(#{chainId},#{drugName},#{drugKind}," +
+            "#{drugCode},#{barCode},#{unitPrice}," +
+            "#{storePrice}, #{costPrice}, #{unit}," +
+            "#{spec},#{company},#{purchaseDate}," +
+            "#{produceDate},#{effectDate},#{approval}," +
+            "#{isAllowedTrade} )")
+    Boolean addDrugRecord(@Param("chainId") String chainId, @Param("drugName") String drugName, @Param("drugKind") String drugKind,
+                          @Param("drugCode") String drugCode, @Param("barCode") String barCode, @Param("unitPrice") String unitPrice,
+                          @Param("storePrice") String storePrice, @Param("costPrice") String costPrice, @Param("unit") String unit,
+                          @Param("spec") String spec, @Param("company") String company, @Param("purchaseDate") String purchaseDate,
+                          @Param("produceDate") String produceDate, @Param("effectDate") String effectDate, @Param("approval") String approval,
+                          @Param("isAllowedTrade") String isAllowedTrade) throws Exception;
 }

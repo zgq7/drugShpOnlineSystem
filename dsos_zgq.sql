@@ -11,7 +11,7 @@
  Target Server Version : 50717
  File Encoding         : 65001
 
- Date: 05/03/2019 18:55:29
+ Date: 13/03/2019 18:32:31
 */
 
 SET NAMES utf8mb4;
@@ -384,7 +384,7 @@ CREATE TABLE `dsos_vot_drugrecord`  (
   `explaination` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   `isAllowedTrade` tinyint(1) NULL DEFAULT 1,
   PRIMARY KEY (`drugId`, `chainId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1002 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1006 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of dsos_vot_drugrecord
@@ -1390,6 +1390,10 @@ INSERT INTO `dsos_vot_drugrecord` VALUES (998, 1, '橘红枇杷片（基）', NU
 INSERT INTO `dsos_vot_drugrecord` VALUES (999, 1, '天麻片(糖衣）', NULL, '风湿用药', '1020175', '6926285811886', 11.00, NULL, NULL, '盒', '36\'S', '广东罗浮山国药股份有限公司', '2019-01-01 00:00:00', '2018-12-31 00:00:00', '2020-01-01 00:00:00', '国药准字Z44022334', NULL, 1);
 INSERT INTO `dsos_vot_drugrecord` VALUES (1000, 1, '依姆多（单硝酸异山梨酯缓释片）', NULL, '心脏病用药', '1020176', '6923878310153', 23.00, NULL, NULL, '盒', '60mg*7\'S', '阿斯利康制药有限公司', '2019-01-01 00:00:00', '2018-12-31 00:00:00', '2020-01-01 00:00:00', '国药准字H20030418', NULL, 1);
 INSERT INTO `dsos_vot_drugrecord` VALUES (1001, 1, '氯沙坦钾片', NULL, '高血压用药', '1020177', NULL, 63.50, NULL, NULL, '盒', '50mg*14\'S', '浙江华海药业股份有限公司', '2019-01-01 00:00:00', '2018-12-31 00:00:00', '2020-01-01 00:00:00', '国药准字H20070264', NULL, 1);
+INSERT INTO `dsos_vot_drugrecord` VALUES (1002, 2, '感康', NULL, '感冒药', '0201362', '125242', 19.90, 19.90, 9.90, '每盒/2片', '每片6粒', '广州白云医药', '2019-03-13 00:00:00', '2019-03-13 00:00:00', '2020-01-01 00:00:00', 'xs20158215', NULL, 1);
+INSERT INTO `dsos_vot_drugrecord` VALUES (1003, 2, '感康', NULL, '感冒药', '0201362', '125242', 19.90, 19.90, 9.90, '每盒/2片', '每片6粒', '广州白云医药', '2019-03-13 00:00:00', '2019-03-13 00:00:00', '2020-01-01 00:00:00', 'xs20158215', NULL, 1);
+INSERT INTO `dsos_vot_drugrecord` VALUES (1004, 2, '消食片', NULL, '西药', 'xs2016351', 'ts201362', 19.90, 19.90, 9.90, '每盒/四片', '每片/四颗', '山西国邦医药', '2019-01-01 00:00:00', '2019-01-01 00:00:00', '2020-12-12 00:00:00', '69152145', NULL, 1);
+INSERT INTO `dsos_vot_drugrecord` VALUES (1005, 2, '消食片', NULL, '西药', 'xs2016351', 'ts201362', 19.90, 19.90, 9.90, '每盒/四片', '每片/四颗', '山西国邦医药', '2019-01-01 00:00:00', '2019-01-01 00:00:00', '2020-12-12 00:00:00', '69152145', NULL, 1);
 
 -- ----------------------------
 -- Table structure for dsos_vot_storerecord
@@ -1447,6 +1451,27 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `login_member`(IN `account` varchar(
 BEGIN
 	#普通会员登录
 	SELECT * from dsos_live_memberuser where cardNo = account and `password` = `passwordz`;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for pos_add_drug
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `pos_add_drug`;
+delimiter ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pos_add_drug`(IN `chainId` varchar(19),IN `drugName` varchar(19),IN `drugKind` varchar(19),IN `drugCode` varchar(19),IN `barCode` varchar(19),IN `unitPrice` varchar(19),IN `storePrice` varchar(19),IN `costPrice` varchar(19),IN `unit` varchar(19),IN `spec` varchar(19),IN `company` varchar(19),IN `purchaseDate` varchar(19),IN `produceDate` varchar(19),IN `effectDate` varchar(19),IN `approval` varchar(19),IN `isAllowedTrade` varchar(19))
+BEGIN
+	#添加药品
+	if(select count(*) from dsos_vot_drugrecord where drugCode = drugCode and chainId = chainId)<1
+	then
+	###主动抛出异常
+	#SIGNAL SQLSTATE 'HY000' SET MESSAGE_TEXT = '该信息已存在';
+	insert into dsos_vot_drugrecord(chainId,drugName,drugKind,drugCode,barCode,unitPrice,storePrice,costPrice
+	                    ,unit,spec,company,purchaseDate,produceDate,effectDate,approval,isAllowedTrade)
+	select chainId,drugName,drugKind,drugCode,barCode,unitPrice,storePrice,costPrice
+	                    ,unit,spec,company,purchaseDate,produceDate,effectDate,approval,isAllowedTrade;
+	end if;
 END
 ;;
 delimiter ;

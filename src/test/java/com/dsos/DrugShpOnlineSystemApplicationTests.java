@@ -53,8 +53,46 @@ public class DrugShpOnlineSystemApplicationTests {
 
     @Test
     public void fff() throws Exception {
-        System.out.println(drugDao.deleteDrugByCode("101002", "1"));
-        System.out.println(Optional.ofNullable(drugDao.deleteDrugByCode("101002", "1")).isPresent());
+        System.out.println(drugDao.deleteDrugByCode("101006", "1"));
+        System.out.println(Optional.ofNullable(drugDao.deleteDrugByCode("101005", "1")).isPresent());
+    }
+
+    @Test
+    public void gggg() throws Exception {
+        List<DrugRecord> drugRecordList = drugDao.getDrugInfoList("1", "10", "101009", "2020-01-01", "1", "1");
+        drugRecordList.forEach(item -> {
+            System.out.println(item.toString());
+        });
+
+    }
+
+    //添加药品测试
+    @Test
+    public void hhh() throws Exception {
+        /*Boolean b = drugDao.addDrugRecord("2", "消食片", "西药", "xs2016351", "ts201362", "19.9"
+                , "19.9", "9.9", "每盒/四片", "每片/四颗", "山西国邦医药", "2019-01-01", "2019-01-01", "2020-12-12"
+                , "69152145", "1");*/
+
+        DrugRecord drugRecord = new DrugRecord();
+        drugRecord.setChainId(2);
+        drugRecord.setDrugKind("西药");
+        drugRecord.setDrugCode("xs2016351");
+        drugRecord.setBarCode("ts201362");
+        drugRecord.setUnitPrice(19.9);
+        drugRecord.setStorePrice(19.9);
+        drugRecord.setCostPrice(19.9);
+        drugRecord.setUnit("每盒/四片");
+        drugRecord.setSpec("每片/四颗");
+        drugRecord.setCompany("山西国邦医药");
+        drugRecord.setPurchaseDate("2019-01-01");
+        drugRecord.setProduceDate("2019-01-01");
+        drugRecord.setEffectDate("2020-12-12");
+        drugRecord.setApproval("69152145");
+        drugRecord.setIsAllowedTrade("1");
+        Boolean b2 = drugDao.addDrugRecord("2", "消食片", "西药", "xs2016351", "ts201362", "19.9"
+                , "19.9", "9.9", "每盒/四片", "每片/四颗", "山西国邦医药", "2019-01-01"
+                , "2019-01-01", "2020-12-12", "69152145", "1");
+        System.out.println(b2);
     }
 
 }

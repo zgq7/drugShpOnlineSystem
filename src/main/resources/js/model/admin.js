@@ -11,7 +11,6 @@ $(document).ready(function () {
         dataType: "json",
         timeout: 1000,
         success: function (data) {
-            //console.log(data);
             document.getElementById('adminName').innerHTML = data.name;
             $("#adminImg").attr("src", data.imgRoot);
         },

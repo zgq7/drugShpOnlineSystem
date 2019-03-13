@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLException;
 import java.util.*;
 
 /**
@@ -31,7 +32,6 @@ public class DrugServiceImpl implements DrugService {
         String effectDate = (String) requestMap.get("effectDate");
         String chainId = (String) requestMap.get("chainId");
         String updown = (String) requestMap.get("updown");
-        log.info("impl updown : {}", updown);
         try {
             drugRecordList = drugDao.getDrugInfoList(page, limit, drugCode, effectDate, chainId, updown);
         } catch (Exception e) {
@@ -71,9 +71,26 @@ public class DrugServiceImpl implements DrugService {
     @Override
     public Boolean deleteDrugByCode(String drugCode, String chainId) {
         try {
-            return Optional.ofNullable(drugDao.deleteDrugByCode(drugCode, chainId)).isPresent();
+            return drugDao.deleteDrugByCode(drugCode, chainId);
         } catch (Exception e) {
             log.error("delete drug impl error :{} ", e.getMessage());
+            return false;
+        }
+    }
+
+    @Override
+    public Boolean addDrugRecord(DrugRecord drugRecord) {
+        String chainId = String.valueOf(drugRecord.getChainId());
+        String costPrice = String.valueOf(drugRecord.getCostPrice());
+        String unitPrice = String.valueOf(drugRecord.getUnitPrice());
+        String storePrice = String.valueOf(drugRecord.getStorePrice());
+        try {
+            return drugDao.addDrugRecord(chainId, drugRecord.getDrugName(), drugRecord.getDrugKind()
+                    , drugRecord.getDrugCode(), drugRecord.getBarCode(), unitPrice, storePrice
+                    , costPrice, drugRecord.getUnit(), drugRecord.getSpec(), drugRecord.getCompany(), drugRecord.getPurchaseDate()
+                    , drugRecord.getProduceDate(), drugRecord.getEffectDate(), drugRecord.getApproval(), drugRecord.getIsAllowedTrade());
+        } catch (Exception e) {
+            log.error("{}", e.getMessage());
             return false;
         }
     }
