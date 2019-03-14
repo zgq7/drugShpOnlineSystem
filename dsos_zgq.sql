@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : mysqlTest
+ Source Server         : mysql-admin
  Source Server Type    : MySQL
  Source Server Version : 50717
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50717
  File Encoding         : 65001
 
- Date: 13/03/2019 23:27:05
+ Date: 14/03/2019 18:32:08
 */
 
 SET NAMES utf8mb4;
@@ -360,6 +360,28 @@ INSERT INTO `dsos_role` VALUES (2, 'lsr002', 'member', '平台会员');
 INSERT INTO `dsos_role` VALUES (3, 'lsr003', 'chainer', '连锁人员');
 
 -- ----------------------------
+-- Table structure for dsos_vot_chainrecord
+-- ----------------------------
+DROP TABLE IF EXISTS `dsos_vot_chainrecord`;
+CREATE TABLE `dsos_vot_chainrecord`  (
+  `chainId` int(10) NOT NULL COMMENT '连锁ID',
+  `chainNo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '连锁编号',
+  `chainName` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '连锁名称',
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '地址',
+  `businessNo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '经营许可证',
+  `hodler` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '负责人名称',
+  `workNum` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '负责人工作编号',
+  `telephone` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '连锁热线',
+  `logoRoot` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '连锁logo图片地址',
+  PRIMARY KEY (`chainId`, `chainNo`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of dsos_vot_chainrecord
+-- ----------------------------
+INSERT INTO `dsos_vot_chainrecord` VALUES (1, 'xs1101', '广州临云大药房', '广州车陂', 'bs45142512', '于树春', 'xts12514251', '16352451521', NULL);
+
+-- ----------------------------
 -- Table structure for dsos_vot_drugrecord
 -- ----------------------------
 DROP TABLE IF EXISTS `dsos_vot_drugrecord`;
@@ -384,7 +406,7 @@ CREATE TABLE `dsos_vot_drugrecord`  (
   `explaination` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   `isAllowedTrade` tinyint(4) NULL DEFAULT 0 COMMENT '是否允许交易',
   PRIMARY KEY (`drugId`, `chainId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1013 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1018 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of dsos_vot_drugrecord
@@ -1395,6 +1417,10 @@ INSERT INTO `dsos_vot_drugrecord` VALUES (1003, 2, '感康', NULL, '感冒药', 
 INSERT INTO `dsos_vot_drugrecord` VALUES (1004, 2, '消食片', NULL, '西药', 'xs2016351', 'ts201362', 19.90, 19.90, 9.90, '每盒/四片', '每片/四颗', '山西国邦医药', '2019-01-01 00:00:00', '2019-01-01 00:00:00', '2020-12-12 00:00:00', '69152145', NULL, 1);
 INSERT INTO `dsos_vot_drugrecord` VALUES (1005, 2, '消食片', NULL, '西药', 'xs2016351', 'ts201362', 19.90, 19.90, 9.90, '每盒/四片', '每片/四颗', '山西国邦医药', '2019-01-01 00:00:00', '2019-01-01 00:00:00', '2020-12-12 00:00:00', '69152145', NULL, 1);
 INSERT INTO `dsos_vot_drugrecord` VALUES (1012, 4, '健胃消食片', NULL, '保健', 'xs34534', 'xs3532532', 99.90, 88.80, 44.40, '盒', '六颗', '广州', '2019-03-13 00:00:00', '2019-03-13 00:00:00', '2020-03-13 00:00:00', '69675457', NULL, 0);
+INSERT INTO `dsos_vot_drugrecord` VALUES (1013, 3, '消食片', NULL, '西药', 'xs2016351', 'ts201362', 19.90, 19.90, 9.90, '每盒/四片', '每片/四颗', '山西国邦医药', '2019-01-01 00:00:00', '2019-01-01 00:00:00', '2020-12-12 00:00:00', '69152145', NULL, 0);
+INSERT INTO `dsos_vot_drugrecord` VALUES (1015, 4, '健胃消食片', NULL, '保健品', 'xs153415', 'ts1524521', 99.90, 88.80, 22.20, '盒', '6片', '广州白云上', '2019-03-02 00:00:00', '2019-03-02 00:00:00', '2020-02-02 00:00:00', '69154524', NULL, 0);
+INSERT INTO `dsos_vot_drugrecord` VALUES (1016, 5, '消食片', NULL, '西药', 'xs2016351', 'ts201362', 19.90, 19.90, 19.90, '每盒/四片', '每片/四颗', '山西国邦医药', '2019-01-01 00:00:00', '2019-01-01 00:00:00', '2020-12-12 00:00:00', '69152145', NULL, 0);
+INSERT INTO `dsos_vot_drugrecord` VALUES (1017, 5, '感康', NULL, '感冒药', 'xs45154154', 'ts451541', 19.90, 17.70, 4.40, '盒', '片/6粒', '广州白云上', '2019-03-14 00:00:00', '2019-03-14 00:00:00', '2020-03-14 00:00:00', '69151421', NULL, 0);
 
 -- ----------------------------
 -- Table structure for dsos_vot_storerecord
@@ -1466,7 +1492,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `pos_add_drug`(IN `chainIdz` varchar
 ,IN `unit` varchar(19),IN `spec` varchar(19),IN `company` varchar(19),IN `purchaseDate` varchar(19),IN `produceDate` varchar(19),IN `effectDate` varchar(19),IN `approval` varchar(19))
 BEGIN
 	#添加药品
-	if (select count(*) from dsos_vot_drugrecord where drugCode = drugCode and chainId = chainIdz) > 0 
+	if (select count(*) from dsos_vot_drugrecord where drugCode = drugCodez and chainId = chainIdz) > 0 
 	then
 	###主动抛出异常
 	SIGNAL SQLSTATE 'HY000' SET MESSAGE_TEXT = '该信息已存在';
@@ -1526,7 +1552,7 @@ set @sql = 'select * from dsos_vot_drugrecord where 1 = 1';
 	#获取药品信息（最多一千条）
 
 	if drugCodez <> '' then 
-	  set @sql = CONCAT(@sql,' and drugCode= ',drugCodez);
+	  set @sql = CONCAT(@sql,' and drugCode= ','''',drugCodez,'''');
 	end if;
 	
 	if effectDatez <> '' then 

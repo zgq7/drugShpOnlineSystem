@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>config</title>
+    <title>chainList</title>
     <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="../lay/layui.js"></script>
     <link rel="stylesheet" href="../lay/css/layui.css" media="all">
     <script type="text/javascript" src="../js/model/admin.js"></script>
+    <script type="text/javascript" src="../js/chain/main.js"></script>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -55,7 +56,7 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">连锁管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">连锁资料</a></dd>
+                        <dd><a href="chainList">连锁资料</a></dd>
                         <dd><a href="javascript:;">门店资料</a></dd>
                         <dd><a href="javascript:;">店员资料</a></dd>
                     </dl>
@@ -73,7 +74,19 @@
     </div>
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <div style="padding: 15px;" id="configModel">admin config 内容主体区域</div>
+        <div style="padding: 15px;" id="chainList">
+            <hr class="layui-bg-red">
+            <div class="demoTable">
+                搜索ID：
+                <div class="layui-inline">
+                    <input class="layui-input" name="id" id="demoReload" autocomplete="off">
+                </div>
+                <button class="layui-btn" data-type="reload">搜索</button>
+                <hr class="layui-bg-orange">
+            </div>
+
+            <table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
+        </div>
     </div>
     <div class="layui-footer" style="text-align: center;color: #01AAED" id="buttom">
         <!-- 底部固定区域 -->

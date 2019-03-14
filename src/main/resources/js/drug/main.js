@@ -37,7 +37,7 @@ layui.use(['table', 'form', 'laydate'], function () {
             elem: '#test'
             , title: '药品资料'
             , url: url
-            , height: 'full-198'
+            , height: 'full-230'
             , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
                 layout: ['limit', 'count', 'prev', 'page', 'next', 'skip', 'refresh'] //自定义分页布局
                 , groups: 1//只显示 1 个连续页码
@@ -86,7 +86,7 @@ layui.use(['table', 'form', 'laydate'], function () {
             elem: '#test2'
             , title: '上架下架'
             , url: url
-            , height: 'full-198'
+            , height: 'full-230'
             , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
                 layout: ['limit', 'count', 'prev', 'page', 'next', 'skip', 'refresh'] //自定义分页布局
                 , groups: 1//只显示 1 个连续页码

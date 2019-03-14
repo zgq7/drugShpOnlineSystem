@@ -51,7 +51,7 @@
                     <dl class="layui-nav-child">
                         <dd><a href="drugInList">药品资料</a></dd>
                         <dd><a href="drugUpDown">上架下架</a></dd>
-                        <dd><a href="javascript:;">入库出库</a></dd>
+                        <dd><a href="drugInOut">入库出库</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item layui-nav-itemed">
@@ -117,95 +117,94 @@
                     <label class="layui-form-label">所属连锁</label>
                     <div class="layui-input-inline">
                         <input type="text" name="chainId" placeholder="请输入" autocomplete="off"
-                               class="layui-input">
+                               class="layui-input" lay-verify="required">
                     </div>
                     <label class="layui-form-label" style="margin-left: 50px">药品名称</label>
                     <div class="layui-input-inline">
                         <input type="text" name="drugName" placeholder="请输入" autocomplete="off"
-                               class="layui-input">
+                               class="layui-input" lay-verify="required">
                     </div>
                     <label class="layui-form-label" style="margin-left: 50px">药品种类</label>
                     <div class="layui-input-inline">
                         <input type="text" name="drugKind" placeholder="请输入" autocomplete="off"
-                               class="layui-input">
+                               class="layui-input" lay-verify="required">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">药品编码</label>
                     <div class="layui-input-inline">
                         <input type="text" name="drugCode" placeholder="请输入" autocomplete="off"
-                               class="layui-input">
+                               class="layui-input" lay-verify="required">
                     </div>
                     <label class="layui-form-label" style="margin-left: 50px">药品内码</label>
                     <div class="layui-input-inline">
                         <input type="text" name="barCode" placeholder="请输入" autocomplete="off"
-                               class="layui-input">
+                               class="layui-input" lay-verify="required">
                     </div>
                     <label class="layui-form-label" style="margin-left: 50px">连锁单价</label>
                     <div class="layui-input-inline">
                         <input type="text" name="unitPrice" placeholder="请输入" autocomplete="off"
-                               class="layui-input" value="0.00">
+                               class="layui-input" value="0.00" lay-verify="required">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">门店单价</label>
                     <div class="layui-input-inline">
                         <input type="text" name="storePrice" placeholder="请输入" autocomplete="off"
-                               class="layui-input" value="0.00">
+                               class="layui-input" value="0.00" lay-verify="required">
                     </div>
                     <label class="layui-form-label" style="margin-left: 50px">成本单价</label>
                     <div class="layui-input-inline">
                         <input type="text" name="costPrice" placeholder="请输入" autocomplete="off"
-                               class="layui-input" value="0.00">
+                               class="layui-input" value="0.00" lay-verify="required">
                     </div>
                     <label class="layui-form-label" style="margin-left: 50px">单位</label>
                     <div class="layui-input-inline">
                         <input type="text" name="unit" placeholder="请输入" autocomplete="off"
-                               class="layui-input">
+                               class="layui-input" lay-verify="required">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">规格</label>
                     <div class="layui-input-inline">
                         <input type="text" name="spec" placeholder="请输入" autocomplete="off"
-                               class="layui-input">
+                               class="layui-input" lay-verify="required">
                     </div>
                     <label class="layui-form-label" style="margin-left: 50px">生产厂商</label>
                     <div class="layui-input-inline">
                         <input type="text" name="company" placeholder="请输入" autocomplete="off"
-                               class="layui-input">
+                               class="layui-input" lay-verify="required">
                     </div>
                     <label class="layui-form-label" style="margin-left: 50px">生产日期</label>
                     <div class="layui-input-inline">
                         <input type="text" id="date3" name="produceDate" autocomplete="off"
-                               class="layui-input" placeholder="yyyy-MM-dd">
+                               class="layui-input" placeholder="yyyy-MM-dd" lay-verify="required">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">购买日期</label>
                     <div class="layui-input-inline">
                         <input type="text" id="date1" name="purchaseDate" autocomplete="off"
-                               class="layui-input" placeholder="yyyy-MM-dd">
+                               class="layui-input" placeholder="yyyy-MM-dd" lay-verify="required">
                     </div>
                     <label class="layui-form-label" style="margin-left: 50px">保质日期</label>
                     <div class="layui-input-inline">
                         <input type="text" id="date2" name="effectDate" autocomplete="off"
-                               class="layui-input" placeholder="yyyy-MM-dd">
+                               class="layui-input" placeholder="yyyy-MM-dd" lay-verify="required">
                     </div>
                     <label class="layui-form-label" style="margin-left: 50px">国产准字</label>
                     <div class="layui-input-inline">
                         <input type="text" name="approval" placeholder="请输入" autocomplete="off"
-                               class="layui-input">
+                               class="layui-input" lay-verify="required">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <button class="layui-btn" lay-submit="">跳转式提交</button>
-                    <span th:text="${msg}" style="font-size: 50px;color: #5FB878"></span>
+                    <span th:text="${msg}" style="font-size: 30px;color: #5FB878"></span>
                 </div>
             </form>
         </div>
     </div>
-
     <div class="layui-footer" style="text-align: center;color: #01AAED" id="buttom">
         <!-- 底部固定区域 -->
         @created by zgq7

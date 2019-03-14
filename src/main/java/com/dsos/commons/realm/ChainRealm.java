@@ -3,8 +3,6 @@ package com.dsos.commons.realm;
 import com.dsos.commons.Methods;
 import com.dsos.config.shiro.UsernamePwdLogTypToken;
 import com.dsos.modle.user.ChainWorkUser;
-import com.dsos.modle.user.MemberUser;
-import com.dsos.service.ChainService;
 import com.dsos.service.MainService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;

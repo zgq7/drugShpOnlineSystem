@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -109,6 +110,7 @@ public class AdminController {
         return "admin/config";
     }
 
+    //============================================================药品方面
     /**
      * 药品资料
      **/
@@ -133,6 +135,15 @@ public class AdminController {
     public String drugInOut(@ModelAttribute("msg") String msg) {
         //model.addAttribute("msg", request.getParameter("msg"));
         return "admin/drugInOut";
+    }
+
+    //============================================================连锁门店方面
+    /**
+     * 连锁资料
+     **/
+    @RequestMapping(value = "/chainList")
+    public String chainList() {
+        return "admin/chainList";
     }
 
 }

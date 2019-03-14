@@ -51,7 +51,7 @@
                     <dl class="layui-nav-child">
                         <dd><a href="drugInList">药品资料</a></dd>
                         <dd><a href="drugUpDown">上架下架</a></dd>
-                        <dd><a href="javascript:;">入库出库</a></dd>
+                        <dd><a href="drugInOut">入库出库</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item layui-nav-itemed">
@@ -76,6 +76,7 @@
     <div class="layui-body">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;" id="drugInList">
+            <hr class="layui-bg-red">
             <form class="layui-form">
                 药品编号：
                 <div class="layui-inline">
@@ -94,6 +95,7 @@
                 <button class="layui-btn" lay-submit="" lay-filter="demo2">查询</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </form>
+            <hr class="layui-bg-orange">
             <!-- id 与 render里面的elem 要一样 -->
             <table class="layui-hide" id="test2" lay-filter="test"></table>
         </div>

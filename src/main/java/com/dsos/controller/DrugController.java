@@ -129,8 +129,8 @@ public class DrugController {
             log.info("添加药品成功");
             redirectAttributes.addFlashAttribute("msg", "success");
         } else {
-            log.error("添加药品失败");
-            redirectAttributes.addFlashAttribute("msg", "fail");
+            log.error("添加药品失败,连锁Id: {},药品编码: {}", drugRecord.getChainId(), drugRecord.getDrugCode());
+            redirectAttributes.addFlashAttribute("msg", "fail,maybe the drug has been registed");
         }
         return "redirect:../admin/drugInOut";
     }

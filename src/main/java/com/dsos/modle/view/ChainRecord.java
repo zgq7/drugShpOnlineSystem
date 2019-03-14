@@ -10,7 +10,7 @@ public class ChainRecord {
     //连锁编号
     private String chainNo;
     //连锁名称
-    private String chainNaem;
+    private String chainName;
     //连锁地址
     private String address;
     //经营许可证号
@@ -40,12 +40,12 @@ public class ChainRecord {
         this.chainNo = chainNo;
     }
 
-    public String getChainNaem() {
-        return chainNaem;
+    public String getChainName() {
+        return chainName;
     }
 
-    public void setChainNaem(String chainNaem) {
-        this.chainNaem = chainNaem;
+    public void setChainName(String chainName) {
+        this.chainName = chainName;
     }
 
     public String getAddress() {
@@ -94,5 +94,20 @@ public class ChainRecord {
 
     public void setLogoRoot(String logoRoot) {
         this.logoRoot = logoRoot;
+    }
+
+    @Override
+    public String toString() {
+        return "ChainRecord{" +
+                "chainId=" + chainId +
+                ", chainNo='" + chainNo + '\'' +
+                ", chainName='" + chainName + '\'' +
+                ", address='" + address + '\'' +
+                ", businessNo='" + businessNo + '\'' +
+                ", hodler='" + hodler + '\'' +
+                ", workNum='" + workNum + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", logoRoot='" + logoRoot + '\'' +
+                '}';
     }
 }

@@ -1,10 +1,13 @@
 package com.dsos;
 
+import com.dsos.dao.C2StDao;
 import com.dsos.dao.DrugDao;
 import com.dsos.dao.MemberDao;
 import com.dsos.modle.user.MemberInfo;
 import com.dsos.modle.user.MemberUser;
+import com.dsos.modle.view.ChainRecord;
 import com.dsos.modle.view.DrugRecord;
+import com.dsos.service.C2StService;
 import com.dsos.service.DrugService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,6 +29,10 @@ public class DrugShpOnlineSystemApplicationTests {
     private DrugDao drugDao;
     @Autowired
     private DrugService drugService;
+    @Autowired
+    private C2StDao c2StDao;
+    @Autowired
+    private C2StService c2StService;
 
     @Test
     public void contextLoads() throws Exception {
@@ -70,7 +77,7 @@ public class DrugShpOnlineSystemApplicationTests {
     @Test
     public void hhh() throws Exception {
         DrugRecord drugRecord = new DrugRecord();
-        drugRecord.setChainId(3);
+        drugRecord.setChainId(5);
         drugRecord.setDrugName("消食片");
         drugRecord.setDrugKind("西药");
         drugRecord.setDrugCode("xs2016351");
@@ -85,13 +92,22 @@ public class DrugShpOnlineSystemApplicationTests {
         drugRecord.setProduceDate("2019-01-01");
         drugRecord.setEffectDate("2020-12-12");
         drugRecord.setApproval("69152145");
-        Boolean b2 = drugDao.addDrugRecord("3", "消食片", "西药"
+        /*Boolean b2 = drugDao.addDrugRecord("3", "消食片", "西药"
                 , "xs2016351", "ts201362", "19.9"
                 , "19.9", "9.9", "每盒/四片"
                 , "每片/四颗", "山西国邦医药", "2019-01-01"
                 , "2019-01-01", "2020-12-12", "69152145");
-        System.out.println(b2);
+        System.out.println(b2);*/
         System.out.println(drugService.addDrugRecord(drugRecord));
+    }
+
+    @Test
+    public void iii() throws Exception {
+        //List<ChainRecord> chainRecords = c2StDao.getChainRecordById("xs1101");
+        List<ChainRecord> chainRecordList = c2StService.getChainRecordByNo("xs1101");
+        chainRecordList.forEach(item -> {
+            System.out.println(item.toString());
+        });
     }
 
 }
