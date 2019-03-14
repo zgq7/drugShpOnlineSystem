@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,9 +35,18 @@ public class C2StController {
     @RequestMapping(value = "/getChainByNo", method = RequestMethod.GET)
     public @ResponseBody
     Map<Object, Object> getChainByNo(HttpServletRequest request) {
-        String chainNo = String.valueOf(request.getParameter("key[id]"));
-        log.info("{}", chainNo);
-        List<ChainRecord> chainRecordList = c2StService.getChainRecordByNo("123");
+        Map<Object, Object> requestMap = new HashMap<>();
+        String chainNo = request.getParameter("key[chainNo]");
+        if (chainNo == null) {
+            requestMap.put("chainNo", "");
+        } else {
+            requestMap.put("chainNo", chainNo);
+
+        }
+        requestMap.put("page", request.getParameter("page"));
+        requestMap.put("limit", request.getParameter("limit"));
+        log.info("c2st.getchainList {},{},{}", request.getParameter("key[chainNo]"), request.getParameter("page"), request.getParameter("limit"));
+        List<ChainRecord> chainRecordList = c2StService.getChainRecordByNo(requestMap);
         return ImmutableMap.of("code", "0", "count", "1", "msg", "", "data", chainRecordList);
     }
 }

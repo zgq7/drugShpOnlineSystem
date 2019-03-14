@@ -1,5 +1,6 @@
 package com.dsos;
 
+import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 import org.springframework.util.ResourceUtils;
 
@@ -58,6 +59,16 @@ public class test {
         });
         pSet.forEach(integer -> {
         });
+    }
+
+    @Test
+    public void jjj() throws Exception {
+        String t = null;
+        System.out.println(t == null ? 1 : 2);
+        //不为null并且不含空格返回true
+        System.out.println(StringUtils.isBlank("1 1"));
+        //为null或者含空格返回true
+        System.out.println(StringUtils.isNotBlank("1 1"));
     }
 
 }

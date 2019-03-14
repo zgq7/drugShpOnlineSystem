@@ -9,6 +9,7 @@ import com.dsos.modle.view.ChainRecord;
 import com.dsos.modle.view.DrugRecord;
 import com.dsos.service.C2StService;
 import com.dsos.service.DrugService;
+import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -103,8 +104,17 @@ public class DrugShpOnlineSystemApplicationTests {
 
     @Test
     public void iii() throws Exception {
-        //List<ChainRecord> chainRecords = c2StDao.getChainRecordById("xs1101");
-        List<ChainRecord> chainRecordList = c2StService.getChainRecordByNo("xs1101");
+        Map<Object, Object> requestMap = new HashMap<>();
+        requestMap.put("chainNo", null);
+        requestMap.put("page", "1");
+        requestMap.put("limit", "10");
+
+       /* List<ChainRecord> chainRecords = c2StDao.getChainRecordById("xs1101", "1", "10");
+        chainRecords.forEach(item -> {
+            System.out.println(item.toString());
+        });*/
+
+        List<ChainRecord> chainRecordList = c2StService.getChainRecordByNo(requestMap);
         chainRecordList.forEach(item -> {
             System.out.println(item.toString());
         });

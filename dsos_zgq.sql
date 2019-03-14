@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : mysql-admin
+ Source Server         : mysqlTest
  Source Server Type    : MySQL
  Source Server Version : 50717
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50717
  File Encoding         : 65001
 
- Date: 14/03/2019 18:32:08
+ Date: 14/03/2019 23:19:12
 */
 
 SET NAMES utf8mb4;
@@ -380,6 +380,7 @@ CREATE TABLE `dsos_vot_chainrecord`  (
 -- Records of dsos_vot_chainrecord
 -- ----------------------------
 INSERT INTO `dsos_vot_chainrecord` VALUES (1, 'xs1101', '广州临云大药房', '广州车陂', 'bs45142512', '于树春', 'xts12514251', '16352451521', NULL);
+INSERT INTO `dsos_vot_chainrecord` VALUES (2, 'xs1102', '四川天运大药房', '四川自贡', 'vs23523532', '郭国强', 'xts53252552', '12541241212', NULL);
 
 -- ----------------------------
 -- Table structure for dsos_vot_drugrecord
@@ -1534,6 +1535,33 @@ BEGIN
 	
 					
 
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for pos_get_chainList
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `pos_get_chainList`;
+delimiter ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pos_get_chainList`(IN `chainNoz` varchar(19),IN page integer,IN limitz integer)
+BEGIN
+	#查询连锁
+DECLARE start integer;
+set start = (page-1)*limitz;
+set @sql = 'select * from dsos_vot_chainrecord where 1 = 1';
+  
+	if chainNoz <> '' then 
+	  set @sql = CONCAT(@sql,' and chainNo= ','''',chainNoz,'''');
+	end if;
+	
+		set @sql = CONCAT(@sql,' limit ',start,', ',limitz);
+		
+	PREPARE distSQL FROM @SQL ;
+     EXECUTE distSQL;
+ 	DEALLOCATE PREPARE distSQL ;
+
+#select @sql;
 END
 ;;
 delimiter ;

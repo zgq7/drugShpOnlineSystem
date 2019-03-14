@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Repository
 public interface C2StDao {
-    //where chainNo = #{chainNo}
-    @Select(value = "select * from dsos_vot_chainrecord limit 0,10 ;")
-    List<ChainRecord> getChainRecordById(@Param("chainNo") String chainNo) throws Exception;
+    @Select(value = "call pos_get_chainList(#{chainNo}, #{page}, #{limit})")
+    List<ChainRecord> getChainRecordById(@Param("chainNo") String chainNo, @Param("page") String page,
+                                         @Param("limit") String limit) throws Exception;
 }

@@ -22,10 +22,10 @@ layui.use(['table', 'form', 'laydate'], function () {
         ]]
     });
 
-    var $ = layui.$
+    let $ = layui.$
         , active = {
         reload: function () {
-            var demoReload = $('#demoReload');
+            let demoReload = $('#demoReload');
             //执行重载
             table.reload('testReload', {
                 page: {
@@ -34,7 +34,7 @@ layui.use(['table', 'form', 'laydate'], function () {
                 , where: {
                     //设置多个参数时用key封装
                     key: {
-                        id: demoReload.val()
+                        chainNo: demoReload.val()
                         , test: '2'
                     }
                     //单个参数时可直接设参
@@ -45,7 +45,7 @@ layui.use(['table', 'form', 'laydate'], function () {
     };
 
     $('.demoTable .layui-btn').on('click', function () {
-        var type = $(this).data('type');
+        let type = $(this).data('type');
         active[type] ? active[type].call(this) : '';
     });
 
