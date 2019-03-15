@@ -35,7 +35,6 @@ layui.use(['table', 'form', 'laydate'], function () {
                     //设置多个参数时用key封装
                     key: {
                         chainNo: demoReload.val()
-                        , test: '2'
                     }
                     //单个参数时可直接设参
                     //id: demoReload.val()

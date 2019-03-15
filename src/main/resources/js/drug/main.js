@@ -5,7 +5,7 @@ layui.use(['table', 'form', 'laydate'], function () {
 
     //日期
     laydate.render({
-        elem: '#date',
+        elem: '#effectDate',
     });
 
     //日期1
@@ -23,49 +23,67 @@ layui.use(['table', 'form', 'laydate'], function () {
     });
 
 
-    //监听提交  商品资料 render
-    form.on('submit(demo1)', function (data) {
-        let params = data.field;
-        let drugCode, date, chainId, url;
-        drugCode = params.drugCode;
-        date = params.date;
-        chainId = params.chainId;
-        url = '../drug/drugInList?drugCode=' + drugCode + '&date=' + date + '&chainId=' + chainId;
-        console.log(url);
-        //商品资料列表
-        table.render({
-            elem: '#test'
-            , title: '药品资料'
-            , url: url
-            , height: 'full-230'
-            , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
-                layout: ['limit', 'count', 'prev', 'page', 'next', 'skip', 'refresh'] //自定义分页布局
-                , groups: 1//只显示 1 个连续页码
-                , first: false //不显示首页
-                , last: true  //不显示尾页
-                , curr: 1      //获取指定页
-            }
-            ,
-            cols: [[
-                {field: 'chainId', width: 120, title: '所属连锁', sort: true}
-                , {field: 'drugName', width: 100, title: '药品名称'}
-                , {field: 'drugKind', width: 80, title: '类别', sort: true}
-                , {field: 'drugCode', width: 80, title: '药品编码'}
-                , {field: 'barCode', title: '内码', minWidth: 150}
-                , {field: 'unitPrice', width: 80, title: '连锁单价', sort: true}
-                , {field: 'storePrice', width: 80, title: '门店单价', sort: true}
-                , {field: 'costPrice', width: 80, title: '进价单价'}
-                , {field: 'spec', width: 80, title: '规格'}
-                , {field: 'company', width: 135, title: '公司', sort: true}
-                , {field: 'purchaseDate', width: 135, title: '进货日期', sort: true}
-                , {field: 'produceDate', width: 135, title: '生产日期', sort: true}
-                , {field: 'effectDate', width: 135, title: '保质日期', sort: true}
-                , {field: 'approval', width: 135, title: '国产准字', sort: true}
-                , {field: 'explaination', width: 135, title: '说明', sort: true}
-                , {field: 'isAllowedTrade', width: 135, title: '是否交易', sort: true, style: 'background-color: #5FB878;'}
-            ]]
-        });
-        return false;
+    //监听提交  商品资料 render ---------------------------------->商品资料列表
+    table.render({
+        elem: '#test'
+        , title: '药品资料'
+        , url: '../drug/drugInList'
+        , height: 'full-230'
+        , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+            layout: ['limit', 'count', 'prev', 'page', 'next', 'skip', 'refresh'] //自定义分页布局
+            , groups: 1//只显示 1 个连续页码
+            , first: false //不显示首页
+            , last: true  //不显示尾页
+            , curr: 1      //获取指定页
+        }
+        ,
+        cols: [[
+            {field: 'chainId', width: 120, title: '所属连锁', sort: true}
+            , {field: 'drugName', width: 100, title: '药品名称'}
+            , {field: 'drugKind', width: 80, title: '类别', sort: true}
+            , {field: 'drugCode', width: 80, title: '药品编码'}
+            , {field: 'barCode', title: '内码', minWidth: 150}
+            , {field: 'unitPrice', width: 80, title: '连锁单价', sort: true}
+            , {field: 'storePrice', width: 80, title: '门店单价', sort: true}
+            , {field: 'costPrice', width: 80, title: '进价单价'}
+            , {field: 'spec', width: 80, title: '规格'}
+            , {field: 'company', width: 135, title: '公司', sort: true}
+            , {field: 'purchaseDate', width: 135, title: '进货日期', sort: true}
+            , {field: 'produceDate', width: 135, title: '生产日期', sort: true}
+            , {field: 'effectDate', width: 135, title: '保质日期', sort: true}
+            , {field: 'approval', width: 135, title: '国产准字', sort: true}
+            , {field: 'explaination', width: 135, title: '说明', sort: true}
+            , {field: 'isAllowedTrade', width: 135, title: '是否交易', sort: true, style: 'background-color: #5FB878;'}
+        ]]
+    });
+
+    let $ = layui.$
+        , active = {
+        reload: function () {
+            let drugCode = $('#drugCode');
+            let chainNo = $('#chainNo');
+            let effectDate = $('#effectDate');
+            //执行重载
+            table.reload('testReload', {
+                page: {
+                    curr: 1 //重新从第 1 页开始
+                }
+                , where: {
+                    //设置多个参数时用key封装
+                    key: {
+                        drugCode: drugCode.val()
+                        , chainId: chainNo.val()
+                        , effectDate: effectDate.val()
+                    }
+                }
+            })
+            ;
+        }
+    };
+
+    $('.demoTable .layui-btn').on('click', function () {
+        let type = $(this).data('type');
+        active[type] ? active[type].call(this) : '';
     });
 
     //监听提交  上架下架 render

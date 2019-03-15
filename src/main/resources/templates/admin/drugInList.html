@@ -77,24 +77,24 @@
         <!-- 内容主体区域 -->
         <div style="padding: 15px;" id="drugInList">
             <hr class="layui-bg-red">
-            <form class="layui-form">
+            <div class="demoTable">
                 药品编号：
                 <div class="layui-inline">
-                    <input type="text" name="drugCode" autocomplete="off" class="layui-input">
+                    <input class="layui-input" id="drugCode" autocomplete="off">
                 </div>
                 连锁编号：
                 <div class="layui-inline">
-                    <input type="text" name="chainId" autocomplete="off" class="layui-input">
+                    <input class="layui-input" id="chainNo" autocomplete="off">
                 </div>
                 保质日期：
                 <div class="layui-inline">
-                    <input type="text" name="date" id="date" placeholder="yyyy-MM-dd" autocomplete="off"
-                           class="layui-input">
+                    <input placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input" id="effectDate">
                 </div>
-                <button class="layui-btn" lay-submit="" lay-filter="demo1">查询</button>
+                <button class="layui-btn" data-type="reload">搜索</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-            </form>
-            <hr class="layui-bg-orange">
+                <hr class="layui-bg-orange">
+            </div>
+
             <table class="layui-hide" id="test" lay-filter="test"></table>
         </div>
     </div>
