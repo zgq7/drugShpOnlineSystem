@@ -46,29 +46,7 @@ public class DrugController {
         requestMap.put("effectDate", request.getParameter("effectDate"));
         requestMap.put("chainId", request.getParameter("chainId"));
         requestMap.put("updown", request.getParameter("updown"));
-        if (request.getParameter("drugCode") == null) {
-            DrugRecord record = new DrugRecord();
-            List<DrugRecord> data = new ArrayList<>();
-            record.setIsAllowedTrade("1");
-            record.setApproval("test");
-            record.setBarCode("test");
-            record.setChainId(null);
-            record.setCompany("test");
-            record.setCostPrice(0.00);
-            record.setDrugId(null);
-            record.setDrugCode("test");
-            record.setDrugKind("test");
-            record.setDrugName("test");
-            record.setUnit("test");
-            record.setUnitPrice(0.00);
-            record.setSpec("test");
-            record.setEffectDate("test");
-            record.setProduceDate("test");
-            record.setPurchaseDate("test");
-            record.setExplaination("test");
-            data.add(record);
-            return ImmutableMap.of("code", "0", "count", "1", "msg", "", "data", data);
-        }
+
         List<DrugRecord> drugRecordList = drugService.getDrugInfoList(requestMap);
         Integer count = drugService.getCountOfCondition(requestMap);
         log.info("====== 正在获取药品数据 -------->第{}页,行数{},总行数{}", request.getParameter("page"), request.getParameter("limit"), count);

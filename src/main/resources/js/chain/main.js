@@ -5,7 +5,7 @@ layui.use(['table', 'form', 'laydate'], function () {
     table.render({
         elem: '#LAY_table_user'
         , url: '../c2st/getChainByNo'
-        , id: 'testReload' //当前容器的索引
+        , id: 'testReload' //当前容器的索引应与重载中的reload中的参数一致
         , page: true
         , height: 'full-230'
         , cols: [[

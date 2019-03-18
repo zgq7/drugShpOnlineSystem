@@ -28,6 +28,7 @@ layui.use(['table', 'form', 'laydate'], function () {
         elem: '#test'
         , title: '药品资料'
         , url: '../drug/drugInList'
+        , id: 'testReload' //当前容器的索引
         , height: 'full-230'
         , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
             layout: ['limit', 'count', 'prev', 'page', 'next', 'skip', 'refresh'] //自定义分页布局
@@ -70,11 +71,9 @@ layui.use(['table', 'form', 'laydate'], function () {
                 }
                 , where: {
                     //设置多个参数时用key封装
-                    key: {
-                        drugCode: drugCode.val()
-                        , chainId: chainNo.val()
-                        , effectDate: effectDate.val()
-                    }
+                    drugCode: drugCode.val()
+                    , chainId: chainNo.val()
+                    , effectDate: effectDate.val()
                 }
             })
             ;
@@ -86,46 +85,32 @@ layui.use(['table', 'form', 'laydate'], function () {
         active[type] ? active[type].call(this) : '';
     });
 
-    //监听提交  上架下架 render
-    form.on('submit(demo2)', function (data) {
-        let params = data.field;
-        let drugCode, chainId, updown, url;
-        drugCode = params.drugCode;
-        chainId = params.chainId;
-        updown = params.updown;
-        if (updown == '已上架') {
-            updown = 1;
-        } else {
-            updown = 0;
+    //监听提交  上架下架 render ---------------------------------->上架下架列表
+    //商品资料列表
+    table.render({
+        elem: '#test2'
+        , title: '上架下架'
+        , url: url
+        , height: 'full-230'
+        , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
+            layout: ['limit', 'count', 'prev', 'page', 'next', 'skip', 'refresh'] //自定义分页布局
+            , groups: 1//只显示 1 个连续页码
+            , first: false //不显示首页
+            , last: true  //不显示尾页
+            , curr: 1      //获取指定页
         }
-        url = '../drug/drugInList?drugCode=' + drugCode + '&chainId=' + chainId + '&updown=' + updown;
-        //商品资料列表
-        table.render({
-            elem: '#test2'
-            , title: '上架下架'
-            , url: url
-            , height: 'full-230'
-            , page: { //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
-                layout: ['limit', 'count', 'prev', 'page', 'next', 'skip', 'refresh'] //自定义分页布局
-                , groups: 1//只显示 1 个连续页码
-                , first: false //不显示首页
-                , last: true  //不显示尾页
-                , curr: 1      //获取指定页
-            }
-            ,
-            cols: [[
-                {field: 'chainId', width: 110, title: '所属连锁', sort: true}
-                , {field: 'drugName', width: 240, title: '药品名称'}
-                , {field: 'drugCode', width: 100, title: '药品编码'}
-                , {field: 'unitPrice', width: 80, title: '连锁单价', sort: true}
-                , {field: 'company', width: 200, title: '公司', sort: true}
-                , {field: 'purchaseDate', width: 120, title: '进货日期', sort: true}
-                , {field: 'produceDate', width: 120, title: '生产日期', sort: true}
-                , {field: 'isAllowedTrade', width: 80, title: '状态', sort: true, style: 'background-color: #5FB878;'}
-                , {fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150}
-            ]]
-        });
-        return false;
+        ,
+        cols: [[
+            {field: 'chainId', width: 110, title: '所属连锁', sort: true}
+            , {field: 'drugName', width: 240, title: '药品名称'}
+            , {field: 'drugCode', width: 100, title: '药品编码'}
+            , {field: 'unitPrice', width: 80, title: '连锁单价', sort: true}
+            , {field: 'company', width: 200, title: '公司', sort: true}
+            , {field: 'purchaseDate', width: 120, title: '进货日期', sort: true}
+            , {field: 'produceDate', width: 120, title: '生产日期', sort: true}
+            , {field: 'isAllowedTrade', width: 80, title: '状态', sort: true, style: 'background-color: #5FB878;'}
+            , {fixed: 'right', title: '操作', toolbar: '#barDemo', width: 150}
+        ]]
     });
 
     //监听提交  出库入库 render
