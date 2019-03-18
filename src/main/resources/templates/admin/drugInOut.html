@@ -78,33 +78,34 @@
         <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
             <legend>商品出库</legend>
         </fieldset>
-        <div style="padding: 15px;min-height: 190px" id="body">
-            <form class="layui-form">
+        <div style="padding: 15px;" id="body">
+            <div class="InOutTable">
                 <!-- lay-verify="required" 代表必填 -->
                 药品编号：
                 <div class="layui-inline">
-                    <input type="text" name="drugCode" autocomplete="off" class="layui-input" lay-verify="required">
+                    <input type="text" id="drugCode" autocomplete="off" class="layui-input" lay-verify="required">
                 </div>
                 连锁编号：
                 <div class="layui-inline">
-                    <input type="text" name="chainId" autocomplete="off" class="layui-input" lay-verify="required">
+                    <input type="text" id="chainId" autocomplete="off" class="layui-input" lay-verify="required">
                 </div>
                 保质日期：
                 <div class="layui-inline">
-                    <input type="text" name="date" id="date" placeholder="yyyy-MM-dd" autocomplete="off"
+                    <input type="text" id="effectDate" placeholder="yyyy-MM-dd" autocomplete="off"
                            class="layui-input" lay-verify="required">
                 </div>
                 <div class="layui-input-inline" style="width: 100px">
-                    <select name="updown" id="updown">
+                    <select id="updown" class="layui-btn layui-btn-primary">
                         <option value="已上架">已上架</option>
                         <option value="已下架">已下架</option>
                     </select>
                 </div>
-                <button class="layui-btn" lay-submit="" lay-filter="demo3">查询</button>
+
+                <button class="layui-btn" data-type="reload">搜索</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-            </form>
-            <!-- id 与 render里面的elem 要一样 -->
-            <table class="layui-hide" id="test3" lay-filter="test3" style="height: 100px"></table>
+            </div>
+            <!-- id 与 render里面的elem 要一样 lay-filter="test3" 要与按钮tool(test03) -->
+            <table class="layui-hide" id="InOutTable" lay-filter="InOut" style="height: 100px"></table>
         </div>
 
         <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">

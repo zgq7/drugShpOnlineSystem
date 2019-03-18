@@ -77,27 +77,29 @@
         <!-- 内容主体区域 -->
         <div style="padding: 15px;" id="drugInList">
             <hr class="layui-bg-red">
-            <form class="layui-form">
+            <div class="updownTable">
                 药品编号：
                 <div class="layui-inline">
-                    <input type="text" name="drugCode" autocomplete="off" class="layui-input">
+                    <input type="text" id="drugCode" autocomplete="off" class="layui-input">
                 </div>
                 连锁编号：
                 <div class="layui-inline">
-                    <input type="text" name="chainId" autocomplete="off" class="layui-input">
+                    <input type="text" id="chainId" autocomplete="off" class="layui-input">
                 </div>
+
                 <div class="layui-input-inline" style="width: 100px">
-                    <select name="updown">
+                    <select id="updown" class="layui-btn layui-btn-primary">
                         <option value="已上架">已上架</option>
                         <option value="已下架">已下架</option>
                     </select>
                 </div>
-                <button class="layui-btn" lay-submit="" lay-filter="demo2">查询</button>
+
+                <button class="layui-btn" data-type="reload">搜索</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-            </form>
-            <hr class="layui-bg-orange">
+                <hr class="layui-bg-orange">
+            </div>
             <!-- id 与 render里面的elem 要一样 -->
-            <table class="layui-hide" id="test2" lay-filter="test"></table>
+            <table class="layui-hide" id="updownTable" lay-filter="test"></table>
         </div>
     </div>
     <div class="layui-footer" style="text-align: center;color: #01AAED" id="buttom">
