@@ -1,6 +1,7 @@
 package com.dsos.controller;
 
 import com.dsos.modle.view.ChainRecord;
+import com.dsos.modle.view.StoreRecord;
 import com.dsos.service.C2StService;
 import com.google.common.collect.ImmutableMap;
 import org.slf4j.Logger;
@@ -28,7 +29,7 @@ public class C2StController {
     private C2StService c2StService;
 
     /**
-     * 通过连锁编号获取连锁信息List
+     * 通过连锁id获取连锁信息List
      *
      * @param request 获取连锁编号
      */
@@ -38,15 +39,43 @@ public class C2StController {
         Map<Object, Object> requestMap = new HashMap<>();
         String chainNo = request.getParameter("key[chainNo]");
         if (chainNo == null) {
-            requestMap.put("chainNo", "");
-        } else {
-            requestMap.put("chainNo", chainNo);
-
+            chainNo = "";
         }
+        requestMap.put("chainNo", chainNo);
+
         requestMap.put("page", request.getParameter("page"));
         requestMap.put("limit", request.getParameter("limit"));
         log.info("c2st.getchainList {},{},{}", request.getParameter("key[chainNo]"), request.getParameter("page"), request.getParameter("limit"));
         List<ChainRecord> chainRecordList = c2StService.getChainRecordByNo(requestMap);
         return ImmutableMap.of("code", "0", "count", "1", "msg", "", "data", chainRecordList);
     }
+
+    /**
+     * 通过门店编号获取门店信息List
+     *
+     * @param request 获取门店编号code
+     */
+    @RequestMapping(value = "/getStoreByCode", method = RequestMethod.GET)
+    public @ResponseBody
+    Map<Object, Object> getStoreByCode(HttpServletRequest request) {
+        Map<Object, Object> requestMap = new HashMap<>();
+        String chainNo = request.getParameter("chainNo");
+        String code = request.getParameter("code");
+        if (chainNo == null) {
+            chainNo = "";
+        }
+        if (code == null) {
+            code = "";
+        }
+        requestMap.put("chainNo", chainNo);
+        requestMap.put("code", code);
+
+        requestMap.put("page", request.getParameter("page"));
+        requestMap.put("limit", request.getParameter("limit"));
+        log.info("c2st.getStoreList {},{},{},{}", chainNo, code, request.getParameter("page"), request.getParameter("limit"));
+        List<StoreRecord> storeRecordList = c2StService.getStoreRecordById(requestMap);
+        return ImmutableMap.of("code", "0", "count", "1", "msg", "", "data", storeRecordList);
+    }
+
+
 }

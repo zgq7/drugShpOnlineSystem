@@ -86,4 +86,17 @@ public class StoreRecord {
         this.businessNo = businessNo;
     }
 
+    @Override
+    public String toString() {
+        return "StoreRecord{" +
+                "storeId=" + storeId +
+                ", linkedId=" + linkedId +
+                ", shopHolder='" + shopHolder + '\'' +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", businessNo='" + businessNo + '\'' +
+                '}';
+    }
 }

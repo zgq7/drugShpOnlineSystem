@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : mysqlTest
+ Source Server         : mysql-admin
  Source Server Type    : MySQL
  Source Server Version : 50717
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50717
  File Encoding         : 65001
 
- Date: 18/03/2019 23:59:13
+ Date: 19/03/2019 19:08:55
 */
 
 SET NAMES utf8mb4;
@@ -68,7 +68,7 @@ CREATE TABLE `dsos_live_chainworkuser`  (
 -- ----------------------------
 -- Records of dsos_live_chainworkuser
 -- ----------------------------
-INSERT INTO `dsos_live_chainworkuser` VALUES (1, 'lsr003', '01', '杜衡', '男', '123456', '123456', 156348596, '1354562154', NULL, NULL, '../images/logo/woniu.jpg', NULL, 1, '店员');
+INSERT INTO `dsos_live_chainworkuser` VALUES (1, 'lsr003', '1', '杜衡', '男', '123456', '123456', 156348596, '1354562154', NULL, NULL, '../images/logo/woniu.jpg', NULL, 1, '店员');
 
 -- ----------------------------
 -- Table structure for dsos_live_memberinfo
@@ -1441,6 +1441,7 @@ CREATE TABLE `dsos_vot_storerecord`  (
 -- Records of dsos_vot_storerecord
 -- ----------------------------
 INSERT INTO `dsos_vot_storerecord` VALUES (1, 1, '竹根七', 'code001', '测试门店001', 'address001', '0734-999999', 'xkzh01');
+INSERT INTO `dsos_vot_storerecord` VALUES (2, 1, '王丽', 'code002', '测试门店002', 'address002', '0734-888888', 'xkzh02');
 
 -- ----------------------------
 -- Procedure structure for login_admin
@@ -1565,6 +1566,45 @@ END
 delimiter ;
 
 -- ----------------------------
+-- Procedure structure for pos_get_chainnerList
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `pos_get_chainnerList`;
+delimiter ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pos_get_chainnerList`(IN `chainIdz` varchar(19),IN `codez` varchar(19),IN `accountz` varchar(19),IN `mobilez` varchar(19),IN page integer,IN limitz integer)
+BEGIN
+	#查询连锁
+DECLARE start integer;
+set start = (page-1)*limitz;
+set @sql = 'select * from dsos_live_chainworkuser where 1 = 1';
+  
+	if chainIdz <> '' then 
+	  set @sql = CONCAT(@sql,' and chainId= ','''',chainIdz,'''');
+	end if;
+	
+	if codez <> '' then 
+	  set @sql = CONCAT(@sql,' and linkedStore= ','''',codez,'''');
+	end if;
+	
+	if accountz <> '' then 
+	  set @sql = CONCAT(@sql,' and chainAccount= ','''',accountz,'''');
+	end if;
+	
+	if mobilez <> '' then 
+	  set @sql = CONCAT(@sql,' and mobile= ','''',mobilez,'''');
+	end if;
+	
+		set @sql = CONCAT(@sql,' limit ',start,', ',limitz);
+		
+	PREPARE distSQL FROM @SQL ;
+     EXECUTE distSQL;
+ 	DEALLOCATE PREPARE distSQL ;
+
+#select @sql;
+END
+;;
+delimiter ;
+
+-- ----------------------------
 -- Procedure structure for pos_get_drugInList
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `pos_get_drugInList`;
@@ -1642,22 +1682,6 @@ END
 delimiter ;
 
 -- ----------------------------
--- Procedure structure for pos_get_drugList
--- ----------------------------
-DROP PROCEDURE IF EXISTS `pos_get_drugList`;
-delimiter ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `pos_get_drugList`(IN page integer,IN limitz integer)
-BEGIN
-DECLARE start integer;
-set start = (page-1)*limitz;
-	#获取药品信息（最多一千条）
-	#select start,end;
-	SELECT * from dsos_vot_drugrecord LIMIT start,limitz;
-END
-;;
-delimiter ;
-
--- ----------------------------
 -- Procedure structure for pos_get_drugOutList
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `pos_get_drugOutList`;
@@ -1699,6 +1723,37 @@ BEGIN
 	#以认证登录的账号进行角色查询；
 	SELECT * from dsos_role where roleNo = roleNum;
 
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for pos_get_storeList
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `pos_get_storeList`;
+delimiter ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pos_get_storeList`(IN `chainNoz` varchar(19),IN `codez` varchar(19),IN page integer,IN limitz integer)
+BEGIN
+	#查询连锁
+DECLARE start integer;
+set start = (page-1)*limitz;
+set @sql = 'select * from dsos_vot_storerecord where 1 = 1';
+  
+	if chainNoz <> '' then 
+	  set @sql = CONCAT(@sql,' and linkedId= ','''',chainNoz,'''');
+	end if;
+	
+	if codez <> '' then 
+	  set @sql = CONCAT(@sql,' and `code`= ','''',codez,'''');
+	end if;
+	
+		set @sql = CONCAT(@sql,' limit ',start,', ',limitz);
+		
+	PREPARE distSQL FROM @SQL ;
+     EXECUTE distSQL;
+ 	DEALLOCATE PREPARE distSQL ;
+
+#select @sql;
 END
 ;;
 delimiter ;

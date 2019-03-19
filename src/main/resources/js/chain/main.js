@@ -12,7 +12,7 @@ layui.use(['table', 'form', 'laydate'], function () {
             {checkbox: true, fixed: true}
             , {field: 'chainId', title: 'ID', width: 80, sort: true, fixed: true}
             , {field: 'chainNo', title: '连锁编号', width: 150}
-            , {field: 'chainName', title: '连锁名称', width: 120, sort: true}
+            , {field: 'chainName', title: '连锁名称', minWidth: 120, sort: true}
             , {field: 'address', title: '地址', width: 150}
             , {field: 'businessNo', title: '经营许可证', width: 120}
             , {field: 'hodler', title: '负责人', sort: true, width: 100}

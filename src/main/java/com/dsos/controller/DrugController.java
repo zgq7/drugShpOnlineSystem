@@ -50,11 +50,12 @@ public class DrugController {
         requestMap.put("updown", updown);
 
         //isBlank 当参数值为null或含空格时返回true
-        if (StringUtils.isBlank(drugCode) && StringUtils.isBlank(effectDate)
+        /*if (StringUtils.isBlank(drugCode) && StringUtils.isBlank(effectDate)
                 && StringUtils.isBlank(chainId) && StringUtils.isBlank(updown)) {
             List<DrugRecord> records = new ArrayList<>();
             return ImmutableMap.of("data", records, "count", 0, "code", 0, "msg", "");
-        }
+        }*/
+
         List<DrugRecord> drugRecordList = drugService.getDrugInfoList(requestMap);
         Integer count = drugService.getCountOfCondition(requestMap);
         log.info("====== 正在获取药品数据 -------->第{}页,行数{},总行数{}", request.getParameter("page"), request.getParameter("limit"), count);

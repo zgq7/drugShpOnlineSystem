@@ -13,10 +13,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -41,7 +39,7 @@ public class AdminController {
      * @return member 的登录
      */
     @RequestMapping(value = "/login")
-    public String Login(HttpServletRequest request, HttpSession session) {
+    public String Login(HttpServletRequest request, HttpSession session, Map<String, Object> map) {
         log.info("正在执行登录");
         String accout = request.getParameter("account");
         String password = request.getParameter("password");
@@ -55,11 +53,12 @@ public class AdminController {
             AdminSubject.login(token);
         } catch (AuthenticationException e) {
             log.error("密码/账号错误:{}", e.toString());
+            map.put("msg", "密码/账号错误");
             return "error";
         }
         session.setAttribute("account", accout);
         session.setAttribute("type", loginType);
-        return "admin/adminSuccessUser";
+        return "redirect:/admin/loginSuccessUser";
     }
 
     /**
@@ -111,6 +110,7 @@ public class AdminController {
     }
 
     //============================================================药品方面
+
     /**
      * 药品资料
      **/
@@ -138,12 +138,21 @@ public class AdminController {
     }
 
     //============================================================连锁门店方面
+
     /**
      * 连锁资料
      **/
     @RequestMapping(value = "/chainList")
     public String chainList() {
         return "admin/chainList";
+    }
+
+    /**
+     * 连锁资料
+     **/
+    @RequestMapping(value = "/storeList")
+    public String storeList() {
+        return "admin/storeList";
     }
 
 }

@@ -47,7 +47,7 @@ public class MembController {
      * @return member 的登录
      */
     @RequestMapping(value = "/login")
-    public String Login(HttpServletRequest request, HttpSession session) {
+    public String Login(HttpServletRequest request, HttpSession session, Map<String, Object> map) {
         log.info("正在执行登录");
         String account = request.getParameter("account");
         String password = request.getParameter("password");
@@ -62,9 +62,10 @@ public class MembController {
             memberSubject.login(token);
         } catch (AuthenticationException e) {
             log.error("密码/账号错误:{}", e.toString());
+            map.put("msg", "密码/账号错误");
             return "error";
         }
-        return "member/loginSuccessUser";
+        return "redirect:/member/loginSuccessUser";
     }
 
     @RequestMapping(value = "registry", method = RequestMethod.POST)

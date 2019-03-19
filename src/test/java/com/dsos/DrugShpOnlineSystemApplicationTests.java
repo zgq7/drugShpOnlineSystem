@@ -7,6 +7,7 @@ import com.dsos.modle.user.MemberInfo;
 import com.dsos.modle.user.MemberUser;
 import com.dsos.modle.view.ChainRecord;
 import com.dsos.modle.view.DrugRecord;
+import com.dsos.modle.view.StoreRecord;
 import com.dsos.service.C2StService;
 import com.dsos.service.DrugService;
 import org.apache.commons.lang.StringUtils;
@@ -116,6 +117,14 @@ public class DrugShpOnlineSystemApplicationTests {
 
         List<ChainRecord> chainRecordList = c2StService.getChainRecordByNo(requestMap);
         chainRecordList.forEach(item -> {
+            System.out.println(item.toString());
+        });
+    }
+
+    @Test
+    public void jjj() throws Exception {
+        List<StoreRecord> storeRecordList = c2StDao.getStoreRecordById("", "", "1", "10");
+        storeRecordList.forEach(item -> {
             System.out.println(item.toString());
         });
     }

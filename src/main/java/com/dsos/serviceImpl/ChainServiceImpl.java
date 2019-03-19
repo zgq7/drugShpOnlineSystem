@@ -1,6 +1,6 @@
 package com.dsos.serviceImpl;
 
-import com.dsos.dao.ChainUserDao;
+import com.dsos.dao.ChainDao;
 import com.dsos.modle.user.ChainWorkUser;
 import com.dsos.service.ChainUserService;
 import org.slf4j.Logger;
@@ -18,12 +18,12 @@ import org.springframework.transaction.annotation.Transactional;
 public class ChainServiceImpl implements ChainUserService {
     private static final Logger log = LoggerFactory.getLogger(ChainServiceImpl.class);
     @Autowired
-    private ChainUserDao chainUserDao;
+    private ChainDao chainDao;
 
     @Override
     public ChainWorkUser getUerNmaeImgByCardNo(String account) {
         try {
-            ChainWorkUser chainWorkUser = chainUserDao.getUerNmaeImgByCardNo(account);
+            ChainWorkUser chainWorkUser = chainDao.getUerNmaeImgByCardNo(account);
             if (chainWorkUser != null)
                 return chainWorkUser;
         } catch (Exception e) {

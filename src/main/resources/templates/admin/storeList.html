@@ -1,13 +1,13 @@
-<!-- 用户登录成功首页 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>admin SuccessUser</title>
+    <title>storeList</title>
     <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="../lay/layui.js"></script>
     <link rel="stylesheet" href="../lay/css/layui.css" media="all">
     <script type="text/javascript" src="../js/model/admin.js"></script>
+    <script type="text/javascript" src="../js/store/main.js"></script>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -57,7 +57,7 @@
                     <a class="" href="javascript:;">连锁管理</a>
                     <dl class="layui-nav-child">
                         <dd><a href="chainList">连锁资料</a></dd>
-                        <dd><a href="storeList">门店资料</a></dd>
+                        <dd><a href="javascript:;">门店资料</a></dd>
                         <dd><a href="javascript:;">店员资料</a></dd>
                     </dl>
                 </li>
@@ -74,8 +74,22 @@
     </div>
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <div style="padding: 15px;" id="body">
-            <span>内容主题</span>
+        <div style="padding: 15px;" id="chainList">
+            <hr class="layui-bg-red">
+            <div class="storeTable">
+                连锁编号：
+                <div class="layui-inline">
+                    <input class="layui-input" id="chainNo" autocomplete="off">
+                </div>
+                门店编号：
+                <div class="layui-inline">
+                    <input class="layui-input" id="code" autocomplete="off">
+                </div>
+                <button class="layui-btn" data-type="reload">搜索</button>
+                <hr class="layui-bg-orange">
+            </div>
+
+            <table class="layui-hide" id="storeTable" lay-filter="user"></table>
         </div>
     </div>
     <div class="layui-footer" style="text-align: center;color: #01AAED" id="buttom">
