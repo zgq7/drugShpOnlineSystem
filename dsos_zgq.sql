@@ -11,7 +11,7 @@
  Target Server Version : 50717
  File Encoding         : 65001
 
- Date: 19/03/2019 19:08:55
+ Date: 20/03/2019 18:56:58
 */
 
 SET NAMES utf8mb4;
@@ -43,10 +43,10 @@ CREATE TABLE `dsos_live_adminuser`  (
 INSERT INTO `dsos_live_adminuser` VALUES (1, 'lsr001', '竹根七', '男', 'admin', 'admin', '15988887777', 'idcard001', 'homeat001', '1997-07-07 00:00:00.000000', '../images/logo/hmbb.jpg', NULL);
 
 -- ----------------------------
--- Table structure for dsos_live_chainworkuser
+-- Table structure for dsos_live_chainneruser
 -- ----------------------------
-DROP TABLE IF EXISTS `dsos_live_chainworkuser`;
-CREATE TABLE `dsos_live_chainworkuser`  (
+DROP TABLE IF EXISTS `dsos_live_chainneruser`;
+CREATE TABLE `dsos_live_chainneruser`  (
   `chainId` int(11) NOT NULL AUTO_INCREMENT,
   `roleNo` varchar(19) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'lsr003' COMMENT '角色编号',
   `linkedStore` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '所属门店编号',
@@ -63,12 +63,13 @@ CREATE TABLE `dsos_live_chainworkuser`  (
   `level` int(10) NOT NULL DEFAULT 1 COMMENT '职位级别',
   `lectruer` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '店员' COMMENT '职称',
   PRIMARY KEY (`chainId`, `chainAccount`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of dsos_live_chainworkuser
+-- Records of dsos_live_chainneruser
 -- ----------------------------
-INSERT INTO `dsos_live_chainworkuser` VALUES (1, 'lsr003', '1', '杜衡', '男', '123456', '123456', 156348596, '1354562154', NULL, NULL, '../images/logo/woniu.jpg', NULL, 1, '店员');
+INSERT INTO `dsos_live_chainneruser` VALUES (1, 'lsr003', '1', '杜衡', '男', '123456', '123456', 156348596, '1354562154', NULL, NULL, '../images/logo/woniu.jpg', NULL, 1, '店员');
+INSERT INTO `dsos_live_chainneruser` VALUES (2, 'lsr003', '1', '陈笑璞', '男', '123457', '123456', 1511215, '6652655632', NULL, NULL, NULL, NULL, 1, '店员');
 
 -- ----------------------------
 -- Table structure for dsos_live_memberinfo
@@ -217,26 +218,26 @@ CREATE TABLE `dsos_live_memberuser`  (
 -- ----------------------------
 -- Records of dsos_live_memberuser
 -- ----------------------------
-INSERT INTO `dsos_live_memberuser` VALUES (1, 'lsr002', 'rsd123456', '123456', '15211593787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (102, 'lsr002', 'rsd057233', '123456', '15211593787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (103, 'lsr002', 'rsd057571', '123456', '15211593787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (104, 'lsr002', 'rsd059250', '123456', '15211593787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (105, 'lsr002', 'rsd059885', '123456', '15211593787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (106, 'lsr002', 'rsd060169', '123456', '15211593787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (107, 'lsr002', 'rsd060660', '123456', '15211593787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (108, 'lsr002', 'rsd060721', '123456', '15211593787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (109, 'lsr002', 'rsd061318', '123456', '15211593787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (110, 'lsr002', 'rsd061586', '123456', '15211593787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (111, 'lsr002', 'rsd061641', '123456', '15211593787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (112, 'lsr002', 'rsd062026', '123456', '15211593787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (113, 'lsr002', 'rsd06324', '123456', '15211593787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (114, 'lsr002', 'rsd065056', '123456', '15211593787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (115, 'lsr002', 'rsd06521', '123456', '15211593787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (116, 'lsr002', 'rsd06579', '123456', '15211593787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (117, 'lsr002', 'rsd066329', '123456', '15211593787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (118, 'lsr002', 'rsd066672', '123456', '15211593787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (119, 'lsr002', 'rsd067024', '123456', '15211593787', 0, NULL);
-INSERT INTO `dsos_live_memberuser` VALUES (120, 'lsr002', 'rsd06722', '123456', '15211593787', 0, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (1, 'lsr002', 'rsd123456', '123456', '15211593787', 1, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (102, 'lsr002', 'rsd057233', '123456', '15211593787', 1, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (103, 'lsr002', 'rsd057571', '123456', '15211593787', 1, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (104, 'lsr002', 'rsd059250', '123456', '15211593787', 1, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (105, 'lsr002', 'rsd059885', '123456', '15211593787', 1, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (106, 'lsr002', 'rsd060169', '123456', '15211593787', 1, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (107, 'lsr002', 'rsd060660', '123456', '15211593787', 1, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (108, 'lsr002', 'rsd060721', '123456', '15211593787', 1, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (109, 'lsr002', 'rsd061318', '123456', '15211593787', 1, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (110, 'lsr002', 'rsd061586', '123456', '15211593787', 1, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (111, 'lsr002', 'rsd061641', '123456', '15211593787', 12, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (112, 'lsr002', 'rsd062026', '123456', '15211593787', 12, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (113, 'lsr002', 'rsd06324', '123456', '15211593787', 12, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (114, 'lsr002', 'rsd065056', '123456', '15211593787', 12, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (115, 'lsr002', 'rsd06521', '123456', '15211593787', 12, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (116, 'lsr002', 'rsd06579', '123456', '15211593787', 12, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (117, 'lsr002', 'rsd066329', '123456', '15211593787', 12, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (118, 'lsr002', 'rsd066672', '123456', '15211593787', 12, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (119, 'lsr002', 'rsd067024', '123456', '15211593787', 12, NULL);
+INSERT INTO `dsos_live_memberuser` VALUES (120, 'lsr002', 'rsd06722', '123456', '15211593787', 12, NULL);
 INSERT INTO `dsos_live_memberuser` VALUES (121, 'lsr002', 'rsd067294', '123456', '15211593787', 0, NULL);
 INSERT INTO `dsos_live_memberuser` VALUES (122, 'lsr002', 'rsd06818', '123456', '15211593787', 0, NULL);
 INSERT INTO `dsos_live_memberuser` VALUES (123, 'lsr002', 'rsd068202', '123456', '15211593787', 0, NULL);
@@ -1575,7 +1576,7 @@ BEGIN
 	#查询连锁
 DECLARE start integer;
 set start = (page-1)*limitz;
-set @sql = 'select * from dsos_live_chainworkuser where 1 = 1';
+set @sql = 'select * from dsos_live_chainneruser where 1 = 1';
   
 	if chainIdz <> '' then 
 	  set @sql = CONCAT(@sql,' and chainId= ','''',chainIdz,'''');
@@ -1709,6 +1710,41 @@ BEGIN
 	on a.cardNo = b.cardNo
 	where a.cardNo = account;
 
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for pos_get_memberList
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `pos_get_memberList`;
+delimiter ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pos_get_memberList`(IN `codez` varchar(19),IN `accountz` varchar(19),IN `mobilez` varchar(19),IN page integer,IN limitz integer)
+BEGIN
+	#查询连锁
+DECLARE start integer;
+set start = (page-1)*limitz;
+set @sql = 'select * from dsos_live_memberuser where 1 = 1';
+	
+	if codez <> '' then 
+	  set @sql = CONCAT(@sql,' and storeId= ','''',codez,'''');
+	end if;
+	
+	if accountz <> '' then 
+	  set @sql = CONCAT(@sql,' and cardNo= ','''',accountz,'''');
+	end if;
+	
+	if mobilez <> '' then 
+	  set @sql = CONCAT(@sql,' and mobile= ','''',mobilez,'''');
+	end if;
+	
+		set @sql = CONCAT(@sql,' limit ',start,', ',limitz);
+		
+	PREPARE distSQL FROM @SQL ;
+     EXECUTE distSQL;
+ 	DEALLOCATE PREPARE distSQL ;
+
+#select @sql;
 END
 ;;
 delimiter ;

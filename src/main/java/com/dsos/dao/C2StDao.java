@@ -26,7 +26,7 @@ public interface C2StDao {
     List<ChainRecord> getChainRecordById(@Param("chainNo") String chainNo, @Param("page") String page,
                                          @Param("limit") String limit) throws Exception;
 
-    //============================================================连锁相关
+    //============================================================门店相关
 
     /**
      * @param code 门店编号

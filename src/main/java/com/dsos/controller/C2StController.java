@@ -1,8 +1,10 @@
 package com.dsos.controller;
 
+import com.dsos.modle.user.ChainnerUser;
 import com.dsos.modle.view.ChainRecord;
 import com.dsos.modle.view.StoreRecord;
 import com.dsos.service.C2StService;
+import com.dsos.service.ChainnerService;
 import com.google.common.collect.ImmutableMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +29,8 @@ public class C2StController {
     private static final Logger log = LoggerFactory.getLogger(C2StController.class);
     @Autowired
     private C2StService c2StService;
+    @Autowired
+    private ChainnerService chainnerService;
 
     /**
      * 通过连锁id获取连锁信息List
@@ -77,5 +81,40 @@ public class C2StController {
         return ImmutableMap.of("code", "0", "count", "1", "msg", "", "data", storeRecordList);
     }
 
+    /**
+     * 通过条件获取chainner信息List
+     *
+     * @param request include chainId、code、account、mobile
+     */
+    @RequestMapping(value = "/getChainnerByCondition", method = RequestMethod.GET)
+    public @ResponseBody
+    Map<Object, Object> getChainnerByCondition(HttpServletRequest request) {
+        Map<Object, Object> requestMap = new HashMap<>();
+        String chainNo = request.getParameter("chainNo");
+        String code = request.getParameter("code");
+        String account = request.getParameter("account");
+        String mobile = request.getParameter("mobile");
+        if (chainNo == null) {
+            chainNo = "";
+        }
+        if (code == null) {
+            code = "";
+        }
+        if (account == null) {
+            account = "";
+        }
+        if (mobile == null) {
+            mobile = "";
+        }
+        requestMap.put("chainId", chainNo);
+        requestMap.put("code", code);
+        requestMap.put("account", account);
+        requestMap.put("mobile", mobile);
 
+        requestMap.put("page", request.getParameter("page"));
+        requestMap.put("limit", request.getParameter("limit"));
+        log.info("c2st.getChainnerByCondition {},{},{},{},{},{}", chainNo, code, account, mobile, request.getParameter("page"), request.getParameter("limit"));
+        List<ChainnerUser> chainnerUserList = chainnerService.getChainnerByCondition(requestMap);
+        return ImmutableMap.of("code", "0", "count", chainnerUserList.size(), "msg", "", "data", chainnerUserList);
+    }
 }

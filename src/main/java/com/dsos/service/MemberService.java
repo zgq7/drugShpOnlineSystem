@@ -3,6 +3,7 @@ package com.dsos.service;
 import com.dsos.modle.user.MemberInfo;
 import com.dsos.modle.user.MemberUser;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,4 +28,9 @@ public interface MemberService {
      * 会员信息修改
      **/
     Boolean updateMemberInfo(MemberInfo memberInfo, String oldPassword, MemberUser memberUser);
+
+    /**
+     * 按条件获得memberUser list
+     **/
+    List<MemberUser> getMemberByCondition(Map<Object, Object> request);
 }

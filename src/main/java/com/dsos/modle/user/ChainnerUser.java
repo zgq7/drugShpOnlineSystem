@@ -7,7 +7,7 @@ import java.util.Set;
  * Created by zgq7 on 2019/1/22.
  * 连锁工作人员，以level区别总负责人、店长、普通员工等；
  */
-public class ChainWorkUser implements Serializable {
+public class ChainnerUser implements Serializable {
     //连锁工作人员标识
     private Integer chainId;
     //所属门店
@@ -167,5 +167,27 @@ public class ChainWorkUser implements Serializable {
 
     public void setPerms(Set<String> perms) {
         this.perms = perms;
+    }
+
+    @Override
+    public String toString() {
+        return "ChainnerUser{" +
+                "chainId=" + chainId +
+                ", linkedStore=" + linkedStore +
+                ", name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
+                ", chainAccount='" + chainAccount + '\'' +
+                ", password='" + password + '\'' +
+                ", mobile=" + mobile +
+                ", idCard='" + idCard + '\'' +
+                ", homeAt='" + homeAt + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", imgRoot='" + imgRoot + '\'' +
+                ", md5Password='" + md5Password + '\'' +
+                ", level=" + level +
+                ", lectruer='" + lectruer + '\'' +
+                ", roles=" + roles +
+                ", perms=" + perms +
+                '}';
     }
 }

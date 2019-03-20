@@ -155,4 +155,21 @@ public class AdminController {
         return "admin/storeList";
     }
 
+    /**
+     * 连锁资料
+     **/
+    @RequestMapping(value = "/chainnerList")
+    public String chainnerList() {
+        return "admin/chainnerList";
+    }
+
+    //============================================================连锁门店方面
+    /**
+     * 会员资料
+     **/
+    @RequestMapping(value = "/memberList")
+    public String memberList() {
+        return "admin/memberList";
+    }
+
 }

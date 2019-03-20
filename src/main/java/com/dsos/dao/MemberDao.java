@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.mapping.FetchType;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * Created by zgq7 on 2019/1/28.
  * 会员相关数据CURD
@@ -33,5 +35,14 @@ public interface MemberDao {
     //修改个人资料
     @Update("call pos_update_memberInfo(#{user.cardNo},#{mb.mobile},#{user.email},#{user.birthday},#{oldPassword},#{mb.password}" +
             ",#{user.address},#{user.sex})")
-    Integer updateMemberInfo(@Param("user") MemberInfo memberInfo, @Param("oldPassword") String oldPassword, @Param("mb") MemberUser memberUser) throws Exception;
+    Integer updateMemberInfo(@Param("user") MemberInfo memberInfo, @Param("oldPassword") String oldPassword,
+                             @Param("mb") MemberUser memberUser) throws Exception;
+
+    //根据条件查询会员集合-->动态sql 并且表关联
+    @Select(value = "call pos_get_memberList(#{code}, #{account}, #{mobile}, #{page}, #{limit})")
+    @Results(value = {@Result(property = "memberInfo", column = "cardNo", one = @One(select = "getInfo2ByCardNo", fetchType = FetchType.LAZY))
+    })
+    List<MemberUser> getMemberByCondition(@Param("code") String code, @Param("account") String account,
+                                          @Param("mobile") String mobile, @Param("page") String page,
+                                          @Param("limit") String limit) throws Exception;
 }

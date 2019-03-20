@@ -2,7 +2,7 @@ package com.dsos.serviceImpl;
 
 import com.dsos.dao.MainDao;
 import com.dsos.modle.user.AdminUser;
-import com.dsos.modle.user.ChainWorkUser;
+import com.dsos.modle.user.ChainnerUser;
 import com.dsos.modle.user.MemberUser;
 import com.dsos.service.MainService;
 import org.slf4j.Logger;
@@ -46,7 +46,7 @@ public class MainImpl implements MainService {
     }
 
     @Override
-    public ChainWorkUser chainWkUserLog(String account, String password) {
+    public ChainnerUser chainWkUserLog(String account, String password) {
         try {
             if (mainDao.chainLogin(account, password) != null)
                 return mainDao.chainLogin(account, password);

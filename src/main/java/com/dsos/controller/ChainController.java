@@ -2,8 +2,8 @@ package com.dsos.controller;
 
 import com.dsos.config.shiro.LoginType;
 import com.dsos.config.shiro.UsernamePwdLogTypToken;
-import com.dsos.modle.user.ChainWorkUser;
-import com.dsos.service.ChainUserService;
+import com.dsos.modle.user.ChainnerUser;
+import com.dsos.service.ChainnerService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.subject.Subject;
@@ -30,7 +30,7 @@ public class ChainController {
     private static final Logger log = LoggerFactory.getLogger(ChainController.class);
     private static final String loginType = LoginType.CHAIN.getLoginType();
     @Autowired
-    private ChainUserService chainUserService;
+    private ChainnerService chainUserService;
 
     /**
      * @return member 的登录
@@ -53,7 +53,7 @@ public class ChainController {
             return "error";
         }
         model.addAttribute("account", accout);
-        return "chain/chainSuccessUser";
+        return "redirect:/chain/chainSuccessUser";
     }
 
     /**
@@ -72,7 +72,7 @@ public class ChainController {
     Map<Object, Object> adminRoot(@RequestBody Map<Object, String> requestMap) {
         log.info("头像 姓名 获取中。。。");
         Map<Object, Object> result = new HashMap<>();
-        ChainWorkUser chainWorkUser = chainUserService.getUerNmaeImgByCardNo(requestMap.get("account"));
+        ChainnerUser chainWorkUser = chainUserService.getUerNmaeImgByCardNo(requestMap.get("account"));
         String name = chainWorkUser.getName();
         String imgRoot = chainWorkUser.getImgRoot();
         log.info("admin - > name {}, root {}", name, imgRoot);

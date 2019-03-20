@@ -1,7 +1,7 @@
 package com.dsos.dao;
 
 import com.dsos.modle.user.AdminUser;
-import com.dsos.modle.user.ChainWorkUser;
+import com.dsos.modle.user.ChainnerUser;
 import com.dsos.modle.user.MemberUser;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -24,7 +24,7 @@ public interface MainDao {
     AdminUser adminLogin(@Param("account") String account, @Param("password") String password) throws Exception;
 
     @Select("call login_chain(#{account},#{password})")
-    ChainWorkUser chainLogin(@Param("account") String account, @Param("password") String password) throws Exception;
+    ChainnerUser chainLogin(@Param("account") String account, @Param("password") String password) throws Exception;
 
     /**
      * 以下处理头像

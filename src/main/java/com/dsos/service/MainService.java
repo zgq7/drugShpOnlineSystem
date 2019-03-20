@@ -1,7 +1,7 @@
 package com.dsos.service;
 
 import com.dsos.modle.user.AdminUser;
-import com.dsos.modle.user.ChainWorkUser;
+import com.dsos.modle.user.ChainnerUser;
 import com.dsos.modle.user.MemberUser;
 
 /**
@@ -18,7 +18,7 @@ public interface MainService {
 
     AdminUser adminUserLog(String account, String password);
 
-    ChainWorkUser chainWkUserLog(String account, String password);
+    ChainnerUser chainWkUserLog(String account, String password);
 
     /**
      * @param imgRoot 头像地址

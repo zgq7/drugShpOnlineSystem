@@ -71,4 +71,13 @@ public class test {
         System.out.println(StringUtils.isNotBlank("1 1"));
     }
 
+    @Test
+    public void eee() {
+        //得到当前方法名
+        String methodName = Thread.currentThread().getStackTrace()[1].getMethodName();
+        String className = this.getClass().getName();
+        System.out.println(methodName);
+        System.out.println(className);
+    }
+
 }

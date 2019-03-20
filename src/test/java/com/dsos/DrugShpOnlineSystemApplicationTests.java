@@ -3,14 +3,15 @@ package com.dsos;
 import com.dsos.dao.C2StDao;
 import com.dsos.dao.DrugDao;
 import com.dsos.dao.MemberDao;
-import com.dsos.modle.user.MemberInfo;
+import com.dsos.modle.user.ChainnerUser;
 import com.dsos.modle.user.MemberUser;
 import com.dsos.modle.view.ChainRecord;
 import com.dsos.modle.view.DrugRecord;
 import com.dsos.modle.view.StoreRecord;
 import com.dsos.service.C2StService;
+import com.dsos.service.ChainnerService;
 import com.dsos.service.DrugService;
-import org.apache.commons.lang.StringUtils;
+import com.dsos.service.MemberService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,12 @@ public class DrugShpOnlineSystemApplicationTests {
     private C2StDao c2StDao;
     @Autowired
     private C2StService c2StService;
+    @Autowired
+    private ChainnerService chainnerService;
+    @Autowired
+    private MemberService memberService;
+
+    @Autowired
 
     @Test
     public void contextLoads() throws Exception {
@@ -125,6 +132,36 @@ public class DrugShpOnlineSystemApplicationTests {
     public void jjj() throws Exception {
         List<StoreRecord> storeRecordList = c2StDao.getStoreRecordById("", "", "1", "10");
         storeRecordList.forEach(item -> {
+            System.out.println(item.toString());
+        });
+    }
+
+    @Test
+    public void kkk() throws Exception {
+        Map<Object, Object> map = new HashMap<>();
+        map.put("chainId", "");
+        map.put("code", "");
+        map.put("mobile", "");
+        map.put("account", "");
+        map.put("page", "1");
+        map.put("limit", "10");
+        List<ChainnerUser> chainnerUserList = chainnerService.getChainnerByCondition(map);
+        chainnerUserList.forEach(item -> {
+            System.out.println(item.toString());
+        });
+    }
+
+    @Test
+    public void lll() throws Exception {
+        //List<MemberUser> memberUserList = memberDao.getMemberByCondition("", "", "", "1", "10");
+        Map<Object, Object> map = new HashMap<>();
+        map.put("code", "");
+        map.put("account", "");
+        map.put("mobile", "");
+        map.put("limit", 10);
+        map.put("page", 1);
+        List<MemberUser> memberUserList = memberService.getMemberByCondition(map);
+        memberUserList.forEach(item -> {
             System.out.println(item.toString());
         });
     }

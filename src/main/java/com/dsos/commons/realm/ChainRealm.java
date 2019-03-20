@@ -2,7 +2,7 @@ package com.dsos.commons.realm;
 
 import com.dsos.commons.Methods;
 import com.dsos.config.shiro.UsernamePwdLogTypToken;
-import com.dsos.modle.user.ChainWorkUser;
+import com.dsos.modle.user.ChainnerUser;
 import com.dsos.service.MainService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -34,8 +34,8 @@ public class ChainRealm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         log.info("==============chain 授权 ========================");
         Object principal = principalCollection.getPrimaryPrincipal();
-        if (principal instanceof ChainWorkUser) {
-            ChainWorkUser chainWorkUser = (ChainWorkUser) principal;
+        if (principal instanceof ChainnerUser) {
+            ChainnerUser chainWorkUser = (ChainnerUser) principal;
             Set<String> roles = new HashSet<>();
             roles.add("chain");
             //角色
@@ -56,7 +56,7 @@ public class ChainRealm extends AuthorizingRealm {
         String account = token.getUsername();
         String password = String.valueOf(token.getPassword());
         log.info("{},{}", account, password);
-        ChainWorkUser chainWorkUser = mainService.chainWkUserLog(account,password);
+        ChainnerUser chainWorkUser = mainService.chainWkUserLog(account,password);
         if (chainWorkUser == null) {
             log.info("error");
             throw new AuthenticationException("chain authenticate error");

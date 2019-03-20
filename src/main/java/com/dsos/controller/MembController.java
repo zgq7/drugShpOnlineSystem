@@ -26,6 +26,7 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -217,6 +218,44 @@ public class MembController {
             model.addAttribute("msg", "update info success");
         }
         return "member/updateInfo";
+    }
+
+    /**
+     * 按条件筛选会员集合
+     **/
+    @RequestMapping(value = "/getMemberByCondtion")
+    public @ResponseBody
+    Map<Object, Object> getMemberByCondtion(HttpServletRequest request) {
+        Map<Object, Object> map = new HashMap<>();
+        String mobile = request.getParameter("mobile");
+        String account = request.getParameter("account");
+        String code = request.getParameter("code");
+        String page = request.getParameter("page");
+        String limit = request.getParameter("limit");
+
+        /*String mobile = (String) request.get("mobile");
+        String account = (String) request.get("account");
+        String code = (String) request.get("code");
+        String page = (String) request.get("page");
+        String limit = (String) request.get("limit");*/
+
+        if (!Optional.ofNullable(code).isPresent()) {
+            code = "";
+        }
+        if (!Optional.ofNullable(mobile).isPresent()) {
+            mobile = "";
+        }
+        if (!Optional.ofNullable(account).isPresent()) {
+            account = "";
+        }
+        log.info("{},{},{},{},{}", mobile, account, code, page, limit);
+        map.put("code", code);
+        map.put("mobile", mobile);
+        map.put("account", account);
+        map.put("page", page);
+        map.put("limit", limit);
+        List<MemberUser> memberUserList = memberService.getMemberByCondition(map);
+        return ImmutableMap.of("code", 0, "msg", "success", "data", memberUserList);
     }
 
 }

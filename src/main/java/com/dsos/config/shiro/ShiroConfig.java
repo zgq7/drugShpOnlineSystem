@@ -163,8 +163,8 @@ public class ShiroConfig {
         filterMap.put("/member/*.html", "authc,roles[user]");
         filterMap.put("/admin/*.html", "authc,roles[admin]");
         filterMap.put("/chain/*.html", "authc,roles[chain]");
-        filterMap.put("/member/**", "authc,roles[user]");
         filterMap.put("/admin/**", "authc,roles[admin]");
+        filterMap.put("/member/**", "authc,roles[user]");
         filterMap.put("/chain/**", "authc,roles[chain]");
         //filterMap.put("/**", "url");
         filterMap.put("/**", "authc");

@@ -9,8 +9,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Created by zgq7 on 2019/1/28.
@@ -57,5 +59,26 @@ public class MemberServiceImpl implements MemberService {
             log.error("会员资料修改impl报错：{}", e.getMessage());
         }
         return false;
+    }
+
+    @Override
+    public List<MemberUser> getMemberByCondition(Map<Object, Object> request) {
+        String code = String.valueOf(request.get("code"));
+        String mobile = String.valueOf(request.get("mobile"));
+        String account = String.valueOf(request.get("account"));
+        String page = String.valueOf(request.get("page"));
+        String limit = String.valueOf(request.get("limit"));
+        try {
+            List<MemberUser> memberUserList = memberDao.getMemberByCondition(code, account, mobile, page, limit);
+            if (Optional.ofNullable(memberUserList).isPresent()) {
+                //将memberInfo 由obejct转换为list
+                memberUserList.stream().map(MemberUser::getMemberInfo).collect(Collectors.toList());
+                return memberUserList;
+            }
+        } catch (Exception e) {
+            //通用impl 与层日志报错
+            log.error("{}.{} occured an error : {}", this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName(), e.getMessage());
+        }
+        return null;
     }
 }
