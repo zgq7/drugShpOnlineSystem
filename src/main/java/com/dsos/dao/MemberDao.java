@@ -40,9 +40,14 @@ public interface MemberDao {
 
     //根据条件查询会员集合-->动态sql 并且表关联
     @Select(value = "call pos_get_memberList(#{code}, #{account}, #{mobile}, #{page}, #{limit})")
-    @Results(value = {@Result(property = "memberInfo", column = "cardNo", one = @One(select = "getInfo2ByCardNo", fetchType = FetchType.LAZY))
+    @Results(value = {@Result(property = "memberInfo", column = "cardNo",
+            one = @One(select = "getInfo2ByCardNo", fetchType = FetchType.LAZY))
     })
     List<MemberUser> getMemberByCondition(@Param("code") String code, @Param("account") String account,
                                           @Param("mobile") String mobile, @Param("page") String page,
                                           @Param("limit") String limit) throws Exception;
+
+    @Select(value = "call pos_get_memberListCount(#{code}, #{account}, #{mobile} )")
+    Integer getCountByCondition(@Param("code") String code, @Param("account") String account,
+                                @Param("mobile") String mobile) throws Exception;
 }

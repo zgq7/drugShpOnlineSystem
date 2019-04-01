@@ -159,14 +159,9 @@ public class ShiroConfig {
         //登出
         filterMap.put("/logout", "logout");
         //页面权限的配置
-        filterMap.put("/common/*.html", "authc");
-        filterMap.put("/member/*.html", "authc,roles[user]");
-        filterMap.put("/admin/*.html", "authc,roles[admin]");
-        filterMap.put("/chain/*.html", "authc,roles[chain]");
         filterMap.put("/admin/**", "authc,roles[admin]");
-        filterMap.put("/member/**", "authc,roles[user]");
-        filterMap.put("/chain/**", "authc,roles[chain]");
-        //filterMap.put("/**", "url");
+        //filterMap.put("/member/**", "authc,roles[user]");
+        //filterMap.put("/chain/**", "authc,roles[chain]");
         filterMap.put("/**", "authc");
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setLoginUrl("/index");

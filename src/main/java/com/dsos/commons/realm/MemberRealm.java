@@ -32,7 +32,7 @@ public class MemberRealm extends AuthorizingRealm {
      **/
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        log.info("==============member 授权 ========================");
+        //log.info("==============member 授权 ========================");
         Object principal = principalCollection.getPrimaryPrincipal();
         if (principal instanceof MemberUser) {
             MemberUser memberUser = (MemberUser) principal;
@@ -40,12 +40,12 @@ public class MemberRealm extends AuthorizingRealm {
             roles.add("user");
             //角色
             //权限
-            log.info("member 用户名为：{}，具有{}权限", memberUser.getCardNo(), roles);
+            log.info("user is {}，permission：{}", roles);
             SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
             simpleAuthorizationInfo.setRoles(roles);
             return simpleAuthorizationInfo;
         }
-        log.error("principal is not memberUser ,next realm ->");
+        //log.error("principal is not memberUser ,next realm ->");
         return null;
     }
 

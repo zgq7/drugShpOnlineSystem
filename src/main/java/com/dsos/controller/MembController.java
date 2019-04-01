@@ -29,6 +29,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**
  * Created by zgq7 on 2019/1/27 0027.
@@ -233,12 +235,6 @@ public class MembController {
         String page = request.getParameter("page");
         String limit = request.getParameter("limit");
 
-        /*String mobile = (String) request.get("mobile");
-        String account = (String) request.get("account");
-        String code = (String) request.get("code");
-        String page = (String) request.get("page");
-        String limit = (String) request.get("limit");*/
-
         if (!Optional.ofNullable(code).isPresent()) {
             code = "";
         }
@@ -248,14 +244,16 @@ public class MembController {
         if (!Optional.ofNullable(account).isPresent()) {
             account = "";
         }
-        log.info("{},{},{},{},{}", mobile, account, code, page, limit);
+        //log.info("{},{},{},{},{}", mobile, account, code, page, limit);
         map.put("code", code);
         map.put("mobile", mobile);
         map.put("account", account);
         map.put("page", page);
         map.put("limit", limit);
         List<MemberUser> memberUserList = memberService.getMemberByCondition(map);
-        return ImmutableMap.of("code", 0, "msg", "success", "data", memberUserList);
+        Integer count = memberService.getCountByCondition(map);
+        List<MemberInfo> memberInfoList = memberUserList.stream().map(MemberUser::getMemberInfo).collect(Collectors.toList());
+        return ImmutableMap.of("code", 0, "msg", "success", "data", memberInfoList, "count", count);
     }
 
 }

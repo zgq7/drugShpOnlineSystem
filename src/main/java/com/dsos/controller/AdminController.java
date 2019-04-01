@@ -40,10 +40,9 @@ public class AdminController {
      */
     @RequestMapping(value = "/login")
     public String Login(HttpServletRequest request, HttpSession session, Map<String, Object> map) {
-        log.info("正在执行登录");
         String accout = request.getParameter("account");
         String password = request.getParameter("password");
-        log.info("账号：{},密码：{}", accout, password);
+        log.info("登录账号：{},密码：{}", accout, password);
         Subject AdminSubject = SecurityUtils.getSubject();
         //如果subject没有认证，则进入realm认证
         //使用自定义token的登录方式
@@ -79,7 +78,6 @@ public class AdminController {
         AdminUser adminUser = adminService.getUerNmaeImgByCardNo((String) request.getSession().getAttribute("account"));
         String name = adminUser.getName();
         String imgRoot = adminUser.getImgRoot();
-        log.info("admin - > name {}, root {}", name, imgRoot);
         result.put("name", name);
         result.put("imgRoot", imgRoot);
         return result;

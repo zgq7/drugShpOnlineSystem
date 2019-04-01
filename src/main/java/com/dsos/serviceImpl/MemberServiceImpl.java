@@ -81,4 +81,17 @@ public class MemberServiceImpl implements MemberService {
         }
         return null;
     }
+
+    @Override
+    public Integer getCountByCondition(Map<Object, Object> request) {
+        String code = String.valueOf(request.get("code"));
+        String mobile = String.valueOf(request.get("mobile"));
+        String account = String.valueOf(request.get("account"));
+        try {
+            return memberDao.getCountByCondition(code, mobile, account);
+        } catch (Exception e) {
+            log.error("{}.{} occured an error : {}", this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName(), e.getMessage());
+        }
+        return null;
+    }
 }

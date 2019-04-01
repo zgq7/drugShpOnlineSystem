@@ -33,7 +33,7 @@ public class AdminRealm extends AuthorizingRealm {
      **/
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        log.info("===============admin 授权 ========================");
+        //log.info("===============admin 授权 ========================");
         Object principal = principalCollection.getPrimaryPrincipal();
         if (principal instanceof AdminUser) {
             AdminUser adminUser = (AdminUser) principal;
@@ -41,23 +41,23 @@ public class AdminRealm extends AuthorizingRealm {
             roles.add("admin");
             //角色
             //权限
-            log.info("admin名为：{}，具有{}权限", adminUser.getAdminAccount(), roles);
+            log.info("user is {} ，permission：{}", roles);
             SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
             simpleAuthorizationInfo.setRoles(roles);
             return simpleAuthorizationInfo;
         }
-        log.info("principal is not adminUser  ,next realm ->");
+        //log.info("principal is not adminUser  ,next realm ->");
         return null;
     }
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        log.info("======admin 用户正在认证=====");
+        //log.info("======admin 用户正在认证=====");
         UsernamePwdLogTypToken token = (UsernamePwdLogTypToken) authenticationToken;
         String account = token.getUsername();
         String password = String.valueOf(token.getPassword());
         String loginType = token.getLoginType();
-        log.info("{},{},{}", account, password, loginType);
+        //log.info("{},{},{}", account, password, loginType);
         AdminUser adminUser = mainService.adminUserLog(account, password);
         if (adminUser == null) {
             log.info("error");

@@ -33,4 +33,9 @@ public interface MemberService {
      * 按条件获得memberUser list
      **/
     List<MemberUser> getMemberByCondition(Map<Object, Object> request);
+
+    /**
+     * 获取当前条件下的会员条数
+     **/
+    Integer getCountByCondition(Map<Object, Object> request);
 }

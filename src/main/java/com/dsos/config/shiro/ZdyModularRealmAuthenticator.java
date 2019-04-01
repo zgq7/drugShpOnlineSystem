@@ -36,7 +36,7 @@ public class ZdyModularRealmAuthenticator extends ModularRealmAuthenticator {
                 realmTypes.add(realm);
             }
         }
-        log.info("realm login type name is {}",realmTypes);
+        //log.info("realm login type name is {}",realmTypes);
         //6:判断多realm验证还是单realm验证
         return realmTypes.size() == 1 ? doSingleRealmAuthentication(realmTypes.iterator().next(), usernamePwdLogTypToken) : doMultiRealmAuthentication(realmTypes, usernamePwdLogTypToken);
     }
