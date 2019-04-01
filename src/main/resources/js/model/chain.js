@@ -3,21 +3,17 @@
  * 加载admin 的 html 模块
  */
 $(document).ready(function () {
-    let param = {};
-    let account= $("#myChain").text();
-    //console.log(param);
-    param.account = account;
+    //头像、姓名
     $.ajax({
         url: "chainRoot",
         type: "post",
-        data: JSON.stringify(param),
         contentType: 'application/json;charset=utf-8',
         dataType: "json",
         timeout: 1000,
         success: function (data) {
-            //console.log(data);
-            document.getElementById('adminName').innerHTML = data.name;
-            $("#adminImg").attr("src", data.imgRoot);
+            console.log(data);
+            document.getElementById('chainnerName').innerHTML = data.name;
+            $("#chainnerImg").attr("src", data.imgRoot);
         },
         error: function (data, status) {
             console.log("ajax error : " + status);

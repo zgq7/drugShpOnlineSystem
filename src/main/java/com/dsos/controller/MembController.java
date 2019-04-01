@@ -51,12 +51,11 @@ public class MembController {
      */
     @RequestMapping(value = "/login")
     public String Login(HttpServletRequest request, HttpSession session, Map<String, Object> map) {
-        log.info("正在执行登录");
         String account = request.getParameter("account");
         String password = request.getParameter("password");
         session.setAttribute("account", account);
         session.setAttribute("type", loginType);
-        log.info("账号：{},密码：{}", account, password);
+        //log.info("账号：{},密码：{}", account, password);
         Subject memberSubject = SecurityUtils.getSubject();
         //使用自定义token的登录方式
         UsernamePwdLogTypToken token = new UsernamePwdLogTypToken(account, password, loginType);
@@ -64,7 +63,7 @@ public class MembController {
         try {
             memberSubject.login(token);
         } catch (AuthenticationException e) {
-            log.error("密码/账号错误:{}", e.toString());
+            //log.error("密码/账号错误:{}", e.toString());
             map.put("msg", "密码/账号错误");
             return "error";
         }

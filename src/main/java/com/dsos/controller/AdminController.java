@@ -1,6 +1,7 @@
 package com.dsos.controller;
 
 import com.dsos.commons.Methods;
+import com.dsos.config.session.SessionCollections;
 import com.dsos.config.shiro.LoginType;
 import com.dsos.config.shiro.UsernamePwdLogTypToken;
 import com.dsos.modle.user.AdminUser;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -32,6 +34,7 @@ import java.util.Optional;
 public class AdminController {
     private static final Logger log = LoggerFactory.getLogger(AdminController.class);
     private static final String loginType = LoginType.ADMIN.getLoginType();
+    private SessionCollections sessionCollections = SessionCollections.getinstance();
     @Autowired
     private AdminService adminService;
 
@@ -42,7 +45,7 @@ public class AdminController {
     public String Login(HttpServletRequest request, HttpSession session, Map<String, Object> map) {
         String accout = request.getParameter("account");
         String password = request.getParameter("password");
-        log.info("登录账号：{},密码：{}", accout, password);
+        //log.info("登录账号：{},密码：{}", accout, password);
         Subject AdminSubject = SecurityUtils.getSubject();
         //如果subject没有认证，则进入realm认证
         //使用自定义token的登录方式
@@ -51,7 +54,7 @@ public class AdminController {
         try {
             AdminSubject.login(token);
         } catch (AuthenticationException e) {
-            log.error("密码/账号错误:{}", e.toString());
+            //log.error("密码/账号错误:{}", e.toString());
             map.put("msg", "密码/账号错误");
             return "error";
         }
@@ -161,13 +164,26 @@ public class AdminController {
         return "admin/chainnerList";
     }
 
-    //============================================================连锁门店方面
+    //============================================================会员管理方面
+
     /**
      * 会员资料
      **/
     @RequestMapping(value = "/memberList")
     public String memberList() {
         return "admin/memberList";
+    }
+
+    //============================================================session会话管理
+
+    /**
+     * 查询当前有多少人在线
+     **/
+    @RequestMapping(value = "/sessionList")
+    public @ResponseBody
+    Map<Object, Object> getSessionList() {
+        log.info("{}", sessionCollections);
+        return ImmutableMap.of("result", sessionCollections.getSessionList());
     }
 
 }

@@ -161,7 +161,7 @@ public class ShiroConfig {
         //页面权限的配置
         filterMap.put("/admin/**", "authc,roles[admin]");
         //filterMap.put("/member/**", "authc,roles[user]");
-        //filterMap.put("/chain/**", "authc,roles[chain]");
+        filterMap.put("/chain/**", "authc,roles[chain]");
         filterMap.put("/**", "authc");
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setLoginUrl("/index");

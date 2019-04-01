@@ -1,5 +1,6 @@
 package com.dsos.config.servlet;
 
+import com.dsos.config.session.SessionCollections;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,6 +15,8 @@ import javax.servlet.http.*;
 public class MySessinListenner implements HttpSessionListener, HttpSessionAttributeListener {
 
     private static final Logger log = LoggerFactory.getLogger(MySessinListenner.class);
+
+    private SessionCollections sessionCollections = SessionCollections.getinstance();
 
     public MySessinListenner() {
         log.info("session is initializing");
@@ -37,10 +40,14 @@ public class MySessinListenner implements HttpSessionListener, HttpSessionAttrib
     @Override
     public void sessionCreated(HttpSessionEvent se) {
         log.info("session id of {} been created , maxLife {} ", se.getSession().getId(), se.getSession().getMaxInactiveInterval());
+        HttpSession session = se.getSession();
+        sessionCollections.addSession(session);
     }
 
     @Override
     public void sessionDestroyed(HttpSessionEvent se) {
         log.info("session id of {} been destroyed ", se.getSession().getId());
+        HttpSession session = se.getSession();
+        sessionCollections.delSession(session);
     }
 }

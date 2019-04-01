@@ -4,6 +4,7 @@ import com.dsos.config.shiro.LoginType;
 import com.dsos.config.shiro.UsernamePwdLogTypToken;
 import com.dsos.modle.user.ChainnerUser;
 import com.dsos.service.ChainnerService;
+import com.google.common.collect.ImmutableMap;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.subject.Subject;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,24 +38,25 @@ public class ChainController {
      * @return member 的登录
      */
     @RequestMapping(value = "/login")
-    public String Login(HttpServletRequest request, Model model) {
-        log.info("正在执行登录");
+    public String Login(HttpServletRequest request, HttpSession session, Map<String, Object> map) {
         String accout = request.getParameter("account");
         String password = request.getParameter("password");
-        log.info("账号：{},密码：{}", accout, password);
-        Subject chainSubject = SecurityUtils.getSubject();
+        //log.info("登录账号：{},密码：{}", accout, password);
+        Subject AdminSubject = SecurityUtils.getSubject();
         //如果subject没有认证，则进入realm认证
         //使用自定义token的登录方式
         UsernamePwdLogTypToken token = new UsernamePwdLogTypToken(accout, password, loginType);
         token.setRememberMe(false);
         try {
-            chainSubject.login(token);
+            AdminSubject.login(token);
         } catch (AuthenticationException e) {
-            log.error("密码/账号错误:{}", e.toString());
+            //log.error("密码/账号错误:{}", e.toString());
+            map.put("msg", "密码/账号错误");
             return "error";
         }
-        model.addAttribute("account", accout);
-        return "redirect:/chain/chainSuccessUser";
+        session.setAttribute("account", accout);
+        session.setAttribute("type", loginType);
+        return "redirect:/chain/loginSuccessUser";
     }
 
     /**
@@ -69,15 +72,11 @@ public class ChainController {
      **/
     @RequestMapping("/chainRoot")
     public @ResponseBody
-    Map<Object, Object> adminRoot(@RequestBody Map<Object, String> requestMap) {
-        log.info("头像 姓名 获取中。。。");
-        Map<Object, Object> result = new HashMap<>();
-        ChainnerUser chainWorkUser = chainUserService.getUerNmaeImgByCardNo(requestMap.get("account"));
+    Map<Object, Object> adminRoot(HttpServletRequest request) {
+        ChainnerUser chainWorkUser = chainUserService.getUerNmaeImgByCardNo((String) request.getSession().getAttribute("account"));
         String name = chainWorkUser.getName();
         String imgRoot = chainWorkUser.getImgRoot();
         log.info("admin - > name {}, root {}", name, imgRoot);
-        result.put("name", name);
-        result.put("imgRoot", imgRoot);
-        return result;
+        return ImmutableMap.of("name", name, "imgRoot", imgRoot);
     }
 }

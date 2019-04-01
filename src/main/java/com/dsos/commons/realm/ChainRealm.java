@@ -45,7 +45,6 @@ public class ChainRealm extends AuthorizingRealm {
             simpleAuthorizationInfo.setRoles(roles);
             return simpleAuthorizationInfo;
         }
-        //log.error("principal is not chainWorkUser ,next realm ->");
         return null;
     }
 
@@ -55,7 +54,6 @@ public class ChainRealm extends AuthorizingRealm {
         UsernamePwdLogTypToken token = (UsernamePwdLogTypToken) authenticationToken;
         String account = token.getUsername();
         String password = String.valueOf(token.getPassword());
-        //log.info("{},{}", account, password);
         ChainnerUser chainWorkUser = mainService.chainWkUserLog(account, password);
         if (chainWorkUser == null) {
             log.info("error");
