@@ -1,5 +1,9 @@
 package com.dsos.config.session;
 
+import com.dsos.config.servlet.MySessinListenner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +13,8 @@ import java.util.Map;
  * Created by Administrator on 2019/4/1 0001.
  */
 public class SessionCollections {
+    private static final Logger log = LoggerFactory.getLogger(SessionCollections.class);
+
     private static SessionCollections instance;
     private Map<String, HttpSession> sessionMap;
 
@@ -38,6 +44,7 @@ public class SessionCollections {
     public void addSession(HttpSession session) {
         if (session != null) {
             sessionMap.put(session.getId(), session);
+            log.info("session has been add in sessionMap ,id : {}", session.getId());
         }
     }
 
@@ -47,6 +54,7 @@ public class SessionCollections {
     public void delSession(HttpSession session) {
         if (session != null) {
             sessionMap.remove(session.getId());
+            log.info("session has been del in sessionMap,id : {}", session.getId());
         }
     }
 
