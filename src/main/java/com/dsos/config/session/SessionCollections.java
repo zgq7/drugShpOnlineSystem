@@ -15,18 +15,18 @@ import java.util.Map;
 public class SessionCollections {
     private static final Logger log = LoggerFactory.getLogger(SessionCollections.class);
 
-    private static SessionCollections instance;
+    private static SessionCollections instance = new SessionCollections();
     private Map<String, HttpSession> sessionMap;
 
     public SessionCollections() {
         sessionMap = new HashMap<>();
+        System.out.println(123);
     }
 
     /**
      * 初始化SessionCollections，使其保持为单例
      **/
     public static SessionCollections getinstance() {
-        System.out.println(instance);
         if (instance == null) {
             return new SessionCollections();
         }
@@ -44,7 +44,7 @@ public class SessionCollections {
     public void addSession(HttpSession session) {
         if (session != null) {
             sessionMap.put(session.getId(), session);
-            log.info("session has been add in sessionMap ,id : {}", session.getId());
+            log.info("session of id: {} been add in map ,map now size : {}", session.getId(), sessionMap.size());
         }
     }
 
@@ -54,7 +54,7 @@ public class SessionCollections {
     public void delSession(HttpSession session) {
         if (session != null) {
             sessionMap.remove(session.getId());
-            log.info("session has been del in sessionMap,id : {}", session.getId());
+            log.info("session of id: {} been add in map ,map now size : {}", session.getId(), sessionMap.size());
         }
     }
 

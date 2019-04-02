@@ -182,7 +182,7 @@ public class AdminController {
     @RequestMapping(value = "/sessionList")
     public @ResponseBody
     Map<Object, Object> getSessionList() {
-        log.info("{}", sessionCollections);
+        //log.info("{}");
         return ImmutableMap.of("result", sessionCollections.getSessionList());
     }
 

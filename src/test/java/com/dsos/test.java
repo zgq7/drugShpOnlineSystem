@@ -1,5 +1,6 @@
 package com.dsos;
 
+import com.dsos.config.session.SessionCollections;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 import org.springframework.util.ResourceUtils;
@@ -81,4 +82,13 @@ public class test {
     }
 
 
+    @Test
+    public void fff() {
+        SessionCollections inst1 = SessionCollections.getinstance();
+        System.out.println(inst1);
+
+        SessionCollections inst2 = SessionCollections.getinstance();
+        System.out.println(inst2);
+
+    }
 }
