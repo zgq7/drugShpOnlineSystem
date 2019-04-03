@@ -5,7 +5,10 @@ import com.dsos.config.session.SessionCollections;
 import com.dsos.config.shiro.LoginType;
 import com.dsos.config.shiro.UsernamePwdLogTypToken;
 import com.dsos.modle.user.AdminUser;
+import com.dsos.modle.user.MemberInfo;
+import com.dsos.modle.user.MemberUser;
 import com.dsos.service.AdminService;
+import com.dsos.service.MemberService;
 import com.google.common.collect.ImmutableMap;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -20,10 +23,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by zgq7 on 2019/1/27 0027.
@@ -37,6 +38,8 @@ public class AdminController {
     private SessionCollections sessionCollections = SessionCollections.getinstance();
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private MemberService memberService;
 
     /**
      * @return member 的登录
@@ -45,16 +48,13 @@ public class AdminController {
     public String Login(HttpServletRequest request, HttpSession session, Map<String, Object> map) {
         String accout = request.getParameter("account");
         String password = request.getParameter("password");
-        //log.info("登录账号：{},密码：{}", accout, password);
         Subject AdminSubject = SecurityUtils.getSubject();
-        //如果subject没有认证，则进入realm认证
         //使用自定义token的登录方式
         UsernamePwdLogTypToken token = new UsernamePwdLogTypToken(accout, password, loginType);
         token.setRememberMe(false);
         try {
             AdminSubject.login(token);
         } catch (AuthenticationException e) {
-            //log.error("密码/账号错误:{}", e.toString());
             map.put("msg", "密码/账号错误");
             return "error";
         }
@@ -174,6 +174,40 @@ public class AdminController {
         return "admin/memberList";
     }
 
+    /**
+     * 按条件筛选会员集合
+     **/
+    @RequestMapping(value = "/getMemberByCondtion")
+    public @ResponseBody
+    Map<Object, Object> getMemberByCondtion(HttpServletRequest request) {
+        Map<Object, Object> map = new HashMap<>();
+        String mobile = request.getParameter("mobile");
+        String account = request.getParameter("account");
+        String code = request.getParameter("code");
+        String page = request.getParameter("page");
+        String limit = request.getParameter("limit");
+
+        if (!Optional.ofNullable(code).isPresent()) {
+            code = "";
+        }
+        if (!Optional.ofNullable(mobile).isPresent()) {
+            mobile = "";
+        }
+        if (!Optional.ofNullable(account).isPresent()) {
+            account = "";
+        }
+        //log.info("{},{},{},{},{}", mobile, account, code, page, limit);
+        map.put("code", code);
+        map.put("mobile", mobile);
+        map.put("account", account);
+        map.put("page", page);
+        map.put("limit", limit);
+        List<MemberUser> memberUserList = memberService.getMemberByCondition(map);
+        Integer count = memberService.getCountByCondition(map);
+        List<MemberInfo> memberInfoList = memberUserList.stream().map(MemberUser::getMemberInfo).collect(Collectors.toList());
+        return ImmutableMap.of("code", 0, "msg", "success", "data", memberInfoList, "count", count);
+    }
+
     //============================================================session会话管理
 
     /**
@@ -182,8 +216,7 @@ public class AdminController {
     @RequestMapping(value = "/sessionList")
     public @ResponseBody
     Map<Object, Object> getSessionList() {
-        //log.info("{}");
-        return ImmutableMap.of("result", sessionCollections.getSessionList());
+        return ImmutableMap.of("result", sessionCollections.getSessionMap().keySet(),"data",sessionCollections.getSessionMap());
     }
 
 }

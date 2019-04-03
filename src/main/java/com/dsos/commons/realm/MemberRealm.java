@@ -32,7 +32,6 @@ public class MemberRealm extends AuthorizingRealm {
      **/
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        //log.info("==============member 授权 ========================");
         Object principal = principalCollection.getPrimaryPrincipal();
         if (principal instanceof MemberUser) {
             MemberUser memberUser = (MemberUser) principal;
@@ -45,18 +44,15 @@ public class MemberRealm extends AuthorizingRealm {
             simpleAuthorizationInfo.setRoles(roles);
             return simpleAuthorizationInfo;
         }
-        //log.error("principal is not memberUser ,next realm ->");
         return null;
     }
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        log.info("======member 用户正在认证=====");
         UsernamePwdLogTypToken token = (UsernamePwdLogTypToken) authenticationToken;
         String account = token.getUsername();
         String password = String.valueOf(token.getPassword());
         String loginType = token.getLoginType();
-        log.info("{},{},{}", account, password, loginType);
         MemberUser memberUser = mainService.memberUserLog(account, password);
         if (memberUser == null) {
             log.info("authenticating error");

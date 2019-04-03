@@ -55,7 +55,6 @@ public class MembController {
         String password = request.getParameter("password");
         session.setAttribute("account", account);
         session.setAttribute("type", loginType);
-        //log.info("账号：{},密码：{}", account, password);
         Subject memberSubject = SecurityUtils.getSubject();
         //使用自定义token的登录方式
         UsernamePwdLogTypToken token = new UsernamePwdLogTypToken(account, password, loginType);
@@ -63,7 +62,6 @@ public class MembController {
         try {
             memberSubject.login(token);
         } catch (AuthenticationException e) {
-            //log.error("密码/账号错误:{}", e.toString());
             map.put("msg", "密码/账号错误");
             return "error";
         }
@@ -106,7 +104,6 @@ public class MembController {
     public @ResponseBody
     Map<Object, Object> root(HttpServletRequest request) {
         MemberInfo memberInfo = memberService.getInfoByCardNo((String) request.getSession().getAttribute("account")).getMemberInfo();
-        log.info("name {}, root {},amount :{}", memberInfo.getName(), memberInfo.getImgRoot(), memberInfo.getAmount());
         return ImmutableMap.of("name", memberInfo.getName(), "imgRoot", memberInfo.getImgRoot(), "amount", memberInfo.getAmount());
     }
 
@@ -219,40 +216,6 @@ public class MembController {
             model.addAttribute("msg", "update info success");
         }
         return "member/updateInfo";
-    }
-
-    /**
-     * 按条件筛选会员集合
-     **/
-    @RequestMapping(value = "/getMemberByCondtion")
-    public @ResponseBody
-    Map<Object, Object> getMemberByCondtion(HttpServletRequest request) {
-        Map<Object, Object> map = new HashMap<>();
-        String mobile = request.getParameter("mobile");
-        String account = request.getParameter("account");
-        String code = request.getParameter("code");
-        String page = request.getParameter("page");
-        String limit = request.getParameter("limit");
-
-        if (!Optional.ofNullable(code).isPresent()) {
-            code = "";
-        }
-        if (!Optional.ofNullable(mobile).isPresent()) {
-            mobile = "";
-        }
-        if (!Optional.ofNullable(account).isPresent()) {
-            account = "";
-        }
-        //log.info("{},{},{},{},{}", mobile, account, code, page, limit);
-        map.put("code", code);
-        map.put("mobile", mobile);
-        map.put("account", account);
-        map.put("page", page);
-        map.put("limit", limit);
-        List<MemberUser> memberUserList = memberService.getMemberByCondition(map);
-        Integer count = memberService.getCountByCondition(map);
-        List<MemberInfo> memberInfoList = memberUserList.stream().map(MemberUser::getMemberInfo).collect(Collectors.toList());
-        return ImmutableMap.of("code", 0, "msg", "success", "data", memberInfoList, "count", count);
     }
 
 }

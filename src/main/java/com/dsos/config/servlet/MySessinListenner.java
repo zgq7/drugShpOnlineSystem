@@ -41,6 +41,7 @@ public class MySessinListenner implements HttpSessionListener, HttpSessionAttrib
     public void sessionCreated(HttpSessionEvent se) {
         log.info("session id of {} been created , maxLife {} ", se.getSession().getId(), se.getSession().getMaxInactiveInterval());
         HttpSession session = se.getSession();
+        session.setAttribute("ip",session.getServletContext());
         sessionCollections.addSession(session);
     }
 

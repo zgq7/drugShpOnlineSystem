@@ -32,7 +32,6 @@ public class ChainRealm extends AuthorizingRealm {
      **/
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        //log.info("==============chain 授权 ========================");
         Object principal = principalCollection.getPrimaryPrincipal();
         if (principal instanceof ChainnerUser) {
             ChainnerUser chainWorkUser = (ChainnerUser) principal;
@@ -50,13 +49,12 @@ public class ChainRealm extends AuthorizingRealm {
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        //log.info("======chain 用户正在认证=====");
         UsernamePwdLogTypToken token = (UsernamePwdLogTypToken) authenticationToken;
         String account = token.getUsername();
         String password = String.valueOf(token.getPassword());
         ChainnerUser chainWorkUser = mainService.chainWkUserLog(account, password);
         if (chainWorkUser == null) {
-            log.info("error");
+            log.info("authenticating error");
             throw new AuthenticationException("chain authenticate error");
         }
         //已认证的实体信息

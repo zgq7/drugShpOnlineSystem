@@ -41,16 +41,13 @@ public class ChainController {
     public String Login(HttpServletRequest request, HttpSession session, Map<String, Object> map) {
         String accout = request.getParameter("account");
         String password = request.getParameter("password");
-        //log.info("登录账号：{},密码：{}", accout, password);
         Subject AdminSubject = SecurityUtils.getSubject();
-        //如果subject没有认证，则进入realm认证
         //使用自定义token的登录方式
         UsernamePwdLogTypToken token = new UsernamePwdLogTypToken(accout, password, loginType);
         token.setRememberMe(false);
         try {
             AdminSubject.login(token);
         } catch (AuthenticationException e) {
-            //log.error("密码/账号错误:{}", e.toString());
             map.put("msg", "密码/账号错误");
             return "error";
         }

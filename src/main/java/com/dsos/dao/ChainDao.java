@@ -17,7 +17,7 @@ public interface ChainDao {
      * @param account 登录账户
      **/
     //查询chainner名以及头像地址
-    @Select("select name,imgRoot from dsos_live_chainworkuser where chainAccount = #{account}")
+    @Select("select name,imgRoot from dsos_live_chainneruser where chainAccount = #{account}")
     ChainnerUser getUerNmaeImgByCardNo(@Param("account") String account) throws Exception;
 
 

@@ -4,7 +4,7 @@ layui.use(['table', 'form', 'laydate'], function () {
     //方法级渲染
     table.render({
         elem: '#member_table'
-        , url: '../member/getMemberByCondtion'
+        , url: '../admin/getMemberByCondtion'
         , id: 'memberReload' //当前容器的索引应与重载中的reload中的参数一致
         , page: true
         , height: 'full-230'

@@ -20,7 +20,6 @@ public class SessionCollections {
 
     public SessionCollections() {
         sessionMap = new HashMap<>();
-        System.out.println(123);
     }
 
     /**
@@ -33,7 +32,7 @@ public class SessionCollections {
         return instance;
     }
 
-    public Map<String, HttpSession> getSessionList() {
+    public Map<String, HttpSession> getSessionMap() {
         return sessionMap;
     }
 
