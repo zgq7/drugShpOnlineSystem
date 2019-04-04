@@ -11,7 +11,7 @@
  Target Server Version : 50717
  File Encoding         : 65001
 
- Date: 20/03/2019 18:56:58
+ Date: 04/04/2019 18:55:43
 */
 
 SET NAMES utf8mb4;
@@ -1465,7 +1465,7 @@ delimiter ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `login_chain`(IN `account` varchar(19),IN `password` varchar(19))
 BEGIN
 	#连锁人员登录
-	SELECT * from dsos_live_chainworkuser where chainAccount =account and `password` = `password`;
+	SELECT * from dsos_live_chainneruser where chainAccount =account and `password` = `password`;
 END
 ;;
 delimiter ;
@@ -1739,6 +1739,38 @@ set @sql = 'select * from dsos_live_memberuser where 1 = 1';
 	end if;
 	
 		set @sql = CONCAT(@sql,' limit ',start,', ',limitz);
+		
+	PREPARE distSQL FROM @SQL ;
+     EXECUTE distSQL;
+ 	DEALLOCATE PREPARE distSQL ;
+
+#select @sql;
+END
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for pos_get_memberListCount
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `pos_get_memberListCount`;
+delimiter ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pos_get_memberListCount`(IN `codez` varchar(19),IN `accountz` varchar(19),IN `mobilez` varchar(19))
+BEGIN
+	#查询连锁
+
+set @sql = 'select count(*) from dsos_live_memberuser where 1 = 1';
+	
+	if codez <> '' then 
+	  set @sql = CONCAT(@sql,' and storeId= ','''',codez,'''');
+	end if;
+	
+	if accountz <> '' then 
+	  set @sql = CONCAT(@sql,' and cardNo= ','''',accountz,'''');
+	end if;
+	
+	if mobilez <> '' then 
+	  set @sql = CONCAT(@sql,' and mobile= ','''',mobilez,'''');
+	end if;
 		
 	PREPARE distSQL FROM @SQL ;
      EXECUTE distSQL;
