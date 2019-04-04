@@ -5,11 +5,9 @@ import com.dsos.config.session.SessionCollections;
 import com.dsos.config.shiro.LoginType;
 import com.dsos.config.shiro.UsernamePwdLogTypToken;
 import com.dsos.modle.user.AdminUser;
-import com.dsos.modle.user.ChainnerUser;
 import com.dsos.modle.user.MemberInfo;
 import com.dsos.modle.user.MemberUser;
 import com.dsos.service.AdminService;
-import com.dsos.service.ChainnerService;
 import com.dsos.service.MemberService;
 import com.google.common.collect.ImmutableMap;
 import org.apache.shiro.SecurityUtils;
@@ -42,8 +40,6 @@ public class AdminController {
     private AdminService adminService;
     @Autowired
     private MemberService memberService;
-    @Autowired
-    private ChainnerService chainnerService;
 
     /**
      * @return member 的登录
@@ -63,7 +59,7 @@ public class AdminController {
             return "error";
         }
         session.setAttribute("account", accout);
-        session.setAttribute("userType", loginType);
+        session.setAttribute("type", loginType);
         return "redirect:/admin/loginSuccessUser";
     }
 
@@ -220,22 +216,9 @@ public class AdminController {
     @RequestMapping(value = "/sessionList")
     public @ResponseBody
     Map<Object, Object> getSessionList() {
-        Map<String, Map<Object, Object>> result = sessionCollections.getSessionInfo();
-        for (Map map : result.values()) {
-            if (map.get("userType").equals("Admin")) {
-                AdminUser adminUser = adminService.getUerNmaeImgByCardNo((String) map.get("account"));
-                map.put("info", adminUser);
-            }
-            if (map.get("userType").equals("Member")) {
-                MemberInfo memberInfo = memberService.getInfo2ByCardNo((String) map.get("account"));
-                map.put("info", memberInfo);
-            }
-            if (map.get("userType").equals("Chain")) {
-                ChainnerUser chainnerUser = chainnerService.getUerNmaeImgByCardNo((String) map.get("account"));
-                map.put("info", chainnerUser);
-            }
-        }
-        return ImmutableMap.of("data", result);
+        return ImmutableMap.of("result", sessionCollections.getSessionMap().keySet()
+                ,"data",sessionCollections.getSessionMap()
+        );
     }
 
 }

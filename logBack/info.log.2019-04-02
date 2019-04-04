@@ -1,0 +1,745 @@
+2019-04-02 20:40:25.229 INFO       [ restartedMain ] com.dsos.Application                               ->   50 ： Starting Application on USER-20181119HO with PID 11292 (D:\drugShpOnlineSystem\target\classes started by Administrator in D:\drugShpOnlineSystem) 
+2019-04-02 20:40:25.241 INFO       [ restartedMain ] com.dsos.Application                               ->  675 ： No active profile set, falling back to default profiles: default 
+2019-04-02 20:40:26.876 INFO       [ restartedMain ] com.dsos.config.shiro.ShiroConfig                  ->  142 ： ShiroConfig.shiroFilterFactoryBean() 
+2019-04-02 20:40:27.846 INFO       [ restartedMain ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure ->   56 ： Init DruidDataSource 
+2019-04-02 20:40:28.230 INFO       [ restartedMain ] com.alibaba.druid.pool.DruidDataSource             ->  930 ： {dataSource-1} inited 
+2019-04-02 20:40:28.316 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.AdminRealm.authorizationCache' does not yet exist.  Creating now. 
+2019-04-02 20:40:28.320 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.AdminRealm.authorizationCache] 
+2019-04-02 20:40:28.322 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.MemberRealm.authorizationCache.1' does not yet exist.  Creating now. 
+2019-04-02 20:40:28.325 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.MemberRealm.authorizationCache.1] 
+2019-04-02 20:40:28.326 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.ChainRealm.authorizationCache.2' does not yet exist.  Creating now. 
+2019-04-02 20:40:28.329 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.ChainRealm.authorizationCache.2] 
+2019-04-02 20:40:29.641 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Initializing ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:40:29.660 INFO       [ restartedMain ] org.apache.catalina.core.StandardService           ->  173 ： Starting service [Tomcat] 
+2019-04-02 20:40:29.661 INFO       [ restartedMain ] org.apache.catalina.core.StandardEngine            ->  173 ： Starting Servlet Engine: Apache Tomcat/9.0.13 
+2019-04-02 20:40:29.668 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： An older version [1.2.17] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18] 
+2019-04-02 20:40:29.669 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3]. 
+2019-04-02 20:40:29.669 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true]. 
+2019-04-02 20:40:29.669 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true] 
+2019-04-02 20:40:30.715 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018] 
+2019-04-02 20:40:30.817 INFO       [ restartedMain ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring embedded WebApplicationContext 
+2019-04-02 20:40:30.837 INFO       [ restartedMain ] com.dsos.config.servlet.MySessinListenner          ->   22 ： session is initializing 
+2019-04-02 20:40:31.014 INFO       [ restartedMain ] org.hibernate.jpa.internal.util.LogHelper          ->   31 ： HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2019-04-02 20:40:31.071 INFO       [ restartedMain ] org.hibernate.Version                              ->   46 ： HHH000412: Hibernate Core {5.3.7.Final} 
+2019-04-02 20:40:31.073 INFO       [ restartedMain ] org.hibernate.cfg.Environment                      ->  213 ： HHH000206: hibernate.properties not found 
+2019-04-02 20:40:31.264 INFO       [ restartedMain ] org.hibernate.annotations.common.Version           ->   49 ： HCANN000001: Hibernate Commons Annotations {5.0.4.Final} 
+2019-04-02 20:40:31.495 INFO       [ restartedMain ] org.hibernate.dialect.Dialect                      ->  157 ： HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2019-04-02 20:40:32.323 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   43 ： layUI静态资源路径,classpath:/layui/ 
+2019-04-02 20:40:32.323 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   45 ： js静态资源路径,classpath:/js/ 
+2019-04-02 20:40:32.323 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   47 ： css静态资源路径,classpath:/css/ 
+2019-04-02 20:40:32.323 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   49 ： images静态资源路径,classpath:/images/ 
+2019-04-02 20:40:32.324 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   51 ： modelHtml静态资源路径,classpath:/templates/model/ 
+2019-04-02 20:40:32.324 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   53 ： userHtml静态资源路径,classpath:/templates/member/ 
+2019-04-02 20:40:32.324 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   55 ： adminHtml静态资源路径,classpath:/templates/admin/ 
+2019-04-02 20:40:32.324 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   57 ： chainHtml静态资源路径,classpath:/templates/chain/ 
+2019-04-02 20:40:32.324 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   59 ： common静态资源路径,classpath:/templates/common/ 
+2019-04-02 20:40:32.622 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Starting ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:40:32.631 INFO       [ restartedMain ] org.apache.tomcat.util.net.NioSelectorPool         ->  173 ： Using a shared selector for servlet write/read 
+2019-04-02 20:40:32.648 INFO       [ restartedMain ] com.dsos.Application                               ->   59 ： Started Application in 8.791 seconds (JVM running for 10.3) 
+2019-04-02 20:41:47.585 INFO       [ http-nio-8099-exec-1 ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019-04-02 20:41:53.511 INFO       [ http-nio-8099-exec-5 ] com.dsos.config.servlet.MySessinListenner          ->   42 ： session id of D195B15643579DD953FE7C8F0B06A003 been created , maxLife 1800  
+2019-04-02 20:41:53.512 INFO       [ http-nio-8099-exec-5 ] com.dsos.config.session.SessionCollections         ->   47 ： session has been add in sessionMap,id : D195B15643579DD953FE7C8F0B06A003,map size : 1 
+2019-04-02 20:41:53.793 INFO       [ http-nio-8099-exec-6 ] com.dsos.commons.realm.AdminRealm                  ->   44 ： user is [admin] ，permission：{} 
+2019-04-02 20:42:29.138 INFO       [ http-nio-8099-exec-10 ] com.dsos.controller.AdminController                ->  185 ： com.dsos.config.session.SessionCollections@1fb9735 
+2019-04-02 20:42:58.988 INFO       [ Thread-7 ] com.alibaba.druid.pool.DruidDataSource             -> 1825 ： {dataSource-1} closed 
+2019-04-02 20:42:59.631 INFO       [ restartedMain ] com.dsos.Application                               ->   50 ： Starting Application on USER-20181119HO with PID 11292 (D:\drugShpOnlineSystem\target\classes started by Administrator in D:\drugShpOnlineSystem) 
+2019-04-02 20:42:59.631 INFO       [ restartedMain ] com.dsos.Application                               ->  675 ： No active profile set, falling back to default profiles: default 
+2019-04-02 20:43:00.284 INFO       [ restartedMain ] com.dsos.config.shiro.ShiroConfig                  ->  142 ： ShiroConfig.shiroFilterFactoryBean() 
+2019-04-02 20:43:00.323 INFO       [ restartedMain ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure ->   56 ： Init DruidDataSource 
+2019-04-02 20:43:00.400 INFO       [ restartedMain ] com.alibaba.druid.pool.DruidDataSource             ->  930 ： {dataSource-2} inited 
+2019-04-02 20:43:00.422 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.AdminRealm.authorizationCache.3' does not yet exist.  Creating now. 
+2019-04-02 20:43:00.425 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.AdminRealm.authorizationCache.3] 
+2019-04-02 20:43:00.426 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.MemberRealm.authorizationCache.4' does not yet exist.  Creating now. 
+2019-04-02 20:43:00.429 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.MemberRealm.authorizationCache.4] 
+2019-04-02 20:43:00.429 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.ChainRealm.authorizationCache.5' does not yet exist.  Creating now. 
+2019-04-02 20:43:00.433 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.ChainRealm.authorizationCache.5] 
+2019-04-02 20:43:00.721 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Initializing ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:43:00.723 INFO       [ restartedMain ] org.apache.catalina.core.StandardService           ->  173 ： Starting service [Tomcat] 
+2019-04-02 20:43:00.723 INFO       [ restartedMain ] org.apache.catalina.core.StandardEngine            ->  173 ： Starting Servlet Engine: Apache Tomcat/9.0.13 
+2019-04-02 20:43:00.724 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： An older version [1.2.17] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18] 
+2019-04-02 20:43:00.725 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3]. 
+2019-04-02 20:43:00.725 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true]. 
+2019-04-02 20:43:00.726 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true] 
+2019-04-02 20:43:00.726 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018] 
+2019-04-02 20:43:00.753 INFO       [ restartedMain ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring embedded WebApplicationContext 
+2019-04-02 20:43:00.769 INFO       [ restartedMain ] com.dsos.config.servlet.MySessinListenner          ->   22 ： session is initializing 
+2019-04-02 20:43:00.926 INFO       [ restartedMain ] org.hibernate.jpa.internal.util.LogHelper          ->   31 ： HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2019-04-02 20:43:01.030 INFO       [ restartedMain ] org.hibernate.dialect.Dialect                      ->  157 ： HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2019-04-02 20:43:01.410 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   43 ： layUI静态资源路径,classpath:/layui/ 
+2019-04-02 20:43:01.410 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   45 ： js静态资源路径,classpath:/js/ 
+2019-04-02 20:43:01.411 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   47 ： css静态资源路径,classpath:/css/ 
+2019-04-02 20:43:01.411 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   49 ： images静态资源路径,classpath:/images/ 
+2019-04-02 20:43:01.411 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   51 ： modelHtml静态资源路径,classpath:/templates/model/ 
+2019-04-02 20:43:01.411 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   53 ： userHtml静态资源路径,classpath:/templates/member/ 
+2019-04-02 20:43:01.412 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   55 ： adminHtml静态资源路径,classpath:/templates/admin/ 
+2019-04-02 20:43:01.412 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   57 ： chainHtml静态资源路径,classpath:/templates/chain/ 
+2019-04-02 20:43:01.412 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   59 ： common静态资源路径,classpath:/templates/common/ 
+2019-04-02 20:43:01.613 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Starting ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:43:01.616 INFO       [ restartedMain ] org.apache.tomcat.util.net.NioSelectorPool         ->  173 ： Using a shared selector for servlet write/read 
+2019-04-02 20:43:01.633 INFO       [ restartedMain ] com.dsos.Application                               ->   59 ： Started Application in 2.044 seconds (JVM running for 159.285) 
+2019-04-02 20:43:15.764 INFO       [ http-nio-8099-exec-10 ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019-04-02 20:43:15.772 INFO       [ http-nio-8099-exec-10 ] com.dsos.config.servlet.MySessinListenner          ->   49 ： session id of D195B15643579DD953FE7C8F0B06A003 been destroyed  
+2019-04-02 20:43:15.773 INFO       [ http-nio-8099-exec-10 ] com.dsos.config.session.SessionCollections         ->   57 ： session has been del in sessionMap,id : D195B15643579DD953FE7C8F0B06A003,map size : 0 
+2019-04-02 20:43:15.784 INFO       [ http-nio-8099-exec-9 ] com.dsos.config.servlet.MySessinListenner          ->   42 ： session id of FD280EB9CE086C705D2F974581EB3C1F been created , maxLife 1800  
+2019-04-02 20:43:15.784 INFO       [ http-nio-8099-exec-9 ] com.dsos.config.session.SessionCollections         ->   47 ： session has been add in sessionMap,id : FD280EB9CE086C705D2F974581EB3C1F,map size : 1 
+2019-04-02 20:43:25.478 INFO       [ http-nio-8099-exec-10 ] com.dsos.commons.realm.AdminRealm                  ->   44 ： user is [admin] ，permission：{} 
+2019-04-02 20:44:07.145 INFO       [ restartedMain ] com.dsos.Application                               ->   50 ： Starting Application on USER-20181119HO with PID 13120 (D:\drugShpOnlineSystem\target\classes started by Administrator in D:\drugShpOnlineSystem) 
+2019-04-02 20:44:07.152 INFO       [ restartedMain ] com.dsos.Application                               ->  675 ： No active profile set, falling back to default profiles: default 
+2019-04-02 20:44:08.763 INFO       [ restartedMain ] com.dsos.config.shiro.ShiroConfig                  ->  142 ： ShiroConfig.shiroFilterFactoryBean() 
+2019-04-02 20:44:09.512 INFO       [ restartedMain ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure ->   56 ： Init DruidDataSource 
+2019-04-02 20:44:09.839 INFO       [ restartedMain ] com.alibaba.druid.pool.DruidDataSource             ->  930 ： {dataSource-1} inited 
+2019-04-02 20:44:09.962 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.AdminRealm.authorizationCache' does not yet exist.  Creating now. 
+2019-04-02 20:44:09.967 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.AdminRealm.authorizationCache] 
+2019-04-02 20:44:09.969 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.MemberRealm.authorizationCache.1' does not yet exist.  Creating now. 
+2019-04-02 20:44:09.972 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.MemberRealm.authorizationCache.1] 
+2019-04-02 20:44:09.972 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.ChainRealm.authorizationCache.2' does not yet exist.  Creating now. 
+2019-04-02 20:44:09.975 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.ChainRealm.authorizationCache.2] 
+2019-04-02 20:44:10.687 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Initializing ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:44:10.699 INFO       [ restartedMain ] org.apache.catalina.core.StandardService           ->  173 ： Starting service [Tomcat] 
+2019-04-02 20:44:10.700 INFO       [ restartedMain ] org.apache.catalina.core.StandardEngine            ->  173 ： Starting Servlet Engine: Apache Tomcat/9.0.13 
+2019-04-02 20:44:10.710 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： An older version [1.2.17] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18] 
+2019-04-02 20:44:10.711 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3]. 
+2019-04-02 20:44:10.711 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true]. 
+2019-04-02 20:44:10.711 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true] 
+2019-04-02 20:44:11.760 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018] 
+2019-04-02 20:44:11.886 INFO       [ restartedMain ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring embedded WebApplicationContext 
+2019-04-02 20:44:11.917 INFO       [ restartedMain ] com.dsos.config.servlet.MySessinListenner          ->   22 ： session is initializing 
+2019-04-02 20:44:12.193 INFO       [ restartedMain ] org.hibernate.jpa.internal.util.LogHelper          ->   31 ： HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2019-04-02 20:44:12.339 INFO       [ restartedMain ] org.hibernate.Version                              ->   46 ： HHH000412: Hibernate Core {5.3.7.Final} 
+2019-04-02 20:44:12.342 INFO       [ restartedMain ] org.hibernate.cfg.Environment                      ->  213 ： HHH000206: hibernate.properties not found 
+2019-04-02 20:44:12.559 INFO       [ restartedMain ] org.hibernate.annotations.common.Version           ->   49 ： HCANN000001: Hibernate Commons Annotations {5.0.4.Final} 
+2019-04-02 20:44:12.741 INFO       [ restartedMain ] org.hibernate.dialect.Dialect                      ->  157 ： HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2019-04-02 20:44:13.587 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   43 ： layUI静态资源路径,classpath:/layui/ 
+2019-04-02 20:44:13.588 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   45 ： js静态资源路径,classpath:/js/ 
+2019-04-02 20:44:13.588 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   47 ： css静态资源路径,classpath:/css/ 
+2019-04-02 20:44:13.589 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   49 ： images静态资源路径,classpath:/images/ 
+2019-04-02 20:44:13.589 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   51 ： modelHtml静态资源路径,classpath:/templates/model/ 
+2019-04-02 20:44:13.589 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   53 ： userHtml静态资源路径,classpath:/templates/member/ 
+2019-04-02 20:44:13.589 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   55 ： adminHtml静态资源路径,classpath:/templates/admin/ 
+2019-04-02 20:44:13.589 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   57 ： chainHtml静态资源路径,classpath:/templates/chain/ 
+2019-04-02 20:44:13.589 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   59 ： common静态资源路径,classpath:/templates/common/ 
+2019-04-02 20:44:13.873 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Starting ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:44:13.892 INFO       [ restartedMain ] org.apache.tomcat.util.net.NioSelectorPool         ->  173 ： Using a shared selector for servlet write/read 
+2019-04-02 20:44:13.918 INFO       [ restartedMain ] com.dsos.Application                               ->   59 ： Started Application in 7.885 seconds (JVM running for 10.168) 
+2019-04-02 20:44:17.337 INFO       [ http-nio-8099-exec-1 ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019-04-02 20:44:17.380 INFO       [ http-nio-8099-exec-1 ] com.dsos.config.servlet.MySessinListenner          ->   42 ： session id of 896F8D582E4F9B4AEA2B6200AA2CB6C6 been created , maxLife 1800  
+2019-04-02 20:44:17.381 INFO       [ http-nio-8099-exec-1 ] com.dsos.config.session.SessionCollections         ->   47 ： session has been add in sessionMap,id : 896F8D582E4F9B4AEA2B6200AA2CB6C6,map size : 1 
+2019-04-02 20:44:22.294 INFO       [ http-nio-8099-exec-3 ] com.dsos.commons.realm.AdminRealm                  ->   44 ： user is [admin] ，permission：{} 
+2019-04-02 20:45:58.614 INFO       [ restartedMain ] com.dsos.Application                               ->   50 ： Starting Application on USER-20181119HO with PID 12068 (D:\drugShpOnlineSystem\target\classes started by Administrator in D:\drugShpOnlineSystem) 
+2019-04-02 20:45:58.619 INFO       [ restartedMain ] com.dsos.Application                               ->  675 ： No active profile set, falling back to default profiles: default 
+2019-04-02 20:46:01.128 INFO       [ restartedMain ] com.dsos.config.shiro.ShiroConfig                  ->  142 ： ShiroConfig.shiroFilterFactoryBean() 
+2019-04-02 20:46:02.369 INFO       [ restartedMain ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure ->   56 ： Init DruidDataSource 
+2019-04-02 20:46:02.860 INFO       [ restartedMain ] com.alibaba.druid.pool.DruidDataSource             ->  930 ： {dataSource-1} inited 
+2019-04-02 20:46:03.044 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.AdminRealm.authorizationCache' does not yet exist.  Creating now. 
+2019-04-02 20:46:03.050 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.AdminRealm.authorizationCache] 
+2019-04-02 20:46:03.051 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.MemberRealm.authorizationCache.1' does not yet exist.  Creating now. 
+2019-04-02 20:46:03.055 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.MemberRealm.authorizationCache.1] 
+2019-04-02 20:46:03.056 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.ChainRealm.authorizationCache.2' does not yet exist.  Creating now. 
+2019-04-02 20:46:03.060 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.ChainRealm.authorizationCache.2] 
+2019-04-02 20:46:03.749 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Initializing ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:46:03.768 INFO       [ restartedMain ] org.apache.catalina.core.StandardService           ->  173 ： Starting service [Tomcat] 
+2019-04-02 20:46:03.770 INFO       [ restartedMain ] org.apache.catalina.core.StandardEngine            ->  173 ： Starting Servlet Engine: Apache Tomcat/9.0.13 
+2019-04-02 20:46:03.787 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： An older version [1.2.17] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18] 
+2019-04-02 20:46:03.788 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3]. 
+2019-04-02 20:46:03.789 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true]. 
+2019-04-02 20:46:03.789 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true] 
+2019-04-02 20:46:04.852 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018] 
+2019-04-02 20:46:04.993 INFO       [ restartedMain ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring embedded WebApplicationContext 
+2019-04-02 20:46:05.026 INFO       [ restartedMain ] com.dsos.config.servlet.MySessinListenner          ->   22 ： session is initializing 
+2019-04-02 20:46:05.281 INFO       [ restartedMain ] org.hibernate.jpa.internal.util.LogHelper          ->   31 ： HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2019-04-02 20:46:05.344 INFO       [ restartedMain ] org.hibernate.Version                              ->   46 ： HHH000412: Hibernate Core {5.3.7.Final} 
+2019-04-02 20:46:05.346 INFO       [ restartedMain ] org.hibernate.cfg.Environment                      ->  213 ： HHH000206: hibernate.properties not found 
+2019-04-02 20:46:05.497 INFO       [ restartedMain ] org.hibernate.annotations.common.Version           ->   49 ： HCANN000001: Hibernate Commons Annotations {5.0.4.Final} 
+2019-04-02 20:46:05.771 INFO       [ restartedMain ] org.hibernate.dialect.Dialect                      ->  157 ： HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2019-04-02 20:46:06.905 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   43 ： layUI静态资源路径,classpath:/layui/ 
+2019-04-02 20:46:06.906 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   45 ： js静态资源路径,classpath:/js/ 
+2019-04-02 20:46:06.906 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   47 ： css静态资源路径,classpath:/css/ 
+2019-04-02 20:46:06.906 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   49 ： images静态资源路径,classpath:/images/ 
+2019-04-02 20:46:06.907 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   51 ： modelHtml静态资源路径,classpath:/templates/model/ 
+2019-04-02 20:46:06.907 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   53 ： userHtml静态资源路径,classpath:/templates/member/ 
+2019-04-02 20:46:06.907 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   55 ： adminHtml静态资源路径,classpath:/templates/admin/ 
+2019-04-02 20:46:06.907 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   57 ： chainHtml静态资源路径,classpath:/templates/chain/ 
+2019-04-02 20:46:06.908 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   59 ： common静态资源路径,classpath:/templates/common/ 
+2019-04-02 20:46:07.273 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Starting ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:46:07.294 INFO       [ restartedMain ] org.apache.tomcat.util.net.NioSelectorPool         ->  173 ： Using a shared selector for servlet write/read 
+2019-04-02 20:46:07.341 INFO       [ restartedMain ] com.dsos.Application                               ->   59 ： Started Application in 9.412 seconds (JVM running for 10.323) 
+2019-04-02 20:46:12.696 INFO       [ http-nio-8099-exec-1 ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019-04-02 20:46:12.770 INFO       [ http-nio-8099-exec-3 ] com.dsos.config.servlet.MySessinListenner          ->   42 ： session id of CD63802F9551D84C912557632E088248 been created , maxLife 1800  
+2019-04-02 20:46:12.771 INFO       [ http-nio-8099-exec-3 ] com.dsos.config.session.SessionCollections         ->   48 ： sessionMap add CD63802F9551D84C912557632E088248,id : 1,map now size : {} 
+2019-04-02 20:46:16.724 INFO       [ http-nio-8099-exec-6 ] com.dsos.commons.realm.AdminRealm                  ->   44 ： user is [admin] ，permission：{} 
+2019-04-02 20:48:37.387 INFO       [ restartedMain ] com.dsos.Application                               ->   50 ： Starting Application on USER-20181119HO with PID 12756 (D:\drugShpOnlineSystem\target\classes started by Administrator in D:\drugShpOnlineSystem) 
+2019-04-02 20:48:37.399 INFO       [ restartedMain ] com.dsos.Application                               ->  675 ： No active profile set, falling back to default profiles: default 
+2019-04-02 20:48:40.099 INFO       [ restartedMain ] com.dsos.config.shiro.ShiroConfig                  ->  142 ： ShiroConfig.shiroFilterFactoryBean() 
+2019-04-02 20:48:41.041 INFO       [ restartedMain ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure ->   56 ： Init DruidDataSource 
+2019-04-02 20:48:41.433 INFO       [ restartedMain ] com.alibaba.druid.pool.DruidDataSource             ->  930 ： {dataSource-1} inited 
+2019-04-02 20:48:41.606 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.AdminRealm.authorizationCache' does not yet exist.  Creating now. 
+2019-04-02 20:48:41.615 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.AdminRealm.authorizationCache] 
+2019-04-02 20:48:41.619 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.MemberRealm.authorizationCache.1' does not yet exist.  Creating now. 
+2019-04-02 20:48:41.626 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.MemberRealm.authorizationCache.1] 
+2019-04-02 20:48:41.628 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.ChainRealm.authorizationCache.2' does not yet exist.  Creating now. 
+2019-04-02 20:48:41.635 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.ChainRealm.authorizationCache.2] 
+2019-04-02 20:48:42.354 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Initializing ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:48:42.375 INFO       [ restartedMain ] org.apache.catalina.core.StandardService           ->  173 ： Starting service [Tomcat] 
+2019-04-02 20:48:42.376 INFO       [ restartedMain ] org.apache.catalina.core.StandardEngine            ->  173 ： Starting Servlet Engine: Apache Tomcat/9.0.13 
+2019-04-02 20:48:42.394 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： An older version [1.2.17] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18] 
+2019-04-02 20:48:42.396 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3]. 
+2019-04-02 20:48:42.400 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true]. 
+2019-04-02 20:48:42.403 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true] 
+2019-04-02 20:48:43.478 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018] 
+2019-04-02 20:48:43.640 INFO       [ restartedMain ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring embedded WebApplicationContext 
+2019-04-02 20:48:43.665 INFO       [ restartedMain ] com.dsos.config.servlet.MySessinListenner          ->   22 ： session is initializing 
+2019-04-02 20:48:44.035 INFO       [ restartedMain ] org.hibernate.jpa.internal.util.LogHelper          ->   31 ： HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2019-04-02 20:48:44.138 INFO       [ restartedMain ] org.hibernate.Version                              ->   46 ： HHH000412: Hibernate Core {5.3.7.Final} 
+2019-04-02 20:48:44.140 INFO       [ restartedMain ] org.hibernate.cfg.Environment                      ->  213 ： HHH000206: hibernate.properties not found 
+2019-04-02 20:48:44.316 INFO       [ restartedMain ] org.hibernate.annotations.common.Version           ->   49 ： HCANN000001: Hibernate Commons Annotations {5.0.4.Final} 
+2019-04-02 20:48:44.506 INFO       [ restartedMain ] org.hibernate.dialect.Dialect                      ->  157 ： HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2019-04-02 20:48:45.288 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   43 ： layUI静态资源路径,classpath:/layui/ 
+2019-04-02 20:48:45.288 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   45 ： js静态资源路径,classpath:/js/ 
+2019-04-02 20:48:45.288 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   47 ： css静态资源路径,classpath:/css/ 
+2019-04-02 20:48:45.288 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   49 ： images静态资源路径,classpath:/images/ 
+2019-04-02 20:48:45.289 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   51 ： modelHtml静态资源路径,classpath:/templates/model/ 
+2019-04-02 20:48:45.289 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   53 ： userHtml静态资源路径,classpath:/templates/member/ 
+2019-04-02 20:48:45.289 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   55 ： adminHtml静态资源路径,classpath:/templates/admin/ 
+2019-04-02 20:48:45.289 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   57 ： chainHtml静态资源路径,classpath:/templates/chain/ 
+2019-04-02 20:48:45.289 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   59 ： common静态资源路径,classpath:/templates/common/ 
+2019-04-02 20:48:45.577 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Starting ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:48:45.595 INFO       [ restartedMain ] org.apache.tomcat.util.net.NioSelectorPool         ->  173 ： Using a shared selector for servlet write/read 
+2019-04-02 20:48:45.625 INFO       [ restartedMain ] com.dsos.Application                               ->   59 ： Started Application in 9.306 seconds (JVM running for 10.522) 
+2019-04-02 20:48:50.237 INFO       [ http-nio-8099-exec-1 ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019-04-02 20:48:52.427 INFO       [ http-nio-8099-exec-7 ] com.dsos.config.servlet.MySessinListenner          ->   42 ： session id of 98F8398398F2C87EF0DCBC66CD5E1655 been created , maxLife 1800  
+2019-04-02 20:48:52.428 INFO       [ http-nio-8099-exec-7 ] com.dsos.config.session.SessionCollections         ->   48 ： sessionMap add 98F8398398F2C87EF0DCBC66CD5E1655,id : 1,map now size : {} 
+2019-04-02 20:48:52.546 INFO       [ http-nio-8099-exec-8 ] com.dsos.commons.realm.AdminRealm                  ->   44 ： user is [admin] ，permission：{} 
+2019-04-02 20:55:03.473 INFO       [ restartedMain ] com.dsos.Application                               ->   50 ： Starting Application on USER-20181119HO with PID 12948 (D:\drugShpOnlineSystem\target\classes started by Administrator in D:\drugShpOnlineSystem) 
+2019-04-02 20:55:03.477 INFO       [ restartedMain ] com.dsos.Application                               ->  675 ： No active profile set, falling back to default profiles: default 
+2019-04-02 20:55:05.357 INFO       [ restartedMain ] com.dsos.config.shiro.ShiroConfig                  ->  142 ： ShiroConfig.shiroFilterFactoryBean() 
+2019-04-02 20:55:06.303 INFO       [ restartedMain ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure ->   56 ： Init DruidDataSource 
+2019-04-02 20:55:06.566 INFO       [ restartedMain ] com.alibaba.druid.pool.DruidDataSource             ->  930 ： {dataSource-1} inited 
+2019-04-02 20:55:06.650 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.AdminRealm.authorizationCache' does not yet exist.  Creating now. 
+2019-04-02 20:55:06.657 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.AdminRealm.authorizationCache] 
+2019-04-02 20:55:06.658 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.MemberRealm.authorizationCache.1' does not yet exist.  Creating now. 
+2019-04-02 20:55:06.663 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.MemberRealm.authorizationCache.1] 
+2019-04-02 20:55:06.664 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.ChainRealm.authorizationCache.2' does not yet exist.  Creating now. 
+2019-04-02 20:55:06.670 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.ChainRealm.authorizationCache.2] 
+2019-04-02 20:55:07.164 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Initializing ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:55:07.173 INFO       [ restartedMain ] org.apache.catalina.core.StandardService           ->  173 ： Starting service [Tomcat] 
+2019-04-02 20:55:07.174 INFO       [ restartedMain ] org.apache.catalina.core.StandardEngine            ->  173 ： Starting Servlet Engine: Apache Tomcat/9.0.13 
+2019-04-02 20:55:07.180 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： An older version [1.2.17] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18] 
+2019-04-02 20:55:07.181 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3]. 
+2019-04-02 20:55:07.181 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true]. 
+2019-04-02 20:55:07.181 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true] 
+2019-04-02 20:55:08.239 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018] 
+2019-04-02 20:55:08.353 INFO       [ restartedMain ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring embedded WebApplicationContext 
+2019-04-02 20:55:08.375 INFO       [ restartedMain ] com.dsos.config.servlet.MySessinListenner          ->   22 ： session is initializing 
+2019-04-02 20:55:08.550 INFO       [ restartedMain ] org.hibernate.jpa.internal.util.LogHelper          ->   31 ： HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2019-04-02 20:55:08.601 INFO       [ restartedMain ] org.hibernate.Version                              ->   46 ： HHH000412: Hibernate Core {5.3.7.Final} 
+2019-04-02 20:55:08.602 INFO       [ restartedMain ] org.hibernate.cfg.Environment                      ->  213 ： HHH000206: hibernate.properties not found 
+2019-04-02 20:55:08.704 INFO       [ restartedMain ] org.hibernate.annotations.common.Version           ->   49 ： HCANN000001: Hibernate Commons Annotations {5.0.4.Final} 
+2019-04-02 20:55:08.840 INFO       [ restartedMain ] org.hibernate.dialect.Dialect                      ->  157 ： HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2019-04-02 20:55:09.435 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   43 ： layUI静态资源路径,classpath:/layui/ 
+2019-04-02 20:55:09.435 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   45 ： js静态资源路径,classpath:/js/ 
+2019-04-02 20:55:09.435 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   47 ： css静态资源路径,classpath:/css/ 
+2019-04-02 20:55:09.435 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   49 ： images静态资源路径,classpath:/images/ 
+2019-04-02 20:55:09.436 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   51 ： modelHtml静态资源路径,classpath:/templates/model/ 
+2019-04-02 20:55:09.436 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   53 ： userHtml静态资源路径,classpath:/templates/member/ 
+2019-04-02 20:55:09.436 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   55 ： adminHtml静态资源路径,classpath:/templates/admin/ 
+2019-04-02 20:55:09.436 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   57 ： chainHtml静态资源路径,classpath:/templates/chain/ 
+2019-04-02 20:55:09.436 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   59 ： common静态资源路径,classpath:/templates/common/ 
+2019-04-02 20:55:09.685 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Starting ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:55:09.696 INFO       [ restartedMain ] org.apache.tomcat.util.net.NioSelectorPool         ->  173 ： Using a shared selector for servlet write/read 
+2019-04-02 20:55:09.713 INFO       [ restartedMain ] com.dsos.Application                               ->   59 ： Started Application in 6.826 seconds (JVM running for 7.688) 
+2019-04-02 20:55:19.471 INFO       [ Thread-7 ] com.alibaba.druid.pool.DruidDataSource             -> 1825 ： {dataSource-1} closed 
+2019-04-02 20:55:19.935 INFO       [ restartedMain ] com.dsos.Application                               ->   50 ： Starting Application on USER-20181119HO with PID 12948 (D:\drugShpOnlineSystem\target\classes started by Administrator in D:\drugShpOnlineSystem) 
+2019-04-02 20:55:19.936 INFO       [ restartedMain ] com.dsos.Application                               ->  675 ： No active profile set, falling back to default profiles: default 
+2019-04-02 20:55:20.617 INFO       [ restartedMain ] com.dsos.config.shiro.ShiroConfig                  ->  142 ： ShiroConfig.shiroFilterFactoryBean() 
+2019-04-02 20:55:20.656 INFO       [ restartedMain ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure ->   56 ： Init DruidDataSource 
+2019-04-02 20:55:20.780 INFO       [ restartedMain ] com.alibaba.druid.pool.DruidDataSource             ->  930 ： {dataSource-2} inited 
+2019-04-02 20:55:20.811 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.AdminRealm.authorizationCache.3' does not yet exist.  Creating now. 
+2019-04-02 20:55:20.823 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.AdminRealm.authorizationCache.3] 
+2019-04-02 20:55:20.823 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.MemberRealm.authorizationCache.4' does not yet exist.  Creating now. 
+2019-04-02 20:55:20.828 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.MemberRealm.authorizationCache.4] 
+2019-04-02 20:55:20.867 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.ChainRealm.authorizationCache.5' does not yet exist.  Creating now. 
+2019-04-02 20:55:20.871 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.ChainRealm.authorizationCache.5] 
+2019-04-02 20:55:21.280 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Initializing ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:55:21.281 INFO       [ restartedMain ] org.apache.catalina.core.StandardService           ->  173 ： Starting service [Tomcat] 
+2019-04-02 20:55:21.283 INFO       [ restartedMain ] org.apache.catalina.core.StandardEngine            ->  173 ： Starting Servlet Engine: Apache Tomcat/9.0.13 
+2019-04-02 20:55:21.284 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： An older version [1.2.17] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18] 
+2019-04-02 20:55:21.285 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3]. 
+2019-04-02 20:55:21.286 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true]. 
+2019-04-02 20:55:21.287 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true] 
+2019-04-02 20:55:21.289 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018] 
+2019-04-02 20:55:21.451 INFO       [ restartedMain ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring embedded WebApplicationContext 
+2019-04-02 20:55:21.473 INFO       [ restartedMain ] com.dsos.config.session.SessionCollections         ->   24 ：  
+2019-04-02 20:55:21.473 INFO       [ restartedMain ] com.dsos.config.servlet.MySessinListenner          ->   22 ： session is initializing 
+2019-04-02 20:55:21.580 INFO       [ restartedMain ] org.hibernate.jpa.internal.util.LogHelper          ->   31 ： HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2019-04-02 20:55:21.607 INFO       [ restartedMain ] org.hibernate.dialect.Dialect                      ->  157 ： HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2019-04-02 20:55:21.922 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   43 ： layUI静态资源路径,classpath:/layui/ 
+2019-04-02 20:55:21.922 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   45 ： js静态资源路径,classpath:/js/ 
+2019-04-02 20:55:21.922 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   47 ： css静态资源路径,classpath:/css/ 
+2019-04-02 20:55:21.923 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   49 ： images静态资源路径,classpath:/images/ 
+2019-04-02 20:55:21.923 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   51 ： modelHtml静态资源路径,classpath:/templates/model/ 
+2019-04-02 20:55:21.923 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   53 ： userHtml静态资源路径,classpath:/templates/member/ 
+2019-04-02 20:55:21.923 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   55 ： adminHtml静态资源路径,classpath:/templates/admin/ 
+2019-04-02 20:55:21.924 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   57 ： chainHtml静态资源路径,classpath:/templates/chain/ 
+2019-04-02 20:55:21.924 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   59 ： common静态资源路径,classpath:/templates/common/ 
+2019-04-02 20:55:22.218 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Starting ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:55:22.221 INFO       [ restartedMain ] org.apache.tomcat.util.net.NioSelectorPool         ->  173 ： Using a shared selector for servlet write/read 
+2019-04-02 20:55:22.226 INFO       [ restartedMain ] com.dsos.Application                               ->   59 ： Started Application in 2.335 seconds (JVM running for 20.201) 
+2019-04-02 20:55:27.387 INFO       [ Thread-11 ] com.alibaba.druid.pool.DruidDataSource             -> 1825 ： {dataSource-2} closed 
+2019-04-02 20:55:28.240 INFO       [ restartedMain ] com.dsos.Application                               ->   50 ： Starting Application on USER-20181119HO with PID 12948 (D:\drugShpOnlineSystem\target\classes started by Administrator in D:\drugShpOnlineSystem) 
+2019-04-02 20:55:28.241 INFO       [ restartedMain ] com.dsos.Application                               ->  675 ： No active profile set, falling back to default profiles: default 
+2019-04-02 20:55:28.691 INFO       [ restartedMain ] com.dsos.config.shiro.ShiroConfig                  ->  142 ： ShiroConfig.shiroFilterFactoryBean() 
+2019-04-02 20:55:28.718 INFO       [ restartedMain ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure ->   56 ： Init DruidDataSource 
+2019-04-02 20:55:28.761 INFO       [ restartedMain ] com.alibaba.druid.pool.DruidDataSource             ->  930 ： {dataSource-3} inited 
+2019-04-02 20:55:28.780 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.AdminRealm.authorizationCache.6' does not yet exist.  Creating now. 
+2019-04-02 20:55:28.783 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.AdminRealm.authorizationCache.6] 
+2019-04-02 20:55:28.784 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.MemberRealm.authorizationCache.7' does not yet exist.  Creating now. 
+2019-04-02 20:55:28.787 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.MemberRealm.authorizationCache.7] 
+2019-04-02 20:55:28.787 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.ChainRealm.authorizationCache.8' does not yet exist.  Creating now. 
+2019-04-02 20:55:28.791 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.ChainRealm.authorizationCache.8] 
+2019-04-02 20:55:28.926 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Initializing ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:55:28.926 INFO       [ restartedMain ] org.apache.catalina.core.StandardService           ->  173 ： Starting service [Tomcat] 
+2019-04-02 20:55:28.927 INFO       [ restartedMain ] org.apache.catalina.core.StandardEngine            ->  173 ： Starting Servlet Engine: Apache Tomcat/9.0.13 
+2019-04-02 20:55:28.927 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： An older version [1.2.17] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18] 
+2019-04-02 20:55:28.927 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3]. 
+2019-04-02 20:55:28.927 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true]. 
+2019-04-02 20:55:28.928 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true] 
+2019-04-02 20:55:28.928 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018] 
+2019-04-02 20:55:28.959 INFO       [ restartedMain ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring embedded WebApplicationContext 
+2019-04-02 20:55:28.975 INFO       [ restartedMain ] com.dsos.config.session.SessionCollections         ->   24 ： map : {} 
+2019-04-02 20:55:28.976 INFO       [ restartedMain ] com.dsos.config.servlet.MySessinListenner          ->   22 ： session is initializing 
+2019-04-02 20:55:29.040 INFO       [ restartedMain ] org.hibernate.jpa.internal.util.LogHelper          ->   31 ： HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2019-04-02 20:55:29.068 INFO       [ restartedMain ] org.hibernate.dialect.Dialect                      ->  157 ： HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2019-04-02 20:55:29.365 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   43 ： layUI静态资源路径,classpath:/layui/ 
+2019-04-02 20:55:29.365 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   45 ： js静态资源路径,classpath:/js/ 
+2019-04-02 20:55:29.365 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   47 ： css静态资源路径,classpath:/css/ 
+2019-04-02 20:55:29.365 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   49 ： images静态资源路径,classpath:/images/ 
+2019-04-02 20:55:29.366 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   51 ： modelHtml静态资源路径,classpath:/templates/model/ 
+2019-04-02 20:55:29.366 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   53 ： userHtml静态资源路径,classpath:/templates/member/ 
+2019-04-02 20:55:29.366 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   55 ： adminHtml静态资源路径,classpath:/templates/admin/ 
+2019-04-02 20:55:29.366 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   57 ： chainHtml静态资源路径,classpath:/templates/chain/ 
+2019-04-02 20:55:29.367 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   59 ： common静态资源路径,classpath:/templates/common/ 
+2019-04-02 20:55:29.671 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Starting ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:55:29.677 INFO       [ restartedMain ] org.apache.tomcat.util.net.NioSelectorPool         ->  173 ： Using a shared selector for servlet write/read 
+2019-04-02 20:55:29.686 INFO       [ restartedMain ] com.dsos.Application                               ->   59 ： Started Application in 1.54 seconds (JVM running for 27.661) 
+2019-04-02 20:55:34.427 INFO       [ Thread-18 ] com.alibaba.druid.pool.DruidDataSource             -> 1825 ： {dataSource-3} closed 
+2019-04-02 20:55:34.936 INFO       [ restartedMain ] com.dsos.Application                               ->   50 ： Starting Application on USER-20181119HO with PID 12948 (D:\drugShpOnlineSystem\target\classes started by Administrator in D:\drugShpOnlineSystem) 
+2019-04-02 20:55:34.937 INFO       [ restartedMain ] com.dsos.Application                               ->  675 ： No active profile set, falling back to default profiles: default 
+2019-04-02 20:55:35.559 INFO       [ restartedMain ] com.dsos.config.shiro.ShiroConfig                  ->  142 ： ShiroConfig.shiroFilterFactoryBean() 
+2019-04-02 20:55:35.659 INFO       [ restartedMain ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure ->   56 ： Init DruidDataSource 
+2019-04-02 20:55:35.824 INFO       [ restartedMain ] com.alibaba.druid.pool.DruidDataSource             ->  930 ： {dataSource-4} inited 
+2019-04-02 20:55:35.878 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.AdminRealm.authorizationCache.9' does not yet exist.  Creating now. 
+2019-04-02 20:55:35.886 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.AdminRealm.authorizationCache.9] 
+2019-04-02 20:55:35.887 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.MemberRealm.authorizationCache.10' does not yet exist.  Creating now. 
+2019-04-02 20:55:35.892 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.MemberRealm.authorizationCache.10] 
+2019-04-02 20:55:35.894 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.ChainRealm.authorizationCache.11' does not yet exist.  Creating now. 
+2019-04-02 20:55:35.915 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.ChainRealm.authorizationCache.11] 
+2019-04-02 20:55:36.271 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Initializing ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:55:36.272 INFO       [ restartedMain ] org.apache.catalina.core.StandardService           ->  173 ： Starting service [Tomcat] 
+2019-04-02 20:55:36.272 INFO       [ restartedMain ] org.apache.catalina.core.StandardEngine            ->  173 ： Starting Servlet Engine: Apache Tomcat/9.0.13 
+2019-04-02 20:55:36.272 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： An older version [1.2.17] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18] 
+2019-04-02 20:55:36.272 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3]. 
+2019-04-02 20:55:36.273 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true]. 
+2019-04-02 20:55:36.273 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true] 
+2019-04-02 20:55:36.274 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018] 
+2019-04-02 20:55:36.334 INFO       [ restartedMain ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring embedded WebApplicationContext 
+2019-04-02 20:55:36.387 INFO       [ restartedMain ] com.dsos.config.session.SessionCollections         ->   24 ： map : 0 
+2019-04-02 20:55:36.387 INFO       [ restartedMain ] com.dsos.config.servlet.MySessinListenner          ->   22 ： session is initializing 
+2019-04-02 20:55:36.456 INFO       [ restartedMain ] org.hibernate.jpa.internal.util.LogHelper          ->   31 ： HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2019-04-02 20:55:36.519 INFO       [ restartedMain ] org.hibernate.dialect.Dialect                      ->  157 ： HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2019-04-02 20:55:37.209 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   43 ： layUI静态资源路径,classpath:/layui/ 
+2019-04-02 20:55:37.210 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   45 ： js静态资源路径,classpath:/js/ 
+2019-04-02 20:55:37.211 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   47 ： css静态资源路径,classpath:/css/ 
+2019-04-02 20:55:37.211 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   49 ： images静态资源路径,classpath:/images/ 
+2019-04-02 20:55:37.211 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   51 ： modelHtml静态资源路径,classpath:/templates/model/ 
+2019-04-02 20:55:37.212 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   53 ： userHtml静态资源路径,classpath:/templates/member/ 
+2019-04-02 20:55:37.212 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   55 ： adminHtml静态资源路径,classpath:/templates/admin/ 
+2019-04-02 20:55:37.212 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   57 ： chainHtml静态资源路径,classpath:/templates/chain/ 
+2019-04-02 20:55:37.213 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   59 ： common静态资源路径,classpath:/templates/common/ 
+2019-04-02 20:55:37.454 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Starting ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:55:37.456 INFO       [ restartedMain ] org.apache.tomcat.util.net.NioSelectorPool         ->  173 ： Using a shared selector for servlet write/read 
+2019-04-02 20:55:37.479 INFO       [ restartedMain ] com.dsos.Application                               ->   59 ： Started Application in 2.595 seconds (JVM running for 35.454) 
+2019-04-02 20:55:40.233 INFO       [ http-nio-8099-exec-10 ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019-04-02 20:55:40.276 INFO       [ http-nio-8099-exec-10 ] com.dsos.config.servlet.MySessinListenner          ->   42 ： session id of 31554EA8E093D49268BE9E72659B0DB8 been created , maxLife 1800  
+2019-04-02 20:55:40.277 INFO       [ http-nio-8099-exec-10 ] com.dsos.config.session.SessionCollections         ->   50 ： session of id: 31554EA8E093D49268BE9E72659B0DB8 been add in map : 1,map now size : {} 
+2019-04-02 20:55:47.186 INFO       [ http-nio-8099-exec-6 ] com.dsos.commons.realm.AdminRealm                  ->   44 ： user is [admin] ，permission：{} 
+2019-04-02 20:56:17.668 INFO       [ Thread-25 ] com.alibaba.druid.pool.DruidDataSource             -> 1825 ： {dataSource-4} closed 
+2019-04-02 20:56:18.466 INFO       [ restartedMain ] com.dsos.Application                               ->   50 ： Starting Application on USER-20181119HO with PID 12948 (D:\drugShpOnlineSystem\target\classes started by Administrator in D:\drugShpOnlineSystem) 
+2019-04-02 20:56:18.466 INFO       [ restartedMain ] com.dsos.Application                               ->  675 ： No active profile set, falling back to default profiles: default 
+2019-04-02 20:56:18.917 INFO       [ restartedMain ] com.dsos.config.shiro.ShiroConfig                  ->  142 ： ShiroConfig.shiroFilterFactoryBean() 
+2019-04-02 20:56:18.948 INFO       [ restartedMain ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure ->   56 ： Init DruidDataSource 
+2019-04-02 20:56:18.993 INFO       [ restartedMain ] com.alibaba.druid.pool.DruidDataSource             ->  930 ： {dataSource-5} inited 
+2019-04-02 20:56:19.016 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.AdminRealm.authorizationCache.12' does not yet exist.  Creating now. 
+2019-04-02 20:56:19.021 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.AdminRealm.authorizationCache.12] 
+2019-04-02 20:56:19.022 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.MemberRealm.authorizationCache.13' does not yet exist.  Creating now. 
+2019-04-02 20:56:19.025 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.MemberRealm.authorizationCache.13] 
+2019-04-02 20:56:19.026 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.ChainRealm.authorizationCache.14' does not yet exist.  Creating now. 
+2019-04-02 20:56:19.029 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.ChainRealm.authorizationCache.14] 
+2019-04-02 20:56:19.192 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Initializing ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:56:19.192 INFO       [ restartedMain ] org.apache.catalina.core.StandardService           ->  173 ： Starting service [Tomcat] 
+2019-04-02 20:56:19.193 INFO       [ restartedMain ] org.apache.catalina.core.StandardEngine            ->  173 ： Starting Servlet Engine: Apache Tomcat/9.0.13 
+2019-04-02 20:56:19.193 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： An older version [1.2.17] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18] 
+2019-04-02 20:56:19.193 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3]. 
+2019-04-02 20:56:19.194 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true]. 
+2019-04-02 20:56:19.194 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true] 
+2019-04-02 20:56:19.195 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018] 
+2019-04-02 20:56:19.262 INFO       [ restartedMain ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring embedded WebApplicationContext 
+2019-04-02 20:56:19.281 INFO       [ restartedMain ] com.dsos.config.session.SessionCollections         ->   24 ： map : 0 
+2019-04-02 20:56:19.282 INFO       [ restartedMain ] com.dsos.config.servlet.MySessinListenner          ->   22 ： session is initializing 
+2019-04-02 20:56:19.412 INFO       [ restartedMain ] org.hibernate.jpa.internal.util.LogHelper          ->   31 ： HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2019-04-02 20:56:19.497 INFO       [ restartedMain ] org.hibernate.dialect.Dialect                      ->  157 ： HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2019-04-02 20:56:20.193 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   43 ： layUI静态资源路径,classpath:/layui/ 
+2019-04-02 20:56:20.194 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   45 ： js静态资源路径,classpath:/js/ 
+2019-04-02 20:56:20.194 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   47 ： css静态资源路径,classpath:/css/ 
+2019-04-02 20:56:20.194 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   49 ： images静态资源路径,classpath:/images/ 
+2019-04-02 20:56:20.194 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   51 ： modelHtml静态资源路径,classpath:/templates/model/ 
+2019-04-02 20:56:20.195 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   53 ： userHtml静态资源路径,classpath:/templates/member/ 
+2019-04-02 20:56:20.197 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   55 ： adminHtml静态资源路径,classpath:/templates/admin/ 
+2019-04-02 20:56:20.197 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   57 ： chainHtml静态资源路径,classpath:/templates/chain/ 
+2019-04-02 20:56:20.197 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   59 ： common静态资源路径,classpath:/templates/common/ 
+2019-04-02 20:56:20.483 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Starting ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:56:20.487 INFO       [ restartedMain ] org.apache.tomcat.util.net.NioSelectorPool         ->  173 ： Using a shared selector for servlet write/read 
+2019-04-02 20:56:20.495 INFO       [ restartedMain ] com.dsos.Application                               ->   59 ： Started Application in 2.081 seconds (JVM running for 78.47) 
+2019-04-02 20:56:22.385 INFO       [ Thread-32 ] com.alibaba.druid.pool.DruidDataSource             -> 1825 ： {dataSource-5} closed 
+2019-04-02 20:56:23.245 INFO       [ restartedMain ] com.dsos.Application                               ->   50 ： Starting Application on USER-20181119HO with PID 12948 (D:\drugShpOnlineSystem\target\classes started by Administrator in D:\drugShpOnlineSystem) 
+2019-04-02 20:56:23.245 INFO       [ restartedMain ] com.dsos.Application                               ->  675 ： No active profile set, falling back to default profiles: default 
+2019-04-02 20:56:23.597 INFO       [ restartedMain ] com.dsos.config.shiro.ShiroConfig                  ->  142 ： ShiroConfig.shiroFilterFactoryBean() 
+2019-04-02 20:56:23.625 INFO       [ restartedMain ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure ->   56 ： Init DruidDataSource 
+2019-04-02 20:56:23.672 INFO       [ restartedMain ] com.alibaba.druid.pool.DruidDataSource             ->  930 ： {dataSource-6} inited 
+2019-04-02 20:56:23.695 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.AdminRealm.authorizationCache.15' does not yet exist.  Creating now. 
+2019-04-02 20:56:23.699 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.AdminRealm.authorizationCache.15] 
+2019-04-02 20:56:23.700 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.MemberRealm.authorizationCache.16' does not yet exist.  Creating now. 
+2019-04-02 20:56:23.704 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.MemberRealm.authorizationCache.16] 
+2019-04-02 20:56:23.704 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.ChainRealm.authorizationCache.17' does not yet exist.  Creating now. 
+2019-04-02 20:56:23.707 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.ChainRealm.authorizationCache.17] 
+2019-04-02 20:56:23.887 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Initializing ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:56:23.888 INFO       [ restartedMain ] org.apache.catalina.core.StandardService           ->  173 ： Starting service [Tomcat] 
+2019-04-02 20:56:23.888 INFO       [ restartedMain ] org.apache.catalina.core.StandardEngine            ->  173 ： Starting Servlet Engine: Apache Tomcat/9.0.13 
+2019-04-02 20:56:23.888 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： An older version [1.2.17] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18] 
+2019-04-02 20:56:23.888 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3]. 
+2019-04-02 20:56:23.889 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true]. 
+2019-04-02 20:56:23.889 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true] 
+2019-04-02 20:56:23.889 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018] 
+2019-04-02 20:56:23.914 INFO       [ restartedMain ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring embedded WebApplicationContext 
+2019-04-02 20:56:23.925 INFO       [ restartedMain ] com.dsos.config.session.SessionCollections         ->   24 ： map : 0 
+2019-04-02 20:56:23.926 INFO       [ restartedMain ] com.dsos.config.servlet.MySessinListenner          ->   22 ： session is initializing 
+2019-04-02 20:56:23.982 INFO       [ restartedMain ] org.hibernate.jpa.internal.util.LogHelper          ->   31 ： HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2019-04-02 20:56:24.013 INFO       [ restartedMain ] org.hibernate.dialect.Dialect                      ->  157 ： HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2019-04-02 20:56:24.366 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   43 ： layUI静态资源路径,classpath:/layui/ 
+2019-04-02 20:56:24.367 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   45 ： js静态资源路径,classpath:/js/ 
+2019-04-02 20:56:24.367 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   47 ： css静态资源路径,classpath:/css/ 
+2019-04-02 20:56:24.367 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   49 ： images静态资源路径,classpath:/images/ 
+2019-04-02 20:56:24.367 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   51 ： modelHtml静态资源路径,classpath:/templates/model/ 
+2019-04-02 20:56:24.367 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   53 ： userHtml静态资源路径,classpath:/templates/member/ 
+2019-04-02 20:56:24.367 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   55 ： adminHtml静态资源路径,classpath:/templates/admin/ 
+2019-04-02 20:56:24.368 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   57 ： chainHtml静态资源路径,classpath:/templates/chain/ 
+2019-04-02 20:56:24.368 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   59 ： common静态资源路径,classpath:/templates/common/ 
+2019-04-02 20:56:24.574 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Starting ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:56:24.581 INFO       [ restartedMain ] org.apache.tomcat.util.net.NioSelectorPool         ->  173 ： Using a shared selector for servlet write/read 
+2019-04-02 20:56:24.593 INFO       [ restartedMain ] com.dsos.Application                               ->   59 ： Started Application in 1.395 seconds (JVM running for 82.567) 
+2019-04-02 20:56:30.747 INFO       [ http-nio-8099-exec-1 ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019-04-02 20:56:30.756 INFO       [ http-nio-8099-exec-1 ] com.dsos.commons.realm.AdminRealm                  ->   44 ： user is [admin] ，permission：{} 
+2019-04-02 20:56:37.099 INFO       [ http-nio-8099-exec-9 ] com.dsos.config.servlet.MySessinListenner          ->   49 ： session id of 31554EA8E093D49268BE9E72659B0DB8 been destroyed  
+2019-04-02 20:56:37.099 INFO       [ http-nio-8099-exec-9 ] com.dsos.config.session.SessionCollections         ->   60 ： session of id: 31554EA8E093D49268BE9E72659B0DB8 been add in map ,map now size : 0 
+2019-04-02 20:56:37.113 INFO       [ http-nio-8099-exec-10 ] com.dsos.config.servlet.MySessinListenner          ->   42 ： session id of D8A9060DF938C4DA7150D97DAC3F1C31 been created , maxLife 1800  
+2019-04-02 20:56:37.113 INFO       [ http-nio-8099-exec-10 ] com.dsos.config.session.SessionCollections         ->   50 ： session of id: D8A9060DF938C4DA7150D97DAC3F1C31 been add in map ,map now size : 1 
+2019-04-02 20:56:45.289 INFO       [ http-nio-8099-exec-5 ] com.dsos.commons.realm.AdminRealm                  ->   44 ： user is [admin] ，permission：{} 
+2019-04-02 20:57:49.850 INFO       [ restartedMain ] com.dsos.Application                               ->   50 ： Starting Application on USER-20181119HO with PID 12164 (D:\drugShpOnlineSystem\target\classes started by Administrator in D:\drugShpOnlineSystem) 
+2019-04-02 20:57:49.856 INFO       [ restartedMain ] com.dsos.Application                               ->  675 ： No active profile set, falling back to default profiles: default 
+2019-04-02 20:57:52.670 INFO       [ restartedMain ] com.dsos.config.shiro.ShiroConfig                  ->  142 ： ShiroConfig.shiroFilterFactoryBean() 
+2019-04-02 20:57:53.436 INFO       [ restartedMain ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure ->   56 ： Init DruidDataSource 
+2019-04-02 20:57:53.772 INFO       [ restartedMain ] com.alibaba.druid.pool.DruidDataSource             ->  930 ： {dataSource-1} inited 
+2019-04-02 20:57:53.887 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.AdminRealm.authorizationCache' does not yet exist.  Creating now. 
+2019-04-02 20:57:53.892 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.AdminRealm.authorizationCache] 
+2019-04-02 20:57:53.893 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.MemberRealm.authorizationCache.1' does not yet exist.  Creating now. 
+2019-04-02 20:57:53.897 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.MemberRealm.authorizationCache.1] 
+2019-04-02 20:57:53.898 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.ChainRealm.authorizationCache.2' does not yet exist.  Creating now. 
+2019-04-02 20:57:53.901 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.ChainRealm.authorizationCache.2] 
+2019-04-02 20:57:54.500 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Initializing ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:57:54.509 INFO       [ restartedMain ] org.apache.catalina.core.StandardService           ->  173 ： Starting service [Tomcat] 
+2019-04-02 20:57:54.510 INFO       [ restartedMain ] org.apache.catalina.core.StandardEngine            ->  173 ： Starting Servlet Engine: Apache Tomcat/9.0.13 
+2019-04-02 20:57:54.519 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： An older version [1.2.17] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18] 
+2019-04-02 20:57:54.519 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3]. 
+2019-04-02 20:57:54.519 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true]. 
+2019-04-02 20:57:54.519 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true] 
+2019-04-02 20:57:55.553 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018] 
+2019-04-02 20:57:55.744 INFO       [ restartedMain ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring embedded WebApplicationContext 
+2019-04-02 20:57:55.771 INFO       [ restartedMain ] com.dsos.config.session.SessionCollections         ->   24 ： map : 0 
+2019-04-02 20:57:55.771 INFO       [ restartedMain ] com.dsos.config.servlet.MySessinListenner          ->   22 ： session is initializing 
+2019-04-02 20:57:55.965 INFO       [ restartedMain ] org.hibernate.jpa.internal.util.LogHelper          ->   31 ： HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2019-04-02 20:57:56.039 INFO       [ restartedMain ] org.hibernate.Version                              ->   46 ： HHH000412: Hibernate Core {5.3.7.Final} 
+2019-04-02 20:57:56.041 INFO       [ restartedMain ] org.hibernate.cfg.Environment                      ->  213 ： HHH000206: hibernate.properties not found 
+2019-04-02 20:57:56.199 INFO       [ restartedMain ] org.hibernate.annotations.common.Version           ->   49 ： HCANN000001: Hibernate Commons Annotations {5.0.4.Final} 
+2019-04-02 20:57:56.389 INFO       [ restartedMain ] org.hibernate.dialect.Dialect                      ->  157 ： HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2019-04-02 20:57:57.299 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   43 ： layUI静态资源路径,classpath:/layui/ 
+2019-04-02 20:57:57.300 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   45 ： js静态资源路径,classpath:/js/ 
+2019-04-02 20:57:57.300 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   47 ： css静态资源路径,classpath:/css/ 
+2019-04-02 20:57:57.301 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   49 ： images静态资源路径,classpath:/images/ 
+2019-04-02 20:57:57.301 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   51 ： modelHtml静态资源路径,classpath:/templates/model/ 
+2019-04-02 20:57:57.301 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   53 ： userHtml静态资源路径,classpath:/templates/member/ 
+2019-04-02 20:57:57.302 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   55 ： adminHtml静态资源路径,classpath:/templates/admin/ 
+2019-04-02 20:57:57.302 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   57 ： chainHtml静态资源路径,classpath:/templates/chain/ 
+2019-04-02 20:57:57.302 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   59 ： common静态资源路径,classpath:/templates/common/ 
+2019-04-02 20:57:57.595 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Starting ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:57:57.610 INFO       [ restartedMain ] org.apache.tomcat.util.net.NioSelectorPool         ->  173 ： Using a shared selector for servlet write/read 
+2019-04-02 20:57:57.635 INFO       [ restartedMain ] com.dsos.Application                               ->   59 ： Started Application in 8.454 seconds (JVM running for 9.369) 
+2019-04-02 20:58:28.648 INFO       [ http-nio-8099-exec-1 ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019-04-02 20:58:28.773 INFO       [ http-nio-8099-exec-2 ] com.dsos.config.servlet.MySessinListenner          ->   42 ： session id of B81E2A86D8409F89CF53CB03656D1ABF been created , maxLife 1800  
+2019-04-02 20:58:28.774 INFO       [ http-nio-8099-exec-2 ] com.dsos.config.session.SessionCollections         ->   50 ： session of id: B81E2A86D8409F89CF53CB03656D1ABF been add in map ,map now size : 1 
+2019-04-02 20:58:34.414 INFO       [ http-nio-8099-exec-6 ] com.dsos.commons.realm.AdminRealm                  ->   44 ： user is [admin] ，permission：{} 
+2019-04-02 20:59:29.589 INFO       [ restartedMain ] com.dsos.Application                               ->   50 ： Starting Application on USER-20181119HO with PID 3536 (D:\drugShpOnlineSystem\target\classes started by Administrator in D:\drugShpOnlineSystem) 
+2019-04-02 20:59:29.595 INFO       [ restartedMain ] com.dsos.Application                               ->  675 ： No active profile set, falling back to default profiles: default 
+2019-04-02 20:59:32.017 INFO       [ restartedMain ] com.dsos.config.shiro.ShiroConfig                  ->  142 ： ShiroConfig.shiroFilterFactoryBean() 
+2019-04-02 20:59:32.852 INFO       [ restartedMain ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure ->   56 ： Init DruidDataSource 
+2019-04-02 20:59:33.250 INFO       [ restartedMain ] com.alibaba.druid.pool.DruidDataSource             ->  930 ： {dataSource-1} inited 
+2019-04-02 20:59:33.388 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.AdminRealm.authorizationCache' does not yet exist.  Creating now. 
+2019-04-02 20:59:33.393 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.AdminRealm.authorizationCache] 
+2019-04-02 20:59:33.394 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.MemberRealm.authorizationCache.1' does not yet exist.  Creating now. 
+2019-04-02 20:59:33.408 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.MemberRealm.authorizationCache.1] 
+2019-04-02 20:59:33.408 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.ChainRealm.authorizationCache.2' does not yet exist.  Creating now. 
+2019-04-02 20:59:33.413 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.ChainRealm.authorizationCache.2] 
+2019-04-02 20:59:34.412 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Initializing ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:59:34.436 INFO       [ restartedMain ] org.apache.catalina.core.StandardService           ->  173 ： Starting service [Tomcat] 
+2019-04-02 20:59:34.437 INFO       [ restartedMain ] org.apache.catalina.core.StandardEngine            ->  173 ： Starting Servlet Engine: Apache Tomcat/9.0.13 
+2019-04-02 20:59:34.467 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： An older version [1.2.17] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18] 
+2019-04-02 20:59:34.469 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3]. 
+2019-04-02 20:59:34.470 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true]. 
+2019-04-02 20:59:34.470 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true] 
+2019-04-02 20:59:35.532 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018] 
+2019-04-02 20:59:35.694 INFO       [ restartedMain ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring embedded WebApplicationContext 
+2019-04-02 20:59:35.725 INFO       [ restartedMain ] com.dsos.config.session.SessionCollections         ->   24 ： map : 0 
+2019-04-02 20:59:35.725 INFO       [ restartedMain ] com.dsos.config.servlet.MySessinListenner          ->   22 ： session is initializing 
+2019-04-02 20:59:35.995 INFO       [ restartedMain ] org.hibernate.jpa.internal.util.LogHelper          ->   31 ： HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2019-04-02 20:59:36.065 INFO       [ restartedMain ] org.hibernate.Version                              ->   46 ： HHH000412: Hibernate Core {5.3.7.Final} 
+2019-04-02 20:59:36.067 INFO       [ restartedMain ] org.hibernate.cfg.Environment                      ->  213 ： HHH000206: hibernate.properties not found 
+2019-04-02 20:59:36.222 INFO       [ restartedMain ] org.hibernate.annotations.common.Version           ->   49 ： HCANN000001: Hibernate Commons Annotations {5.0.4.Final} 
+2019-04-02 20:59:36.416 INFO       [ restartedMain ] org.hibernate.dialect.Dialect                      ->  157 ： HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2019-04-02 20:59:37.167 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   43 ： layUI静态资源路径,classpath:/layui/ 
+2019-04-02 20:59:37.167 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   45 ： js静态资源路径,classpath:/js/ 
+2019-04-02 20:59:37.167 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   47 ： css静态资源路径,classpath:/css/ 
+2019-04-02 20:59:37.167 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   49 ： images静态资源路径,classpath:/images/ 
+2019-04-02 20:59:37.168 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   51 ： modelHtml静态资源路径,classpath:/templates/model/ 
+2019-04-02 20:59:37.168 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   53 ： userHtml静态资源路径,classpath:/templates/member/ 
+2019-04-02 20:59:37.168 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   55 ： adminHtml静态资源路径,classpath:/templates/admin/ 
+2019-04-02 20:59:37.168 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   57 ： chainHtml静态资源路径,classpath:/templates/chain/ 
+2019-04-02 20:59:37.168 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   59 ： common静态资源路径,classpath:/templates/common/ 
+2019-04-02 20:59:37.535 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Starting ProtocolHandler ["http-nio-8099"] 
+2019-04-02 20:59:37.548 INFO       [ restartedMain ] org.apache.tomcat.util.net.NioSelectorPool         ->  173 ： Using a shared selector for servlet write/read 
+2019-04-02 20:59:37.571 INFO       [ restartedMain ] com.dsos.Application                               ->   59 ： Started Application in 8.852 seconds (JVM running for 9.763) 
+2019-04-02 21:00:14.961 INFO       [ http-nio-8099-exec-2 ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019-04-02 21:00:15.005 INFO       [ http-nio-8099-exec-2 ] com.dsos.config.servlet.MySessinListenner          ->   42 ： session id of DD732385BE1EBCE65818C2A25CE40B40 been created , maxLife 1800  
+2019-04-02 21:00:15.005 INFO       [ http-nio-8099-exec-2 ] com.dsos.config.session.SessionCollections         ->   50 ： session of id: DD732385BE1EBCE65818C2A25CE40B40 been add in map ,map now size : 1 
+2019-04-02 21:00:19.406 INFO       [ http-nio-8099-exec-4 ] com.dsos.commons.realm.AdminRealm                  ->   44 ： user is [admin] ，permission：{} 
+2019-04-02 21:01:14.868 INFO       [ restartedMain ] com.dsos.Application                               ->   50 ： Starting Application on USER-20181119HO with PID 10388 (D:\drugShpOnlineSystem\target\classes started by Administrator in D:\drugShpOnlineSystem) 
+2019-04-02 21:01:14.926 INFO       [ restartedMain ] com.dsos.Application                               ->  675 ： No active profile set, falling back to default profiles: default 
+2019-04-02 21:01:17.783 INFO       [ restartedMain ] com.dsos.config.shiro.ShiroConfig                  ->  142 ： ShiroConfig.shiroFilterFactoryBean() 
+2019-04-02 21:01:18.567 INFO       [ restartedMain ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure ->   56 ： Init DruidDataSource 
+2019-04-02 21:01:18.941 INFO       [ restartedMain ] com.alibaba.druid.pool.DruidDataSource             ->  930 ： {dataSource-1} inited 
+2019-04-02 21:01:19.074 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.AdminRealm.authorizationCache' does not yet exist.  Creating now. 
+2019-04-02 21:01:19.081 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.AdminRealm.authorizationCache] 
+2019-04-02 21:01:19.082 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.MemberRealm.authorizationCache.1' does not yet exist.  Creating now. 
+2019-04-02 21:01:19.087 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.MemberRealm.authorizationCache.1] 
+2019-04-02 21:01:19.088 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.ChainRealm.authorizationCache.2' does not yet exist.  Creating now. 
+2019-04-02 21:01:19.092 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.ChainRealm.authorizationCache.2] 
+2019-04-02 21:01:19.783 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Initializing ProtocolHandler ["http-nio-8099"] 
+2019-04-02 21:01:19.792 INFO       [ restartedMain ] org.apache.catalina.core.StandardService           ->  173 ： Starting service [Tomcat] 
+2019-04-02 21:01:19.793 INFO       [ restartedMain ] org.apache.catalina.core.StandardEngine            ->  173 ： Starting Servlet Engine: Apache Tomcat/9.0.13 
+2019-04-02 21:01:19.802 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： An older version [1.2.17] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18] 
+2019-04-02 21:01:19.802 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3]. 
+2019-04-02 21:01:19.803 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true]. 
+2019-04-02 21:01:19.803 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true] 
+2019-04-02 21:01:20.848 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018] 
+2019-04-02 21:01:20.968 INFO       [ restartedMain ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring embedded WebApplicationContext 
+2019-04-02 21:01:20.994 INFO       [ restartedMain ] com.dsos.config.session.SessionCollections         ->   23 ： map : 0 
+2019-04-02 21:01:20.994 INFO       [ restartedMain ] com.dsos.config.servlet.MySessinListenner          ->   22 ： session is initializing 
+2019-04-02 21:01:21.223 INFO       [ restartedMain ] org.hibernate.jpa.internal.util.LogHelper          ->   31 ： HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2019-04-02 21:01:21.291 INFO       [ restartedMain ] org.hibernate.Version                              ->   46 ： HHH000412: Hibernate Core {5.3.7.Final} 
+2019-04-02 21:01:21.293 INFO       [ restartedMain ] org.hibernate.cfg.Environment                      ->  213 ： HHH000206: hibernate.properties not found 
+2019-04-02 21:01:21.455 INFO       [ restartedMain ] org.hibernate.annotations.common.Version           ->   49 ： HCANN000001: Hibernate Commons Annotations {5.0.4.Final} 
+2019-04-02 21:01:21.652 INFO       [ restartedMain ] org.hibernate.dialect.Dialect                      ->  157 ： HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2019-04-02 21:01:21.939 INFO       [ restartedMain ] com.dsos.config.session.SessionCollections         ->   23 ： map : 0 
+2019-04-02 21:01:22.368 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   43 ： layUI静态资源路径,classpath:/layui/ 
+2019-04-02 21:01:22.368 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   45 ： js静态资源路径,classpath:/js/ 
+2019-04-02 21:01:22.368 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   47 ： css静态资源路径,classpath:/css/ 
+2019-04-02 21:01:22.369 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   49 ： images静态资源路径,classpath:/images/ 
+2019-04-02 21:01:22.369 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   51 ： modelHtml静态资源路径,classpath:/templates/model/ 
+2019-04-02 21:01:22.369 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   53 ： userHtml静态资源路径,classpath:/templates/member/ 
+2019-04-02 21:01:22.369 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   55 ： adminHtml静态资源路径,classpath:/templates/admin/ 
+2019-04-02 21:01:22.369 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   57 ： chainHtml静态资源路径,classpath:/templates/chain/ 
+2019-04-02 21:01:22.370 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   59 ： common静态资源路径,classpath:/templates/common/ 
+2019-04-02 21:01:22.751 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Starting ProtocolHandler ["http-nio-8099"] 
+2019-04-02 21:01:22.778 INFO       [ restartedMain ] org.apache.tomcat.util.net.NioSelectorPool         ->  173 ： Using a shared selector for servlet write/read 
+2019-04-02 21:01:22.820 INFO       [ restartedMain ] com.dsos.Application                               ->   59 ： Started Application in 8.72 seconds (JVM running for 9.841) 
+2019-04-02 21:01:26.427 INFO       [ http-nio-8099-exec-1 ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019-04-02 21:01:26.493 INFO       [ http-nio-8099-exec-2 ] com.dsos.config.servlet.MySessinListenner          ->   42 ： session id of D27250704B0A2A2255ACB9D705532666 been created , maxLife 1800  
+2019-04-02 21:01:26.493 INFO       [ http-nio-8099-exec-2 ] com.dsos.config.session.SessionCollections         ->   48 ： session of id: D27250704B0A2A2255ACB9D705532666 been add in map ,map now size : 1 
+2019-04-02 21:01:30.728 INFO       [ http-nio-8099-exec-6 ] com.dsos.commons.realm.AdminRealm                  ->   44 ： user is [admin] ，permission：{} 
+2019-04-02 21:02:51.462 INFO       [ restartedMain ] com.dsos.Application                               ->   50 ： Starting Application on USER-20181119HO with PID 5236 (D:\drugShpOnlineSystem\target\classes started by Administrator in D:\drugShpOnlineSystem) 
+2019-04-02 21:02:51.468 INFO       [ restartedMain ] com.dsos.Application                               ->  675 ： No active profile set, falling back to default profiles: default 
+2019-04-02 21:02:53.781 INFO       [ restartedMain ] com.dsos.config.shiro.ShiroConfig                  ->  142 ： ShiroConfig.shiroFilterFactoryBean() 
+2019-04-02 21:02:54.598 INFO       [ restartedMain ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure ->   56 ： Init DruidDataSource 
+2019-04-02 21:02:54.967 INFO       [ restartedMain ] com.alibaba.druid.pool.DruidDataSource             ->  930 ： {dataSource-1} inited 
+2019-04-02 21:02:55.114 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.AdminRealm.authorizationCache' does not yet exist.  Creating now. 
+2019-04-02 21:02:55.120 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.AdminRealm.authorizationCache] 
+2019-04-02 21:02:55.121 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.MemberRealm.authorizationCache.1' does not yet exist.  Creating now. 
+2019-04-02 21:02:55.126 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.MemberRealm.authorizationCache.1] 
+2019-04-02 21:02:55.126 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.ChainRealm.authorizationCache.2' does not yet exist.  Creating now. 
+2019-04-02 21:02:55.131 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.ChainRealm.authorizationCache.2] 
+2019-04-02 21:02:55.866 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Initializing ProtocolHandler ["http-nio-8099"] 
+2019-04-02 21:02:55.885 INFO       [ restartedMain ] org.apache.catalina.core.StandardService           ->  173 ： Starting service [Tomcat] 
+2019-04-02 21:02:55.886 INFO       [ restartedMain ] org.apache.catalina.core.StandardEngine            ->  173 ： Starting Servlet Engine: Apache Tomcat/9.0.13 
+2019-04-02 21:02:55.894 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： An older version [1.2.17] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18] 
+2019-04-02 21:02:55.894 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3]. 
+2019-04-02 21:02:55.895 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true]. 
+2019-04-02 21:02:55.895 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true] 
+2019-04-02 21:02:56.946 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018] 
+2019-04-02 21:02:57.130 INFO       [ restartedMain ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring embedded WebApplicationContext 
+2019-04-02 21:02:57.157 INFO       [ restartedMain ] com.dsos.config.servlet.MySessinListenner          ->   22 ： session is initializing 
+2019-04-02 21:02:57.376 INFO       [ restartedMain ] org.hibernate.jpa.internal.util.LogHelper          ->   31 ： HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2019-04-02 21:02:57.444 INFO       [ restartedMain ] org.hibernate.Version                              ->   46 ： HHH000412: Hibernate Core {5.3.7.Final} 
+2019-04-02 21:02:57.446 INFO       [ restartedMain ] org.hibernate.cfg.Environment                      ->  213 ： HHH000206: hibernate.properties not found 
+2019-04-02 21:02:57.604 INFO       [ restartedMain ] org.hibernate.annotations.common.Version           ->   49 ： HCANN000001: Hibernate Commons Annotations {5.0.4.Final} 
+2019-04-02 21:02:57.792 INFO       [ restartedMain ] org.hibernate.dialect.Dialect                      ->  157 ： HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2019-04-02 21:02:58.498 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   43 ： layUI静态资源路径,classpath:/layui/ 
+2019-04-02 21:02:58.499 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   45 ： js静态资源路径,classpath:/js/ 
+2019-04-02 21:02:58.499 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   47 ： css静态资源路径,classpath:/css/ 
+2019-04-02 21:02:58.499 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   49 ： images静态资源路径,classpath:/images/ 
+2019-04-02 21:02:58.499 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   51 ： modelHtml静态资源路径,classpath:/templates/model/ 
+2019-04-02 21:02:58.499 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   53 ： userHtml静态资源路径,classpath:/templates/member/ 
+2019-04-02 21:02:58.499 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   55 ： adminHtml静态资源路径,classpath:/templates/admin/ 
+2019-04-02 21:02:58.500 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   57 ： chainHtml静态资源路径,classpath:/templates/chain/ 
+2019-04-02 21:02:58.500 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   59 ： common静态资源路径,classpath:/templates/common/ 
+2019-04-02 21:02:58.819 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Starting ProtocolHandler ["http-nio-8099"] 
+2019-04-02 21:02:58.835 INFO       [ restartedMain ] org.apache.tomcat.util.net.NioSelectorPool         ->  173 ： Using a shared selector for servlet write/read 
+2019-04-02 21:02:58.859 INFO       [ restartedMain ] com.dsos.Application                               ->   59 ： Started Application in 8.139 seconds (JVM running for 9.462) 
+2019-04-02 21:03:05.682 INFO       [ http-nio-8099-exec-1 ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019-04-02 21:03:05.728 INFO       [ http-nio-8099-exec-1 ] com.dsos.config.servlet.MySessinListenner          ->   42 ： session id of 84C2D892C619552A6B616A0C2215CB3D been created , maxLife 1800  
+2019-04-02 21:03:05.729 INFO       [ http-nio-8099-exec-1 ] com.dsos.config.session.SessionCollections         ->   46 ： session of id: 84C2D892C619552A6B616A0C2215CB3D been add in map ,map now size : 1 
+2019-04-02 21:03:11.610 INFO       [ http-nio-8099-exec-6 ] com.dsos.commons.realm.AdminRealm                  ->   44 ： user is [admin] ，permission：{} 
+2019-04-02 21:04:53.250 INFO       [ restartedMain ] com.dsos.Application                               ->   50 ： Starting Application on USER-20181119HO with PID 492 (D:\drugShpOnlineSystem\target\classes started by Administrator in D:\drugShpOnlineSystem) 
+2019-04-02 21:04:53.257 INFO       [ restartedMain ] com.dsos.Application                               ->  675 ： No active profile set, falling back to default profiles: default 
+2019-04-02 21:11:41.212 INFO       [ restartedMain ] com.dsos.Application                               ->   50 ： Starting Application on USER-20181119HO with PID 12936 (D:\drugShpOnlineSystem\target\classes started by Administrator in D:\drugShpOnlineSystem) 
+2019-04-02 21:11:41.216 INFO       [ restartedMain ] com.dsos.Application                               ->  675 ： No active profile set, falling back to default profiles: default 
+2019-04-02 21:11:43.410 INFO       [ restartedMain ] com.dsos.config.shiro.ShiroConfig                  ->  142 ： ShiroConfig.shiroFilterFactoryBean() 
+2019-04-02 21:11:44.181 INFO       [ restartedMain ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure ->   56 ： Init DruidDataSource 
+2019-04-02 21:11:44.511 INFO       [ restartedMain ] com.alibaba.druid.pool.DruidDataSource             ->  930 ： {dataSource-1} inited 
+2019-04-02 21:11:44.628 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.AdminRealm.authorizationCache' does not yet exist.  Creating now. 
+2019-04-02 21:11:44.635 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.AdminRealm.authorizationCache] 
+2019-04-02 21:11:44.637 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.MemberRealm.authorizationCache.1' does not yet exist.  Creating now. 
+2019-04-02 21:11:44.643 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.MemberRealm.authorizationCache.1] 
+2019-04-02 21:11:44.643 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.ChainRealm.authorizationCache.2' does not yet exist.  Creating now. 
+2019-04-02 21:11:44.650 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.ChainRealm.authorizationCache.2] 
+2019-04-02 21:11:45.550 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Initializing ProtocolHandler ["http-nio-8099"] 
+2019-04-02 21:11:45.612 INFO       [ restartedMain ] org.apache.catalina.core.StandardService           ->  173 ： Starting service [Tomcat] 
+2019-04-02 21:11:45.614 INFO       [ restartedMain ] org.apache.catalina.core.StandardEngine            ->  173 ： Starting Servlet Engine: Apache Tomcat/9.0.13 
+2019-04-02 21:11:45.635 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： An older version [1.2.17] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18] 
+2019-04-02 21:11:45.636 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3]. 
+2019-04-02 21:11:45.637 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true]. 
+2019-04-02 21:11:45.637 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true] 
+2019-04-02 21:11:46.689 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018] 
+2019-04-02 21:11:46.816 INFO       [ restartedMain ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring embedded WebApplicationContext 
+2019-04-02 21:11:46.842 INFO       [ restartedMain ] com.dsos.config.servlet.MySessinListenner          ->   22 ： session is initializing 
+2019-04-02 21:11:47.031 INFO       [ restartedMain ] org.hibernate.jpa.internal.util.LogHelper          ->   31 ： HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2019-04-02 21:11:47.095 INFO       [ restartedMain ] org.hibernate.Version                              ->   46 ： HHH000412: Hibernate Core {5.3.7.Final} 
+2019-04-02 21:11:47.097 INFO       [ restartedMain ] org.hibernate.cfg.Environment                      ->  213 ： HHH000206: hibernate.properties not found 
+2019-04-02 21:11:47.215 INFO       [ restartedMain ] org.hibernate.annotations.common.Version           ->   49 ： HCANN000001: Hibernate Commons Annotations {5.0.4.Final} 
+2019-04-02 21:11:47.358 INFO       [ restartedMain ] org.hibernate.dialect.Dialect                      ->  157 ： HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2019-04-02 21:11:47.886 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   43 ： layUI静态资源路径,classpath:/layui/ 
+2019-04-02 21:11:47.886 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   45 ： js静态资源路径,classpath:/js/ 
+2019-04-02 21:11:47.887 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   47 ： css静态资源路径,classpath:/css/ 
+2019-04-02 21:11:47.887 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   49 ： images静态资源路径,classpath:/images/ 
+2019-04-02 21:11:47.887 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   51 ： modelHtml静态资源路径,classpath:/templates/model/ 
+2019-04-02 21:11:47.887 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   53 ： userHtml静态资源路径,classpath:/templates/member/ 
+2019-04-02 21:11:47.887 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   55 ： adminHtml静态资源路径,classpath:/templates/admin/ 
+2019-04-02 21:11:47.887 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   57 ： chainHtml静态资源路径,classpath:/templates/chain/ 
+2019-04-02 21:11:47.888 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   59 ： common静态资源路径,classpath:/templates/common/ 
+2019-04-02 21:11:48.127 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Starting ProtocolHandler ["http-nio-8099"] 
+2019-04-02 21:11:48.140 INFO       [ restartedMain ] org.apache.tomcat.util.net.NioSelectorPool         ->  173 ： Using a shared selector for servlet write/read 
+2019-04-02 21:11:48.181 INFO       [ restartedMain ] com.dsos.Application                               ->   59 ： Started Application in 7.488 seconds (JVM running for 8.644) 
+2019-04-02 21:11:56.150 INFO       [ http-nio-8099-exec-1 ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019-04-02 21:11:56.259 INFO       [ http-nio-8099-exec-1 ] com.dsos.config.servlet.MySessinListenner          ->   42 ： session id of 57D4CBE776308AE7DBB71A2FE79055B9 been created , maxLife 1800  
+2019-04-02 21:11:56.260 INFO       [ http-nio-8099-exec-1 ] com.dsos.config.session.SessionCollections         ->   47 ： session of id: 57D4CBE776308AE7DBB71A2FE79055B9 been add in map ,map now size : 1 
+2019-04-02 21:12:00.114 INFO       [ http-nio-8099-exec-10 ] com.dsos.commons.realm.AdminRealm                  ->   44 ： user is [admin] ，permission：{} 
+2019-04-02 21:12:40.229 INFO       [ restartedMain ] com.dsos.Application                               ->   50 ： Starting Application on USER-20181119HO with PID 7540 (D:\drugShpOnlineSystem\target\classes started by Administrator in D:\drugShpOnlineSystem) 
+2019-04-02 21:12:40.235 INFO       [ restartedMain ] com.dsos.Application                               ->  675 ： No active profile set, falling back to default profiles: default 
+2019-04-02 21:12:42.576 INFO       [ restartedMain ] com.dsos.config.shiro.ShiroConfig                  ->  142 ： ShiroConfig.shiroFilterFactoryBean() 
+2019-04-02 21:12:43.355 INFO       [ restartedMain ] com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure ->   56 ： Init DruidDataSource 
+2019-04-02 21:12:43.681 INFO       [ restartedMain ] com.alibaba.druid.pool.DruidDataSource             ->  930 ： {dataSource-1} inited 
+2019-04-02 21:12:43.798 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.AdminRealm.authorizationCache' does not yet exist.  Creating now. 
+2019-04-02 21:12:43.805 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.AdminRealm.authorizationCache] 
+2019-04-02 21:12:43.807 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.MemberRealm.authorizationCache.1' does not yet exist.  Creating now. 
+2019-04-02 21:12:43.813 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.MemberRealm.authorizationCache.1] 
+2019-04-02 21:12:43.813 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  159 ： Cache with name 'com.dsos.commons.realm.ChainRealm.authorizationCache.2' does not yet exist.  Creating now. 
+2019-04-02 21:12:43.819 INFO       [ restartedMain ] org.apache.shiro.cache.ehcache.EhCacheManager      ->  166 ： Added EhCache named [com.dsos.commons.realm.ChainRealm.authorizationCache.2] 
+2019-04-02 21:12:44.413 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Initializing ProtocolHandler ["http-nio-8099"] 
+2019-04-02 21:12:44.428 INFO       [ restartedMain ] org.apache.catalina.core.StandardService           ->  173 ： Starting service [Tomcat] 
+2019-04-02 21:12:44.429 INFO       [ restartedMain ] org.apache.catalina.core.StandardEngine            ->  173 ： Starting Servlet Engine: Apache Tomcat/9.0.13 
+2019-04-02 21:12:44.441 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： An older version [1.2.17] of the APR based Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.18] 
+2019-04-02 21:12:44.441 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： Loaded APR based Apache Tomcat Native library [1.2.17] using APR version [1.6.3]. 
+2019-04-02 21:12:44.441 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true]. 
+2019-04-02 21:12:44.442 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true] 
+2019-04-02 21:12:45.491 INFO       [ restartedMain ] org.apache.catalina.core.AprLifecycleListener      ->  173 ： OpenSSL successfully initialized [OpenSSL 1.0.2o  27 Mar 2018] 
+2019-04-02 21:12:45.617 INFO       [ restartedMain ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring embedded WebApplicationContext 
+2019-04-02 21:12:45.643 INFO       [ restartedMain ] com.dsos.config.servlet.MySessinListenner          ->   22 ： session is initializing 
+2019-04-02 21:12:45.856 INFO       [ restartedMain ] org.hibernate.jpa.internal.util.LogHelper          ->   31 ： HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...] 
+2019-04-02 21:12:45.927 INFO       [ restartedMain ] org.hibernate.Version                              ->   46 ： HHH000412: Hibernate Core {5.3.7.Final} 
+2019-04-02 21:12:45.929 INFO       [ restartedMain ] org.hibernate.cfg.Environment                      ->  213 ： HHH000206: hibernate.properties not found 
+2019-04-02 21:12:46.082 INFO       [ restartedMain ] org.hibernate.annotations.common.Version           ->   49 ： HCANN000001: Hibernate Commons Annotations {5.0.4.Final} 
+2019-04-02 21:12:46.267 INFO       [ restartedMain ] org.hibernate.dialect.Dialect                      ->  157 ： HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect 
+2019-04-02 21:12:46.957 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   43 ： layUI静态资源路径,classpath:/layui/ 
+2019-04-02 21:12:46.957 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   45 ： js静态资源路径,classpath:/js/ 
+2019-04-02 21:12:46.957 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   47 ： css静态资源路径,classpath:/css/ 
+2019-04-02 21:12:46.958 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   49 ： images静态资源路径,classpath:/images/ 
+2019-04-02 21:12:46.958 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   51 ： modelHtml静态资源路径,classpath:/templates/model/ 
+2019-04-02 21:12:46.958 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   53 ： userHtml静态资源路径,classpath:/templates/member/ 
+2019-04-02 21:12:46.958 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   55 ： adminHtml静态资源路径,classpath:/templates/admin/ 
+2019-04-02 21:12:46.958 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   57 ： chainHtml静态资源路径,classpath:/templates/chain/ 
+2019-04-02 21:12:46.958 INFO       [ restartedMain ] com.dsos.config.servlet.MyAdapterConfig            ->   59 ： common静态资源路径,classpath:/templates/common/ 
+2019-04-02 21:12:47.268 INFO       [ restartedMain ] org.apache.coyote.http11.Http11NioProtocol         ->  173 ： Starting ProtocolHandler ["http-nio-8099"] 
+2019-04-02 21:12:47.282 INFO       [ restartedMain ] org.apache.tomcat.util.net.NioSelectorPool         ->  173 ： Using a shared selector for servlet write/read 
+2019-04-02 21:12:47.309 INFO       [ restartedMain ] com.dsos.Application                               ->   59 ： Started Application in 7.74 seconds (JVM running for 8.809) 
+2019-04-02 21:12:52.541 INFO       [ http-nio-8099-exec-1 ] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/drug] ->  173 ： Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2019-04-02 21:13:14.042 INFO       [ http-nio-8099-exec-5 ] com.dsos.config.servlet.MySessinListenner          ->   42 ： session id of 79AC5708C239F26279FCEE4E39F4CFD2 been created , maxLife 1800  
+2019-04-02 21:13:14.043 INFO       [ http-nio-8099-exec-5 ] com.dsos.config.session.SessionCollections         ->   47 ： session of id: 79AC5708C239F26279FCEE4E39F4CFD2 been add in map ,map now size : 1 
+2019-04-02 21:13:14.047 INFO       [ http-nio-8099-exec-5 ] com.dsos.commons.realm.MemberRealm                 ->   54 ： ======member 用户正在认证===== 
+2019-04-02 21:13:14.047 INFO       [ http-nio-8099-exec-5 ] com.dsos.commons.realm.MemberRealm                 ->   59 ： admin,admin,Member 
+2019-04-02 21:13:14.099 INFO       [ http-nio-8099-exec-5 ] com.dsos.commons.realm.MemberRealm                 ->   62 ： authenticating error 
+2019-04-02 21:13:31.598 INFO       [ http-nio-8099-exec-8 ] com.dsos.commons.realm.MemberRealm                 ->   54 ： ======member 用户正在认证===== 
+2019-04-02 21:13:31.600 INFO       [ http-nio-8099-exec-8 ] com.dsos.commons.realm.MemberRealm                 ->   59 ： rsd123456,123456,Member 
+2019-04-02 21:13:32.028 INFO       [ http-nio-8099-exec-2 ] com.dsos.controller.MembController                 ->  109 ： name zgq, root ..\images\member\1550656922975mm.jpg,amount :88.0 
+2019-04-02 21:14:24.291 INFO       [ http-nio-8099-exec-6 ] com.dsos.config.servlet.MySessinListenner          ->   42 ： session id of A9430BB0E30F484996FB58C6980AE05E been created , maxLife 1800  
+2019-04-02 21:14:24.291 INFO       [ http-nio-8099-exec-6 ] com.dsos.config.session.SessionCollections         ->   47 ： session of id: A9430BB0E30F484996FB58C6980AE05E been add in map ,map now size : 2 
+2019-04-02 21:14:35.105 INFO       [ http-nio-8099-exec-2 ] com.dsos.commons.realm.AdminRealm                  ->   44 ： user is [admin] ，permission：{} 
