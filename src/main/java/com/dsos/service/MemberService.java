@@ -24,6 +24,8 @@ public interface MemberService {
      **/
     MemberUser getInfoByCardNo(String cardNo);
 
+    MemberInfo getInfo2ByCardNo(String cardNo);
+
     /**
      * 会员信息修改
      **/

@@ -51,8 +51,9 @@ public class ChainController {
             map.put("msg", "密码/账号错误");
             return "error";
         }
+        //登录之后给session赋予该有的属性
         session.setAttribute("account", accout);
-        session.setAttribute("type", loginType);
+        session.setAttribute("userType", loginType);
         return "redirect:/chain/loginSuccessUser";
     }
 

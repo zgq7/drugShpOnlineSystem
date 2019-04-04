@@ -65,6 +65,9 @@ public class MembController {
             map.put("msg", "密码/账号错误");
             return "error";
         }
+        //登录之后给session赋予该有的属性
+        session.setAttribute("account", account);
+        session.setAttribute("userType", loginType);
         return "redirect:/member/loginSuccessUser";
     }
 

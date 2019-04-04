@@ -1,6 +1,5 @@
 package com.dsos.config.session;
 
-import com.dsos.config.servlet.MySessinListenner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,10 +15,25 @@ public class SessionCollections {
     private static final Logger log = LoggerFactory.getLogger(SessionCollections.class);
 
     private static SessionCollections instance = new SessionCollections();
+    /**
+     * key is sessionID
+     * value is HttpSession
+     **/
     private Map<String, HttpSession> sessionMap;
+    /**
+     * key is Session Id
+     * List is infoMap
+     **/
+    private Map<String, Map<Object, Object>> sessionInfo;
+    /**
+     * key1 account
+     * key2 userType as admin member chainner
+     **/
+    private Map<Object, Object> infoMap;
 
     public SessionCollections() {
         sessionMap = new HashMap<>();
+        sessionInfo = new HashMap<>();
     }
 
     /**
@@ -36,6 +50,22 @@ public class SessionCollections {
         return sessionMap;
     }
 
+    /**
+     * key is sessionID
+     * Account is user's account
+     **/
+    public Map<String, Map<Object, Object>> getSessionInfo() {
+        if (!sessionMap.isEmpty()) {
+            for (Map.Entry entry : sessionMap.entrySet()) {
+                HttpSession session = (HttpSession) entry.getValue();
+                infoMap = new HashMap<>(2);
+                infoMap.put("account", session.getAttribute("account"));
+                infoMap.put("userType", session.getAttribute("userType"));
+                sessionInfo.put(entry.getKey().toString(), infoMap);
+            }
+        }
+        return sessionInfo;
+    }
 
     /**
      * 添加session，key为session.id

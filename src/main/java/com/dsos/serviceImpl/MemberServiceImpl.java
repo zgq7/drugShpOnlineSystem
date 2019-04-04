@@ -50,6 +50,17 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
+    public MemberInfo getInfo2ByCardNo(String cardNo) {
+        try {
+            if (Optional.ofNullable(memberDao.getInfo2ByCardNo(cardNo)).isPresent())
+                return memberDao.getInfo2ByCardNo(cardNo);
+        } catch (Exception e) {
+            log.error("{查询个人信息info报错：{}}", e);
+        }
+        return null;
+    }
+
+    @Override
     public Boolean updateMemberInfo(MemberInfo memberInfo, String oldPassword, MemberUser memberUser) {
         try {
             Integer updateStatus = memberDao.updateMemberInfo(memberInfo, oldPassword, memberUser);
