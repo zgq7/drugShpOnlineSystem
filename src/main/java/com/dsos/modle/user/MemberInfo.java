@@ -1,9 +1,11 @@
 package com.dsos.modle.user;
 
+import java.io.Serializable;
+
 /**
  * 会员信息表
  */
-public class MemberInfo {
+public class MemberInfo implements Serializable{
     //信息标识
     private Integer infoId;
     //所属卡号

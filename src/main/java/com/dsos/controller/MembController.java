@@ -1,5 +1,6 @@
 package com.dsos.controller;
 
+import com.dsos.config.session.SessionCollections;
 import com.dsos.config.shiro.LoginType;
 import com.dsos.config.shiro.UsernamePwdLogTypToken;
 import com.dsos.modle.user.MemberInfo;
@@ -41,6 +42,7 @@ import java.util.stream.Collectors;
 public class MembController {
     private static final Logger log = LoggerFactory.getLogger(MembController.class);
     private static final String loginType = LoginType.MEMBER.getLoginType();
+    private SessionCollections sessionCollections = SessionCollections.getinstance();
     @Autowired
     private MemberService memberService;
     @Autowired
@@ -65,9 +67,11 @@ public class MembController {
             map.put("msg", "密码/账号错误");
             return "error";
         }
-        //登录之后给session赋予该有的属性
         session.setAttribute("account", account);
+        session.setAttribute("ip", request.getRemoteAddr());
         session.setAttribute("userType", loginType);
+        //登陆成功之后再将session加载到内存中
+        sessionCollections.addSession(session);
         return "redirect:/member/loginSuccessUser";
     }
 

@@ -1,5 +1,6 @@
 package com.dsos.controller;
 
+import com.dsos.config.session.SessionCollections;
 import com.dsos.config.shiro.LoginType;
 import com.dsos.config.shiro.UsernamePwdLogTypToken;
 import com.dsos.modle.user.ChainnerUser;
@@ -31,6 +32,7 @@ import java.util.Map;
 public class ChainController {
     private static final Logger log = LoggerFactory.getLogger(ChainController.class);
     private static final String loginType = LoginType.CHAIN.getLoginType();
+    private SessionCollections sessionCollections = SessionCollections.getinstance();
     @Autowired
     private ChainnerService chainUserService;
 
@@ -39,11 +41,11 @@ public class ChainController {
      */
     @RequestMapping(value = "/login")
     public String Login(HttpServletRequest request, HttpSession session, Map<String, Object> map) {
-        String accout = request.getParameter("account");
+        String account = request.getParameter("account");
         String password = request.getParameter("password");
         Subject AdminSubject = SecurityUtils.getSubject();
         //使用自定义token的登录方式
-        UsernamePwdLogTypToken token = new UsernamePwdLogTypToken(accout, password, loginType);
+        UsernamePwdLogTypToken token = new UsernamePwdLogTypToken(account, password, loginType);
         token.setRememberMe(false);
         try {
             AdminSubject.login(token);
@@ -51,9 +53,11 @@ public class ChainController {
             map.put("msg", "密码/账号错误");
             return "error";
         }
-        //登录之后给session赋予该有的属性
-        session.setAttribute("account", accout);
+        session.setAttribute("account", account);
+        session.setAttribute("ip", request.getRemoteAddr());
         session.setAttribute("userType", loginType);
+        //登陆成功之后再将session加载到内存中
+        sessionCollections.addSession(session);
         return "redirect:/chain/loginSuccessUser";
     }
 

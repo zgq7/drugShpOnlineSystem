@@ -1,6 +1,10 @@
 package com.dsos;
 
+import com.alibaba.druid.support.json.JSONUtils;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.dsos.config.session.SessionCollections;
+import com.dsos.modle.user.MemberInfo;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
 import org.springframework.util.ResourceUtils;
@@ -90,5 +94,15 @@ public class test {
         SessionCollections inst2 = SessionCollections.getinstance();
         System.out.println(inst2);
 
+    }
+
+    @Test
+    public void ggg(){
+        MemberInfo memberInfo = new MemberInfo();
+        memberInfo.setCardNo("12412");
+        memberInfo.setName("竹根其");
+        Object object =JSONObject.toJSON(memberInfo);
+        Map map = JSON.parseObject(JSONUtils.toJSONString(object));
+        System.out.println(map);
     }
 }

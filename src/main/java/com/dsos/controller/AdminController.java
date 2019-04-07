@@ -1,13 +1,16 @@
 package com.dsos.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.dsos.commons.Methods;
 import com.dsos.config.session.SessionCollections;
 import com.dsos.config.shiro.LoginType;
 import com.dsos.config.shiro.UsernamePwdLogTypToken;
 import com.dsos.modle.user.AdminUser;
+import com.dsos.modle.user.ChainnerUser;
 import com.dsos.modle.user.MemberInfo;
 import com.dsos.modle.user.MemberUser;
 import com.dsos.service.AdminService;
+import com.dsos.service.ChainnerService;
 import com.dsos.service.MemberService;
 import com.google.common.collect.ImmutableMap;
 import org.apache.shiro.SecurityUtils;
@@ -40,17 +43,19 @@ public class AdminController {
     private AdminService adminService;
     @Autowired
     private MemberService memberService;
+    @Autowired
+    private ChainnerService chainnerService;
 
     /**
      * @return member 的登录
      */
     @RequestMapping(value = "/login")
     public String Login(HttpServletRequest request, HttpSession session, Map<String, Object> map) {
-        String accout = request.getParameter("account");
+        String account = request.getParameter("account");
         String password = request.getParameter("password");
         Subject AdminSubject = SecurityUtils.getSubject();
         //使用自定义token的登录方式
-        UsernamePwdLogTypToken token = new UsernamePwdLogTypToken(accout, password, loginType);
+        UsernamePwdLogTypToken token = new UsernamePwdLogTypToken(account, password, loginType);
         token.setRememberMe(false);
         try {
             AdminSubject.login(token);
@@ -58,8 +63,11 @@ public class AdminController {
             map.put("msg", "密码/账号错误");
             return "error";
         }
-        session.setAttribute("account", accout);
-        session.setAttribute("type", loginType);
+        session.setAttribute("account", account);
+        session.setAttribute("ip", request.getRemoteAddr());
+        session.setAttribute("userType", loginType);
+        //登陆成功之后再将session加载到内存中
+        sessionCollections.addSession(session);
         return "redirect:/admin/loginSuccessUser";
     }
 
@@ -209,6 +217,10 @@ public class AdminController {
     }
 
     //============================================================session会话管理
+    @RequestMapping(value = "/toSessionList")
+    public String toSessionList() {
+        return "admin/sessionList";
+    }
 
     /**
      * 查询当前有多少人在线
@@ -216,9 +228,22 @@ public class AdminController {
     @RequestMapping(value = "/sessionList")
     public @ResponseBody
     Map<Object, Object> getSessionList() {
-        return ImmutableMap.of("result", sessionCollections.getSessionMap().keySet()
-                ,"data",sessionCollections.getSessionMap()
-        );
+          Collection<Map<Object, Object>> result = sessionCollections.getSessionInfo().values();
+        for (Map map : result) {
+            if (map.get("userType").equals("Admin")) {
+                AdminUser adminUser = adminService.getUerNmaeImgByCardNo((String) map.get("account"));
+                map.putAll((Map) JSONObject.toJSON(adminUser));
+            }
+            if (map.get("userType").equals("Member")) {
+                MemberInfo memberInfo = memberService.getInfo2ByCardNo((String) map.get("account"));
+                map.putAll((Map) JSONObject.toJSON(memberInfo));
+            }
+            if (map.get("userType").equals("Chain")) {
+                ChainnerUser chainnerUser = chainnerService.getUerNmaeImgByCardNo((String) map.get("account"));
+                map.putAll((Map) JSONObject.toJSON(chainnerUser));
+            }
+        }
+        return ImmutableMap.of("data", result, "code", 0, "count", result.size());
     }
 
 }

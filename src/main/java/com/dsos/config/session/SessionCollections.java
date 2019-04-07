@@ -4,7 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,15 +21,17 @@ public class SessionCollections {
      * key is sessionID
      * value is HttpSession
      **/
-    private Map<String, HttpSession> sessionMap;
+    private Map<String, HttpSession> sessionMap = new HashMap<>();
     /**
      * key is Session Id
-     * List is infoMap
+     * value is infoMap
      **/
     private Map<String, Map<Object, Object>> sessionInfo;
     /**
      * key1 account
      * key2 userType as admin member chainner
+     * key3 ip address
+     * key4 sessionID
      **/
     private Map<Object, Object> infoMap;
 
@@ -46,24 +50,12 @@ public class SessionCollections {
         return instance;
     }
 
-    public Map<String, HttpSession> getSessionMap() {
-        return sessionMap;
-    }
-
     /**
      * key is sessionID
      * Account is user's account
      **/
     public Map<String, Map<Object, Object>> getSessionInfo() {
-        if (!sessionMap.isEmpty()) {
-            for (Map.Entry entry : sessionMap.entrySet()) {
-                HttpSession session = (HttpSession) entry.getValue();
-                infoMap = new HashMap<>(2);
-                infoMap.put("account", session.getAttribute("account"));
-                infoMap.put("userType", session.getAttribute("userType"));
-                sessionInfo.put(entry.getKey().toString(), infoMap);
-            }
-        }
+        log.info("sessionInfo size : {}", sessionInfo.size());
         return sessionInfo;
     }
 
@@ -73,6 +65,17 @@ public class SessionCollections {
     public void addSession(HttpSession session) {
         if (session != null) {
             sessionMap.put(session.getId(), session);
+            infoMap = new HashMap<>(10);
+            infoMap.put("account", session.getAttribute("account"));
+            infoMap.put("userType", session.getAttribute("userType"));
+            infoMap.put("ip", session.getAttribute("ip"));
+            infoMap.put("sessionID", session.getId());
+            if (sessionInfo == null) {
+                sessionInfo = new HashMap<>();
+                sessionInfo.put(session.getId(), infoMap);
+            } else {
+                sessionInfo.put(session.getId(), infoMap);
+            }
             log.info("session of id: {} been add in map ,map now size : {}", session.getId(), sessionMap.size());
         }
     }
@@ -83,6 +86,7 @@ public class SessionCollections {
     public void delSession(HttpSession session) {
         if (session != null) {
             sessionMap.remove(session.getId());
+            sessionInfo.remove(session.getId());
             log.info("session of id: {} been add in map ,map now size : {}", session.getId(), sessionMap.size());
         }
     }

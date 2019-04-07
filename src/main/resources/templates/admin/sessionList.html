@@ -1,13 +1,13 @@
-<!-- 用户登录成功首页 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>admin SuccessUser</title>
+    <title>sessionList</title>
     <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="../lay/layui.js"></script>
     <link rel="stylesheet" href="../lay/css/layui.css" media="all">
     <script type="text/javascript" src="../js/model/admin.js"></script>
+    <script type="text/javascript" src="../js/model/session.js"></script>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -73,8 +73,18 @@
     </div>
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <div style="padding: 15px;" id="body">
-            <span>内容主题</span>
+        <div style="padding: 15px;" id="chainList">
+            <hr class="layui-bg-red">
+            <div class="sessionTable">
+                用户账号：
+                <div class="layui-inline">
+                    <input class="layui-input" id="account" autocomplete="off">
+                </div>
+                <button class="layui-btn" data-type="reload">搜索</button>
+                <hr class="layui-bg-orange">
+            </div>
+
+            <table class="layui-hide" id="session_table" lay-filter="user"></table>
         </div>
     </div>
     <div class="layui-footer" style="text-align: center;color: #01AAED" id="buttom">
@@ -83,4 +93,8 @@
     </div>
 </div>
 </body>
+<script type="text/html" id="sessionBar">
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="delete" style="width: 80px;">删除</a>
+</script>
+
 </html>
