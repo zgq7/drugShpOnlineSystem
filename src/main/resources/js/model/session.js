@@ -9,8 +9,8 @@ layui.use(['table', 'form', 'laydate'], function () {
         , page: true
         , height: 'full-230'
         , cols: [[
-            {field: 'sessionID', title: 'sessionID', width:250, sort: true, fixed: true}
-            , {field: 'ip', title: 'ip地址',width: 200}
+            {field: 'sessionID', title: 'sessionID', width: 250, sort: true, fixed: true}
+            , {field: 'ip', title: 'ip地址', width: 200}
             , {field: 'userType', title: '用户类型', width: 150}
             , {field: 'account', title: '用户账户', minWidth: 120, sort: true}
             , {field: 'name', title: '用户名', width: 120}
@@ -19,6 +19,7 @@ layui.use(['table', 'form', 'laydate'], function () {
         ]]
     });
 
+    //执行重载操作
     let $ = layui.$
         , active = {
         reload: function () {
@@ -38,9 +39,50 @@ layui.use(['table', 'form', 'laydate'], function () {
         }
     };
 
+    //监听重载按钮
     $('.sessionTable .layui-btn').on('click', function () {
         let type = $(this).data('type');
         active[type] ? active[type].call(this) : '';
     });
+
+    //监听下线按钮
+    table.on('tool(offline)', function (obj) {
+        let data = obj.data;
+        let param = {};
+        let url = '../admin/delSession';
+        param.sessionID = data.sessionID;
+        param.name = data.name;
+        console.log(param);
+        if (obj.event === 'offline') {
+            layer.confirm('确认下线用户：' + param.name + ' 吗？', function (index) {
+                delSession(param, url);
+                //只是在页面中移除
+                obj.del();
+                layer.close(index);
+            });
+        }
+    });
+
+    /**
+     * 下线具体用户 ajax
+     * @param param 参数 JSON对象，并用JSON.Stringfy()封装,post请求
+     * @param url 要访问的url
+     * **/
+    function delSession(param, url) {
+        $.ajax({
+            url: url
+            , data: JSON.stringify(param)
+            , dataType: 'json'
+            , contentType: 'application/json;charset=utf-8'
+            , type: 'post'
+            , timeout: 1000,
+            success: function (data) {
+                layer.alert("操作成功 ：" + data.result);
+            },
+            error: function (data) {
+                layer.alert("操作异常 ：" + data.result);
+            }
+        });
+    }
 
 });

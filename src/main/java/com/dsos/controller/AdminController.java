@@ -21,6 +21,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -142,7 +143,6 @@ public class AdminController {
      **/
     @RequestMapping(value = "/drugInOut")
     public String drugInOut(@ModelAttribute("msg") String msg) {
-        //model.addAttribute("msg", request.getParameter("msg"));
         return "admin/drugInOut";
     }
 
@@ -228,7 +228,7 @@ public class AdminController {
     @RequestMapping(value = "/sessionList")
     public @ResponseBody
     Map<Object, Object> getSessionList() {
-          Collection<Map<Object, Object>> result = sessionCollections.getSessionInfo().values();
+        Collection<Map<Object, Object>> result = sessionCollections.getSessionInfo().values();
         for (Map map : result) {
             if (map.get("userType").equals("Admin")) {
                 AdminUser adminUser = adminService.getUerNmaeImgByCardNo((String) map.get("account"));
@@ -244,6 +244,25 @@ public class AdminController {
             }
         }
         return ImmutableMap.of("data", result, "code", 0, "count", result.size());
+    }
+
+    /**
+     * 使指定用户下线
+     **/
+    @RequestMapping(value = "/delSession")
+    public @ResponseBody
+    Map<Object, Object> delSession(@RequestBody Map<Object, Object> requestMap) {
+        String sessionID = (String) requestMap.get("sessionID");
+        log.info("ssessionId : {}", sessionID);
+        HttpSession session = sessionCollections.getSession(sessionID);
+        if (session.getAttribute("userType").equals("Admin")){
+            return ImmutableMap.of("result", "管理员无法强制下线！");
+        }
+        if (session != null) {
+            sessionCollections.delSession(session);
+            return ImmutableMap.of("result", "操作成功");
+        }
+        return ImmutableMap.of("result", "操作失败");
     }
 
 }

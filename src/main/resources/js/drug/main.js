@@ -1,6 +1,5 @@
 layui.use(['table', 'form', 'laydate'], function () {
     let table = layui.table,
-        form = layui.form,
         laydate = layui.laydate;
 
     let $ = layui.$;
@@ -265,11 +264,11 @@ layui.use(['table', 'form', 'laydate'], function () {
 
     /**
      * 上架下架、出库入库 ajax
-     * @param param 参数 JSON对象，并用JSON.Stringft()封装,post请求
+     * @param param 参数 JSON对象，并用JSON.Stringfy()封装,post请求
      * @param url 要访问的url
      * **/
     function drugDownUpLoad(param, url) {
-        console.log(url);
+        //console.log(url);
         $.ajax({
             url: url
             , data: JSON.stringify(param)

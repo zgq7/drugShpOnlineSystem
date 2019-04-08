@@ -85,9 +85,10 @@ public class SessionCollections {
      **/
     public void delSession(HttpSession session) {
         if (session != null) {
+            session.invalidate();
             sessionMap.remove(session.getId());
             sessionInfo.remove(session.getId());
-            log.info("session of id: {} been add in map ,map now size : {}", session.getId(), sessionMap.size());
+            log.info("session of id: {} been delete in map ,map now size : {}", session.getId(), sessionMap.size());
         }
     }
 
