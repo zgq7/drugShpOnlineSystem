@@ -14,8 +14,8 @@ layui.use(['table', 'form', 'laydate'], function () {
             , {field: 'linkedId', title: '所属连锁', width: 150}
             , {field: 'code', title: '门店编号', width: 150}
             , {field: 'shopHolder', title: '负责人', minWidth: 120, sort: true}
-            , {field: 'name', title: '门店名', width: 120}
-            , {field: 'address', title: '门店地址', sort: true, width: 100}
+            , {field: 'name', title: '门店名', width: 200}
+            , {field: 'address', title: '门店地址', sort: true, width: 200}
             , {field: 'telepgone', title: '门店热线', sort: true, width: 150}
             , {field: 'businessNo', title: '经营许可证', width: 140}
         ]]

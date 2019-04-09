@@ -15,7 +15,7 @@
         <div class="layui-logo"><a style="color: #eb7350" href="loginSuccessUser">admin center</a></div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item"><a>回话管理</a></li>
+            <li class="layui-nav-item"><a href="toSessionList">回话管理</a></li>
             <li class="layui-nav-item"><a>权限管理</a></li>
             <li class="layui-nav-item"><a>预警报告</a></li>
             <li class="layui-nav-item">
@@ -34,7 +34,6 @@
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="info">个人资料</a></dd>
-                    <dd><a href="config">安全设置</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item"><a href="../logout" style="color: burlywood">logout</a></li>
@@ -46,7 +45,7 @@
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
                 <!-- layui-nav-itemed 代表下拉是否显示 -->
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a>药品管理</a>
+                    <a class="" href="javascript:;">药品管理</a>
                     <dl class="layui-nav-child">
                         <dd><a href="drugInList">药品资料</a></dd>
                         <dd><a href="drugUpDown">上架下架</a></dd>
@@ -54,19 +53,18 @@
                     </dl>
                 </li>
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a>连锁管理</a>
+                    <a class="" href="javascript:;">连锁管理</a>
                     <dl class="layui-nav-child">
                         <dd><a href="chainList">连锁资料</a></dd>
-                        <dd><a href="storeList;">门店资料</a></dd>
+                        <dd><a href="storeList">门店资料</a></dd>
                         <dd><a href="chainnerList">店员资料</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item layui-nav-itemed">
                     <a>会员管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">会员资料</a></dd>
+                        <dd><a href="memberList">会员资料</a></dd>
                         <dd><a href="javascript:;">会员管理</a></dd>
-                        <dd><a href="javascript:;">会员信息</a></dd>
                     </dl>
                 </li>
             </ul>
