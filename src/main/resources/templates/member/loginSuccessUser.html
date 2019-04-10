@@ -7,30 +7,31 @@
     <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="../lay/layui.js"></script>
     <link rel="stylesheet" href="../lay/css/layui.css" media="all">
+    <link rel="stylesheet" href="../css/member/loadstore.css" media="all">
     <script type="text/javascript" src="../js/model/user.js"></script>
+    <script type="text/javascript" src="../js/member/loadStore.js"></script>
 </head>
-<body class="layui-layout-body">
+<body class="layui-layout-body" style="background-color: lightslategrey">
 <div class="layui-layout layui-layout-admin">
     <div class="layui-header" id="head">
         <div class="layui-logo"><a style="color: #eb7350" href="loginSuccessUser">member center</a>
         </div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item"><a>控制台</a></li>
-            <li class="layui-nav-item"><a>商品管理</a></li>
-            <li class="layui-nav-item"><a>用户</a></li>
+            <li class="layui-nav-item"><a>购物车</a></li>
+            <li class="layui-nav-item"><a>未支付订单</a></li>
+            <li class="layui-nav-item"><a>历史订单</a></li>
             <li class="layui-nav-item">
-                <a href="javascript:;">其它系统</a>
+                <a href="javascript:;">消息系统</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="">邮件管理</a></dd>
-                    <dd><a href="">消息管理</a></dd>
-                    <dd><a href="">授权管理</a></dd>
+                    <dd><a href="">叮当消息</a></dd>
+                    <dd><a href="">联系管理员</a></dd>
                 </dl>
             </li>
         </ul>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
-                <span class="layui-icon layui-icon-rmb" style="font-size: 20px;color: yellow" id="amount"></span>
+                <span class="layui-icon layui-icon-rmb" style="font-size: 18px;color: yellow" id="amount"></span>
                 <dl class="layui-nav-child">
                     <dd><a href="#">充值</a></dd>
                 </dl>
@@ -42,45 +43,18 @@
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="info" id="info">个人资料</a></dd>
-                    <dd><a href="config" id="config">安全设置</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item"><a href="../logout" style="color: burlywood">logout</a></li>
         </ul>
     </div>
-    <div class="layui-side layui-bg-black" id="left">
-        <div class="layui-side-scroll">
-            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-            <ul class="layui-nav layui-nav-tree" lay-filter="test">
-                <li class="layui-nav-item layui-nav-itemed">
-                    <a class="" href="javascript:;">所有商品</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">ZPPP</a></dd>
-                        <dd><a href="javascript:;">列表二</a></dd>
-                        <dd><a href="javascript:;">列表三</a></dd>
-                        <dd><a href="">超链接</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">解决方案</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">列表一</a></dd>
-                        <dd><a href="javascript:;">列表二</a></dd>
-                        <dd><a href="">超链接</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item"><a href="">云市场</a></li>
-                <li class="layui-nav-item"><a href="">发布商品</a></li>
-            </ul>
-        </div>
-    </div>
-    <div class="layui-body">
+    <div class="layui-body" style="background-color: #eb7350;margin-right: 200px">
         <!-- 内容主体区域 -->
-        <div style="padding: 15px;height: 95%;" id="body">
-            <span>内容主题</span>
+        <div style="padding: 15px;height: 95%;">
+            <div class="site-demo-flow" id="loadstore"></div>
         </div>
     </div>
-    <div class="layui-footer" style="text-align: center;color: #01AAED" id="buttom">
+    <div class="layui-footer" style="text-align: center;color: #01AAED;margin-right: 200px" >
         <!-- 底部固定区域 -->
         @created by zgq7
     </div>

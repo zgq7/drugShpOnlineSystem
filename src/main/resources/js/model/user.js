@@ -14,7 +14,7 @@ $(document).ready(function () {
             //console.log(data);
             document.getElementById('myUserName').innerHTML = data.name;
             $("#userImg").attr("src", data.imgRoot);
-            $("#amount").html(data.amount);
+            $("#amount").html("："+data.amount);
         },
         error: function (data, status) {
             console.log("ajax error : " + status);
