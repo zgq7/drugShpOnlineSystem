@@ -43,7 +43,6 @@ $(document).ready(function () {
             timeout: 1000,
             success: function (data) {
                 let member = data.info;
-                //console.log(member.address.slice(8,11));
                 //表单初始赋值
                 form.val('example', {
                     "name": member.name // "name": "value"

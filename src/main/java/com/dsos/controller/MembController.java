@@ -75,7 +75,7 @@ public class MembController {
         return "redirect:/member/loginSuccessUser";
     }
 
-    @RequestMapping(value = "registry", method = RequestMethod.POST)
+    @RequestMapping(value = "/registry", method = RequestMethod.POST)
     public @ResponseBody
     Map<Object, Object> registry(@RequestBody Map<String, String> requestMap) {
         Map<Object, Object> result = new HashMap<>();
@@ -91,7 +91,6 @@ public class MembController {
             result.put("msg", "insert fail");
             return result;
         }
-        log.info("registry success");
         result.put("msg", "success,cardNo :" + resultCardNo);
         return result;
     }
@@ -223,6 +222,14 @@ public class MembController {
             model.addAttribute("msg", "update info success");
         }
         return "member/updateInfo";
+    }
+
+    /****/
+    @RequestMapping(value = "/chainList", method = RequestMethod.POST)
+    public @ResponseBody
+    Map<Object, Object> chainList(@RequestBody Map<Object, Object> request) {
+        //System.out.println(request.get("page"));
+        return ImmutableMap.of("data", "123");
     }
 
 }

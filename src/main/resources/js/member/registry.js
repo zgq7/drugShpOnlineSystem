@@ -29,7 +29,6 @@ layui.use('layer', function () { //独立版的layer无需执行这一句
                     params.sex = $("#sex").val();
 
                     let postParams = JSON.stringify(params);
-                    console.log(params);
                     $.ajax({
                         url: 'member/registry',
                         data: postParams,

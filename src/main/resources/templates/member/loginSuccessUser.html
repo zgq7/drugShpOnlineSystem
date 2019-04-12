@@ -11,9 +11,9 @@
     <script type="text/javascript" src="../js/model/user.js"></script>
     <script type="text/javascript" src="../js/member/loadStore.js"></script>
 </head>
-<body class="layui-layout-body" style="background-color: lightslategrey">
+<body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
-    <div class="layui-header" id="head">
+    <div class="layui-header">
         <div class="layui-logo"><a style="color: #eb7350" href="loginSuccessUser">member center</a>
         </div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
@@ -24,8 +24,8 @@
             <li class="layui-nav-item">
                 <a href="javascript:;">消息系统</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="">叮当消息</a></dd>
-                    <dd><a href="">联系管理员</a></dd>
+                    <dd><a>叮当消息</a></dd>
+                    <dd><a>联系管理员</a></dd>
                 </dl>
             </li>
         </ul>
@@ -48,14 +48,11 @@
             <li class="layui-nav-item"><a href="../logout" style="color: burlywood">logout</a></li>
         </ul>
     </div>
-    <div class="layui-body" style="background-color: #eb7350;margin-right: 200px">
+    <div id="storebody">
         <!-- 内容主体区域 -->
-        <div style="padding: 15px;height: 95%;">
-            <div class="site-demo-flow" id="loadstore"></div>
-        </div>
+        <ul class="flow-default" id="loadstore"></ul>
     </div>
-    <div class="layui-footer" style="text-align: center;color: #01AAED;margin-right: 200px" >
-        <!-- 底部固定区域 -->
+    <div id="footer">
         @created by zgq7
     </div>
 </div>

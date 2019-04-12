@@ -15,7 +15,7 @@ import java.util.List;
 @Repository
 public interface MemberDao {
     //会员注册
-    @Insert("CALL pos_add_member(#{name},#{password},#{mobile},#{sex});")
+    @Select("CALL pos_add_member(#{name},#{password},#{mobile},#{sex});")
     String registryMember(@Param("name") String name, @Param("password") String password,
                           @Param("mobile") String mobile, @Param("sex") String sex);
 
