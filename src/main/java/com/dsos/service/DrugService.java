@@ -26,11 +26,21 @@ public interface DrugService {
     /**
      * 商品出库
      **/
-    Boolean deleteDrugByCode(String drugCode,String chainId);
+    Boolean deleteDrugByCode(String drugCode, String chainId);
 
     /**
      * 商品入库
      **/
     Boolean addDrugRecord(DrugRecord drugRecord);
+
+    /**
+     * 门店商品列表
+     **/
+    List<DrugRecord> getDrugsByCodeAndChainId(String code, String chainId, Integer page);
+
+    /**
+     * 门店商品列表总页数
+     **/
+    Integer getDrugsByCodeAndChainIdCount(String code, String chainId, Integer page);
 
 }

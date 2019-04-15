@@ -7,7 +7,7 @@ public class StoreRecord {
     //门店标识
     private Integer storeId;
     //所属连锁标识
-    private Integer linkedId;
+    private String linkedId;
     //门店负责人编号
     private String shopHolder;
     //门店编号
@@ -20,7 +20,8 @@ public class StoreRecord {
     private String telephone;
     //经营许可证号
     private String businessNo;
-    //连锁信息
+    //门店log
+    private String logoRoot;
 
     public Integer getStoreId() {
         return storeId;
@@ -30,11 +31,11 @@ public class StoreRecord {
         this.storeId = storeId;
     }
 
-    public Integer getLinkedId() {
+    public String getLinkedId() {
         return linkedId;
     }
 
-    public void setLinkedId(Integer linkedId) {
+    public void setLinkedId(String linkedId) {
         this.linkedId = linkedId;
     }
 
@@ -84,6 +85,14 @@ public class StoreRecord {
 
     public void setBusinessNo(String businessNo) {
         this.businessNo = businessNo;
+    }
+
+    public String getLogoRoot() {
+        return logoRoot;
+    }
+
+    public void setLogoRoot(String logoRoot) {
+        this.logoRoot = logoRoot;
     }
 
     @Override

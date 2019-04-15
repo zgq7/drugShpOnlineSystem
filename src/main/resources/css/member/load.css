@@ -17,6 +17,12 @@ body {
     color: #01AAED;
 }
 
+#muss {
+    margin-top: 20px;
+    margin-left: 75px;
+    height: 30px;
+}
+
 #storebody {
     position: absolute;
     left: 100px;
@@ -34,6 +40,7 @@ body {
 .storename {
     text-align: center;
     font-size: 20px;
+    font-family: 楷体;
     color: salmon;
 }
 

@@ -6,33 +6,31 @@ layui.use('flow', function () {
         elem: '#loadstore' //流加载容器
         , scrollElem: '#loadstore' //滚动条所在元素，一般不用填，此处只是演示需要。
         , done: function (page, next) {
-
             let param = {};
             param.page = page;
             let postParams = JSON.stringify(param);
-            console.log(postParams);
             $.ajax({
-                url: 'chainList',
+                url: 'storeList',
                 data: postParams,
                 dataType: 'json',
                 contentType: 'application/json;charset=utf-8',
                 type: 'post',
                 timeout: 1000,
                 success: function (data, status) {
-                    console.log(data);
+                    let result = data.result;
+                    setTimeout(function () {
+                        console.log(data);
+                        var lis = [];
+                        for (var i = 0; i < result.length; i++) {
+                            lis.push('<li><a href="' + 'toDirDrugList?code=' + result[i].code + '"><img src="' + result[i].logoRoot + '"><span class="storename">' + result[i].name + '</span></a></li>')
+                        }
+                        next(lis.join(''), page < result.length / 6 + 1);
+                    }, 500);
                 },
                 fail: function (data, status) {
-                    console.log("0");
+                    console.log("ajax error");
                 }
             });
-            //模拟数据插入
-            setTimeout(function () {
-                var lis = [];
-                for (var i = 0; i < 8; i++) {
-                    lis.push('<li><a href="//www.baidu.com"><img src="../images/store.jpg"><span class="storename">xxx大药房</span></a></li>')
-                }
-                next(lis.join(''), page < 10); //假设总页数为 10
-            }, 500);
         }
     });
 

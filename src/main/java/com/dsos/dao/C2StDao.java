@@ -34,4 +34,5 @@ public interface C2StDao {
     @Select(value = "call pos_get_storeList(#{chainNo},#{code}, #{page}, #{limit})")
     List<StoreRecord> getStoreRecordById(@Param("chainNo") String chainNo, @Param("code") String code,
                                          @Param("page") String page, @Param("limit") String limit) throws Exception;
+
 }

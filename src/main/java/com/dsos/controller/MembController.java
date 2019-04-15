@@ -5,6 +5,11 @@ import com.dsos.config.shiro.LoginType;
 import com.dsos.config.shiro.UsernamePwdLogTypToken;
 import com.dsos.modle.user.MemberInfo;
 import com.dsos.modle.user.MemberUser;
+import com.dsos.modle.view.ChainRecord;
+import com.dsos.modle.view.DrugRecord;
+import com.dsos.modle.view.StoreRecord;
+import com.dsos.service.C2StService;
+import com.dsos.service.DrugService;
 import com.dsos.service.MainService;
 import com.dsos.service.MemberService;
 import com.dsos.utils.OprateFileUtils;
@@ -47,6 +52,10 @@ public class MembController {
     private MemberService memberService;
     @Autowired
     private MainService mainService;
+    @Autowired
+    private C2StService c2StService;
+    @Autowired
+    private DrugService drugService;
 
     /**
      * @return member 的登录
@@ -224,12 +233,72 @@ public class MembController {
         return "member/updateInfo";
     }
 
-    /****/
+    //======================================================================连锁门店相关
+
+    /**
+     * 登录成功之后显示所有的连锁视图
+     **/
     @RequestMapping(value = "/chainList", method = RequestMethod.POST)
     public @ResponseBody
     Map<Object, Object> chainList(@RequestBody Map<Object, Object> request) {
-        //System.out.println(request.get("page"));
-        return ImmutableMap.of("data", "123");
+        Map<Object, Object> requestMap = new HashMap<>(10);
+        requestMap.put("page", request.get("page"));
+        requestMap.put("limit", 10);
+        requestMap.put("chainNo", "");
+        List<ChainRecord> chainRecordList = c2StService.getChainRecordByNo(requestMap);
+        return ImmutableMap.of("result", chainRecordList);
+    }
+
+    /**
+     * 点击具体连锁之后显示的门店视图
+     **/
+    @RequestMapping(value = "/storeList", method = RequestMethod.POST)
+    public @ResponseBody
+    Map<Object, Object> storeList(HttpServletRequest request, @RequestBody Map<Object, Object> requestJ) {
+        Map<Object, Object> requestMap = new HashMap<>(10);
+        Object chainNo = request.getSession().getAttribute("chainNo");
+        Integer page = (Integer) requestJ.get("page");
+        requestMap.put("page", page);
+        requestMap.put("limit", 6);
+        requestMap.put("code", "");
+        requestMap.put("chainNo", chainNo);
+        List<StoreRecord> storeRecordList = c2StService.getStoreRecordById(requestMap);
+        return ImmutableMap.of("result", storeRecordList);
+    }
+
+    /**
+     * 点击具体门店之后显示的商品视图
+     **/
+    @RequestMapping(value = "/drugList", method = RequestMethod.POST)
+    public @ResponseBody
+    Map<Object, Object> drugList(HttpServletRequest request, @RequestBody Map<Object, Object> requestD) {
+        Integer page = (Integer) requestD.get("page");
+        String code = (String) request.getSession().getAttribute("code");
+        String chainId = (String) request.getSession().getAttribute("chainNo");
+        List<DrugRecord> drugRecordList = drugService.getDrugsByCodeAndChainId(code, chainId, page);
+        Integer count = drugService.getDrugsByCodeAndChainIdCount(code, chainId, page);
+        log.info("{},{},{},{}", page, chainId, code, count);
+        return ImmutableMap.of("result", drugRecordList, "count", count);
+    }
+
+    /**
+     * 会员点击指定连锁后显示的归属门店页面
+     **/
+    @RequestMapping(value = "/toDirStore")
+    public String toDirStore(HttpServletRequest request, HttpSession session) {
+        String chainNo = request.getParameter("chainNo");
+        session.setAttribute("chainNo", chainNo);
+        return "member/foundstore";
+    }
+
+    /**
+     * 会员点击指定门店后显示的归属商品页面
+     **/
+    @RequestMapping(value = "/toDirDrugList")
+    public String toDirDrugList(HttpServletRequest request, HttpSession session) {
+        String code = request.getParameter("code");
+        session.setAttribute("code", code);
+        return "member/foundrug";
     }
 
 }

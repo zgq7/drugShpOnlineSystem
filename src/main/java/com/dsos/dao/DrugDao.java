@@ -39,7 +39,7 @@ public interface DrugDao {
     @Delete(value = "delete from dsos_vot_drugrecord where drugCode = #{drugCode} and chainId = #{chainId};")
     Boolean deleteDrugByCode(@Param("drugCode") String drugCode, @Param("chainId") String chainId) throws Exception;
 
-    //入库
+    //入库，平台药品库
     @Insert(value = "call pos_add_drug(#{chainId},#{drugName},#{drugKind}," +
             "#{drugCode},#{barCode},#{unitPrice}," +
             "#{storePrice}, #{costPrice}, #{unit}," +
@@ -51,4 +51,14 @@ public interface DrugDao {
                           @Param("spec") String spec, @Param("company") String company, @Param("purchaseDate") String purchaseDate,
                           @Param("produceDate") String produceDate, @Param("effectDate") String effectDate,
                           @Param("approval") String approval) throws Exception;
+
+    //根据门店编号和连锁编号查找药品库，门店药品库
+    @Select(value = "select * from dsos_vot_drugrecord_store where chainId = #{chainId} and code = #{code} limit #{page},10 ")
+    List<DrugRecord> getDrugsByCodeAndChainId(@Param("code") String code, @Param("chainId") String chainId
+            , @Param("page") Integer page) throws Exception;
+
+    //根据门店编号和连锁编号查找药品库，门店药品库
+    @Select(value = "select count(*)/10 + 1  from dsos_vot_drugrecord_store where chainId = #{chainId} and code = #{code} ")
+    Integer getDrugsByCodeAndChainIdCount(@Param("code") String code, @Param("chainId") String chainId
+            , @Param("page") Integer page) throws Exception;
 }

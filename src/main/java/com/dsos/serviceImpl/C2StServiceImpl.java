@@ -31,7 +31,6 @@ public class C2StServiceImpl implements C2StService {
         String chainNo = String.valueOf(request.get("chainNo"));
         String page = String.valueOf(request.get("page"));
         String limit = String.valueOf(request.get("limit"));
-        log.info("c2st.getchainList impl {},{},{}", chainNo, page, limit);
         try {
             List<ChainRecord> chainRecordList = c2StDao.getChainRecordById(chainNo, page, limit);
             //先检查是否为空

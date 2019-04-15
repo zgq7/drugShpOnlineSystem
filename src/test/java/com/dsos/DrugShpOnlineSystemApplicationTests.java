@@ -48,8 +48,8 @@ public class DrugShpOnlineSystemApplicationTests {
     /*    MemberInfo memberInfo = memberDao.getInfo2ByCardNo("rsd123456");
         System.out.println(memberInfo.toString());
         System.out.println("1111");*/
-        MemberUser memberUser = memberDao.getInfoByCardNo("rsd123456");
-        System.out.println(memberUser.getMemberInfo());
+        //MemberUser memberUser = memberDao.getInfoByCardNo("rsd123456");
+        //System.out.println(memberUser.getMemberInfo());
     }
 
     @Test
@@ -86,7 +86,7 @@ public class DrugShpOnlineSystemApplicationTests {
     @Test
     public void hhh() throws Exception {
         DrugRecord drugRecord = new DrugRecord();
-        drugRecord.setChainId(5);
+        drugRecord.setChainId("4");
         drugRecord.setDrugName("消食片");
         drugRecord.setDrugKind("西药");
         drugRecord.setDrugCode("xs2016351");
@@ -130,7 +130,7 @@ public class DrugShpOnlineSystemApplicationTests {
 
     @Test
     public void jjj() throws Exception {
-        List<StoreRecord> storeRecordList = c2StDao.getStoreRecordById("", "", "1", "10");
+        List<StoreRecord> storeRecordList = c2StDao.getStoreRecordById("xs1101", "", "1", "10");
         storeRecordList.forEach(item -> {
             System.out.println(item.toString());
         });

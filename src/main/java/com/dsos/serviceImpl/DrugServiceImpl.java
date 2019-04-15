@@ -94,4 +94,24 @@ public class DrugServiceImpl implements DrugService {
             return false;
         }
     }
+
+    @Override
+    public List<DrugRecord> getDrugsByCodeAndChainId(String code, String chainId, Integer page) {
+        try {
+            return drugDao.getDrugsByCodeAndChainId(code, chainId, page);
+        } catch (Exception e) {
+            log.error("{}", e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public Integer getDrugsByCodeAndChainIdCount(String code, String chainId, Integer page) {
+        try {
+            return drugDao.getDrugsByCodeAndChainIdCount(code, chainId, page);
+        } catch (Exception e) {
+            log.error("{}", e.getMessage());
+            return null;
+        }
+    }
 }

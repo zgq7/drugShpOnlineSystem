@@ -7,7 +7,9 @@ public class DrugRecord {
     //药品标识
     private Integer drugId;
     //归属连锁
-    private Integer chainId;
+    private String chainId;
+    //归属门店
+    private String code;
     //药品名称
     private String drugName;
     //药品图样地址
@@ -51,12 +53,20 @@ public class DrugRecord {
         this.drugId = drugId;
     }
 
-    public Integer getChainId() {
+    public String getChainId() {
         return chainId;
     }
 
-    public void setChainId(Integer chainId) {
+    public void setChainId(String chainId) {
         this.chainId = chainId;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getDrugName() {
