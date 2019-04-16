@@ -96,7 +96,10 @@ public class DrugServiceImpl implements DrugService {
     }
 
     @Override
-    public List<DrugRecord> getDrugsByCodeAndChainId(String code, String chainId, Integer page) {
+    public List<DrugRecord> getDrugsByCodeAndChainId(Map<Object, Object> requestMap) {
+        String code = (String) requestMap.get("code");
+        String chainId = (String) requestMap.get("chainId");
+        Integer page = (Integer) requestMap.get("page");
         try {
             return drugDao.getDrugsByCodeAndChainId(code, chainId, page);
         } catch (Exception e) {
@@ -106,9 +109,25 @@ public class DrugServiceImpl implements DrugService {
     }
 
     @Override
-    public Integer getDrugsByCodeAndChainIdCount(String code, String chainId, Integer page) {
+    public Integer getDrugsByCodeAndChainIdCount(Map<Object, Object> requestMap) {
+        String code = (String) requestMap.get("code");
+        String chainId = (String) requestMap.get("chainId");
+        Integer page = (Integer) requestMap.get("page");
         try {
             return drugDao.getDrugsByCodeAndChainIdCount(code, chainId, page);
+        } catch (Exception e) {
+            log.error("{}", e.getMessage());
+            return null;
+        }
+    }
+
+    @Override
+    public DrugRecord getDrugInfoByCondition(Map<Object, Object> requestMap) {
+        String code = (String) requestMap.get("code");
+        String chainId = (String) requestMap.get("chainId");
+        String drugCode = (String) requestMap.get("drugCode");
+        try {
+            return drugDao.getDrugInfoByCondition(code, chainId, drugCode);
         } catch (Exception e) {
             log.error("{}", e.getMessage());
             return null;

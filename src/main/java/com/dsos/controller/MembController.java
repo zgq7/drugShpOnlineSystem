@@ -233,7 +233,7 @@ public class MembController {
         return "member/updateInfo";
     }
 
-    //======================================================================连锁门店相关
+    //======================================================================连锁->门店->药品->购买业务
 
     /**
      * 登录成功之后显示所有的连锁视图
@@ -271,15 +271,24 @@ public class MembController {
      **/
     @RequestMapping(value = "/drugList", method = RequestMethod.POST)
     public @ResponseBody
-    Map<Object, Object> drugList(HttpServletRequest request, @RequestBody Map<Object, Object> requestD) {
-        Integer page = (Integer) requestD.get("page");
-        String code = (String) request.getSession().getAttribute("code");
-        String chainId = (String) request.getSession().getAttribute("chainNo");
-        List<DrugRecord> drugRecordList = drugService.getDrugsByCodeAndChainId(code, chainId, page);
-        Integer count = drugService.getDrugsByCodeAndChainIdCount(code, chainId, page);
+    Map<Object, Object> drugList(HttpServletRequest request, @RequestBody Map<Object, Object> requestJ) {
+        Map<Object, Object> requestMap = new HashMap<>(10);
+        Object page = requestJ.get("page");
+        Object code = request.getSession().getAttribute("code");
+        Object chainId = request.getSession().getAttribute("chainNo");
+        Object drugCode = request.getSession().getAttribute("drugCode");
+
+        requestMap.put("page", page);
+        requestMap.put("code", code);
+        requestMap.put("chainId", chainId);
+        requestMap.put("drugCode", drugCode);
+
+        List<DrugRecord> drugRecordList = drugService.getDrugsByCodeAndChainId(requestMap);
+        Integer count = drugService.getDrugsByCodeAndChainIdCount(requestMap);
         log.info("{},{},{},{}", page, chainId, code, count);
         return ImmutableMap.of("result", drugRecordList, "count", count);
     }
+
 
     /**
      * 会员点击指定连锁后显示的归属门店页面
@@ -301,4 +310,22 @@ public class MembController {
         return "member/foundrug";
     }
 
+    /****/
+    @RequestMapping(value = "/buyDirDrug")
+    public String buyDirDrug(HttpServletRequest request, Model model) {
+        Map<Object, Object> requestMap = new HashMap<>(10);
+        Object drugCode = request.getParameter("drugCode");
+        Object code = request.getSession().getAttribute("code");
+        Object chainId = request.getSession().getAttribute("chainNo");
+
+        requestMap.put("code", code);
+        requestMap.put("chainId", chainId);
+        requestMap.put("drugCode", drugCode);
+
+        DrugRecord drugRecord = drugService.getDrugInfoByCondition(requestMap);
+        System.out.println(drugRecord);
+        model.addAttribute("root", drugRecord.getDrugData());
+        model.addAttribute("name", drugRecord.getDrugName());
+        return "member/buyDirDrug";
+    }
 }

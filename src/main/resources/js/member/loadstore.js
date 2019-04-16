@@ -22,7 +22,12 @@ layui.use('flow', function () {
                         console.log(data);
                         var lis = [];
                         for (var i = 0; i < result.length; i++) {
-                            lis.push('<li><a href="' + 'toDirDrugList?code=' + result[i].code + '"><img src="' + result[i].logoRoot + '"><span class="storename">' + result[i].name + '</span></a></li>')
+                            lis.push('<li>' +
+                                '<a href="' + 'toDirDrugList?code=' + result[i].code + '">' +
+                                '<img src="' + result[i].logoRoot + '">' +
+                                '<span class="storename">' + result[i].name + '</span>' +
+                                '</a>' +
+                                '</li>')
                         }
                         next(lis.join(''), page < result.length / 6 + 1);
                     }, 500);

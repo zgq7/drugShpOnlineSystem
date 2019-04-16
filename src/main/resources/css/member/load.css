@@ -19,8 +19,9 @@ body {
 
 #muss {
     margin-top: 20px;
-    margin-left: 75px;
+    margin-left: 72px;
     height: 30px;
+    width: 20%;
 }
 
 #storebody {
@@ -46,7 +47,7 @@ body {
 
 .flow-default {
     width: 100%;
-    height: 100%;
+    height: 90%;
     overflow: auto;
     font-size: 0;
 }

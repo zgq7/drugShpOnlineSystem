@@ -21,7 +21,7 @@ public interface DrugDao {
      * @param updown     是否允许交易
      **/
 
-    //药品资料
+    //药品资料->平台药品库
     @Select(value = "call pos_get_drugInList(#{page},#{limit},#{drugCode},#{effectDate},#{chainId},#{updown})")
     List<DrugRecord> getDrugInfoList(@Param("page") String page, @Param("limit") String limit, @Param("drugCode") String drugCode
             , @Param("effectDate") String effectDate, @Param("chainId") String chainId, @Param("updown") String updown) throws Exception;
@@ -61,4 +61,9 @@ public interface DrugDao {
     @Select(value = "select count(*)/10 + 1  from dsos_vot_drugrecord_store where chainId = #{chainId} and code = #{code} ")
     Integer getDrugsByCodeAndChainIdCount(@Param("code") String code, @Param("chainId") String chainId
             , @Param("page") Integer page) throws Exception;
+
+    //根据连锁编号，门店编号，商品编号查找具体的药品
+    @Select(value = "select * from dsos_vot_drugrecord_store where chainId = #{chainId} and code = #{code} and drugCode = #{drugCode}")
+    DrugRecord getDrugInfoByCondition(@Param("code") String code, @Param("chainId") String chainId
+            , @Param("drugCode") String drugCode) throws Exception;
 }

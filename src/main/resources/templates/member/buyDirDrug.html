@@ -1,15 +1,14 @@
-<!-- 用户登录成功首页 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>loginSuccessUser</title>
+    <title>purchase drug</title>
     <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="../lay/layui.js"></script>
     <link rel="stylesheet" href="../lay/css/layui.css" media="all">
     <link rel="stylesheet" href="../css/member/load.css" media="all">
     <script type="text/javascript" src="../js/model/user.js"></script>
-    <script type="text/javascript" src="../js/member/loadchain.js"></script>
+    <link rel="stylesheet" href="../css/member/spzs.css" media="all">
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -49,9 +48,16 @@
         </ul>
     </div>
     <div id="storebody">
-        <!-- 内容主体区域 -->
-        <input id="muss">
-        <ul class="flow-default" id="loadchain"></ul>
+        <table>
+            <tbody>
+            <tr>
+                <td style="background-color: #eb7350;width: 40%">
+                    <img th:src="${root}" id="drugImg">
+                </td>
+                <td th:text="${name}"></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
     <div id="footer">
         @created by zgq7

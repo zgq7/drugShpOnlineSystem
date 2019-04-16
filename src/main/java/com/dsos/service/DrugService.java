@@ -36,11 +36,16 @@ public interface DrugService {
     /**
      * 门店商品列表
      **/
-    List<DrugRecord> getDrugsByCodeAndChainId(String code, String chainId, Integer page);
+    List<DrugRecord> getDrugsByCodeAndChainId(Map<Object, Object> requestMap);
 
     /**
      * 门店商品列表总页数
      **/
-    Integer getDrugsByCodeAndChainIdCount(String code, String chainId, Integer page);
+    Integer getDrugsByCodeAndChainIdCount(Map<Object, Object> requestMap);
+
+    /**
+     * 根据具体的字段获取药品信息
+     **/
+    DrugRecord getDrugInfoByCondition(Map<Object, Object> requestMap);
 
 }

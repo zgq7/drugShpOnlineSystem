@@ -166,5 +166,10 @@ public class DrugShpOnlineSystemApplicationTests {
         });
     }
 
+    @Test
+    public void mmm() throws Exception {
+        System.out.println(drugDao.getDrugInfoByCondition("code001", "xs1101", "101001"));
+    }
+
 }
 

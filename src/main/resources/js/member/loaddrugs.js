@@ -23,7 +23,7 @@ layui.use('flow', function () {
                         var lis = [];
                         for (var i = 0; i < result.length; i++) {
                             lis.push('<li>' +
-                                '<a href="' + '//www.baidu.com' + '">' +
+                                '<a href="' + 'buyDirDrug?drugCode=' + result[i].drugCode + '">' +
                                 '<img src="' + result[i].drugData + '">' +
                                 '<span class="storename">' + result[i].drugName + ' / $' + result[i].storePrice + '</span>' +
                                 '</a>' +
