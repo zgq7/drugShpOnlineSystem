@@ -48,16 +48,41 @@
         </ul>
     </div>
     <div id="storebody">
-        <table>
-            <tbody>
-            <tr>
-                <td style="background-color: #eb7350;width: 40%">
-                    <img th:src="${root}" id="drugImg">
-                </td>
-                <td th:text="${name}"></td>
-            </tr>
-            </tbody>
-        </table>
+        <div id="infoModel">
+            <table>
+                <tbody>
+                <tr>
+                    <td style="width: 20%;height: 100%;" valign="top">
+                        <img th:src="${root}" id="root">
+                        <ul id="info_update">
+                            <li class="infoLi">
+                                <a href="#" class="hf">添加到购物车</a>
+                            <li class="infoLi">
+                                <a href="#" class="hf">立即购买</a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td valign="top" style="width: 40%">
+                        <ul class="info_main">
+                            <li class="infoLi">
+                                名称:&nbsp<span th:text="${name}"></span>
+                            </li>
+                            <li class="infoLi">
+                                种类:&nbsp<span th:text="${drugKind}"></span>
+                            </li>
+                        </ul>
+                    </td>
+                    <td valign="top">
+                        <ul class="info_main">
+                            <li class="infoLi">
+                                余额:&nbsp<span id="infoAmount"></span>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <div id="footer">
         @created by zgq7

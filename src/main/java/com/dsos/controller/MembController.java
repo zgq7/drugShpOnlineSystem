@@ -326,6 +326,7 @@ public class MembController {
         System.out.println(drugRecord);
         model.addAttribute("root", drugRecord.getDrugData());
         model.addAttribute("name", drugRecord.getDrugName());
+        model.addAttribute("drugKind", drugRecord.getDrugKind());
         return "member/buyDirDrug";
     }
 }

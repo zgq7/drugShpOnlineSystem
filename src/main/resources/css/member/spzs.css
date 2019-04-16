@@ -1,7 +1,3 @@
-body{
-    background-color: #8D8D8D;
-}
-
 #infoModel {
     height: 95%;
 }
@@ -25,7 +21,7 @@ body{
     right: 100px;
     top: 50px;
     bottom: 44px;
-    background-color: #8D8D8D;
+    background-color: #5FB878;
     z-index: 998;
     width: auto;
     overflow: hidden;
@@ -33,11 +29,11 @@ body{
     box-sizing: border-box
 }
 
-#img {
-    width: 80%;
+#root {
+    width: 100%;
     height: 50%;
     margin-top: 15%;
-    margin-left: 10%;
+    margin-left: 20%;
     border: solid 2px gray;
 }
 
@@ -58,9 +54,20 @@ body{
 
 li.infoLi {
     margin-top: 10%;
+    color: #23262E;
 }
 
 table, tbody, tr {
     width: 100%;
     height: 100%;
+}
+
+.hf {
+    color: firebrick;
+    font-size: 30px;
+    text-align: center;
+}
+
+.infoLi span{
+    color: #eb7350;
 }
