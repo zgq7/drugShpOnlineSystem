@@ -310,7 +310,9 @@ public class MembController {
         return "member/foundrug";
     }
 
-    /****/
+    /**
+     * 跳转到商品购买页面
+     **/
     @RequestMapping(value = "/buyDirDrug")
     public String buyDirDrug(HttpServletRequest request, Model model) {
         Map<Object, Object> requestMap = new HashMap<>(10);
@@ -324,9 +326,22 @@ public class MembController {
 
         DrugRecord drugRecord = drugService.getDrugInfoByCondition(requestMap);
         System.out.println(drugRecord);
-        model.addAttribute("root", drugRecord.getDrugData());
-        model.addAttribute("name", drugRecord.getDrugName());
-        model.addAttribute("drugKind", drugRecord.getDrugKind());
+        model.addAttribute("drug", drugRecord);
         return "member/buyDirDrug";
+    }
+
+    @RequestMapping(value = "/purchaseDrug", method = RequestMethod.POST)
+    public @ResponseBody
+    Map<Object, Object> purchaseDrug(@RequestBody Map<Object, Object> requestMap, HttpServletRequest request) {
+        Map<Object, Object> requestP = new HashMap<>(10);
+        Object drugCode = request.getParameter("drugCode");
+        Object code = request.getSession().getAttribute("code");
+        Object chainId = request.getSession().getAttribute("chainNo");
+        Object cardNo = request.getSession().getAttribute("account");
+        Object buyCount = requestMap.get("buyCount");
+
+        System.out.println(requestP);
+
+        return ImmutableMap.of("result", "success");
     }
 }

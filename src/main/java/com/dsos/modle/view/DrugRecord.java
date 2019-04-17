@@ -30,6 +30,8 @@ public class DrugRecord {
     private String unit;
     //规格
     private String spec;
+    //剩余数量
+    private Integer count;
     //进货厂商
     private String company;
     //进货日期
@@ -149,6 +151,14 @@ public class DrugRecord {
         this.spec = spec;
     }
 
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
+
     public String getCompany() {
         return company;
     }
@@ -209,7 +219,8 @@ public class DrugRecord {
     public String toString() {
         return "DrugRecord{" +
                 "drugId=" + drugId +
-                ", chainId=" + chainId +
+                ", chainId='" + chainId + '\'' +
+                ", code='" + code + '\'' +
                 ", drugName='" + drugName + '\'' +
                 ", drugData='" + drugData + '\'' +
                 ", drugKind='" + drugKind + '\'' +
@@ -220,6 +231,7 @@ public class DrugRecord {
                 ", costPrice=" + costPrice +
                 ", unit='" + unit + '\'' +
                 ", spec='" + spec + '\'' +
+                ", count=" + count +
                 ", company='" + company + '\'' +
                 ", purchaseDate='" + purchaseDate + '\'' +
                 ", produceDate='" + produceDate + '\'' +

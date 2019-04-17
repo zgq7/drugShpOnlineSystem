@@ -63,7 +63,8 @@ public interface DrugDao {
             , @Param("page") Integer page) throws Exception;
 
     //根据连锁编号，门店编号，商品编号查找具体的药品
-    @Select(value = "select * from dsos_vot_drugrecord_store where chainId = #{chainId} and code = #{code} and drugCode = #{drugCode}")
+    @Select(value = "select * from dsos_vot_drugrecord_store where chainId = #{chainId} and code = #{code} and drugCode = #{drugCode} " +
+            "and isAllowedTrade = 1")
     DrugRecord getDrugInfoByCondition(@Param("code") String code, @Param("chainId") String chainId
             , @Param("drugCode") String drugCode) throws Exception;
 }

@@ -10,7 +10,7 @@
     height: 44px;
     line-height: 44px;
     padding: 0 15px;
-    background-color: #333333;
+    background-color: #eeeeee;
     text-align: center;
     color: #01AAED;
 }
@@ -21,7 +21,7 @@
     right: 100px;
     top: 50px;
     bottom: 44px;
-    background-color: #5FB878;
+    background-color: #333333;
     z-index: 998;
     width: auto;
     overflow: hidden;
@@ -35,10 +35,11 @@
     margin-top: 15%;
     margin-left: 20%;
     border: solid 2px gray;
+    border-radius: 5px;
 }
 
 .info_main {
-    margin-left: 30%;
+    margin-left: 20%;
     margin-top: 2%;
     font-size: 20px;
     font-family: 华文楷体;
@@ -46,7 +47,7 @@
 
 #info_update {
     margin-top: 5%;
-    margin-left: 30%;
+    margin-left: 40%;
     font-size: 18px;
     font-family: 华文楷体;
     color: red;
@@ -54,7 +55,7 @@
 
 li.infoLi {
     margin-top: 10%;
-    color: #23262E;
+    color: #009688;
 }
 
 table, tbody, tr {
@@ -63,8 +64,8 @@ table, tbody, tr {
 }
 
 .hf {
-    color: firebrick;
-    font-size: 30px;
+    color: #eeeeee;
+    font-size: 20px;
     text-align: center;
 }
 
