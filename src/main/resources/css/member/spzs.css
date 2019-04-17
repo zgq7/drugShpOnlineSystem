@@ -69,6 +69,16 @@ table, tbody, tr {
     text-align: center;
 }
 
-.infoLi span{
+.infoLi span {
     color: #eb7350;
+}
+
+#purchase, #addtobus {
+    width: 140px;
+    margin-top: 15%;
+}
+
+#count {
+    width: 38%;
+    background-color: #eb7350;
 }

@@ -314,7 +314,7 @@ public class MembController {
      * 跳转到商品购买页面
      **/
     @RequestMapping(value = "/buyDirDrug")
-    public String buyDirDrug(HttpServletRequest request, Model model) {
+    public String buyDirDrug(HttpServletRequest request, HttpSession session, Model model) {
         Map<Object, Object> requestMap = new HashMap<>(10);
         Object drugCode = request.getParameter("drugCode");
         Object code = request.getSession().getAttribute("code");
@@ -325,8 +325,8 @@ public class MembController {
         requestMap.put("drugCode", drugCode);
 
         DrugRecord drugRecord = drugService.getDrugInfoByCondition(requestMap);
-        System.out.println(drugRecord);
         model.addAttribute("drug", drugRecord);
+        //session.setAttribute("drugCode", drugCode);
         return "member/buyDirDrug";
     }
 
@@ -334,11 +334,17 @@ public class MembController {
     public @ResponseBody
     Map<Object, Object> purchaseDrug(@RequestBody Map<Object, Object> requestMap, HttpServletRequest request) {
         Map<Object, Object> requestP = new HashMap<>(10);
-        Object drugCode = request.getParameter("drugCode");
         Object code = request.getSession().getAttribute("code");
+        Object drugCode = request.getSession().getAttribute("drugCode");
         Object chainId = request.getSession().getAttribute("chainNo");
-        Object cardNo = request.getSession().getAttribute("account");
+        Object account = request.getSession().getAttribute("account");
         Object buyCount = requestMap.get("buyCount");
+
+        requestP.put("code", code);
+        requestP.put("chainId", chainId);
+        requestP.put("drugCode", drugCode);
+        requestP.put("account", account);
+        requestP.put("buyCount", buyCount);
 
         System.out.println(requestP);
 

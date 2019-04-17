@@ -1,7 +1,6 @@
 $(document).ready(function () {
     layui.use(['form', 'layedit', 'laydate'], function () {
         let form = layui.form
-            , layer = layui.layer
             , layedit = layui.layedit
             , laydate = layui.laydate;
 
@@ -47,9 +46,9 @@ $(document).ready(function () {
                 form.val('example', {
                     "name": member.name // "name": "value"
                     , "birthday": member.birthday
-                    , "privince": member.address.slice(0,3)
-                    , "urban": member.address.slice(4,7)
-                    , "area": member.address.slice(8,11)
+                    , "privince": member.address.slice(0, 3)
+                    , "urban": member.address.slice(4, 7)
+                    , "area": member.address.slice(8, 11)
                     , "email": member.email
                     , "sex": member.sex
                 });
@@ -58,17 +57,5 @@ $(document).ready(function () {
                 console.log("ajax error : " + status);
             }
         });
-
-        /*//表单初始赋值
-        form.val('example', {
-            "name": '123' // "name": "value"
-            , "birthday": "1997-07-07"
-            , "oldPassword": "123457"
-            , "newPassword": "123456"
-            , "mobile": "12345678911"
-            , "email": "12345678911@qq.com"
-            , "sex": "男"
-        });*/
-
     });
 });

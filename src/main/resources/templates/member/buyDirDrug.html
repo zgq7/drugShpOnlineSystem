@@ -7,8 +7,9 @@
     <script type="text/javascript" src="../lay/layui.js"></script>
     <link rel="stylesheet" href="../lay/css/layui.css" media="all">
     <link rel="stylesheet" href="../css/member/load.css" media="all">
-    <script type="text/javascript" src="../js/model/user.js"></script>
     <link rel="stylesheet" href="../css/member/spzs.css" media="all">
+    <script type="text/javascript" src="../js/model/user.js"></script>
+    <script type="text/javascript" src="../js/member/purchase.js"></script>
 </head>
 <body class="layui-layout-body">
 <div class="layui-layout layui-layout-admin">
@@ -56,16 +57,20 @@
                         <img th:src="${drug.drugData}" id="root">
                         <ul id="info_update">
                             <li class="infoLi">
-                                购买数量:&nbsp<input type="number" max="10" min="1" style="width: 38%;background-color: #eb7350">
+                                购买数量:&nbsp<input type="number" max="10" min="1" value="1" id="count">
                             </li>
                             <li class="infoLi">
-                                <a href="#" class="hf">
-                                    <button class="layui-btn" style="width: 140px;margin-top: 15%">添加到购物车</button>
+                                <a class="hf">
+                                    <button class="layui-btn layui-btn-warm" id="purchase"
+                                            onclick="purchase()">
+                                        立即购买
+                                    </button>
                                 </a>
                             </li>
                             <li class="infoLi">
                                 <a href="#" class="hf">
-                                    <button class="layui-btn layui-btn-warm" style="width: 140px;margin-top: 15%">立即购买
+                                    <button class="layui-btn" id="addtobus">
+                                        添加到购物车
                                     </button>
                                 </a>
                             </li>
