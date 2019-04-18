@@ -326,7 +326,7 @@ public class MembController {
 
         DrugRecord drugRecord = drugService.getDrugInfoByCondition(requestMap);
         model.addAttribute("drug", drugRecord);
-        //session.setAttribute("drugCode", drugCode);
+        session.setAttribute("drugCode", drugCode);
         return "member/buyDirDrug";
     }
 
