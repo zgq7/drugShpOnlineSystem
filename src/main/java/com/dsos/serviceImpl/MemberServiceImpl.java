@@ -8,10 +8,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -19,6 +21,7 @@ import java.util.stream.Collectors;
  * 会员 服务层 实现类
  */
 @Service(value = "MemberService")
+@Transactional
 public class MemberServiceImpl implements MemberService {
     private static final Logger log = LoggerFactory.getLogger(DrugServiceImpl.class);
     @Autowired
@@ -104,5 +107,25 @@ public class MemberServiceImpl implements MemberService {
             log.error("{}.{} occured an error : {}", this.getClass().getSimpleName(), Thread.currentThread().getStackTrace()[1].getMethodName(), e.getMessage());
         }
         return null;
+    }
+
+    /**
+     * 会员购买药品service
+     *
+     * @param requestMap 所需信息，必须含有：
+     *                   连锁编号 chianId
+     *                   门店编号 code
+     *                   药品编号 drugCode
+     *                   会员卡号 account
+     *                   购买数量 buyCount
+     **/
+    @Override
+    public Boolean purchaseDrug(Map<Object, Object> requestMap) {
+        //若参数值含有空值或者null值，则返回false
+        if (requestMap.containsValue("") || requestMap.containsValue(null)) {
+            log.info("购买药品时参数出现空值");
+            return false;
+        }
+        return false;
     }
 }

@@ -37,7 +37,6 @@ layui.use('layer', function () { //独立版的layer无需执行这一句
                         type: 'post',
                         timeout: 1000,
                         success: function (data, status) {
-                            //console.log(data);
                             setTimeout(function () {
                                 alert(data.msg);
                                 console.log(data.msg);
@@ -57,4 +56,5 @@ layui.use('layer', function () { //独立版的layer无需执行这一句
         let othis = $(this), method = othis.data('method');
         active[method] ? active[method].call(this, othis) : '';
     });
+
 });

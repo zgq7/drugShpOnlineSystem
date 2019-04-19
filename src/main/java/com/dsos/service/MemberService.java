@@ -40,4 +40,16 @@ public interface MemberService {
      * 获取当前条件下的会员条数
      **/
     Integer getCountByCondition(Map<Object, Object> request);
+
+    /**
+     * 会员购买药品service
+     *
+     * @param requestMap 所需信息，必须含有：
+     *                   连锁编号 chianId
+     *                   门店编号 code
+     *                   药品编号 drugCode
+     *                   会员卡号 account
+     *                   购买数量 buyCount
+     **/
+    Boolean purchaseDrug(Map<Object, Object> requestMap);
 }
